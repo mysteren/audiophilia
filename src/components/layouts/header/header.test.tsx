@@ -54,6 +54,8 @@ export default function header() {
           <div className={styles.headerMiddleBlockCallback}>
             <button className={styles.headerMiddleButtonCallback}>Обратный звонок</button>
           </div>
+        </div>
+        <div className={styles.headerBottom}>
           <nav className={styles.headerBottomNav}>
             <ul className={styles.headerBottomList}>
               <li className={styles.headerBottomListItem}>
@@ -98,21 +100,20 @@ export default function header() {
               </li>
             </ul>
           </nav>
-          <div className={styles.headerMiddleBlockMenu}>
-            <button className={styles.headerBottomButtonsIcon}>
-              <Image width={22} height={22} alt='Search' src={Search}></Image>
-            </button>
-            <button className={styles.headerBottomButtonsIcon}>
-              <Image width={22} height={22} alt='Heart' src={Heart}></Image>
-            </button>
-            <button className={styles.headerBottomButtonsIcon}>
-              <Image width={22} height={22} alt='Sravni' src={Sravni}></Image>
-            </button>
+          <div>
+            <div>
+              <button className={styles.headerBottomButtonsIcon}>
+                <Image width={22} height={22} alt='Search' src={Search}></Image>
+              </button>
+              <button className={styles.headerBottomButtonsIcon}>
+                <Image width={22} height={22} alt='Heart' src={Heart}></Image>
+              </button>
+              <button className={styles.headerBottomButtonsIcon}>
+                <Image width={22} height={22} alt='Sravni' src={Sravni}></Image>
+              </button>
+            </div>
           </div>
         </div>
-        {/* <div className={styles.headerBottom}>
-          
-        </div> */}
     </header>
   )
 }

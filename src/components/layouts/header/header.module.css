@@ -14,7 +14,11 @@
     padding: 0;
     margin: 0;
 }
-
+.headerTopListItem {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
 .headerTopListItem:last-child {
     display: flex;
     align-items: center;
@@ -22,24 +26,227 @@
 }
 
 .headerMiddle {
-    padding: 22px 120px;
+    padding: 22px 20px;
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     justify-content: space-between;
 }
 
-.headerBottom {
+.headerMiddleBlockBurger {
+    display: flex;
+    align-items: center;
+}
 
+.headerMiddleButtonBurger {
+    cursor: pointer;
+    display: flex;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.headerMiddleBlockLogo {
+    display: flex;
+    align-items: center;
+}
+
+.headerMiddleBlockNav {
+    display: flex;
+    align-items: center;
+}
+
+.headerMiddleList {
+    display: none;
+    align-items: center;
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.headerMiddleItem {
+    display: none;
+}
+.headerMiddleItem:nth-child(5) {
+    display: none;
+}
+.headerMiddleBlockInfo {
+    display: none;
+    gap: 12px;
+    align-items: center;
+}
+
+.headerMiddlePhone {
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.headerMiddleBlockCallback {
+    display: flex;
+    align-items: center;
+}
+
+.headerMiddleButtonCallback {
+    min-width: 210px;
+    min-height: 50px;
+    border-radius: 6px;
+    color: #fff;
+    background: var(--red);
+    border: none;
+    cursor: pointer;
+}
+
+.headerMiddleBlockMenu {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.headerBottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 26px 20px;
+}
+
+.headerBottomNav {
+    display: none;
+    align-items: center;
+}
+
+.headerBottomList {
+    display: flex;
+    gap: 80px;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.headerBottomListItem {
+    color: #000;
+    position: relative;
+}
+
+.headerBottomListItemLink {
+    display: flex;
+    align-items: center;
+    color: #000;
+    text-decoration: none;
+}
+
+.headerBottomListItemLinkDrop::after {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-image: url("data:image/svg+xml,%3csvg width='24' height='24' viewBox='0 0 24 24' fill='%23677788' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.72,15.78a.75.75,0,0,1-.53.22h-.38a.77.77,0,0,1-.53-.22L6.15,10.64a.5.5,0,0,1,0-.71l.71-.71a.49.49,0,0,1,.7,0L12,13.67l4.44-4.45a.5.5,0,0,1,.71,0l.7.71a.5.5,0,0,1,0,.71Z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 1rem 1rem;
+    margin-left: auto;
+    padding-left: 10px;
+    content: '';
+}
+
+.headerBottomListItemLinkDropLink {
+    text-decoration: none;
+    border-radius: 0.3125rem;
+    padding: 0.4rem 1rem;
+    clear: both;
+    font-weight: 400;
+    color: #1e2022;
+    text-align: inherit;
+    background-color: transparent;
+    font-size: 12px;
+    line-height: 20px;
+}
+.headerBottomListItemLinkDropLink:hover {
+    color: #1b1d1f;
+    background-color: rgba(189,197,209,.2);
+}
+
+.headerBottomListItemLinkActive {
+    color: var(--red);
+}
+
+.headerBottomListItem:hover .headerBottomListItemDropmenu {
+    display: flex;
+    flex-direction: column;
+}
+
+.headerBottomListItemDropmenu {
+    position: absolute;
+    display: none;
+    padding: 0.5rem 0.5rem;
+    min-width: 14rem;
+    flex-direction: column;
+    box-shadow: 0 0.75rem 1rem rgba(189,197,209,.3);
+    border: 0 solid rgba(0,0,0,.15);
+    border-radius: 0.5rem;
+    background: #fff;
+    z-index: 99;
+}
+/* .headerBottomListItemDropmenu:not(.menu__dropmenu-left) {
+    left: auto;
+    right: 0;
+} */
+
+.headerBottomButtonsIcon {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
 }
 
 @media  (min-width: 768px){
     .headerTop {
-        padding: 12px 80px;
+        padding: 12px 40px;
+    }
+    .headerMiddle {
+        padding: 22px 40px;
+    }
+    .headerBottom {
+        padding: 0px 26px 40px;
+    }
+    .headerMiddleBlockInfo {
+        display: flex;
     }
 }
 
 @media  (min-width: 1024px){
     .headerTop {
-        padding: 12px 120px;
+        padding: 12px 50px;
+    }
+    .headerMiddle {
+        padding: 22px 50px;
+    }
+    .headerBottom {
+        padding: 0px 50px 26px ;
+    }
+    .headerMiddleItem {
+        display: block;
+    }
+}
+@media (min-width:1190px) {
+    .headerMiddleList {
+        display: flex;
+    }
+    .headerBottomNav {
+        display: flex;
+    }
+}
+@media (min-width: 1280px) {
+    .headerMiddleItem:nth-child(5) {
+        display: block;
+    }
+}
+
+@media (min-width: 1360px) {
+    .headerMiddlePhone {
+        font-size: 24px;
     }
 }

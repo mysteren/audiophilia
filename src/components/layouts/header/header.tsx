@@ -28,7 +28,7 @@ export default function header() {
           </div>
           <div className={styles.headerMiddleBlockLogo}>
             <a href='/'>
-              <Image width={200} height={30} alt="Logotype Rodds" src={Rodds}></Image>
+              <Image className={styles.headerMiddleLogo} alt="Logotype Rodds" src={Rodds}></Image>
             </a>
           </div>
           <div className={styles.headerMiddleBlockNav}>

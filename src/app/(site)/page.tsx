@@ -1,7 +1,12 @@
 import React from 'react'
+import styles from './page.module.css';
 
 export default function page() {
   return (
-    <div>page</div>
+    <div className={styles.container}>
+      <div className={styles.slider}>
+
+      </div>
+    </div>
   )
 }

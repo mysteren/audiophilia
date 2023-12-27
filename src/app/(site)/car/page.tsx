@@ -1,8 +1,10 @@
 import React from 'react'
-import './page.module.css';
+import styles from "./page.module.css";
 
 export default function page() {
   return (
-    <div>car</div>
+    <div className={styles.car}>
+      <p>Car page</p>
+    </div>
   )
 }

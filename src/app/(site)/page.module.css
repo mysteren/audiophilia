@@ -1,0 +1,9 @@
+.container {
+    padding: 0 25px;
+}
+
+.slider {
+    background: var(--gray-400);
+    height: 600px;
+    border-radius: 25px;
+}

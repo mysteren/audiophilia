@@ -19,10 +19,8 @@
     align-items: center;
     gap: 7px;
 }
-.headerTopListItem:last-child {
-    display: flex;
-    align-items: center;
-    gap: 7px;
+.headerTopListItem:nth-child(2) {
+    display: none;
 }
 
 .headerMiddle {
@@ -208,6 +206,12 @@
 @media (min-width: 380px) {
     .headerMiddleLogo {
         width: 150px;
+    }
+}
+
+@media (min-width: 550px) {
+    .headerTopListItem:nth-child(2) {
+        display: flex;
     }
 }
 

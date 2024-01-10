@@ -1,5 +1,5 @@
 @import url('../fonts/fonts.css');
 
-p, h1, h2, h3, h4, h5, h6, ul, ol, li, span, a, button {
-    font-family: Roboto, sans-serif;
+body {
+    font-family: CoSo, sans-serif;
 }

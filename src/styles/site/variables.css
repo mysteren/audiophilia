@@ -5,4 +5,10 @@
     --silver: #EFF0F0;
     --red: #CA0100;
     --gray-400: #EFF0F0;
+    --hot-pink: oklch(59.91% .239 8.14);
+    --hot-red: oklch(61.42% .238 15.34);
+    --vivid-pink: oklch(69.02% .277 332.77);
+    --electric-violet: oklch(53.18% .28 296.97);
+    --red-to-pink-horizontal-gradient: linear-gradient( 90deg, var(--hot-pink) 11.42%, var(--hot-red) 34.83%, var(--vivid-pink) 60.69% );
+    --pink-to-highlight-to-purple-to-blue-horizontal-gradient: linear-gradient( 140deg, var(--vivid-pink) 0%, var(--vivid-pink) 15%, color-mix(in srgb, var(--vivid-pink), var(--electric-violet) 50%));
   }

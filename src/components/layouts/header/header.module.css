@@ -117,7 +117,7 @@
 /* Header bottom */
     .headerBottom {
         display: none;
-        background: #007bfb;
+        background: var(--sky-to-purples-horizontal-gradient);
     }
     .headerBottomBlock {
         padding: 12px 0px;

@@ -2,13 +2,11 @@ import Image from 'next/image';
 import { ToMain } from '@/lib/utils/route-url';
 import styles from "./header.module.css";
 
-import Whatsapp from '@/images/svg/whatsaap.svg';
 import Burger from '@/images/svg/burger.svg';
 import Rodds from '@/images/svg/logorodds.svg';
 import Heart from '@/images/svg/heart.svg';
 import Sravni from '@/images/svg/sravni.svg'
 import Search from '@/images/svg/search.svg';
-import Clock from '@/images/svg/clock.svg';
 
 export default function header() {
   return (

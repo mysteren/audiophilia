@@ -1,3 +1,96 @@
 .containerSlider {
     margin-top: 34px;
 }
+
+.fastBlock {
+    margin-top: 30px;
+    background: var(--gray-400);
+    border-radius: 11px;
+    padding: 22px 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.blockCar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.listCar {
+    list-style: none;
+    padding: 0;
+}
+
+.itemCar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 3px;
+}
+
+.itemImage {
+    display: none;
+}
+
+.itemLink {
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.carTitle {
+    font-size: 29px;
+}
+
+.productTitle {
+    text-align: center;
+    font-size: 40px;
+}
+
+.inStock {
+    display: grid;
+    gap: 64px;
+}
+
+.inStockBlockProduct {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+}
+
+@media (min-width: 550px) {
+    .blockCar {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .blockCar {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .inStockBlockProduct {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 991px) {
+    .itemImage {
+        display: block;
+    }
+
+    .fastBlock {
+        grid-template-columns: auto auto;
+    }
+
+    .blockCar {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+}
+
+@media (min-width: 1064px) {
+    .inStockBlockProduct {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

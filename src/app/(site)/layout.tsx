@@ -9,7 +9,7 @@ export default function RootLayout({
   return (
     <>
       <Header></Header>
-      <main className={styles.main}>{children}</main>
+      <main className={`${styles.main} container`}>{children}</main>
     </>
   )
 }

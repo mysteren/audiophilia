@@ -3,6 +3,7 @@ import Image from 'next/image';
 
 // Styles
 import styles from './page.module.css';
+import CatalogPage from './category/page';
 
 // Widgets
 import HomeSlider from '@/components/widgets/homeSlider/home-slider';
@@ -63,6 +64,8 @@ export default function page() {
           })}
         </div>
       </div>
+      <h2>qwerty</h2>
+      <CatalogPage />
     </div>
   )
 }

@@ -1,0 +1,16 @@
+.button {
+  cursor: pointer;
+  border: 0;
+  background: var(--sky);
+  color: var(--white-color);
+  padding: 12px 24px;
+  border: 1px solid var(--sky);
+  transition: background-color 0.2s, color 0.2s;
+  /* box-sizing: border-box; */
+}
+
+.button:hover {
+  background: var(--dark-gray-color);
+  color: var(--sky);
+  
+}

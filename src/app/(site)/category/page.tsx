@@ -25,7 +25,7 @@ function CategoriesTree(items: CategoryItem[]) {
   );
 }
 
-export default async function Page() {
+export default async function CatalogPage() {
   const data: CategoryItem[] = await ApiClientInstance.getCategoryTree();
 
   return (

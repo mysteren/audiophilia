@@ -1,3 +1,6 @@
+.top {
+    padding: 16px 0px;
+}
 .cols2 {
   display: grid;
   grid-template-columns: 1fr 1fr;

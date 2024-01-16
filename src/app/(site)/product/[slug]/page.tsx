@@ -5,6 +5,8 @@ import { GetFileUrl } from "@/lib/utils/url";
 import { ImageFileItem } from "@/types/filte.type";
 import Image from "next/image";
 import styles from "./page.module.css";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { Text } from "@/components/ui/text";
 
 type Props = {
   params: {
@@ -22,11 +24,27 @@ type Product = {
   files: {
     images: ImageFileItem[];
   };
+  // category: {
+  //   title: string;
+  //   slug: string;
+  // };
+};
+
+type Category = {
+  title: string;
+  slug: string;
+};
+
+type ProductData = {
+  product: Product;
+  categories: Category[];
 };
 
 export default async function Page({ params }: Props) {
-  const data = await ApiClientInstance.getProduct<Product>(params.slug);
-  const { title, slug, price, text, files, oldPrice } = data;
+  const data = await ApiClientInstance.getProduct<ProductData>(params.slug);
+  const { categories, product } = data;
+  const { title, price, text, files, oldPrice } = product;
+  // const category = categories[0];
   //   const { products, category } = data;
 
   //   const productCards = products.map(({ title, price, id }: Props) => (
@@ -47,6 +65,17 @@ export default async function Page({ params }: Props) {
 
   return (
     <>
+      <div className={styles.top}>
+        <Breadcrumbs
+          items={[
+            { title: "Каталог", href: "/category" },
+            ...categories.reverse().map(({ title, slug }) => {
+              return { title, href: `/category/${slug}` };
+            }),
+            { title: title },
+          ]}
+        />
+      </div>
       <div className={styles.cols2}>
         <div className={styles.images}>{images}</div>
         <div>
@@ -61,9 +90,9 @@ export default async function Page({ params }: Props) {
         </div>
       </div>
       <div>
-        <p>{text}</p>
+        <Text>{text}</Text>
       </div>
-      <pre>{JSON.stringify(data, null, "\t")}</pre>
+      {/* <pre>{JSON.stringify(data, null, "\t")}</pre> */}
     </>
   );
 }

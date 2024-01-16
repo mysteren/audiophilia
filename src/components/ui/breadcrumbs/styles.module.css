@@ -1,0 +1,21 @@
+.content {
+    display: flex;
+    column-gap: 0.5rem;
+    row-gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .arrow {
+    display: inline-flex;
+    width: 1rem;
+  }
+  
+  .path {
+    fill: var(--sky);
+    width: 0.3rem;
+  }
+  
+  .item {
+      display: flex;
+      column-gap: 0.5rem;
+  }

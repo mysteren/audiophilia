@@ -8,11 +8,4 @@ const nextConfig = {
     }
 }
 
-// module.exports = nextConfig
-
-module.exports = {
-    // Добавьте следующую конфигурацию
-    images: {
-      domains: ['images.unsplash.com'],
-    },
-  }
+module.exports = nextConfig

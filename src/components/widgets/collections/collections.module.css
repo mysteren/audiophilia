@@ -1,0 +1,30 @@
+.block {
+    overflow: hidden;
+    position: relative;
+}
+
+.blockTitle {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+
+.title {
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.blockBtn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}  
+
+.blockList {
+    display: flex;
+    overflow: auto;
+    margin: 0;
+    width: 100%;
+    gap: 30px;
+}

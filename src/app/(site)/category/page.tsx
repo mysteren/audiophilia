@@ -4,11 +4,7 @@ import styles from "./page.module.css";
 import { ApiClientInstance } from "@/lib/api/api-client";
 import Link from "next/link";
 
-type CategoryItem = {
-  title: string;
-  slug: string;
-  children: CategoryItem[];
-};
+import { CategoryItem } from "@/types/categoryItem";
 
 function CategoriesTree(items: CategoryItem[]) {
   return (

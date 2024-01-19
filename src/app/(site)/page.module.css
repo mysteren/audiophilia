@@ -1,4 +1,4 @@
-.containerSlider {
+.containerHome {
     margin-top: 34px;
 }
 
@@ -38,6 +38,11 @@
     text-decoration: none;
 }
 
+.title {
+    font-size: 40px;
+    font-weight: 700;
+}
+
 .carTitle {
     font-size: 29px;
 }
@@ -57,6 +62,7 @@
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
 }
+
 
 @media (min-width: 550px) {
     .blockCar {
@@ -86,7 +92,6 @@
     .blockCar {
         grid-template-columns: repeat(5, 1fr);
     }
-
 }
 
 @media (min-width: 1064px) {

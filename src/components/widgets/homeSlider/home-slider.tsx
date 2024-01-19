@@ -18,7 +18,7 @@ export default function HomeSlider() {
     const prevSlide = (currentSlide - 1 + slides.length) % slides.length;
     setCurrentSlide(prevSlide);
   };
-  console.log((slides[0].photo));
+  
   return (
     <div className={styles.slider}>
       <div className={styles.sliderBlock}>

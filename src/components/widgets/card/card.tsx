@@ -1,5 +1,7 @@
+// Next Module
 import Image from "next/image";
-import { TypesCarInStock } from "@/types/carInStock";
+
+// Styles
 import styles from "./card.module.css";
 
 // Image
@@ -7,12 +9,27 @@ import Heart from "@/images/svg/heart.svg";
 import Compare from "@/images/svg/sravni.svg";
 import TestImageCard from "@/images/card/testCard.png";
 
+// Libs
+import { ToProduct } from "@/lib/utils/route-url";
+import { GetFileUrl } from "@/lib/utils/url";
+import { PrintPrice } from "@/lib/utils/price";
+
+// Types
+import { TypesProduct } from "@/types/product";
+
+
+// Ui
+import ButtonPrimary from "@/components/ui/button-primary";
+
 type Car = {
-  car: TypesCarInStock;
+  car: TypesProduct;
 };
 
 export default function Card(props: Car) {
   const { car } = props;
+  const image = car.files.images?.[0];
+
+  console.log(image);
 
   return (
     <div>
@@ -24,20 +41,21 @@ export default function Card(props: Car) {
         </div>
         <div className={styles.blockImageCard}>
         <Image
-          src={TestImageCard}
-          width="0"
-          height="0"
-          sizes="100vw"
+          src={GetFileUrl(image)}
           alt={car.title}
+          width={0}
+          height={0}
+          sizes="100vw"
+          className={styles.imageCard}
         />
         </div>
         <div className={styles.blockPrice}>
-          <p className={styles.price}>От {car.price} ₽</p>
-          <p className={styles.credit}>
+          <p className={styles.price}>От {PrintPrice(car.price)} ₽</p>
+          {/* <p className={styles.credit}>
             Кредит <b>от {car.credit} ₽/мес.</b>
-          </p>
+          </p> */}
         </div>
-        <div className={styles.characteristics}>
+        {/* <div className={styles.characteristics}>
           <div className={styles.characteristicsBlockInfo}>
             <i className={styles.iconMotor}></i>
             <p className={styles.characterText}>115 л.с.</p>
@@ -50,8 +68,11 @@ export default function Card(props: Car) {
             <i className={styles.iconSpeed}></i>
             <p className={styles.characterText}>189 км/ч</p>
           </div>
+        </div> */}
+        <div className={styles.blockBtn}>
+          <a className={`${styles.btn} ${styles.btnMore}`} href={ToProduct(car.slug)}>Подробнее</a>
+          <button className={`${styles.btn} ${styles.btnCart}`}>В корзину</button>
         </div>
-        <a className={styles.btnMore} href="">Подробнее</a>
       </div>
     </div>
   );

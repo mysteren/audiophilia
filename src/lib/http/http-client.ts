@@ -55,7 +55,6 @@ export abstract class HttpClient {
       body: this.convertBody(body),
     });
     const result = await resp.json();
-
     if (resp.ok) {
       return result as K;
     }

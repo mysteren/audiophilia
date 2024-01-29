@@ -33,7 +33,7 @@ class ApiClient extends HttpClient {
   }
 
   getProduct<T>(slug: string) {
-    return this.get<T>(`/product/${slug}`);
+    return this.get<T>(`/product/${slug}`)
   }
 
   // login(email: string, password: string) {

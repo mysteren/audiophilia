@@ -20,11 +20,11 @@ import { ImageFileItem } from "@/types/filte.type";
 import styles from "./page.module.css";
 
 // Images
-import Eye from '@/images/single-product/eye.svg';
-import Gear from '@/images/single-product/gear.svg';
-import Engine from '@/images/single-product/engine.svg';
-import Transmission from '@/images/single-product/transmission.svg';
-import CarRepair from '@/images/single-product/car-repair.svg'
+import Eye from "@/images/single-product/eye.svg";
+import Gear from "@/images/single-product/gear.svg";
+import Engine from "@/images/single-product/engine.svg";
+import Transmission from "@/images/single-product/transmission.svg";
+import CarRepair from "@/images/single-product/car-repair.svg";
 
 // Widgets
 import CardSlider from "@/components/widgets/card-slider/card-slider";
@@ -73,21 +73,20 @@ export default async function Page({ params }: Props) {
   //   ));
 
   const images = files.images.map((image) => (
-      <Image
+    <Image
       key={`im-${image.hash}`}
-        className={styles.image}
-        src={GetFileUrl(image)}
-        alt={title}
-        // loader={imageLoader}
-        width={800}
-        height={800}
-      />
+      className={styles.image}
+      src={GetFileUrl(image)}
+      alt={title}
+      // loader={imageLoader}
+      width={800}
+      height={800}
+    />
   ));
-
 
   const imagesSrcs = files.images.map((item) => {
     return GetFileUrl(item);
-  })
+  });
 
   return (
     <>
@@ -103,7 +102,7 @@ export default async function Page({ params }: Props) {
         />
       </div>
       <div className={styles.cols2}>
-        <CardSlider alt={title} images={imagesSrcs}/>
+        <CardSlider alt={title} images={imagesSrcs} />
         {/* {images} */}
         <div>
           <h1 className={styles.title}>{title}</h1>
@@ -133,7 +132,9 @@ export default async function Page({ params }: Props) {
             <div className={styles.pricesBlock}>
               <span className={styles.price}>{PrintPrice(price)} ₽</span>
               {!!oldPrice && (
-                <span className={styles.oldPrice}>{PrintPrice(oldPrice)} ₽</span>
+                <span className={styles.oldPrice}>
+                  {PrintPrice(oldPrice)} ₽
+                </span>
               )}
             </div>
             {/* <span className={styles.priceCredit}>В кредит<br></br> от 12 000 ₽/мес</span> */}
@@ -141,7 +142,7 @@ export default async function Page({ params }: Props) {
           <div className={styles.blockBtn}>
             <ButtonPrimary>Забронировать</ButtonPrimary>
             <ButtonPrimary>Купить</ButtonPrimary>
-          </div>          
+          </div>
         </div>
       </div>
       <div>

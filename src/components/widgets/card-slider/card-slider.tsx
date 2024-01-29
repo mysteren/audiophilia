@@ -7,14 +7,17 @@ import Image from "next/image";
 
 // Styles
 import styles from "./card-slider.module.css";
+import { API_INTERNAL } from "@/config";
 
 type Props = {
   images: string[];
   alt: string;
 };
 
-export default function CardSlider({ images, alt }: Props) {
 
+
+export default function CardSlider({ images, alt }: Props) {
+  console.log(API_INTERNAL);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handdleprev = () => {

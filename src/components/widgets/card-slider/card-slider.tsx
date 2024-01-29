@@ -17,7 +17,6 @@ type Props = {
 
 
 export default function CardSlider({ images, alt }: Props) {
-  console.log(API_INTERNAL);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handdleprev = () => {

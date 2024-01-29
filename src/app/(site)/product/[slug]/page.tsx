@@ -1,12 +1,33 @@
-import ButtonPrimary from "@/components/ui/button-primary";
-import { ApiClientInstance } from "@/lib/api/api-client";
-import { PrintPrice } from "@/lib/utils/price";
-import { GetFileUrl } from "@/lib/utils/url";
-import { ImageFileItem } from "@/types/filte.type";
+// Next Module
 import Image from "next/image";
-import styles from "./page.module.css";
+
+// Ui
+import ButtonPrimary from "@/components/ui/button-primary";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Text } from "@/components/ui/text";
+
+// Utils
+import { PrintPrice } from "@/lib/utils/price";
+import { GetFileUrl } from "@/lib/utils/url";
+
+// Api
+import { ApiClientInstance } from "@/lib/api/api-client";
+
+// Types
+import { ImageFileItem } from "@/types/filte.type";
+
+// Styles
+import styles from "./page.module.css";
+
+// Images
+import Eye from '@/images/single-product/eye.svg';
+import Gear from '@/images/single-product/gear.svg';
+import Engine from '@/images/single-product/engine.svg';
+import Transmission from '@/images/single-product/transmission.svg';
+import CarRepair from '@/images/single-product/car-repair.svg'
+
+// Widgets
+import CardSlider from "@/components/widgets/card-slider/card-slider";
 
 type Props = {
   params: {
@@ -52,16 +73,21 @@ export default async function Page({ params }: Props) {
   //   ));
 
   const images = files.images.map((image) => (
-    <Image
+      <Image
       key={`im-${image.hash}`}
-      className={styles.image}
-      src={GetFileUrl(image)}
-      alt={title}
-      // loader={imageLoader}
-      width={800}
-      height={800}
-    />
+        className={styles.image}
+        src={GetFileUrl(image)}
+        alt={title}
+        // loader={imageLoader}
+        width={800}
+        height={800}
+      />
   ));
+
+
+  const imagesSrcs = files.images.map((item) => {
+    return GetFileUrl(item);
+  })
 
   return (
     <>
@@ -77,16 +103,45 @@ export default async function Page({ params }: Props) {
         />
       </div>
       <div className={styles.cols2}>
-        <div className={styles.images}>{images}</div>
+        <CardSlider alt={title} images={imagesSrcs}/>
+        {/* {images} */}
         <div>
-          <h1>{title}</h1>
+          <h1 className={styles.title}>{title}</h1>
+          {/* <div className={styles.viewsBlock}>
+            <Image className={styles.viewsImage} src={Eye} alt="Просмотры" width={32} height={20}/>
+            <span className={styles.viewsText}>Автомобиль сейчас смотрит {count} человек</span>
+          </div> */}
+          {/* <div className={styles.mainPartsBlock}>
+            <div className={styles.partsBlock}>
+              <Image className={styles.partsIcon} src={Gear} width={18} height={18} alt=""/>
+              <span className={styles.partsText}>1.2 л</span>
+            </div>
+            <div className={styles.partsBlock}>
+              <Image className={styles.partsIcon} src={Engine} width={18} height={18} alt=""/>
+              <span className={styles.partsText}>115 л.c.</span>
+            </div>
+            <div className={styles.partsBlock}>
+              <Image className={styles.partsIcon} src={Transmission} width={18} height={18} alt=""/>
+              <span className={styles.partsText}>Механика</span>
+            </div>
+            <div className={styles.partsBlock}>
+              <Image className={styles.partsIcon} src={CarRepair} width={18} height={18} alt=""/>
+              <span className={styles.partsText}>Передний</span>
+            </div>
+          </div> */}
           <div className={styles.prices}>
-            <span className={styles.price}>{PrintPrice(price)} ₽</span>
-            {!!oldPrice && (
-              <span className={styles.oldPrice}>{PrintPrice(oldPrice)} ₽</span>
-            )}
-            <ButtonPrimary>Купить</ButtonPrimary>
+            <div className={styles.pricesBlock}>
+              <span className={styles.price}>{PrintPrice(price)} ₽</span>
+              {!!oldPrice && (
+                <span className={styles.oldPrice}>{PrintPrice(oldPrice)} ₽</span>
+              )}
+            </div>
+            {/* <span className={styles.priceCredit}>В кредит<br></br> от 12 000 ₽/мес</span> */}
           </div>
+          <div className={styles.blockBtn}>
+            <ButtonPrimary>Забронировать</ButtonPrimary>
+            <ButtonPrimary>Купить</ButtonPrimary>
+          </div>          
         </div>
       </div>
       <div>

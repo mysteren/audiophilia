@@ -1,7 +1,7 @@
 import { StaticImageData } from "next/image"
 
 export type TypesModelCar = {
-    id: string,
+    id: number,
     title: string,
     url: StaticImageData,
   }

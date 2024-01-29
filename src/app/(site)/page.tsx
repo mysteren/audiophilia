@@ -26,8 +26,7 @@ import { TypesModelCar } from "@/types/modelCar";
 // Api
 
 export default async function page() {
-
-  const titleCollections = 'Наши подборки';
+  const titleCollections = "Наши подборки";
 
   return (
     <div className={`${styles.containerHome} container`}>
@@ -39,6 +38,7 @@ export default async function page() {
               return (
                 <li className={styles.itemCar} key={car.id}>
                   <Image
+                    unoptimized
                     className={styles.itemImage}
                     key={car.id}
                     width={38}
@@ -58,6 +58,7 @@ export default async function page() {
               return (
                 <li className={styles.itemCar} key={car.id}>
                   <Image
+                    unoptimized
                     className={styles.itemImage}
                     key={car.id}
                     width={38}
@@ -77,6 +78,7 @@ export default async function page() {
               return (
                 <li className={styles.itemCar} key={car.id}>
                   <Image
+                    unoptimized
                     className={styles.itemImage}
                     key={car.id}
                     width={38}
@@ -96,6 +98,7 @@ export default async function page() {
               return (
                 <li className={styles.itemCar} key={car.id}>
                   <Image
+                    unoptimized
                     className={styles.itemImage}
                     key={car.id}
                     width={38}
@@ -115,6 +118,7 @@ export default async function page() {
               return (
                 <li className={styles.itemCar} key={car.id}>
                   <Image
+                    unoptimized
                     className={styles.itemImage}
                     key={car.id}
                     width={38}
@@ -138,14 +142,12 @@ export default async function page() {
       </div>
       <div className={styles.inStock}>
         <h2 className={styles.productTitle}>Автомобили в наличии с ПТС</h2>
-        <div className={styles.inStockBlockProduct}>
-
-        </div>
+        <div className={styles.inStockBlockProduct}></div>
       </div>
       <h2 className={styles.title}>Каталог из API</h2>
       <p>Скрыт</p>
       <CatalogPage />
-      <Collections data={collections} title={titleCollections}/>
+      <Collections data={collections} title={titleCollections} />
     </div>
   );
 }

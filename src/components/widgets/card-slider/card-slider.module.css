@@ -1,0 +1,16 @@
+.slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.images {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}

@@ -7,7 +7,6 @@ export type TypesProduct = {
     slug: string;
     price: number;
     oldPrice: number;
-    credit: number,
     files: {
         images: ImageFileItem[];
     };

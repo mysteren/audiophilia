@@ -102,6 +102,7 @@
 }
 
 .btn {
+    cursor: pointer;
     display: block;
     text-align: center;
     padding: 12px 0;

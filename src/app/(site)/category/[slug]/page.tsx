@@ -1,13 +1,23 @@
-import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { Text } from "@/components/ui/text";
-import ProductCard from "@/components/widgets/product-card/product-card";
-import Card from "@/components/widgets/card/card";
-import { ApiClientInstance } from "@/lib/api/api-client";
-import { ImageFileItem } from "@/types/filte.type";
+// Next module
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
+// Ui
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { Text } from "@/components/ui/text";
+
+// Widgets
+import Card from "@/components/widgets/card/card";
+import ProductCard from "@/components/widgets/product-card/product-card";
+
+// Api
+import { ApiClientInstance } from "@/lib/api/api-client";
+
+// Types
+import { TypesProduct } from "@/types/product";
+
+// Styles
 import styles from "./page.module.css";
-import { TypesProduct } from "@/types/carInStock";
 
 type Props = {
   params: {

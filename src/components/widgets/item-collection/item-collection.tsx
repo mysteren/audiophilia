@@ -29,7 +29,7 @@ export default function ItemCollection(props: Item) {
   return (
     <div ref={cardRef}className={styles.block}>
       <a className={styles.itemHrefBlock} href="">
-        <Image className={styles.itemImage} src={item.url} alt={item.title} />
+        <Image className={styles.itemImage} unoptimized src={item.url} alt={item.title} />
         <div className={styles.itemBody}>
           <h3 className={styles.itemTitle}>{item.title}</h3>
         </div>

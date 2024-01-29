@@ -25,7 +25,6 @@ export default function HomeSlider() {
         {slides.map((slide: Slide, index: number) => (
           <Slider key={slide.id} slide={slide} isActive={index === currentSlide}/>
         ))}
-        
       </div>
         <button onClick={prevSlide} className={styles.prev}></button>
         <button onClick={nextSlide} className={styles.next}></button>

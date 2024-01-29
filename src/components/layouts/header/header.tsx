@@ -1,12 +1,12 @@
 import Image from 'next/image';
-import { ToMain } from '@/lib/utils/route-url';
 import styles from "./header.module.css";
 
 import Burger from '@/images/svg/burger.svg';
-import Rodds from '@/images/svg/logorodds.svg';
-import Heart from '@/images/svg/heart.svg';
-import Sravni from '@/images/svg/sravni.svg'
-import Search from '@/images/svg/search.svg';
+
+// Icons
+import HeartIcon from '@/components/icons/heart';
+import SearchIcon from '@/components/icons/search';
+import SravniIcon from '@/components/icons/sravni';
 
 export default function header() {
   return (
@@ -15,12 +15,12 @@ export default function header() {
         <div className={`${styles.headerMiddle} container`}>
           <div className={styles.headerMiddleBlockBurger}>
             <button className={styles.headerMiddleButtonBurger}>
-              <Image width={28} height={18} alt="Burger menu" src={Burger}></Image>
+              <Image width={28} height={18} alt="Burger menu" unoptimized src={Burger}></Image>
             </button>
           </div>
           <div className={styles.headerMiddleBlockLogo}>
             <a href='/'>
-              <Image className={styles.headerMiddleLogo} alt="Logotype Rodds" src={Rodds}></Image>
+              <Image className={styles.headerMiddleLogo} width={200} height={30} unoptimized alt="Logotype Rodds" src={'/images/logorodds.svg'}></Image>
             </a>
           </div>
           <nav className={styles.headerMiddleNav}>
@@ -69,13 +69,13 @@ export default function header() {
           </nav>
           <div className={styles.headerMiddleBlockMenu}>
             <button className={styles.headerMiddleButtonsIcon}>
-              <Image width={22} height={22} alt='Search' src={Search}></Image>
+              <SearchIcon/>
             </button>
             <button className={styles.headerMiddleButtonsIcon}>
-              <Image width={22} height={22} alt='Heart' src={Heart}></Image>
+              <HeartIcon/>
             </button>
             <button className={styles.headerMiddleButtonsIcon}>
-              <Image width={22} height={22} alt='Sravni' src={Sravni}></Image>
+              <SravniIcon/>
             </button>
           </div>
         </div>

@@ -19,7 +19,7 @@ export default function Slider(props: SliderProps) {
         <p className={styles.text}>{slide.text}</p>
       </div>
       <div>
-        <Image width={100} height={100} className={styles.sliderImage} src={slide.photo} alt='1'/>
+        <Image width={100} height={100} unoptimized className={styles.sliderImage} src={slide.photo} alt='1'/>
       </div>
     </div>
   )

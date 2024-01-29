@@ -2,7 +2,7 @@
     /* background: var(--gray-400); */
     background: url('./bg.jpg') no-repeat;
     background-size: cover;
-    height: 600px;
+    min-height: 600px;
     border-radius: 25px;
     position: relative;
     display: flex;
@@ -10,7 +10,8 @@
 }
 
 .sliderBlock {
-    padding: 40px 60px;
+    padding: 40px 0px;
+    min-height: 600px;
 }
 
 .navigate{

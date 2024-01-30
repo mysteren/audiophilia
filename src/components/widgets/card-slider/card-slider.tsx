@@ -7,7 +7,6 @@ import Image from "next/image";
 
 // Styles
 import styles from "./card-slider.module.css";
-import { API_INTERNAL } from "@/config";
 
 type Props = {
   images: string[];
@@ -18,13 +17,16 @@ type Props = {
 
 export default function CardSlider({ images, alt }: Props) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const lastIndex = images.length - 1;
 
   const handdleprev = () => {
-    setActiveIndex(activeIndex - 1);
+    const newIndex = activeIndex === 0 ? lastIndex : activeIndex - 1;
+    setActiveIndex(newIndex);
   };
 
   const handdlenext = () => {
-    setActiveIndex(activeIndex + 1)
+    const newIndex = activeIndex === lastIndex ? 0 : activeIndex + 1;
+    setActiveIndex(newIndex)
   };
 
   return (
@@ -33,10 +35,10 @@ export default function CardSlider({ images, alt }: Props) {
         <Image className={styles.image} src={images[activeIndex]} alt={alt} width={500} height={500} />
       </div>
       <button onClick={handdleprev} className={styles.left}>
-        L
+        Назад
       </button>
       <button onClick={handdlenext} className={styles.right}>
-        R
+        Вперед
       </button>
     </div>
   );

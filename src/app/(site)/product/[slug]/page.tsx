@@ -19,12 +19,12 @@ import { ImageFileItem } from "@/types/filte.type";
 // Styles
 import styles from "./page.module.css";
 
-// Images
-import Eye from "@/images/single-product/eye.svg";
-import Gear from "@/images/single-product/gear.svg";
-import Engine from "@/images/single-product/engine.svg";
-import Transmission from "@/images/single-product/transmission.svg";
-import CarRepair from "@/images/single-product/car-repair.svg";
+// // Images
+// import Eye from "@/images/single-product/eye.svg";
+// import Gear from "@/images/single-product/gear.svg";
+// import Engine from "@/images/single-product/engine.svg";
+// import Transmission from "@/images/single-product/transmission.svg";
+// import CarRepair from "@/images/single-product/car-repair.svg";
 
 // Widgets
 import CardSlider from "@/components/widgets/card-slider/card-slider";
@@ -45,6 +45,7 @@ type Product = {
   files: {
     images: ImageFileItem[];
   };
+  properties: Record<string, string | string[] | number | number[]>;
   // category: {
   //   title: string;
   //   slug: string;
@@ -59,11 +60,27 @@ type Category = {
 type ProductData = {
   product: Product;
   categories: Category[];
+  filters: CategoryFilter[];
+};
+
+type CategoryFilterOption = {
+  value: string;
+  name: string;
+};
+
+type CategoryFilter = {
+  key: string;
+  name: string;
+  type: string;
+  options: CategoryFilterOption[];
+  properties: {
+    unit?: string;
+  };
 };
 
 export default async function Page({ params }: Props) {
   const data = await ApiClientInstance.getProduct<ProductData>(params.slug);
-  const { categories, product } = data;
+  const { categories, product, filters } = data;
   const { title, price, text, files, oldPrice } = product;
   // const category = categories[0];
   //   const { products, category } = data;
@@ -72,20 +89,48 @@ export default async function Page({ params }: Props) {
   //     <ProductCard key={`p-${id}`} title={title} price={price} />
   //   ));
 
-  const images = files.images.map((image) => (
-    <Image
-      key={`im-${image.hash}`}
-      className={styles.image}
-      src={GetFileUrl(image)}
-      alt={title}
-      // loader={imageLoader}
-      width={800}
-      height={800}
-    />
-  ));
+  // const images = files.images.map((image) => (
+  //   <Image
+  //     key={`im-${image.hash}`}
+  //     className={styles.image}
+  //     src={GetFileUrl(image)}
+  //     alt={title}
+  //     // loader={imageLoader}
+  //     width={800}
+  //     height={800}
+  //   />
+  // ));
 
   const imagesSrcs = files.images.map((item) => {
     return GetFileUrl(item);
+  });
+
+  const propertiesTableBody = filters.map((filter) => {
+
+    let value: string = "";
+    const { key } = filter;
+    const productProperty = product.properties[key];
+    if (filter.type === "value") {
+      value = String(productProperty);
+    } else if (filter.type === "select") {
+      value = filter.options
+        .reduce((val, option) => {
+          const property = productProperty as string[];
+          if (property.includes(option.value)) {
+            val.push(option.name);
+          }
+          return val;
+        }, [] as string[])
+        .join(", ");
+    }
+    return (
+      <tr key={`property-${filter.key}`}>
+        <td>{filter.name}</td>
+        <td>
+          {value} {filter.properties?.unit}
+        </td>
+      </tr>
+    );
   });
 
   return (
@@ -146,9 +191,20 @@ export default async function Page({ params }: Props) {
         </div>
       </div>
       <div>
+        <h2>Характеристики</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Название</th>
+              <th>Значение</th>
+            </tr>
+          </thead>
+          <tbody>{propertiesTableBody}</tbody>
+        </table>
+      </div>
+      <div>
         <Text>{text}</Text>
       </div>
-      {/* <pre>{JSON.stringify(data, null, "\t")}</pre> */}
     </>
   );
 }

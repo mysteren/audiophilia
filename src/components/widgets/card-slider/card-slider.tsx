@@ -30,7 +30,7 @@ export default function CardSlider({ images, alt }: Props) {
   return (
     <div className={styles.slider}>
       <div className={styles.images}>
-        <Image src={images[activeIndex]} alt={alt} width={500} height={500} />
+        <Image className={styles.image} src={images[activeIndex]} alt={alt} width={500} height={500} />
       </div>
       <button onClick={handdleprev} className={styles.left}>
         L

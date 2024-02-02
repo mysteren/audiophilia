@@ -190,7 +190,7 @@
   }
 
   .colContent {
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
     "slider info"
     "blockInfo stickyBar"
@@ -200,7 +200,7 @@
 
 @media (min-width:992px) {
   .colContent {
-    grid-template-columns: 50% 30% 20%;
+    grid-template-columns: 5fr 3.5fr 1.5fr;
     grid-template-areas:
     "slider info stickyBar"
     "blockInfo blockInfo stickyBar";

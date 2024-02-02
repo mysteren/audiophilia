@@ -17,7 +17,6 @@ import { PrintPrice } from "@/lib/utils/price";
 // Types
 import { TypesProduct } from "@/types/product";
 
-
 // Ui
 import ButtonPrimary from "@/components/ui/button-primary";
 
@@ -29,7 +28,7 @@ export default function Card(props: Car) {
   const { car } = props;
   const image = car.files.images?.[0];
 
-  console.log(image);
+  // console.log({ image, car });
 
   return (
     <div>
@@ -40,14 +39,16 @@ export default function Card(props: Car) {
           <Image src={Compare} width={16} height={16} alt="favorite" />
         </div>
         <div className={styles.blockImageCard}>
-        <Image
-          src={GetFileUrl(image)}
-          alt={car.title}
-          width={0}
-          height={0}
-          sizes="100vw"
-          className={styles.imageCard}
-        />
+          {image && (
+            <Image
+              src={GetFileUrl(image)}
+              alt={car.title}
+              width={0}
+              height={0}
+              sizes="100vw"
+              className={styles.imageCard}
+            />
+          )}
         </div>
         <div className={styles.blockPrice}>
           <p className={styles.price}>От {PrintPrice(car.price)} ₽</p>
@@ -70,8 +71,15 @@ export default function Card(props: Car) {
           </div>
         </div> */}
         <div className={styles.blockBtn}>
-          <a className={`${styles.btn} ${styles.btnMore}`} href={ToProduct(car.slug)}>Подробнее</a>
-          <button className={`${styles.btn} ${styles.btnCart}`}>В корзину</button>
+          <a
+            className={`${styles.btn} ${styles.btnMore}`}
+            href={ToProduct(car.slug)}
+          >
+            Подробнее
+          </a>
+          <button className={`${styles.btn} ${styles.btnCart}`}>
+            В корзину
+          </button>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 "use client";
 // React Module
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Next modules
 import Image from "next/image";
@@ -17,28 +17,51 @@ type Props = {
   alt: string;
 };
 
-
-
 export default function CardSlider({ images, alt }: Props) {
   const [activeIndex, setActiveIndex] = useState(0);
   const lastIndex = images.length - 1;
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setVisible(true);
+    }, 150);
+  }, [activeIndex]);
 
   const handdleprev = () => {
-    const newIndex = activeIndex === 0 ? lastIndex : activeIndex - 1;
-    setActiveIndex(newIndex);
+    if (!visible) {
+      return;
+    }
+    setVisible(false);
+    setTimeout(() => {
+      const newIndex = activeIndex === 0 ? lastIndex : activeIndex - 1;
+      setActiveIndex(newIndex);
+    }, 50);
   };
 
   const handdlenext = () => {
-    const newIndex = activeIndex === lastIndex ? 0 : activeIndex + 1;
-    setActiveIndex(newIndex)
+    if (!visible) {
+      return;
+    }
+    setVisible(false);
+    setTimeout(() => {
+      const newIndex = activeIndex === lastIndex ? 0 : activeIndex + 1;
+      setActiveIndex(newIndex);
+    }, 50);
   };
 
   return (
     <div className={styles.slider}>
       <div className={styles.images}>
-        <Image className={styles.image} src={images[activeIndex]} alt={alt} width={500} height={500} />
+        <Image
+          className={`${styles.image} ${visible ? styles.visible : ""}`}
+          src={images[activeIndex]}
+          alt={alt}
+          width={500}
+          height={500}
+        />
       </div>
-      <button onClick={handdleprev} className={` ${styles.btn} ${styles.left}`}>
+      <button onClick={handdleprev} className={`${styles.btn} ${styles.left}`}>
         {ArrLeft()}
       </button>
       <button onClick={handdlenext} className={`${styles.btn} ${styles.right}`}>

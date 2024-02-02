@@ -1,0 +1,44 @@
+export default function Burger() {
+  return (
+    <svg
+      width="28"
+      height="22"
+      viewBox="0 0 28 22"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g id="Group 1781">
+        <line
+          id="Line 18"
+          x1="2"
+          y1="2"
+          x2="26"
+          y2="2"
+          stroke="#262626"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+        <line
+          id="Line 19"
+          x1="2"
+          y1="11"
+          x2="26"
+          y2="11"
+          stroke="#262626"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+        <line
+          id="Line 20"
+          x1="2"
+          y1="20"
+          x2="26"
+          y2="20"
+          stroke="#262626"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+      </g>
+    </svg>
+  );
+}

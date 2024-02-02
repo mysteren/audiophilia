@@ -1,96 +1,45 @@
-import Image from 'next/image';
+// Next modules
+import Link from "next/link";
+
+// Styles
 import styles from "./header.module.css";
 
-import Burger from '@/images/svg/burger.svg';
+// Types
+import { CategoryItem } from "@/types/categoryItem";
 
-// Icons
-import HeartIcon from '@/components/icons/heart';
-import SearchIcon from '@/components/icons/search';
-import SravniIcon from '@/components/icons/sravni';
+// Api
+import { ApiClientInstance } from "@/lib/api/api-client";
 
-export default function header() {
+// Layouts
+import WrapperHeader from "../wrapper-header/wrapper-header";
+
+// Functions
+function CategoriesTree(items: CategoryItem[]) {
   return (
-    <>
-    <header>
-        <div className={`${styles.headerMiddle} container`}>
-          <div className={styles.headerMiddleBlockBurger}>
-            <button className={styles.headerMiddleButtonBurger}>
-              <Image width={28} height={18} alt="Burger menu" unoptimized src={Burger}></Image>
-            </button>
-          </div>
-          <div className={styles.headerMiddleBlockLogo}>
-            <a href='/'>
-              <Image className={styles.headerMiddleLogo} width={200} height={30} unoptimized alt="Logotype Rodds" src={'/images/logorodds.svg'}></Image>
-            </a>
-          </div>
-          <nav className={styles.headerMiddleNav}>
-            <ul className={styles.headerMiddleList}>
-              <li className={styles.headerMiddleListItem}>
-                <a className={`${styles.headerMiddleListItemLink} ${styles.headerMiddleListItemLinkDrop}`} href=''>Каталог авто</a>
-                <div className={styles.headerMiddleListItemDropmenu}>
-                  <a className={styles.headerMiddleListItemLinkDropLink} href=''>1</a>
-                  <a className={styles.headerMiddleListItemLinkDropLink} href=''>2</a>
-                  <a className={styles.headerMiddleListItemLinkDropLink} href=''>3</a>
-                  <a className={styles.headerMiddleListItemLinkDropLink} href=''>4</a>
-                  <a className={styles.headerMiddleListItemLinkDropLink} href=''>5</a>
-                </div>
-              </li>
-              <li className={styles.headerMiddleListItem}>
-                <a className={`${styles.headerMiddleListItemLink} ${styles.headerMiddleListItemLinkDrop}`} href=''>Авто с пробегом</a>
-                <div className={styles.headerMiddleListItemDropmenu}>
-                  <a className={styles.headerMiddleListItemLinkDropLink} href=''>1</a>
-                  <a className={styles.headerMiddleListItemLinkDropLink} href=''>2</a>
-                  <a className={styles.headerMiddleListItemLinkDropLink} href=''>3</a>
-                  <a className={styles.headerMiddleListItemLinkDropLink} href=''>4</a>
-                  <a className={styles.headerMiddleListItemLinkDropLink} href=''>5</a>
-                </div>
-              </li>
-              <li className={styles.headerMiddleListItem}>
-                <a className={`${styles.headerMiddleListItemLink} ${styles.headerMiddleListItemLinkDrop}`} href=''>Сервис</a>
-                <div className={styles.headerMiddleListItemDropmenu}>
-                  <a className={styles.headerMiddleListItemLinkDropLink} href=''>1</a>
-                  <a className={styles.headerMiddleListItemLinkDropLink} href=''>2</a>
-                  <a className={styles.headerMiddleListItemLinkDropLink} href=''>3</a>
-                  <a className={styles.headerMiddleListItemLinkDropLink} href=''>4</a>
-                  <a className={styles.headerMiddleListItemLinkDropLink} href=''>5</a>
-                </div>
-              </li>
-              <li className={styles.headerMiddleListItem}>
-                <a className={`${styles.headerMiddleListItemLink} ${styles.headerMiddleListItemLinkDrop}`} href=''>Услуги</a>
-                <div className={styles.headerMiddleListItemDropmenu}>
-                  <a className={styles.headerMiddleListItemLinkDropLink} href=''>1</a>
-                  <a className={styles.headerMiddleListItemLinkDropLink} href=''>2</a>
-                  <a className={styles.headerMiddleListItemLinkDropLink} href=''>3</a>
-                  <a className={styles.headerMiddleListItemLinkDropLink} href=''>4</a>
-                  <a className={styles.headerMiddleListItemLinkDropLink} href=''>5</a>
-                </div>
-              </li>
-            </ul>
-          </nav>
-          <div className={styles.headerMiddleBlockMenu}>
-            <button className={styles.headerMiddleButtonsIcon}>
-              <SearchIcon/>
-            </button>
-            <button className={styles.headerMiddleButtonsIcon}>
-              <HeartIcon/>
-            </button>
-            <button className={styles.headerMiddleButtonsIcon}>
-              <SravniIcon/>
-            </button>
-          </div>
-        </div>
-        <div className={styles.headerBottom}>
-          <div className={`${styles.headerBottomBlock} container`}>
-            <ul className={styles.headerBottomList}>
-              <li><a className={styles.headerBottomLink} href="">Легковые</a></li>
-              <li><a className={styles.headerBottomLink} href="">Коммерческие</a></li>
-              <li><a className={styles.headerBottomLink} href="">Китайские</a></li>
-              <li><a className={styles.headerBottomLink} href="">Мото</a></li>
-              <li><a className={styles.headerBottomLink} href="">Электро</a></li>
-            </ul>
-          </div>
-        </div>
+    <ul>
+      {items.map((item, index) => {
+        return (
+          <li key={index}>
+            <Link href={`category/${item.slug}`}>{item.title}</Link>
+            {item.children && CategoriesTree(item.children)}
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+export default async function Header() {
+  const data: CategoryItem[] = await ApiClientInstance.getCategoryTree();
+
+  const categoryMenu = CategoriesTree(data);
+
+  return (
+    <header className={styles.header}>
+      <WrapperHeader>
+        {categoryMenu}
+        <h1>Lox</h1>
+      </WrapperHeader>
     </header>
-    </>
-  )
+  );
 }

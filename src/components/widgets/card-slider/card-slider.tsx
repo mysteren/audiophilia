@@ -8,6 +8,10 @@ import Image from "next/image";
 // Styles
 import styles from "./card-slider.module.css";
 
+// Icons
+import ArrLeft from "@/components/icons/arrleft";
+import ArrRight from "@/components/icons/arrright";
+
 type Props = {
   images: string[];
   alt: string;
@@ -34,11 +38,11 @@ export default function CardSlider({ images, alt }: Props) {
       <div className={styles.images}>
         <Image className={styles.image} src={images[activeIndex]} alt={alt} width={500} height={500} />
       </div>
-      <button onClick={handdleprev} className={styles.left}>
-        Назад
+      <button onClick={handdleprev} className={` ${styles.btn} ${styles.left}`}>
+        {ArrLeft()}
       </button>
-      <button onClick={handdlenext} className={styles.right}>
-        Вперед
+      <button onClick={handdlenext} className={`${styles.btn} ${styles.right}`}>
+        {ArrRight()}
       </button>
     </div>
   );

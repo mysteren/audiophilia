@@ -1,10 +1,17 @@
 .top {
     padding: 16px 0px;
 }
-.cols2 {
+
+.colContent {
   display: grid;
   grid-template-columns: 1fr;
   column-gap: 16px;
+  position: relative;
+  grid-template-areas:
+  "slider"
+  "info"
+  "stickyBar"
+  "blockInfo";
 }
 
 /* .slider {
@@ -37,7 +44,7 @@
 }
 
 .title {
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 700;
   margin: 0;
   padding-bottom: 20px;
@@ -100,7 +107,7 @@
 }
 
 .price {
-  font-size: 46px;
+  font-size: 26px;
   font-weight: bold;
 }
 
@@ -116,16 +123,90 @@
   padding-bottom: 20px;
 }
 
+/* Filter */
+
+.tabList {
+  list-style: none;
+  padding: none;
+  display: flex;
+  gap: 30px;
+}
+
+.filterTable {
+  width: calc(100%);
+}
+
+.filterThLeft {
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+.filterTd {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* Fixed Bar */
+.infoProduct {
+  grid-area: info;
+}
+
+.stickyBar {
+  grid-area: stickyBar;
+}
+
+.stickyBlock {
+  position: sticky;
+  top: 30px;
+  display: grid;
+  gap: 20px;
+}
+
+.blockInfo {
+  grid-area: blockInfo;
+}
+
+.anchorButtons {
+  display: grid;
+  gap: 15px;
+}
+
+.anchorButton {
+  color: var(--black);
+  text-decoration: none;
+  border-bottom: 1px solid;
+  padding-bottom: 10px;
+}
+
 @media (min-width: 576px) {
 
 }
 
 @media (min-width: 768px) {
   .title {
-    font-size: 56px;
+    font-size: 32px;
   }
 
-  .cols2 {
-    grid-template-columns: 1fr 1fr;
+  .colContent {
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+    "slider info"
+    "blockInfo stickyBar"
+    ;
   }
+}
+
+@media (min-width:992px) {
+  .colContent {
+    grid-template-columns: 50% 30% 20%;
+    grid-template-areas:
+    "slider info stickyBar"
+    "blockInfo blockInfo stickyBar";
+  }
+}
+
+@media (min-width: 1200px) {
+  
 }

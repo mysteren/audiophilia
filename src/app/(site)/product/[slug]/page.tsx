@@ -1,5 +1,6 @@
 // Next Module
 import Image from "next/image";
+import Link from "next/link";
 
 // Ui
 import ButtonPrimary from "@/components/ui/button-primary";
@@ -125,7 +126,7 @@ export default async function Page({ params }: Props) {
     }
     return (
       <tr key={`property-${filter.key}`}>
-        <td>{filter.name}</td>
+        <td className={styles.filterTd}>{filter.name}</td>
         <td>
           {value} {filter.properties?.unit}
         </td>
@@ -146,32 +147,31 @@ export default async function Page({ params }: Props) {
           ]}
         />
       </div>
-      <div className={styles.cols2}>
-        <CardSlider alt={title} images={imagesSrcs} />
-        {/* {images} */}
-        <div>
+      <div className={styles.colContent}>
+          <CardSlider alt={title} images={imagesSrcs} />
+        <div className={styles.infoProduct}>
           <h1 className={styles.title}>{title}</h1>
           {/* <div className={styles.viewsBlock}>
             <Image className={styles.viewsImage} src={Eye} alt="Просмотры" width={32} height={20}/>
             <span className={styles.viewsText}>Автомобиль сейчас смотрит {count} человек</span>
           </div> */}
-          {/* <div className={styles.mainPartsBlock}>
-            <div className={styles.partsBlock}>
-              <Image className={styles.partsIcon} src={Gear} width={18} height={18} alt=""/>
-              <span className={styles.partsText}>1.2 л</span>
-            </div>
-            <div className={styles.partsBlock}>
-              <Image className={styles.partsIcon} src={Engine} width={18} height={18} alt=""/>
-              <span className={styles.partsText}>115 л.c.</span>
-            </div>
-            <div className={styles.partsBlock}>
-              <Image className={styles.partsIcon} src={Transmission} width={18} height={18} alt=""/>
-              <span className={styles.partsText}>Механика</span>
-            </div>
-            <div className={styles.partsBlock}>
-              <Image className={styles.partsIcon} src={CarRepair} width={18} height={18} alt=""/>
-              <span className={styles.partsText}>Передний</span>
-            </div>
+        {/* <div className={styles.mainPartsBlock}>
+          <div className={styles.partsBlock}>
+            <Image className={styles.partsIcon} src={Gear} width={18} height={18} alt=""/>
+            <span className={styles.partsText}>1.2 л</span>
+          </div>
+          <div className={styles.partsBlock}>
+            <Image className={styles.partsIcon} src={Engine} width={18} height={18} alt=""/>
+            <span className={styles.partsText}>115 л.c.</span>
+          </div>
+          <div className={styles.partsBlock}>
+            <Image className={styles.partsIcon} src={Transmission} width={18} height={18} alt=""/>
+            <span className={styles.partsText}>Механика</span>
+          </div>
+          <div className={styles.partsBlock}>
+            <Image className={styles.partsIcon} src={CarRepair} width={18} height={18} alt=""/>
+            <span className={styles.partsText}>Передний</span>
+          </div>
           </div> */}
           <div className={styles.prices}>
             <div className={styles.pricesBlock}>
@@ -185,25 +185,34 @@ export default async function Page({ params }: Props) {
             {/* <span className={styles.priceCredit}>В кредит<br></br> от 12 000 ₽/мес</span> */}
           </div>
           <div className={styles.blockBtn}>
-            <ButtonPrimary>Забронировать</ButtonPrimary>
             <ButtonPrimary>Купить</ButtonPrimary>
           </div>
         </div>
-      </div>
-      <div>
-        <h2>Характеристики</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Название</th>
-              <th>Значение</th>
-            </tr>
-          </thead>
-          <tbody>{propertiesTableBody}</tbody>
-        </table>
-      </div>
-      <div>
-        <Text>{text}</Text>
+        <div className={styles.stickyBar}>
+          <div className={styles.stickyBlock}>
+            <ButtonPrimary>Забронировать</ButtonPrimary>
+            <div className={styles.anchorButtons}>
+              <Link className={styles.anchorButton} href="#characteristics">Храктеристики</Link>
+              <Link className={styles.anchorButton} href="#info">Описание</Link>
+            </div>
+          </div>
+        </div>
+        <div className={styles.blockInfo}>
+          <h2 id="characteristics">Характеристики</h2>
+          <table className={styles.filterTable}>
+            <thead>
+              <tr>
+                <th className={styles.filterThLeft}>Название</th>
+                <th className={styles.filterThLeft}>Значение</th>
+              </tr>
+            </thead>
+            <tbody>{propertiesTableBody}</tbody>
+          </table>
+          <div>
+            <h2 id="info">Описание</h2>
+            <Text>{text}</Text>
+          </div>
+        </div>
       </div>
     </>
   );

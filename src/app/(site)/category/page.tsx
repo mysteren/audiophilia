@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-key */
-import React from "react";
 import styles from "./page.module.css";
 import { ApiClientInstance } from "@/lib/api/api-client";
 import Link from "next/link";

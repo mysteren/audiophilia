@@ -4,6 +4,7 @@ import styles from './layout.module.css';
 // Components layouts
 import Header from "@/components/layouts/header/header";
 import Footer from "@/components/layouts/footer/footer";
+import Lox from '@/components/ui/lox/lox';
 
 export default function RootLayout({
   children,
@@ -12,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <Header></Header>
+      <Header/>
       <main className={`${styles.main} container`}>{children}</main>
       <Footer/>
     </>

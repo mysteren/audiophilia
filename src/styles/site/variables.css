@@ -1,5 +1,6 @@
 /* Root стили */
 :root {
+    --black: #000000;
     --body-white: #fdfdfd;
     --white-color: #ffffff;
     --silver: #EFF0F0;

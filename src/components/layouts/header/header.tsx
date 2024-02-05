@@ -7,11 +7,11 @@ import styles from "./header.module.css";
 // Types
 import { CategoryItem } from "@/types/categoryItem";
 
-// Api
-import { ApiClientInstance } from "@/lib/api/api-client";
 
 // Layouts
 import WrapperHeader from "../wrapper-header/wrapper-header";
+import { getCategoryTree } from "@/services/category";
+import { getHeaderSettingsData } from "@/services/site-settings";
 
 // Functions
 function CategoriesTree(items: CategoryItem[]) {
@@ -30,15 +30,18 @@ function CategoriesTree(items: CategoryItem[]) {
 }
 
 export default async function Header() {
-  const data: CategoryItem[] = await ApiClientInstance.getCategoryTree();
-
+  const [data, settingsData] = await Promise.all([
+    getCategoryTree(),
+    getHeaderSettingsData(),
+  ]);
+  const { headMenu2 } = settingsData;
   const categoryMenu = CategoriesTree(data);
 
   return (
     <header className={styles.header}>
-      <WrapperHeader>
+      <WrapperHeader headerMenu2={headMenu2}>
         {categoryMenu}
-        <h1>Lox</h1>
+        {''}
       </WrapperHeader>
     </header>
   );

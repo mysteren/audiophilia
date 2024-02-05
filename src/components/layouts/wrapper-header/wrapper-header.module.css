@@ -6,7 +6,6 @@
     grid-template-columns: repeat(3, auto);
     gap: 10px;
     justify-content: space-between;
-    background: var(--white-color);
 }
 .headerMiddleBlockBurger {
     display: flex;

@@ -1,6 +1,7 @@
 import { API_INTERNAL } from "@/config";
 import { HttpClient } from "../http/http-client";
 import { RefreshRequest, RefreshResponse } from "./types";
+import { toSearchString } from "../url";
 
 class ApiClient extends HttpClient {
   protected baseUrl = `${API_INTERNAL}/site-market-api`;
@@ -24,8 +25,8 @@ class ApiClient extends HttpClient {
     });
   }
 
-  getCategoryTree() {
-    return this.get<any>("/category/tree");
+  getCategoryTree<T>() {
+    return this.get<T>("/category/tree");
   }
 
   getCategory<T>(slug: string) {
@@ -34,6 +35,11 @@ class ApiClient extends HttpClient {
 
   getProduct<T>(slug: string) {
     return this.get<T>(`/product/${slug}`)
+  }
+
+  getSettings<T>(keys: string[]) {
+    console.log(`/settings/public?${toSearchString({ keys: keys.join(',') })}`)
+    return this.get<T>(`/settings/public?${toSearchString({ keys: keys.join(',') })}`,)
   }
 
   // login(email: string, password: string) {

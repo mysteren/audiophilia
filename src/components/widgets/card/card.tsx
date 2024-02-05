@@ -7,18 +7,17 @@ import styles from "./card.module.css";
 // Image
 import Heart from "@/images/svg/heart.svg";
 import Compare from "@/images/svg/sravni.svg";
-import TestImageCard from "@/images/card/testCard.png";
 
 // Libs
+import { PrintPrice } from "@/lib/utils/price";
 import { ToProduct } from "@/lib/utils/route-url";
 import { GetFileUrl } from "@/lib/utils/url";
-import { PrintPrice } from "@/lib/utils/price";
 
 // Types
 import { TypesProduct } from "@/types/product";
-
+ 
 // Ui
-import ButtonPrimary from "@/components/ui/button-primary";
+import Link from "next/link";
 
 type Car = {
   car: TypesProduct;
@@ -71,12 +70,12 @@ export default function Card(props: Car) {
           </div>
         </div> */}
         <div className={styles.blockBtn}>
-          <a
-            className={`${styles.btn} ${styles.btnMore}`}
+          <Link
             href={ToProduct(car.slug)}
+            className={`${styles.btn} ${styles.btnMore}`}
           >
             Подробнее
-          </a>
+          </Link>
           <button className={`${styles.btn} ${styles.btnCart}`}>
             В корзину
           </button>

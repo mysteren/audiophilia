@@ -27,11 +27,10 @@ type Props = {
 export default function WrapperHeader({ children, headerMenu2 }: Props) {
   // const [active, setActive] = useState(false);
 
-  const [scrollIsTop, setScrollIsTop] = useState(true);
+  const [scrollIsTop, setScrollIsTop] = useState(window.scrollY < 16);
 
   useEffect(() => {
-    const scrollHandler = (event: unknown) => {
-      console.log(window.scrollY, event);
+    const scrollHandler = () => {
       setScrollIsTop(window.scrollY < 16);
     };
 
@@ -39,7 +38,7 @@ export default function WrapperHeader({ children, headerMenu2 }: Props) {
     return () => {
       window.removeEventListener("scroll", scrollHandler);
     };
-  });
+  }, []);
   return (
     <>
       <div className={`${styles.headerMiddle} container`}>

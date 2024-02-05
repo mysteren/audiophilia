@@ -1,11 +1,13 @@
 import Rio from '../images/slider/rio_new1.png';
+import ChineCarBg from '../images/slider/china-d.jpg';
+
 
 export const slides = [
     {   
         "id": "0",
         "title": "Приветствуем вас в мире китайских автомобилей",
         "text": "Подобрать автомобиль",
-        "photo": Rio
+        "photo": ChineCarBg
     },
     {   
         "id": "1",

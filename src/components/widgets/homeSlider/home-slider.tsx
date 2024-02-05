@@ -1,9 +1,18 @@
 'use client'
+
+// React Modules
 import { useState } from 'react';
+
+// Styles
 import styles from './home-slider.module.css';
+
+// Widgets
 import Slider from './slider/slider';
+
+// Data
 import { slides } from '@/data/slider';
 
+// Types
 import { Slide } from '@/types/slide';
 
 export default function HomeSlider() {

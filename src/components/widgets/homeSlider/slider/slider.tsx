@@ -14,13 +14,11 @@ export default function Slider(props: SliderProps) {
 
   return (
     <div className={`${styles.slider} ${isActive ? styles.active : ''}`}>
-      <div className={styles.sliderBody}>
-        <h2 className={styles.title}>{slide.title}</h2>
-        <p className={styles.text}>{slide.text}</p>
-      </div>
-      <div>
-        <Image width={100} height={100} unoptimized className={styles.sliderImage} src={slide.photo} alt='1'/>
-      </div>
+        <div className={styles.sliderBodyText}>
+          <h2 className={styles.title}>{slide.title}</h2>
+          <p className={styles.text}>{slide.text}</p>
+        </div>
+        <Image width={100} height={100} unoptimized className={styles.sliderImageBg} src={slide.photo} alt='1'/>
     </div>
   )
 }

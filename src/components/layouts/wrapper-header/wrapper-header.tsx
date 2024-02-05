@@ -30,7 +30,7 @@ export default function WrapperHeader({ children } :Props) {
         <div className={`${styles.headerMiddle} container`}>
           <div className={styles.headerMiddleBlockBurger}>
             <BurgerMenu>{children[0]}</BurgerMenu>
-            {children[1]}
+            <div className={styles.none}>{children[1]}</div>
           </div>
           <div className={styles.headerMiddleBlockLogo}>
             <a href="/">

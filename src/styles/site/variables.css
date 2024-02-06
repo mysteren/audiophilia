@@ -1,10 +1,11 @@
 /* Root стили */
 :root {
-    --black: #000000;
+    --black: #333333;
     --body-white: #fdfdfd;
     --white: #ffffff;
     --silver: #EFF0F0;
     --red: #CA0100;
+    --dark: #666666;
     --gray: #737373;
     --gray-200: #C2C2C4;
     --gray-400: #EFF0F0;

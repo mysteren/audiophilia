@@ -1,17 +1,18 @@
-.headerMiddleButtonBurger {
-    cursor: pointer;
-    display: flex;
-    background: none;
-    border: none;
-    padding: 0;
+.button {
+  cursor: pointer;
+  display: flex;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
-.burgerMenu {
-    position: absolute;
-    top: 110px;
-    display: none;
+.content {
+  position: absolute;
+  top: 100%;
+  display: none;
+  background-color: var(--white);
 }
 
-.burgerMenuOpen {
-    display: block;
+.show {
+  display: block;
 }

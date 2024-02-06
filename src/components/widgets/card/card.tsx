@@ -59,15 +59,13 @@ export default function Card({ product }: Props) {
         />
       )}
       {/* </div> */}
+      
+      <div className={styles.blockPrice}>
+        <span className={styles.price}>{PrintPrice(product.price)} ₽</span>
+      </div>
       <h3 className={styles.title} title={product.title}>
         {product.title}
       </h3>
-      <div className={styles.blockPrice}>
-        <span className={styles.price}>От {PrintPrice(product.price)} ₽</span>
-        {/* <p className={styles.credit}>
-            Кредит <b>от {car.credit} ₽/мес.</b>
-          </p> */}
-      </div>
       {/* <div className={styles.characteristics}>
           <div className={styles.characteristicsBlockInfo}>
             <i className={styles.iconMotor}></i>

@@ -37,14 +37,14 @@ export const Breadcrumbs = ({ items }: Props) => {
             itemScope
             itemType="http://schema.org/ListItem"
           >
-            <Link className="link" href={href}>
-              <span itemProp="name">{title}</span>
+            <Link className={styles.link} href={href}>
+              <span className={styles.name} itemProp="name">{title}</span>
             </Link>
             {arrow}
             <meta itemProp="position" content={`${i}`} />
           </span>
         ) : (
-          <span className="sb">{title}</span>
+          <span className={styles.name}>{title}</span>
         );
       })}
     </div>

@@ -1,21 +1,34 @@
 .content {
-    display: flex;
-    column-gap: 0.5rem;
-    row-gap: 0.5rem;
-    flex-wrap: wrap;
+  display: flex;
+  column-gap: 0.5rem;
+  row-gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.arrow {
+  display: inline-flex;
+  width: 1rem;
+}
+
+.path {
+  fill: var(--sky);
+  width: 0.3rem;
+}
+
+.item {
+  display: flex;
+  column-gap: 0.5rem;
+}
+
+.link {
+  text-decoration: none;
+  .name {
+    color: var(--black);
   }
-  
-  .arrow {
-    display: inline-flex;
-    width: 1rem;
-  }
-  
-  .path {
-    fill: var(--sky);
-    width: 0.3rem;
-  }
-  
-  .item {
-      display: flex;
-      column-gap: 0.5rem;
-  }
+}
+
+.name {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--gray);
+}

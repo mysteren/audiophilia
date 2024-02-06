@@ -18,15 +18,17 @@ import SearchIcon from "@/components/icons/search";
 import SravniIcon from "@/components/icons/sravni";
 import { LinkItemData } from "@/services/site-settings/types";
 import Link from "next/link";
+import { CategoryItem } from "@/types/categoryItem";
+import { CategoriesTree } from "../categories-tree.tsx/categories-tree";
+import { BottomHeaderMenu } from "../bottom-header-menu/bottom-header-menu";
 
 type Props = {
   headerMenu2: LinkItemData[];
-  children: ReactNode[];
+  categories: CategoryItem[];
+  // children: ReactNode;
 };
 
-export default function WrapperHeader({ children, headerMenu2 }: Props) {
-  // const [active, setActive] = useState(false);
-
+export default function WrapperHeader({ categories, headerMenu2 }: Props) {
   const [scrollIsTop, setScrollIsTop] = useState(window.scrollY < 16);
 
   useEffect(() => {
@@ -40,24 +42,24 @@ export default function WrapperHeader({ children, headerMenu2 }: Props) {
     };
   }, []);
   return (
-    <>
-      <div className={`${styles.headerMiddle} container`}>
-        <div className={styles.headerMiddleBlockBurger}>
-          <BurgerMenu>{children[0]}</BurgerMenu>
-          {/* <div className={styles.none}>{children[1]}</div> */}
+    <header className={`${styles.header}`}>
+      <div className={`${styles.container} container `}>
+        <div className={styles.iconWrap}>
+          <BurgerMenu>
+            <CategoriesTree items={categories} />
+          </BurgerMenu>
         </div>
-        <div className={styles.headerMiddleBlockLogo}>
-          <a href="/">
-            <Image
-              className={styles.headerMiddleLogo}
-              width={200}
-              height={30}
-              unoptimized
-              alt="Logotype Rodds"
-              src={"/images/logorodds.svg"}
-            ></Image>
-          </a>
-        </div>
+
+        <Link className={styles.iconWrap} href="/">
+          <Image
+            width={200}
+            height={30}
+            unoptimized
+            alt="Logotype Rodds"
+            src={"/images/logorodds.svg"}
+          ></Image>
+        </Link>
+
         <nav className={styles.headerMiddleNav}>
           <ul className={styles.headerMiddleList}>
             <li className={styles.headerMiddleListItem}>
@@ -175,22 +177,8 @@ export default function WrapperHeader({ children, headerMenu2 }: Props) {
         </div>
       </div>
       {scrollIsTop && (
-        <div className={styles.headerBottom}>
-          <div className={`${styles.headerBottomBlock} container`}>
-            <ul className={styles.headerBottomList}>
-              {headerMenu2.map((item, i) => {
-                return (
-                  <li key={`headMenu2Item-${i}`}>
-                    <Link className={styles.headerBottomLink} href={item.href}>
-                      {item.name}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </div>
+        <BottomHeaderMenu items={headerMenu2} />
       )}
-    </>
+    </header>
   );
 }

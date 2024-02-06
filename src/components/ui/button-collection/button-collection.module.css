@@ -7,7 +7,7 @@
     width: 48px;
     height: 48px;
     border: 0;
-    background-color: var(--white-color);
+    background-color: var(--white);
     box-shadow: 0px 0px 30px 0px rgba(133, 147, 159, 0.30);
     border-radius: 6px;
 }
@@ -37,7 +37,7 @@
     width: 48px;
     height: 48px;
     border: 0;
-    background-color: var(--white-color);
+    background-color: var(--white);
     box-shadow: 0px 0px 30px 0px rgba(133, 147, 159, 0.30);
     border-radius: 6px;
 }

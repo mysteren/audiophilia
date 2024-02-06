@@ -2,9 +2,10 @@
   cursor: pointer;
   border: 0;
   background: var(--sky);
-  color: var(--white-color);
-  padding: 12px 24px;
-  border: 1px solid var(--sky);
+  color: var(--white);
+  padding: 0.75rem 1.5rem;
+  border: 1px dashed var(--sky);
+  border-radius: 0.85rem;
   transition: background-color 0.2s, color 0.2s;
   /* box-sizing: border-box; */
 }
@@ -12,4 +13,6 @@
 .button:hover {
   background: var(--dark-gray-color);
   color: var(--sky);
+  /* box-shadow: 0px 0px 30px 0px rgba(133, 147, 159, 0.30); */
+  box-shadow: 0px 0px 12px 0px color-mix(in srgb, var(--sky), transparent 50%);
 }

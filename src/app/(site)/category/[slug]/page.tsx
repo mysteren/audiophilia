@@ -59,10 +59,10 @@ export default async function Page({ params: { slug } }: Props) {
     const data: CategoryData = await ApiClientInstance.getCategory(slug);
     const { products, category, parents, childrens } = data;
 
-    const productCards = products.map((car: TypesProduct) => (
+    const productCards = products.map((product: TypesProduct) => (
         <Card
-          key={`p-${car.id}`}
-          car={car}
+          key={`pc-${product.id}`}
+          product={product}
         />
       )
     );
@@ -98,14 +98,10 @@ export default async function Page({ params: { slug } }: Props) {
         <div className={styles.containerProduct}>{productCards}</div>
         <div>
           <Text>{category.text}</Text>
-          {/* <p>{category.text}</p> */}
         </div>
-
-        {/* <pre>{JSON.stringify(data, null, "\t")}</pre> */}
       </>
     );
   } catch (e) {
-    // console.log(e);
     return notFound();
   }
 }

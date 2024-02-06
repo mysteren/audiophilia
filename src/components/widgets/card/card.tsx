@@ -15,47 +15,60 @@ import { GetFileUrl } from "@/lib/utils/url";
 
 // Types
 import { TypesProduct } from "@/types/product";
- 
+
 // Ui
 import Link from "next/link";
+import ButtonPrimary from "@/components/ui/button-primary";
 
-type Car = {
-  car: TypesProduct;
+type Props = {
+  product: TypesProduct;
 };
 
-export default function Card(props: Car) {
-  const { car } = props;
-  const image = car.files.images?.[0];
-
-  // console.log({ image, car });
+export default function Card({ product }: Props) {
+  const image = product.files.images?.[0];
 
   return (
-    <div>
-      <div className={styles.blockCarInStock}>
-        <h3 className={styles.title}>{car.title}</h3>
-        <div className={styles.groupBtn}>
-          <Image src={Heart} width={16} height={16} alt="favorite" />
-          <Image src={Compare} width={16} height={16} alt="favorite" />
-        </div>
-        <div className={styles.blockImageCard}>
-          {image && (
-            <Image
-              src={GetFileUrl(image)}
-              alt={car.title}
-              width={0}
-              height={0}
-              sizes="100vw"
-              className={styles.imageCard}
-            />
-          )}
-        </div>
-        <div className={styles.blockPrice}>
-          <p className={styles.price}>От {PrintPrice(car.price)} ₽</p>
-          {/* <p className={styles.credit}>
+    <div className={styles.container}>
+      <div className={styles.topLeftGroup}>
+        {/* <Heart /> */}
+        {/* <Compare /> */}
+        <Image
+          className={styles.icon}
+          src={Heart}
+          width={32}
+          height={32}
+          alt="favorite"
+        />
+        <Image
+          className={styles.icon}
+          src={Compare}
+          width={32}
+          height={32}
+          alt="favorite"
+        />
+      </div>
+      {/* <div className={styles.blockImageCard}> */}
+      {image && (
+        <Image
+          src={GetFileUrl(image)}
+          alt={product.title}
+          width={360}
+          height={360}
+          sizes="100vw"
+          className={styles.image}
+        />
+      )}
+      {/* </div> */}
+      <h3 className={styles.title} title={product.title}>
+        {product.title}
+      </h3>
+      <div className={styles.blockPrice}>
+        <span className={styles.price}>От {PrintPrice(product.price)} ₽</span>
+        {/* <p className={styles.credit}>
             Кредит <b>от {car.credit} ₽/мес.</b>
           </p> */}
-        </div>
-        {/* <div className={styles.characteristics}>
+      </div>
+      {/* <div className={styles.characteristics}>
           <div className={styles.characteristicsBlockInfo}>
             <i className={styles.iconMotor}></i>
             <p className={styles.characterText}>115 л.с.</p>
@@ -69,17 +82,11 @@ export default function Card(props: Car) {
             <p className={styles.characterText}>189 км/ч</p>
           </div>
         </div> */}
-        <div className={styles.blockBtn}>
-          <Link
-            href={ToProduct(car.slug)}
-            className={`${styles.btn} ${styles.btnMore}`}
-          >
-            Подробнее
-          </Link>
-          <button className={`${styles.btn} ${styles.btnCart}`}>
-            В корзину
-          </button>
-        </div>
+      <div className={styles.bottom}>
+        <Link className={styles.toDetail} href={ToProduct(product.slug)}>
+          <ButtonPrimary>Подробнее</ButtonPrimary>
+        </Link>
+        <ButtonPrimary>В корзину</ButtonPrimary>
       </div>
     </div>
   );

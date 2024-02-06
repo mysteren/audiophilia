@@ -29,7 +29,7 @@ export default async function page() {
   const titleCollections = "Наши подборки";
 
   return (
-    <div className={`${styles.containerHome} container`}>
+    <div className={`${styles.containerHome}`}>
       <HomeSlider></HomeSlider>
       <div className={styles.fastBlock}>
         <div className={styles.blockCar}>

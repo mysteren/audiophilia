@@ -7,7 +7,7 @@ export function useScrollIsTop() {
   const isBrowser = BrowserCheck();
 
   const [scrollIsTop, setScrollIsTop] = useState(
-    isBrowser ? window.screenY < 16 : true
+    isBrowser ? window.screenY < 32 : true
   );
 
   useEffect(() => {

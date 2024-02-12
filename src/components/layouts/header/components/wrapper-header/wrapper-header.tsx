@@ -20,6 +20,7 @@ type Props = {
 };
 
 export default function WrapperHeader({ categories, headerMenu2 }: Props) {
+
   const { scrollIsTop } = useScrollIsTop();
   const { showCatalog, showCatalogHandler } = useShowCatalog();
 

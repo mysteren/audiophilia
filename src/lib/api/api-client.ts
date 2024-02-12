@@ -38,7 +38,6 @@ class ApiClient extends HttpClient {
   }
 
   getSettings<T>(keys: string[]) {
-    console.log(`/settings/public?${toSearchString({ keys: keys.join(',') })}`)
     return this.get<T>(`/settings/public?${toSearchString({ keys: keys.join(',') })}`,)
   }
 

@@ -18,6 +18,8 @@ import { TypesProduct } from "@/types/product";
 
 // Styles
 import styles from "./page.module.css";
+import Filters from "@/components/widgets/filters/filters";
+import { Filter } from "@/types/categoryFilter";
 
 type Props = {
   params: {
@@ -52,28 +54,23 @@ type CategoryData = {
   products: TypesProduct[];
   parents: CategoryElement[];
   childrens: CategoryElement[];
+  filters: Filter[];
 };
 
 export default async function Page({ params: { slug } }: Props) {
   try {
     const data: CategoryData = await ApiClientInstance.getCategory(slug);
-    const { products, category, parents, childrens } = data;
+    const { products, category, parents, childrens, filters } = data;
 
     const productCards = products.map((product: TypesProduct) => (
-        <Card
-          key={`pc-${product.id}`}
-          product={product}
-        />
-      )
-    );
+      <Card key={`pc-${product.id}`} product={product} />
+    ));
 
     const subcategories = childrens.map(({ title, slug }) => {
       const to = `/category/${slug}`;
       return (
         <li key={to}>
-          <Link  href={to}>
-            {title}
-          </Link>
+          <Link href={to}>{title}</Link>
         </li>
       );
     });
@@ -92,10 +89,17 @@ export default async function Page({ params: { slug } }: Props) {
           />
         </div>
         <h1>{category.title}</h1>
-        <div>
-          <ul>{subcategories}</ul>
+        <div className={styles.main}>
+          <aside className={styles.aside}>
+            <div className={styles.aside__container}>
+              <h2>Подкатегории</h2>
+              <ul>{subcategories}</ul>
+              <Filters items={filters} />
+            </div>
+          </aside>
+          <section className={`${styles.products}`}>{productCards}</section>
         </div>
-        <div className={styles.containerProduct}>{productCards}</div>
+
         <div>
           <Text>{category.text}</Text>
         </div>

@@ -84,7 +84,7 @@ export default function Card({ product }: Props) {
         <Link className={styles.toDetail} href={ToProduct(product.slug)}>
           <ButtonPrimary>Подробнее</ButtonPrimary>
         </Link>
-        <ButtonPrimary>В корзину</ButtonPrimary>
+        <ButtonPrimary>В&nbsp;корзину</ButtonPrimary>
       </div>
     </div>
   );

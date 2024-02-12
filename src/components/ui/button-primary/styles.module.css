@@ -3,7 +3,7 @@
   border: 0;
   background: var(--sky);
   color: var(--white);
-  padding: 0.75rem 1.5rem;
+  padding: 0.65rem 0.85rem;
   border: 1px dashed var(--sky);
   border-radius: 0.85rem;
   transition: background-color 0.2s, color 0.2s;

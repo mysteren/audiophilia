@@ -64,7 +64,6 @@ export abstract class HttpClient {
     if (errorStatus === QueryErrorStatus.refresh) {
       return this.query<T, K>(url, method, body);
     }
-    console.log({ result, url })
     throw new ApiResponseError(result);
   }
 

@@ -4,7 +4,7 @@
 
 .fastBlock {
     margin-top: 30px;
-    background: var(--gray-400);
+    background: var(--silver);
     border-radius: 11px;
     padding: 22px 30px;
     display: grid;

@@ -1,32 +1,61 @@
 /* Root стили */
 :root {
-    --black: #333333;
-    --body-white: #fdfdfd;
-    --white: #ffffff;
-    --silver: #EFF0F0;
-    --red: #CA0100;
-    --dark: #666666;
-    --gray: #737373;
-    --gray-200: #C2C2C4;
-    --gray-400: #EFF0F0;
-    --sky: #007bfb;
-    --hot-pink: oklch(59.91% .239 8.14);
-    --hot-red: oklch(61.42% .238 15.34);
-    --vivid-pink: oklch(69.02% .277 332.77);
-    --electric-violet: oklch(53.18% .28 296.97);
-    --bright-blue: oklch(51.01% .274 263.83);
-    --red-to-pink-horizontal-gradient: linear-gradient( 90deg, var(--hot-pink) 11.42%, var(--hot-red) 34.83%, var(--vivid-pink) 60.69% );
-    --pink-to-highlight-to-purple-to-blue-horizontal-gradient: linear-gradient( 140deg, var(--vivid-pink) 0%, var(--vivid-pink) 15%, color-mix(in srgb, var(--vivid-pink), var(--electric-violet) 50%));
-    --purple-to-blue-horizontal-gradient: linear-gradient( 90deg, var(--electric-violet) 0%, var(--bright-blue) 100% );
-    --blue-to-purple-horizontal-gradient: linear-gradient( 90deg, var(--bright-blue) 0%, var(--electric-violet) 100% );
-    --sky-to-purple-horizontal-gradient: linear-gradient( 90deg, var(--sky) 0%, var(--electric-violet) 100% );
-    --sky-to-purples-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--sky) 0%,
-      var(--bright-blue) 50%, /* Промежуточный цвет 2 */
-      var(--electric-violet) 100%
-    );
-    --pink-to-highlight-to-purple-to-blue-horizontal-gradient: linear-gradient( 140deg, var(--vivid-pink) 0%, var(--vivid-pink) 15%, 
-    color-mix(in srgb, var(--vivid-pink), var(--electric-violet) 50%));
-    --purple-to-blue-vertical-gradient: linear-gradient( 0deg, var(--electric-violet) 0%, var(--bright-blue) 100% );
-  }
+  --black: #323232;
+  --body-white: #fdfdfd;
+  --white: #ffffff;
+  --silver: #eff0f0;
+  --red: #ca0100;
+  --gray-dark: #686868;
+  --gray: #737373;
+  --gray-light: #c2c2c4;
+  --primary: rgba(1, 124, 255, 0.85);
+  --hot-pink: rgba(233, 3, 99, 0.85);
+  --hot-red: rgba(240, 13, 81, 0.85);
+  --vivid-pink: rgba(247, 53, 228, 0.85);
+  --electric-violet: rgba(133, 20, 245, 0.85);
+  --bright-blue: rgba(5, 70, 255, 0.85);
+  --red-to-pink-horizontal-gradient: linear-gradient(
+    90deg,
+    var(--hot-pink) 11.42%,
+    var(--hot-red) 34.83%,
+    var(--vivid-pink) 60.69%
+  );
+  --pink-to-highlight-to-purple-to-blue-horizontal-gradient: linear-gradient(
+    140deg,
+    var(--vivid-pink) 0%,
+    var(--vivid-pink) 15%,
+    color-mix(in srgb, var(--vivid-pink), var(--electric-violet) 50%)
+  );
+  --purple-to-blue-horizontal-gradient: linear-gradient(
+    90deg,
+    var(--electric-violet) 0%,
+    var(--bright-blue) 100%
+  );
+  --blue-to-purple-horizontal-gradient: linear-gradient(
+    90deg,
+    var(--bright-blue) 0%,
+    var(--electric-violet) 100%
+  );
+  --primary-to-purple-horizontal-gradient: linear-gradient(
+    90deg,
+    var(--primary) 0%,
+    var(--electric-violet) 100%
+  );
+  --primary-to-purples-horizontal-gradient: linear-gradient(
+    90deg,
+    var(--primary) 0%,
+    var(--bright-blue) 50%,
+    /* Промежуточный цвет 2 */ var(--electric-violet) 100%
+  );
+  --pink-to-highlight-to-purple-to-blue-horizontal-gradient: linear-gradient(
+    140deg,
+    var(--vivid-pink) 0%,
+    var(--vivid-pink) 15%,
+    color-mix(in srgb, var(--vivid-pink), var(--electric-violet) 50%)
+  );
+  --purple-to-blue-vertical-gradient: linear-gradient(
+    0deg,
+    var(--electric-violet) 0%,
+    var(--bright-blue) 100%
+  );
+}

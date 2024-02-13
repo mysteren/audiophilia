@@ -1,21 +1,10 @@
 .list {
-    padding: 0;
-    list-style: none;
-}
-
-.options {
-    display: grid;
-    row-gap: 0.5rem;
-}
-
-.range {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 1rem;
+  padding: 0;
+  list-style: none;
 }
 
 .bottom {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 0.85rem
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 0.85rem;
 }

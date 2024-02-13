@@ -79,8 +79,8 @@
   align-items: center;
   gap: 6px;
   padding: 6px 11px;
-  background-color: var(--gray-400);
-  border: 1px solid var(--gray-200);
+  background-color: var(--silver);
+  border: 1px solid var(--gray-light);
 }
 
 .partsText {

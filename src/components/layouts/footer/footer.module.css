@@ -56,7 +56,7 @@
     font-weight: 900;
     color: var(--white);
     text-transform: uppercase;
-    border-bottom: 1px solid var(--sky);
+    border-bottom: 1px solid var(--primary);
 }
 
 .footerSecondLink {

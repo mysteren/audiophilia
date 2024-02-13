@@ -14,7 +14,8 @@
 }
 
 .container:hover {
-  box-shadow: 0px 0px 16px 0px color-mix(in srgb, var(--sky), transparent 60%);
+  box-shadow: 0px 0px 16px 0px
+    color-mix(in srgb, var(--primary), transparent 60%);
 }
 
 .topLeftGroup {
@@ -30,7 +31,6 @@
 
 .icon {
   background-color: color-mix(in srgb, var(--white), transparent 15%);
-  /* padding: 0.3rem; */
   border-radius: 0.5rem;
   padding: 0.3rem;
   box-shadow: 0 0 5px 1px color-mix(in srgb, var(--white), transparent 15%);
@@ -38,8 +38,8 @@
 
 .title {
   /* width: 75%; */
-  color:  var(--dark);
-  font-size: 1.4rem;
+  color: var(--gray-dark);
+  font-size: 1.15rem;
   /* font-weight: */
   padding: 0;
   margin: 0;
@@ -61,59 +61,9 @@
 }
 
 .price {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
 }
-
-/* .characteristics {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 10px;
-    justify-content: space-between;
-}
-
-.characteristicsBlockInfo {
-    padding: 10px 10px;
-    border: 1px solid #C2C2C4;
-    border-radius: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-} */
-
-/* .iconMotor::before {
-    content: "";
-    background: url('../../../images/svg/motor.svg') no-repeat center;
-    background-size: 19px 16px;
-    width: 19px;
-    height: 16px;
-    display: inline-block;
-}
-
-.iconTank::before {
-    content: "";
-    background: url('../../../images/svg/tank.svg') no-repeat center;
-    background-size: 19px 16px;
-    width: 19px;
-    height: 16px;
-    display: inline-block;
-}
-
-.iconSpeed::before {
-    content: "";
-    background: url('../../../images/svg/speed.svg') no-repeat center;
-    background-size: 19px 16px;
-    width: 19px;
-    height: 16px;
-    display: inline-block;
-} */
-
-/* .characterText {
-    padding: 0;
-    margin: 0;
-    font-size: 8px;
-} */
 
 .bottom {
   display: grid;

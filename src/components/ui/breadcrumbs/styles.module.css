@@ -11,7 +11,7 @@
 }
 
 .path {
-  fill: var(--sky);
+  fill: var(--primary);
   width: 0.3rem;
 }
 

@@ -13,7 +13,7 @@
 }
 
 .btnLeft:hover {
-    background-color: var(--sky);
+    background-color: var(--primary);
 }
 
 .btnLeft:hover .btnLeftIcon {
@@ -43,7 +43,7 @@
 }
 
 .btnRight:hover {
-    background-color: var(--sky);
+    background-color: var(--primary);
 }
 
 .btnRight:hover .btnRightIcon {

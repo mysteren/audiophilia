@@ -19,7 +19,7 @@
   
   .link {
     text-decoration: none;
-    color: var(--dark-gray-color);
+    color: var(--gray-dark);
     font-size: 1rem;
   }
   
@@ -43,6 +43,6 @@
   
   .oldPrice {
     /* font-size: 1rem; */
-    color: var(--gray-light-color);
+    color: var(--gray-light);
     text-decoration: line-through;
   }

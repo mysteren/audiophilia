@@ -1,49 +1,11 @@
 import ButtonPrimary from "@/components/ui/button-primary";
-import { Checkbox } from "@/components/ui/checkbox/checkbox";
-import { InputNumber } from "@/components/ui/input-number/input-number";
-import { Filter, FilterType } from "@/types/categoryFilter";
-import styles from './filter.module.css';
+import { Filter } from "@/types/categoryFilter";
+import { FilterElement } from "./components/filter-element/filter-element";
+import styles from "./filter.module.css";
 
 type Props = {
   items: Filter[];
 };
-
-function FilterElement({ item }: { item: Filter }) {
-  const { type, options, key } = item;
-  switch (type) {
-    case FilterType.select:
-      return (
-        <div className={styles.options}>
-          {options &&
-            options.map(({ name, value }, i) => {
-              return (
-                <label key={`option-${key}-${i}`}>
-                  <Checkbox />
-                  <span>{name}</span>
-                </label>
-              );
-            })}
-        </div>
-      ); 
-    case FilterType.value:
-      return (
-        <div className={styles.range}>
-          <InputNumber placeholder="от" />
-          <InputNumber placeholder="до"/>
-        </div>
-      );
-    default:
-      return <p>type: {type}</p>;
-  }
-
-  // if (type === FilterType.select) {
-  //   return (
-  //     <div>
-  //       <p>sdfdsfsd</p>
-  //     </div>
-  //   );
-  // }
-}
 
 export default function Filters({ items }: Props) {
   return (

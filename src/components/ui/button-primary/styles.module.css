@@ -1,18 +1,18 @@
 .button {
   cursor: pointer;
   border: 0;
-  background: var(--sky);
+  background: var(--primary);
   color: var(--white);
   padding: 0.65rem 0.85rem;
-  border: 1px dashed var(--sky);
+  border: 1px dotted var(--primary);
   border-radius: 0.85rem;
   transition: background-color 0.2s, color 0.2s;
   /* box-sizing: border-box; */
 }
 
 .button:hover {
-  background: var(--dark-gray-color);
-  color: var(--sky);
+  background-color: color-mix(in srgb, var(--primary) 15%, var(--white));
+  color: var(--primary);
   /* box-shadow: 0px 0px 30px 0px rgba(133, 147, 159, 0.30); */
-  box-shadow: 0px 0px 12px 0px color-mix(in srgb, var(--sky), transparent 50%);
+  box-shadow: 0px 0px 12px 0px color-mix(in srgb, var(--primary), transparent 50%);
 }

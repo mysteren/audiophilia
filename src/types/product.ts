@@ -1,5 +1,4 @@
-import { StaticImageData } from "next/image"
-import { ImageFileItem } from "./filte.type"
+import { ImageFileItem } from "./file.type";
 
 export type TypesProduct = {
     id: number;

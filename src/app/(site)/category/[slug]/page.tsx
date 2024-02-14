@@ -99,7 +99,6 @@ export default async function Page({ params: { slug } }: Props) {
           </aside>
           <section className={`${styles.products}`}>{productCards}</section>
         </div>
-
         <div>
           <Text>{category.text}</Text>
         </div>

@@ -3,6 +3,12 @@
   row-gap: 0.5rem;
 }
 
+.option {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.4rem;
+}
+
 .range {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -1,20 +1,26 @@
-import { ImageFileItem } from "@/types/filte.type";
+import { PrintPrice } from "@/lib/utils/price";
+import { ToProduct } from "@/lib/utils/route-url";
+import { GetFileUrl } from "@/lib/utils/url";
+import { ImageFileItem } from "@/types/file.type";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./styles.module.css";
-import { GetFileUrl } from "@/lib/utils/url";
-import { ToProduct } from "@/lib/utils/route-url";
-import { PrintPrice } from "@/lib/utils/price";
 
 type Props = {
   price: number;
-  oldPrice?: number
+  oldPrice?: number;
   title: string;
   slug: string;
   image?: ImageFileItem;
 };
 
-export default function ProductCard({ title: name, price, image, oldPrice, slug }: Props) {
+export default function ProductCard({
+  title: name,
+  price,
+  image,
+  oldPrice,
+  slug,
+}: Props) {
   return (
     <div className={`${styles.container} cart hover`}>
       {image && (
@@ -33,7 +39,9 @@ export default function ProductCard({ title: name, price, image, oldPrice, slug 
         </Link>
         <div className={styles.prices}>
           <span className={styles.price}>{PrintPrice(price)} ₽</span>
-          { !!oldPrice && <span className={styles.oldPrice}>{PrintPrice(oldPrice)} ₽</span> }
+          {!!oldPrice && (
+            <span className={styles.oldPrice}>{PrintPrice(oldPrice)} ₽</span>
+          )}
         </div>
         {/* <ButtonPrimaryComponent>В корзину</ButtonPrimaryComponent> */}
       </div>

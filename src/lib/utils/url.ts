@@ -1,5 +1,5 @@
 import { API_INTERNAL } from "@/config";
-import { CommonFileItem } from "@/types/filte.type";
+import { CommonFileItem } from "@/types/file.type";
 
 const basePath = "/uploads/public/src";
 

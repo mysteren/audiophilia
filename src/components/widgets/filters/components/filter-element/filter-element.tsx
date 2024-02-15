@@ -7,16 +7,9 @@ import { InputNumber } from "@/components/ui/input-number/input-number";
 import { useSelectedFiltersStore } from "@/store/selected-filters/selected-filters";
 type Props = {
   item: Filter;
-  // from?: number;
-  // to?: number;
-  // selected: string[];
-  // onChangeFrom: (key: string, val: number) => void;
-  // onChangeTo: (key: string, val: number) => void;
-  // onChangeSelected: (key: string, val: string[]) => {}
 };
 
 export function FilterElement({ item }: Props) {
-  console.log("FilterElement");
   const { type, options, key } = item;
   const { filters, setFrom, setTo, setSelected } = useSelectedFiltersStore();
   const selectedFilter = filters[key];
@@ -50,14 +43,14 @@ export function FilterElement({ item }: Props) {
             onChange={(val) => {
               setFrom(key, val);
             }}
-            value={selectedFilter?.from}
+            value={selectedFilter?.from ?? ""}
           />
           <InputNumber
             placeholder="до"
             onChange={(val) => {
               setTo(key, val);
             }}
-            value={selectedFilter?.to}
+            value={selectedFilter?.to ?? ""}
           />
         </div>
       );

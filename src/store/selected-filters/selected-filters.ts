@@ -11,7 +11,10 @@ type Actions = {
   setTo: (key: string, value: string) => void;
   setSelected: (key: string, option: string, value: boolean) => void;
   // resetFilters: () => void;
-  initFilters: (keys: string[]) => void;
+  initFilters: (
+    // keys: string[],
+    filters: { key: string; options?: string[]; from?: string; to?: string }[]
+  ) => void;
 };
 
 type Store = State & Actions;
@@ -20,7 +23,6 @@ export const useSelectedFiltersStore = create<Store>()(
   devtools((set) => ({
     filters: {},
     setFrom: (key, value) => {
-      // console.log("setFrom", { key, value });
       return set((state) => {
         const { filters } = state;
         const filter: SelectedFilterItem = filters[key];
@@ -31,7 +33,6 @@ export const useSelectedFiltersStore = create<Store>()(
       });
     },
     setTo: (key, value) => {
-      console.log("setTo", { key, value });
       return set((state) => {
         const { filters } = state;
         const filter: SelectedFilterItem = filters[key];
@@ -57,17 +58,20 @@ export const useSelectedFiltersStore = create<Store>()(
         };
       });
     },
-    initFilters: (keys) => {
+    initFilters: (filters) => {
       set((state) => {
         const result = {
           ...state,
-          filters: keys.reduce((acc, key) => {
-            acc[key] = { selected: [], from: "", to: "" };
-            console.log(acc);
+          filters: filters.reduce((acc, { key, options, from, to }) => {
+            acc[key] = {
+              selected: options ?? [],
+              from: from ?? "",
+              to: to ?? "",
+            };
+
             return acc;
           }, {} as SelectedFiltersState),
         };
-        // console.log(result);
         return result;
       });
     },

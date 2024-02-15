@@ -11,7 +11,7 @@ type Props = {
 
 export function InputNumber({ placeholder, value, min, max, onChange }: Props) {
 
-  const [val, setVal] = useState(value ?? '');
+  const [val, setVal] = useState(value);
 
   useEffect(() => {
     setVal(value);

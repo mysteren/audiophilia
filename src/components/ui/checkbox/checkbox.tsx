@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 type Props = {
   //   name: string;
-  value?: boolean;
+  value: boolean;
   onChange?: (val: boolean) => void;
 };
 

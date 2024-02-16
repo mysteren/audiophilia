@@ -29,16 +29,18 @@ class ApiClient extends HttpClient {
     return this.get<T>("/category/tree");
   }
 
-  getCategory<T>(slug: string) {
-    return this.get<T>(`/category/${slug}`);
+  getCategory<T>(slug: string, searchParams: Record<string, string>) {
+    const searchQuery = new URLSearchParams(searchParams);
+    return this.get<T>(`/category/${slug}?${searchQuery}`);
   }
 
   getProduct<T>(slug: string) {
-    return this.get<T>(`/product/${slug}`)
+    return this.get<T>(`/product/${slug}`);
   }
 
   getSettings<T>(keys: string[]) {
-    return this.get<T>(`/settings/public?${toSearchString({ keys: keys.join(',') })}`,)
+    const url = `/settings/public?${toSearchString({ keys: keys.join(",") })}`;
+    return this.get<T>(url);
   }
 
   // login(email: string, password: string) {

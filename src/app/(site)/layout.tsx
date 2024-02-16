@@ -2,7 +2,7 @@ import Footer from "@/components/layouts/footer/footer";
 import Header from "@/components/layouts/header/header";
 import styles from "./layout.module.css";
 
-// обновлять кеш каждые 30 секунд
+// обновлять кеш каждые 10 секунд
 export const revalidate = 10;
 
 export default function RootLayout({

@@ -41,6 +41,7 @@ export default function WrapperHeader({ categories, headerMenu2 }: Props) {
             width={200}
             height={30}
             unoptimized
+            priority={false}
             alt="Logotype Rodds"
             src={"/images/logorodds.svg"}
           ></Image>

@@ -1,30 +1,22 @@
-// Next module
 import Link from "next/link";
 import { notFound } from "next/navigation";
-
-// Ui
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Text } from "@/components/ui/text";
-
-// Widgets
 import Card from "@/components/widgets/card/card";
-import ProductCard from "@/components/widgets/product-card/product-card";
-
-// Api
 import { ApiClientInstance } from "@/lib/api/api-client";
-
-// Types
 import { TypesProduct } from "@/types/product";
-
-// Styles
-import styles from "./page.module.css";
 import Filters from "@/components/widgets/filters/filters";
 import { Filter } from "@/types/categoryFilter";
+import styles from "./page.module.css";
+
+// обновлять кеш каждые 3 секунд
+export const revalidate = 3;
 
 type Props = {
   params: {
     slug: string;
   };
+  searchParams: Record<string, string>;
 };
 
 type Сategory = {
@@ -32,17 +24,6 @@ type Сategory = {
   slug: string;
   text: string;
 };
-
-// type Product = {
-//   id: number;
-//   title: string;
-//   slug: string;
-//   price: number;
-//   oldPrice: number;
-//   files: {
-//     images: ImageFileItem[];
-//   };
-// };
 
 type CategoryElement = {
   title: string;
@@ -57,9 +38,12 @@ type CategoryData = {
   filters: Filter[];
 };
 
-export default async function Page({ params: { slug } }: Props) {
+export default async function Page({ params: { slug }, searchParams }: Props) {
   try {
-    const data: CategoryData = await ApiClientInstance.getCategory(slug);
+    const data: CategoryData = await ApiClientInstance.getCategory(
+      slug,
+      searchParams
+    );
     const { products, category, parents, childrens, filters } = data;
 
     const productCards = products.map((product: TypesProduct) => (
@@ -69,7 +53,7 @@ export default async function Page({ params: { slug } }: Props) {
     const subcategories = childrens.map(({ title, slug }) => {
       const to = `/category/${slug}`;
       return (
-        <li key={to}>
+        <li key={`subcategory-${to}`}>
           <Link href={to}>{title}</Link>
         </li>
       );

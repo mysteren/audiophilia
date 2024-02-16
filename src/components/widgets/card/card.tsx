@@ -34,6 +34,7 @@ export default function Card({ product }: Props) {
         {/* <Compare /> */}
         <Image
           className={styles.icon}
+          unoptimized
           src={Heart}
           width={32}
           height={32}
@@ -41,6 +42,7 @@ export default function Card({ product }: Props) {
         />
         <Image
           className={styles.icon}
+          unoptimized
           src={Compare}
           width={32}
           height={32}
@@ -59,7 +61,7 @@ export default function Card({ product }: Props) {
         />
       )}
       {/* </div> */}
-      
+
       <div className={styles.blockPrice}>
         <span className={styles.price}>{PrintPrice(product.price)} ₽</span>
       </div>

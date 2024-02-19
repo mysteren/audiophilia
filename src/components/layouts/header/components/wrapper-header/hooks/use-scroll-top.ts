@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
 
 const BrowserCheck = () => typeof window !== "undefined";
-// console.log({ isBrowser: isBrowser() })
 
 export function useScrollIsTop() {
   const isBrowser = BrowserCheck();
 
-  const [scrollIsTop, setScrollIsTop] = useState(
-    isBrowser ? window.screenY < 32 : true
-  );
+  const [scrollIsTop, setScrollIsTop] = useState(false);
 
   useEffect(() => {
     if (isBrowser) {
+      setScrollIsTop(window.scrollY < 16);
       const scrollHandler = () => {
         setScrollIsTop(window.scrollY < 16);
       };

@@ -9,6 +9,7 @@ import Filters from "@/components/widgets/filters/filters";
 import { Filter } from "@/types/categoryFilter";
 import styles from "./page.module.css";
 import { initFilters } from "@/services/filters";
+import ButtonPrimary from "@/components/ui/button-primary";
 
 // обновлять кеш каждые 3 секунд
 export const revalidate = 3;
@@ -47,6 +48,8 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
     );
     const { products, category, parents, childrens } = data;
 
+    const page = Number(searchParams["page"] ?? 0);
+
     const filters = initFilters(data.filters);
 
     const productCards = products.map((product: TypesProduct) => (
@@ -84,7 +87,22 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
               <Filters items={filters} />
             </div>
           </aside>
-          <section className={`${styles.products}`}>{productCards}</section>
+          <section>
+            <div className={`${styles.products}`}>{productCards}</div>
+            <div className={`${styles.pagination}`}>
+              {page > 0 && (
+                <>
+                  <ButtonPrimary>{page}</ButtonPrimary>
+                  
+                </>
+              )}
+              <span>{page + 1}</span>
+              <ButtonPrimary>{page + 2}</ButtonPrimary>
+              <ButtonPrimary>{page + 3}</ButtonPrimary>
+              <ButtonPrimary>{page + 4}</ButtonPrimary>
+              <ButtonPrimary>{page + 5}</ButtonPrimary> ...
+            </div>
+          </section>
         </div>
         <div>
           <Text>{category.text}</Text>

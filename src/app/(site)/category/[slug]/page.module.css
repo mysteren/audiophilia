@@ -20,8 +20,34 @@
 }
 
 .aside__container {
-  top: 120px;
+  top: 6rem;
   position: sticky;
+  max-height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 0.5rem;
+  
+}
+.aside__container::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+/* Track */
+.aside__container::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 1rem;
+}
+ 
+/* Handle */
+.aside__container::-webkit-scrollbar-thumb {
+  background: #cecece; 
+  border-radius: 1rem;
+}
+
+/* Handle on hover */
+.aside__container::-webkit-scrollbar-thumb:hover {
+  background: #c0c0c0; 
+
 }
 
 @media (min-width: 1064px) {

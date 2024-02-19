@@ -30,7 +30,11 @@ class ApiClient extends HttpClient {
   }
 
   getCategory<T>(slug: string, searchParams: Record<string, string>) {
-    const searchQuery = new URLSearchParams(searchParams);
+    const searchQuery = new URLSearchParams({
+      page: "",
+      limit: "12",
+      ...searchParams,
+    });
     return this.get<T>(`/category/${slug}?${searchQuery}`);
   }
 

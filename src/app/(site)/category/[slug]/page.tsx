@@ -8,6 +8,7 @@ import { TypesProduct } from "@/types/product";
 import Filters from "@/components/widgets/filters/filters";
 import { Filter } from "@/types/categoryFilter";
 import styles from "./page.module.css";
+import { initFilters } from "@/services/filters";
 
 // обновлять кеш каждые 3 секунд
 export const revalidate = 3;
@@ -44,7 +45,9 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
       slug,
       searchParams
     );
-    const { products, category, parents, childrens, filters } = data;
+    const { products, category, parents, childrens } = data;
+
+    const filters = initFilters(data.filters);
 
     const productCards = products.map((product: TypesProduct) => (
       <Card key={`pc-${product.id}`} product={product} />

@@ -1,0 +1,44 @@
+.list {
+    padding: 0;
+    list-style: none;
+    /* display: grid;
+    gap: 5px; */
+}
+
+.item {
+    /* padding: 15px; */
+}
+
+.item:hover {
+    background: #f5f7fa;
+    border-radius: 12px;
+}
+
+.itemActive {
+    background: #f5f7fa;
+    border-radius: 12px;
+}
+
+
+.link {
+    padding: 15px;
+    display: flex;
+    text-decoration: none;
+    color: var(--black);
+}
+
+.link:hover {
+    /* background: #f5f7fa; */
+    /* border-radius: 12px; */
+}
+
+.subMenu {
+    background: red;
+    position: absolute;
+}
+
+@media (min-width: 768px) {
+    .subMenu {
+        position: static;
+    }
+}

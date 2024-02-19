@@ -12,6 +12,7 @@ import { TopRightBlock } from "../top-right-block/top-right-block";
 import { useScrollIsTop } from "./hooks/use-scroll-top";
 import { useShowCatalog } from "./hooks/use-show-catalog";
 import styles from "./wrapper-header.module.css";
+import { CategoriesCatalog } from "../categories-catalog";
 
 type Props = {
   headerMenu2: LinkItemData[];
@@ -50,8 +51,8 @@ export default function WrapperHeader({ categories, headerMenu2 }: Props) {
       </div>
 
       <div className={styles.catalogContainer}>
-        <div className="container">
-          <CategoriesTree items={categories} />
+        <div className={`container ${styles.catalogGrid}`}>
+            <CategoriesCatalog items={categories}/>
         </div>
       </div>
 

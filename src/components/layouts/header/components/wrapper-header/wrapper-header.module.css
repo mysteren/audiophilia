@@ -38,6 +38,12 @@
   align-items: center;
 }
 
+.catalogGrid {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  position: relative;
+}
+
 @media (min-width: 380px) {
   .headerMiddleLogo {
     width: 150px;

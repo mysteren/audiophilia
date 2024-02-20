@@ -18,7 +18,7 @@ import { TypesProduct } from "@/types/product";
 
 // Ui
 import Link from "next/link";
-import ButtonPrimary from "@/components/ui/button-primary";
+import Button from "@/components/ui/button/button";
 
 type Props = {
   product: TypesProduct;
@@ -84,9 +84,9 @@ export default function Card({ product }: Props) {
         </div> */}
       <div className={styles.bottom}>
         <Link className={styles.toDetail} href={ToProduct(product.slug)}>
-          <ButtonPrimary>Подробнее</ButtonPrimary>
+          <Button>Подробнее</Button>
         </Link>
-        <ButtonPrimary>В&nbsp;корзину</ButtonPrimary>
+        <Button variant="primary">В&nbsp;корзину</Button>
       </div>
     </div>
   );

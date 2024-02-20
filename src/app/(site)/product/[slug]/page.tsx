@@ -1,5 +1,5 @@
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import ButtonPrimary from "@/components/ui/button-primary";
+import Button from "@/components/ui/button/button";
 import { Text } from "@/components/ui/text";
 import CardSlider from "@/components/widgets/card-slider/card-slider";
 import { ApiClientInstance } from "@/lib/api/api-client";
@@ -26,10 +26,6 @@ type Product = {
     images: ImageFileItem[];
   };
   properties: Record<string, string | string[] | number | number[]>;
-  // category: {
-  //   title: string;
-  //   slug: string;
-  // };
 };
 
 type Category = {
@@ -58,34 +54,8 @@ type CategoryFilter = {
   };
 };
 
-export default async function Page({ params }: Props) {
-  const data = await ApiClientInstance.getProduct<ProductData>(params.slug);
-  const { categories, product, filters } = data;
-  const { title, price, text, files, oldPrice } = product;
-  // const category = categories[0];
-  //   const { products, category } = data;
-
-  //   const productCards = products.map(({ title, price, id }: Props) => (
-  //     <ProductCard key={`p-${id}`} title={title} price={price} />
-  //   ));
-
-  // const images = files.images.map((image) => (
-  //   <Image
-  //     key={`im-${image.hash}`}
-  //     className={styles.image}
-  //     src={GetFileUrl(image)}
-  //     alt={title}
-  //     // loader={imageLoader}
-  //     width={800}
-  //     height={800}
-  //   />
-  // ));
-
-  const imagesSrcs = files.images.map((item) => {
-    return GetFileUrl(item);
-  });
-
-  const propertiesTableBody = filters.map((filter) => {
+function getPropertiesTableBody(filters: CategoryFilter[], product: Product) {
+  return filters.map((filter) => {
     let value: string = "";
     const { key } = filter;
     const productProperty = product.properties[key];
@@ -110,6 +80,16 @@ export default async function Page({ params }: Props) {
         </td>
       </tr>
     );
+  });
+}
+
+export default async function Page({ params }: Props) {
+  const data = await ApiClientInstance.getProduct<ProductData>(params.slug);
+  const { categories, product, filters } = data;
+  const { title, price, text, files, oldPrice } = product;
+
+  const imagesSrcs = files.images.map((item) => {
+    return GetFileUrl(item);
   });
 
   return (
@@ -163,13 +143,16 @@ export default async function Page({ params }: Props) {
             {/* <span className={styles.priceCredit}>В кредит<br></br> от 12 000 ₽/мес</span> */}
           </div>
           <div className={styles.blockBtn}>
-            <ButtonPrimary>Купить</ButtonPrimary>
+            <Button variant="primary">Купить</Button>
           </div>
         </div>
         <div className={styles.stickyBar}>
           <div className={styles.stickyBlock}>
-            <ButtonPrimary>Забронировать</ButtonPrimary>
+            <Button variant="primary"> Забронировать</Button>
             <div className={styles.anchorButtons}>
+              <Link className={styles.anchorButton} href="#">
+                Галлерея
+              </Link>
               <Link className={styles.anchorButton} href="#characteristics">
                 Храктеристики
               </Link>
@@ -188,7 +171,7 @@ export default async function Page({ params }: Props) {
                 <th className={styles.filterThLeft}>Значение</th>
               </tr>
             </thead>
-            <tbody>{propertiesTableBody}</tbody>
+            <tbody>{getPropertiesTableBody(filters, product)}</tbody>
           </table>
           <div>
             <h2 id="info">Описание</h2>

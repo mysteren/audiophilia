@@ -43,7 +43,6 @@ export default function ProductCard({
             <span className={styles.oldPrice}>{PrintPrice(oldPrice)} ₽</span>
           )}
         </div>
-        {/* <ButtonPrimaryComponent>В корзину</ButtonPrimaryComponent> */}
       </div>
     </div>
   );

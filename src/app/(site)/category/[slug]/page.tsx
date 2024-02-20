@@ -1,15 +1,15 @@
-import Link from "next/link";
-import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Text } from "@/components/ui/text";
 import Card from "@/components/widgets/card/card";
-import { ApiClientInstance } from "@/lib/api/api-client";
-import { TypesProduct } from "@/types/product";
 import Filters from "@/components/widgets/filters/filters";
-import { Filter } from "@/types/categoryFilter";
-import styles from "./page.module.css";
+import { Pagination } from "@/components/widgets/pagination/pagination";
+import { ApiClientInstance } from "@/lib/api/api-client";
 import { initFilters } from "@/services/filters";
-import ButtonPrimary from "@/components/ui/button-primary";
+import { Filter } from "@/types/categoryFilter";
+import { TypesProduct } from "@/types/product";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import styles from "./page.module.css";
 
 // обновлять кеш каждые 3 секунд
 export const revalidate = 3;
@@ -48,8 +48,6 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
     );
     const { products, category, parents, childrens } = data;
 
-    const page = Number(searchParams["page"] ?? 0);
-
     const filters = initFilters(data.filters);
 
     const productCards = products.map((product: TypesProduct) => (
@@ -87,21 +85,9 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
               <Filters items={filters} />
             </div>
           </aside>
-          <section>
+          <section className={styles.section}>
             <div className={`${styles.products}`}>{productCards}</div>
-            <div className={`${styles.pagination}`}>
-              {page > 0 && (
-                <>
-                  <ButtonPrimary>{page}</ButtonPrimary>
-                  
-                </>
-              )}
-              <span>{page + 1}</span>
-              <ButtonPrimary>{page + 2}</ButtonPrimary>
-              <ButtonPrimary>{page + 3}</ButtonPrimary>
-              <ButtonPrimary>{page + 4}</ButtonPrimary>
-              <ButtonPrimary>{page + 5}</ButtonPrimary> ...
-            </div>
+            <Pagination itemsCount={products.length} limit={12} />
           </section>
         </div>
         <div>

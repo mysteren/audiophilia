@@ -1,9 +1,9 @@
 "use client";
-import ButtonPrimary from "@/components/ui/button-primary";
 import { Filter } from "@/types/categoryFilter";
 import { FilterElement } from "./components/filter-element/filter-element";
 import styles from "./filter.module.css";
 import { useFiltersNavigate, useFiltersStore } from "./hooks";
+import Button from "@/components/ui/button/button";
 
 type Props = {
   items: Filter[];
@@ -32,8 +32,12 @@ export default function Filters({ items }: Props) {
         </ul>
       </div>
       <div className={styles.bottom}>
-        <ButtonPrimary onClick={filtersApply}>Применить</ButtonPrimary>
-        <ButtonPrimary onClick={clearFilters}>Сбросить</ButtonPrimary>
+        <Button variant="primary" onClick={filtersApply}>
+          Применить
+        </Button>
+        <Button variant="primary" onClick={clearFilters}>
+          Сбросить
+        </Button>
       </div>
       {/* <pre style={{ fontSize: "11px" }}>{JSON.stringify(filters, null, 2)}</pre> */}
     </div>

@@ -1,5 +1,5 @@
 .top {
-    padding: 16px 0px;
+  padding: 16px 0px;
 }
 
 .colContent {
@@ -8,10 +8,10 @@
   column-gap: 16px;
   position: relative;
   grid-template-areas:
-  "slider"
-  "info"
-  "stickyBar"
-  "blockInfo";
+    "slider"
+    "info"
+    "stickyBar"
+    "blockInfo";
 }
 
 /* .slider {
@@ -32,15 +32,15 @@
 } */
 
 .left {
- position: absolute;
- top: 50%;
- left: 5%;
+  position: absolute;
+  top: 50%;
+  left: 5%;
 }
 
 .right {
   position: absolute;
   top: 50%;
- right: 5%;
+  right: 5%;
 }
 
 .title {
@@ -144,8 +144,8 @@
 .filterTd {
   display: flex;
   align-items: flex-end;
-  flex-wrap: wrap;
-  width: 100%;
+  border-bottom: 1px dashed var(--gray-light);
+  margin: 0.3rem 0;
 }
 
 /* Fixed Bar */
@@ -159,7 +159,7 @@
 
 .stickyBlock {
   position: sticky;
-  top: 30px;
+  top: 7rem;
   display: grid;
   gap: 20px;
 }
@@ -174,14 +174,13 @@
 }
 
 .anchorButton {
-  color: var(--black);
+  color: var(--gray);
   text-decoration: none;
-  border-bottom: 1px solid;
+  border-bottom: 1px dashed;
   padding-bottom: 10px;
 }
 
 @media (min-width: 576px) {
-
 }
 
 @media (min-width: 768px) {
@@ -192,21 +191,19 @@
   .colContent {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
-    "slider info"
-    "blockInfo stickyBar"
-    ;
+      "slider info"
+      "blockInfo stickyBar";
   }
 }
 
-@media (min-width:992px) {
+@media (min-width: 992px) {
   .colContent {
     grid-template-columns: 5fr 3.5fr 1.5fr;
     grid-template-areas:
-    "slider info stickyBar"
-    "blockInfo blockInfo stickyBar";
+      "slider info stickyBar"
+      "blockInfo blockInfo stickyBar";
   }
 }
 
 @media (min-width: 1200px) {
-  
 }

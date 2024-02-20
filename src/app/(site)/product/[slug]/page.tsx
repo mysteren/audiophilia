@@ -9,6 +9,9 @@ import { ImageFileItem } from "@/types/file.type";
 import Link from "next/link";
 import styles from "./page.module.css";
 
+// обновлять кеш каждые 15 секунд
+export const revalidate = 15;
+
 type Props = {
   params: {
     slug: string;
@@ -22,6 +25,8 @@ type Product = {
   price: number;
   oldPrice: number;
   text: string;
+  metaTitle: string;
+  metaDescription: string;
   files: {
     images: ImageFileItem[];
   };
@@ -83,8 +88,20 @@ function getPropertiesTableBody(filters: CategoryFilter[], product: Product) {
   });
 }
 
-export default async function Page({ params }: Props) {
-  const data = await ApiClientInstance.getProduct<ProductData>(params.slug);
+export async function generateMetadata({ params: { slug } }: Props) {
+  const data = await ApiClientInstance.getProduct<ProductData>(slug);
+  const { product } = data;
+  return {
+    title: product.metaTitle,
+    description: product.metaDescription,
+    alternates: {
+      canonical: `/product/${slug}`,
+    },
+  };
+}
+
+export default async function Page({ params: { slug } }: Props) {
+  const data = await ApiClientInstance.getProduct<ProductData>(slug);
   const { categories, product, filters } = data;
   const { title, price, text, files, oldPrice } = product;
 

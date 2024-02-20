@@ -11,8 +11,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import styles from "./page.module.css";
 
-// обновлять кеш каждые 3 секунд
-export const revalidate = 3;
+// обновлять кеш каждые 15 секунд
+export const revalidate = 15;
 
 type Props = {
   params: {
@@ -23,6 +23,8 @@ type Props = {
 
 type Сategory = {
   title: string;
+  metaTitle: string;
+  metaDescription: string;
   slug: string;
   text: string;
 };
@@ -39,6 +41,25 @@ type CategoryData = {
   childrens: CategoryElement[];
   filters: Filter[];
 };
+
+export async function generateMetadata({
+  params: { slug },
+  searchParams,
+}: Props) {
+  const data: CategoryData = await ApiClientInstance.getCategory(
+    slug,
+    searchParams
+  );
+  const { category } = data;
+
+  return {
+    title: category.metaTitle,
+    description: category.metaDescription,
+    alternates: {
+      canonical: `/category/${slug}`,
+    },
+  };
+}
 
 export default async function Page({ params: { slug }, searchParams }: Props) {
   try {

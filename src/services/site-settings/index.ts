@@ -1,5 +1,11 @@
 import { ApiClientInstance } from "@/lib/api/api-client";
-import { HeaderSettingsData, LinkItemData, SettingsRecord } from "./types";
+import {
+  HeaderSettingsData,
+  LinkItemData,
+  MainPageSettingsAllData,
+  MainPageSettingsData,
+  SettingsRecord,
+} from "./types";
 
 export async function getHeaderSettingsData() {
   const result: HeaderSettingsData = {
@@ -11,6 +17,25 @@ export async function getHeaderSettingsData() {
   settings.forEach((item) => {
     if (item.key === "headMenu2") {
       result.headMenu2 = item.value as LinkItemData[];
+      return;
+    }
+  });
+  return result;
+}
+
+export async function getMainPageSettingsData() {
+  const result: MainPageSettingsAllData = {
+    mainPage: {
+      metaTitle: "",
+      metaDescription: "",
+    },
+  };
+  const settings = await ApiClientInstance.getSettings<
+    SettingsRecord<unknown>[]
+  >(["mainPage"]);
+  settings.forEach((item) => {
+    if (item.key === "mainPage") {
+      result.mainPage = item.value as MainPageSettingsData;
       return;
     }
   });

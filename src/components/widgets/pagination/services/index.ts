@@ -9,7 +9,7 @@ export function toPageLink(
     params.append(key, val);
   });
 
-  if (page) {
+  if (page > 1) {
     params.set("page", String(page));
   } else {
     params.delete("page");

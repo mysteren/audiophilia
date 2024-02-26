@@ -1,16 +1,9 @@
-// Import libs from Next
 import Image from "next/image";
-
-// Styles
 import styles from "./page.module.css";
 import CatalogPage from "./category/page";
-
-// Widgets
 import HomeSlider from "@/components/widgets/homeSlider/home-slider";
 import HomeFastSelection from "@/components/widgets/homeFastSelection/home-fast-selection";
 import Collections from "@/components/widgets/collections/collections";
-
-//Data
 import {
   modelCarListFive,
   modelCarListFour,
@@ -19,11 +12,21 @@ import {
   modelCarListThree,
 } from "@/data/cars";
 import { collections } from "@/data/collections";
-
-// Types
 import { TypesModelCar } from "@/types/modelCar";
+import { getMainPageSettingsData } from "@/services/site-settings";
 
-// Api
+export async function generateMetadata() {
+  const { mainPage } = await getMainPageSettingsData();
+  const { metaTitle: title, metaDescription: description } = mainPage;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `/`,
+    },
+  };
+}
 
 export default async function page() {
   const titleCollections = "Наши подборки";

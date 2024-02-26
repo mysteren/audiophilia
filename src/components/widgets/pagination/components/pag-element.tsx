@@ -11,11 +11,11 @@ export function PagElement({
     active: boolean;
   }) {
     if (active) {
-      return <Button>{page + 1}</Button>;
+      return <Button>{page}</Button>;
     }
     return (
       <Link href={href}>
-        <Button variant="primary">{page + 1}</Button>
+        <Button variant="primary">{page}</Button>
       </Link>
     );
   }

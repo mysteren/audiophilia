@@ -1,0 +1,6 @@
+.td {
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 1px dashed var(--gray-light);
+    margin: 0.3rem 0;
+  }

@@ -2,7 +2,6 @@ import styles from "./property-row.module.css";
 
 type Props = {
   name: string;
-  key: string;
   value: string;
   unit?: string;
 };

@@ -5,14 +5,20 @@ import { SelectedFiltersState } from "@/types/filter.type";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-export function useFiltersStore(items: Filter[]) {
-  const searchParams = useSearchParams();
+export function useFiltersStore(
+  items: Filter[],
+  savedSearchParams?: Record<string, string>
+) {
+  const urlSearchParams = useSearchParams();
+
   const { initFilters, filters } = useSelectedFiltersStore();
 
   useEffect(() => {
+    const searchParams =
+      savedSearchParams ?? Object.fromEntries(urlSearchParams.entries());
     initFilters(
       items.map(({ key }) => {
-        const params = searchParams.get(key);
+        const params = searchParams[key];
         let to, from: string | undefined;
         let options: string[] | undefined;
 
@@ -27,16 +33,14 @@ export function useFiltersStore(items: Filter[]) {
         return { key, options, from, to };
       })
     );
-  }, [initFilters, items, searchParams]);
+  }, [initFilters, items, urlSearchParams, savedSearchParams]);
   return {
     filters,
   };
 }
 
-export function useFiltersNavigate(filters: SelectedFiltersState) {
+export function useFiltersNavigate(filters: SelectedFiltersState, pathname: string) {
   const router = useRouter();
-  const pathname = usePathname();
-
   const clearFilters = () => {
     router.push(pathname);
   };

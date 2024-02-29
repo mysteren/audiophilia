@@ -14,37 +14,8 @@
     "blockInfo";
 }
 
-/* .slider {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.images {
-  display: flex;
-  transition: transform .3s ease-in-out;
-}
-
-.image {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-} */
-
-.left {
-  position: absolute;
-  top: 50%;
-  left: 5%;
-}
-
-.right {
-  position: absolute;
-  top: 50%;
-  right: 5%;
-}
-
 .title {
-  font-size: 24px;
+  font-size: 2rem;
   font-weight: 700;
   margin: 0;
   padding-bottom: 20px;
@@ -141,12 +112,7 @@
   padding-bottom: 20px;
 }
 
-.filterTd {
-  display: flex;
-  align-items: flex-end;
-  border-bottom: 1px dashed var(--gray-light);
-  margin: 0.3rem 0;
-}
+
 
 /* Fixed Bar */
 .infoProduct {

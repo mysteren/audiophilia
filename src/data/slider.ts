@@ -1,24 +1,21 @@
-import Rio from '../images/slider/rio_new1.png';
-import ChineCarBg from '../images/slider/china-d.jpg';
+import { Slide } from "@/types/slide";
 
+export const slides: Slide[] = [
+  {
+    id: "0",
+    title: "Приветствуем вас в мире китайских автомобилей",
+    text: "Подобрать автомобиль",
+    photo: '/images/slider/1.webp',
+    url: '/category/',
+    color: 'black',
 
-export const slides = [
-    {   
-        "id": "0",
-        "title": "Приветствуем вас в мире китайских автомобилей",
-        "text": "Подобрать автомобиль",
-        "photo": ChineCarBg
-    },
-    {   
-        "id": "1",
-        "title": "Slider 2",
-        "text": "Text text text text text text text text text",
-        "photo": Rio
-    },
-    {
-        "id": "2",
-        "title": "Slider 3",
-        "text": "Text text text text text text text text text",
-        "photo": Rio
-    }
+  },
+  {
+    id: "1",
+    title: "Коммерческая техника",
+    text: "В каталог",
+    photo: '/images/slider/2.webp',
+    url: '/category/',
+    color: 'white',
+  },
 ];

@@ -1,11 +1,5 @@
-"use client";
-
-import { useState } from "react";
-
-// Styles
 import styles from "./burger-menu.module.css";
 
-// Icons
 import Burger from "@/components/icons/burger";
 import Close from "@/components/icons/close";
 
@@ -15,13 +9,6 @@ type Props = {
 };
 
 export default function BurgerMenu({ active, onClick }: Props) {
-  // const [ active, setActive ] = useState(false);
-
-  // Functions
-  // const handleState = () => {
-  //   setActive(!active)
-  // }
-
   return (
     <>
       <button

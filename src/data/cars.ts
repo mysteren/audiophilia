@@ -1,241 +1,101 @@
-import Kia from '@/images/model-car/kia.svg';
-import Briliance from '@/images/model-car/briliance.svg';
-import Citroen from '@/images/model-car/citroen.svg';
-import Ford from '@/images/model-car/ford.svg';
-import Haima from '@/images/model-car/haima.svg';
-import Lifan from '@/images/model-car/lifan.svg';
-import Peugeot from '@/images/model-car/peugeot.svg';
-import Uaz from '@/images/model-car/uaz.svg';
+import { CarBrand } from "@/types/car";
 
-export const modelCarListOne = [
-    {   
-        "id": 0,
-        "title": "Kia",
-        "url": Kia
-    },
-    {   
-        "id": 1,
-        "title": "Briliance",
-        "url": Briliance
-    },
-    {   
-        "id": 2,
-        "title": "Citroen",
-        "url": Citroen
-    },
-    {   
-        "id": 3,
-        "title": "Ford",
-        "url": Ford
-    },
-    {   
-        "id": 4,
-        "title": "Haima",
-        "url": Haima
-    },
-    {   
-        "id": 5,
-        "title": "Lifan",
-        "url": Lifan
-    },
-    {   
-        "id": 6,
-        "title": "Peugeot",
-        "url": Peugeot
-    },
-    {   
-        "id": 7,
-        "title": "Uaz",
-        "url": Uaz
-    },
-];
-
-import Hyundai from '@/images/model-car/hyundai.svg';
-import Changan from '@/images/model-car/changan.svg';
-import Datsun from '@/images/model-car/datsun.svg';
-import Foton from '@/images/model-car/foton.svg';
-import Haval from '@/images/model-car/haval.svg';
-import Mazda from '@/images/model-car/mazda.svg';
-import Ravon from '@/images/model-car/ravon.svg';
-import Zoyte from '@/images/model-car/zoyte.svg';
-
-export const modelCarListSecond = [
-    {
-        "id": 0,
-        "title": "Hyundai",
-        "url": Hyundai
-    },
-    {
-        "id": 1,
-        "title": "Changan",
-        "url": Changan
-    },
-    {
-        "id": 2,
-        "title": "Datsun",
-        "url": Datsun
-    },
-    {
-        "id": 3,
-        "title": "Foton",
-        "url": Foton
-    },
-    {
-        "id": 4,
-        "title": "Haval",
-        "url": Haval
-    },
-    {
-        "id": 5,
-        "title": "Mazda",
-        "url": Mazda
-    },
-    {
-        "id": 6,
-        "title": "Ravon",
-        "url": Ravon
-    },
-    {
-        "id": 7,
-        "title": "Zotye",
-        "url": Zoyte
-    },
-];
-
-import Skoda from '@/images/model-car/skoda.svg';
-import Chery from '@/images/model-car/chery.svg';
-import Dongfeng from '@/images/model-car/dongfeng.svg';
-import Gac from '@/images/model-car/gac.svg';
-import Honda from '@/images/model-car/honda.svg';
-import Mitsubishi from '@/images/model-car/mitsubishi.svg';
-import Renault from '@/images/model-car/renault.svg';
-
-export const modelCarListThree = [
-    {
-        "id": 0,
-        "title": "Skoda",
-        "url": Skoda
-    },
-    {
-        "id": 1,
-        "title": "Chery",
-        "url": Chery
-    },
-    {
-        "id": 2,
-        "title": "Dongfeng",
-        "url": Dongfeng
-    },
-    {
-        "id": 3,
-        "title": "Gac",
-        "url": Gac
-    },
-    {
-        "id": 4,
-        "title": "Honda",
-        "url": Honda
-    },
-    {
-        "id": 5,
-        "title": "Mitsubishi",
-        "url": Mitsubishi
-    },
-    {
-        "id": 6,
-        "title": "Renault",
-        "url": Renault
-    },
-];
-
-import Volkswagen from '@/images/model-car/volkswagen.svg';
-import Cheryexeed from '@/images/model-car/cheryexeed.svg';
-import Dwhower from '@/images/model-car/dwhower.svg';
-import Geely from '@/images/model-car/geely.svg';
-import Jac from '@/images/model-car/jac.svg';
-import Nissan from '@/images/model-car/nissan.svg';
-import Ssangyong from '@/images/model-car/ssangyong.svg';
-
-export const modelCarListFour = [
-    {
-        "id": 0,
-        "title": "Volkswagen",
-        "url": Volkswagen
-    },
-    {
-        "id": 1,
-        "title": "Cheryexeed",
-        "url": Cheryexeed
-    },
-    {
-        "id": 2,
-        "title": "DW Hower",
-        "url": Dwhower
-    },
-    {
-        "id": 3,
-        "title": "Geely",
-        "url": Geely
-    },
-    {
-        "id": 4,
-        "title": "Jac",
-        "url": Jac
-    },
-    {
-        "id": 5,
-        "title": "Nissan",
-        "url": Nissan
-    },
-    {
-        "id": 6,
-        "title": "Ssangyong",
-        "url": Ssangyong
-    },
-];
-
-import Toyota from '@/images/model-car/toyota.svg';
-import Chevrolet from '@/images/model-car/chevrolet.svg';
-import Faw from '@/images/model-car/faw.svg';
-import Greetwall from '@/images/model-car/greatwall.svg';
-import Lada from '@/images/model-car/lada.svg';
-import Opel from '@/images/model-car/opel.svg';
-import Suzuki from '@/images/model-car/suzuki.svg';
-
-export const modelCarListFive = [
-    {
-        "id": 0,
-        "title": "Toyota",
-        "url": Toyota
-    },
-    {
-        "id": 1,
-        "title": "Chevrolet",
-        "url": Chevrolet
-    },
-    {
-        "id": 2,
-        "title": "Faw",
-        "url": Faw
-    },
-    {
-        "id": 3,
-        "title": "Greet Wall",
-        "url": Greetwall
-    },
-    {
-        "id": 4,
-        "title": "Lada",
-        "url": Lada
-    },
-    {
-        "id": 5,
-        "title": "Opel",
-        "url": Opel
-    },
-    {
-        "id": 6,
-        "title": "Suzuki",
-        "url": Suzuki
-    },
+export const CarsBrands: CarBrand[] = [
+  {
+    id: 0,
+    title: "Haval",
+    img: '/images/brands/haval.svg',
+    url: "/category/haval-auto",
+  },
+  {
+    id: 1,
+    title: "Jac",
+    img: '/images/brands/jac.svg',
+    url: "/category/chery-auto",
+  },
+  {
+    id: 2,
+    title: "Chery",
+    img: '/images/brands/chery.svg',
+    url: "/category/chery-auto",
+  },
+  {
+    id: 3,
+    title: "Baic",
+    img: '/images/brands/baic.svg',
+    url: "/category/baic-auto",
+  },
+  {
+    id: 4,
+    title: "Byd",
+    img: '/images/brands/byd.svg',
+    url: "/category/byd-auto",
+  },
+  {
+    id: 5,
+    title: "Changan",
+    img: '/images/brands/changan.svg',
+    url: "/category/changan-auto",
+  },
+  {
+    id: 6,
+    title: "Evolute",
+    img: '/images/brands/evolute.svg',
+    url: "/category/evolute-auto",
+  },
+  {
+    id: 7,
+    title: "Exeed",
+    img: '/images/brands/exeed.svg',
+    url: "/category/exeed-auto",
+  },
+  {
+    id: 8,
+    title: "Faw",
+    img: '/images/brands/faw.svg',
+    url: "/category/faw-auto",
+  },
+  {
+    id: 9,
+    title: "GAC",
+    img: '/images/brands/gac.svg',
+    url: "/category/gac-auto",
+  },
+  {
+    id: 10,
+    title: "Geely",
+    img: '/images/brands/geely.svg',
+    url: "/category/geely-auto",
+  },
+  {
+    id: 11,
+    title: "Jaecoo",
+    img: '/images/brands/jaecoo.svg',
+    url: "/category/jaecoo-auto",
+  },
+  {
+    id: 12,
+    title: "Kaiyi",
+    img: '/images/brands/kaiyi.svg',
+    url: "/category/kaiyi-auto",
+  },
+  {
+    id: 13,
+    title: "Omoda",
+    img: '/images/brands/omoda.svg',
+    url: "/category/omoda-auto",
+  },
+  {
+    id: 14,
+    title: "Tank",
+    img: '/images/brands/tank.svg',
+    url: "/category/tank-auto",
+  },
+  {
+    id: 14,
+    title: "Voyah",
+    img: '/images/brands/voyah.svg',
+    url: "/category/voyah-auto",
+  },
+ 
 ];

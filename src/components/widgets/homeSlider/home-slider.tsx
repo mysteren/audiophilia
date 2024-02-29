@@ -1,42 +1,46 @@
-'use client'
+"use client";
+import { useState } from "react";
+import styles from "./home-slider.module.css";
+import "./home-slider.variables.css";
+import Slider from "./slider/slider";
+import { Slide } from "@/types/slide";
+import ArrLeft from "@/components/icons/arrleft";
+import ArrRight from "@/components/icons/arrright";
 
-// React Modules
-import { useState } from 'react';
+type Props = {
+  items: Slide[];
+};
 
-// Styles
-import styles from './home-slider.module.css';
-
-// Widgets
-import Slider from './slider/slider';
-
-// Data
-import { slides } from '@/data/slider';
-
-// Types
-import { Slide } from '@/types/slide';
-
-export default function HomeSlider() {
+export default function HomeSlider({ items }: Props) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  
+
   const nextSlide = () => {
-    const nextSlide = (currentSlide + 1) % slides.length;
+    const nextSlide = (currentSlide + 1) % items.length;
     setCurrentSlide(nextSlide);
   };
 
   const prevSlide = () => {
-    const prevSlide = (currentSlide - 1 + slides.length) % slides.length;
+    const prevSlide = (currentSlide - 1 + items.length) % items.length;
     setCurrentSlide(prevSlide);
   };
-  
+
   return (
-    <div className={styles.slider}>
+    <div className={`${styles.slider} ${items[currentSlide].color}`}>
       <div className={styles.sliderBlock}>
-        {slides.map((slide: Slide, index: number) => (
-          <Slider key={slide.id} slide={slide} isActive={index === currentSlide}/>
+        {items.map((slide: Slide, index: number) => (
+          <Slider
+            key={slide.id}
+            slide={slide}
+            isActive={index === currentSlide}
+          />
         ))}
       </div>
-        <button onClick={prevSlide} className={styles.prev}></button>
-        <button onClick={nextSlide} className={styles.next}></button>
+      <button onClick={prevSlide} className={`${styles.btn} ${styles.prev}`}>
+        <ArrLeft />
+      </button>
+      <button onClick={nextSlide} className={`${styles.btn} ${styles.next}`}>
+        <ArrRight />
+      </button>
     </div>
-  )
+  );
 }

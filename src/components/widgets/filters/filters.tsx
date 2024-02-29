@@ -4,15 +4,19 @@ import { FilterElement } from "./components/filter-element/filter-element";
 import styles from "./filter.module.css";
 import { useFiltersNavigate, useFiltersStore } from "./hooks";
 import Button from "@/components/ui/button/button";
+import { usePathname } from "next/navigation";
 
 type Props = {
   items: Filter[];
+  pathname: string;
+  savedSearchParams?: Record<string, string>;
 };
 
-export default function Filters({ items }: Props) {
-  const { filters } = useFiltersStore(items);
+export default function Filters({ items, savedSearchParams, pathname }: Props) {
 
-  const { filtersApply, clearFilters } = useFiltersNavigate(filters);
+  const { filters } = useFiltersStore(items, savedSearchParams);
+
+  const { filtersApply, clearFilters } = useFiltersNavigate(filters, pathname);
 
   return (
     <div>

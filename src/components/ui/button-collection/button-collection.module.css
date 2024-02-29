@@ -1,61 +1,19 @@
 
-.btnLeft {
-    display: flex;
+.btn {
+    display: grid;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    width: 48px;
-    height: 48px;
+    width: 2.8rem;
+    height: 2.8rem;
     border: 0;
     background-color: var(--white);
     box-shadow: 0px 0px 30px 0px rgba(133, 147, 159, 0.30);
-    border-radius: 6px;
+    border-radius: 0.5rem;
+    transition: color 0.2s, background-color 0.2s;
 }
 
-.btnLeft:hover {
+.btn:hover {
     background-color: var(--primary);
-}
-
-.btnLeft:hover .btnLeftIcon {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cg clip-path='url(%23clip0_3381_8565)'%3E%3Cpath d='M2.82752 5.40594L7.98735 0.246294C8.31557 -0.0820914 8.84774 -0.0820914 9.17581 0.246294C9.5039 0.574387 9.5039 1.10652 9.17581 1.43459L4.61016 6.00009L9.17567 10.5654C9.50377 10.8937 9.50377 11.4257 9.17567 11.7538C8.84758 12.0821 8.31544 12.0821 7.98721 11.7538L2.82739 6.5941C2.66334 6.42998 2.58141 6.2151 2.58141 6.00011C2.58141 5.78502 2.6635 5.56999 2.82752 5.40594Z' fill='%23ffffff'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_3381_8565'%3E%3Crect width='12' height='12' fill='white' transform='translate(12 12) rotate(-180)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
-}
-
-.btnLeftIcon {
-    display: block;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cg clip-path='url(%23clip0_3381_8565)'%3E%3Cpath d='M2.82752 5.40594L7.98735 0.246294C8.31557 -0.0820914 8.84774 -0.0820914 9.17581 0.246294C9.5039 0.574387 9.5039 1.10652 9.17581 1.43459L4.61016 6.00009L9.17567 10.5654C9.50377 10.8937 9.50377 11.4257 9.17567 11.7538C8.84758 12.0821 8.31544 12.0821 7.98721 11.7538L2.82739 6.5941C2.66334 6.42998 2.58141 6.2151 2.58141 6.00011C2.58141 5.78502 2.6635 5.56999 2.82752 5.40594Z' fill='%23262626'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_3381_8565'%3E%3Crect width='12' height='12' fill='white' transform='translate(12 12) rotate(-180)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 12px;
-    height: 12px;
-}
-
-.btnRight {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    width: 48px;
-    height: 48px;
-    border: 0;
-    background-color: var(--white);
-    box-shadow: 0px 0px 30px 0px rgba(133, 147, 159, 0.30);
-    border-radius: 6px;
-}
-
-.btnRight:hover {
-    background-color: var(--primary);
-}
-
-.btnRight:hover .btnRightIcon {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><g clip-path="url(%23clip0_3381_8570)"><path d="M9.17248 6.59406L4.01265 11.7537C3.68443 12.0821 3.15226 12.0821 2.82419 11.7537C2.4961 11.4256 2.4961 10.8935 2.82419 10.5654L7.38984 5.99991L2.82433 1.43457C2.49623 1.10635 2.49623 0.574263 2.82433 0.24617C3.15242 -0.0820564 3.68456 -0.0820563 4.01279 0.24617L9.17261 5.4059C9.33666 5.57002 9.41859 5.7849 9.41859 5.99989C9.41859 6.21498 9.3365 6.43001 9.17248 6.59406Z" fill="white"/></g><defs><clipPath id="clip0_3381_8570"><rect width="12" height="12" fill="white"/></clipPath></defs></svg>');
-}
-
-.btnRightIcon {
-    display: block;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><g clip-path="url(%23clip0_3381_8570)"><path d="M9.17248 6.59406L4.01265 11.7537C3.68443 12.0821 3.15226 12.0821 2.82419 11.7537C2.4961 11.4256 2.4961 10.8935 2.82419 10.5654L7.38984 5.99991L2.82433 1.43457C2.49623 1.10635 2.49623 0.574263 2.82433 0.24617C3.15242 -0.0820564 3.68456 -0.0820563 4.01279 0.24617L9.17261 5.4059C9.33666 5.57002 9.41859 5.7849 9.41859 5.99989C9.41859 6.21498 9.3365 6.43001 9.17248 6.59406Z" fill="black"/></g><defs><clipPath id="clip0_3381_8570"><rect width="12" height="12" fill="black"/></clipPath></defs></svg>');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    width: 12px;
-    height: 12px;
+    color: var(--white);
 }

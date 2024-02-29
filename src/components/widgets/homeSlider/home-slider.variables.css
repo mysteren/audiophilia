@@ -1,0 +1,9 @@
+.black {
+  --slider-color: var(--white);
+  --slider-bg-color: var(--black);
+}
+
+.white {
+  --slider-color: var(--black);
+  --slider-bg-color: var(--white);
+}

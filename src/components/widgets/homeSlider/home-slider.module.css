@@ -1,50 +1,61 @@
 .slider {
-    /* background: var(--silver); */
-    /* background: url('./bg.jpg') no-repeat; */
-    background-size: cover;
-    min-height: 400px;
-    border-radius: 25px;
-    position: relative;
-    display: flex;
-    align-items: center;
+  background-size: cover;
+  min-height: 240px;
+  border-radius: 25px;
+  position: relative;
+  display: grid;
 }
 
 .sliderBlock {
-    padding: 0px 40px;
-    min-height: 400px;
-    display: flex;
+  padding: 0px 40px;
+  display: grid;
+  color: var(--slider-color);
 }
 
-.navigate{
-    position: relative;
+.navigate {
+  position: relative;
+}
+
+.btn {
+  width: 4rem;
+  height: 4rem;
+  background: none;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  color: var(--slider-color);
 }
 
 .prev {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    left: 3%;
-    transform: translate(-0%, -50%);
-    background: url('../../../images/slider/arrowLeft.svg') no-repeat center;
-    width: 34px;
-    height: 34px;
-    border: 0;
+  left: 3%;
 }
 
 .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    right: 3%;
-    transform: translate(-00%, -50%);
-    background: url('../../../images/slider/arrowRight.svg') no-repeat center;
-    width: 34px;
-    height: 34px;
-    border: 0;
+  right: 3%;
 }
 
 @media (min-width: 576px) {
-    .sliderBlock {
-        padding: 0 100px;
-    }
+  
+}
+
+@media (min-width: 576px) {
+  .sliderBlock {
+    padding: 0 8rem;
+  }
+}
+
+@media (min-width:768px) {
+  .slider {
+    min-height: 360px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .slider {
+    min-height: 480px;
+  }
 }

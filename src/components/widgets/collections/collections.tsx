@@ -1,22 +1,15 @@
-'use client'
-// React modules
+"use client";
 import { useState, useRef } from "react";
-
-// Styles
 import styles from "./collections.module.css";
-
-// Widgets
-import ItemCollection from "../item-collection/item-collection";
-
-// Ui functional
+import ItemCollection from "./item-collection/item-collection";
 import ButtonCollection from "@/components/ui/button-collection/button-collection";
+import { TypesCollections } from "@/types/collections";
 
-// Types
-import { TypesCollections } from '@/types/collections';
+type Props = {
+  items: TypesCollections[];
+};
 
-export default function Collections(props: { data: any; title: string }) {
-  const { data, title } = props;
-
+export default function Collections({ items }: Props) {
   const [cardWidth, setCardWidth] = useState(0);
   // const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -26,35 +19,43 @@ export default function Collections(props: { data: any; title: string }) {
     if (containerRef.current) {
       containerRef.current.scrollTo({
         left: containerRef.current.scrollLeft - cardWidth,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   };
-  
+
   const handleScrollRight = () => {
     if (containerRef.current) {
       containerRef.current.scrollTo({
         left: containerRef.current.scrollLeft + cardWidth,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   };
 
   return (
     <>
-    <div className={styles.blockTitle}>
-      <h2 className={styles.title}>{title}</h2>
-      <div className={styles.blockBtn}>
-        <ButtonCollection clickLeft={handleScrollLeft} clickRight={handleScrollRight}/>
+      <div className={styles.blockTitle}>
+        <div className={styles.blockBtn}>
+          <ButtonCollection
+            clickLeft={handleScrollLeft}
+            clickRight={handleScrollRight}
+          />
+        </div>
       </div>
-    </div>
-    <div className={styles.block}>
-      <div  className={styles.blockList} ref={containerRef}>
-        {data.map((item: TypesCollections) => {
-          return <ItemCollection key={item.id} item={item} setCardWidth={setCardWidth} />;
-        })}
+      <div className={styles.block}>
+        <div className={styles.blockList} ref={containerRef}>
+          {items.map((item) => {
+            return (
+              <ItemCollection
+                key={item.id}
+                item={item}
+                setCardWidth={setCardWidth}
+              />
+            );
+          })}
+        </div>
       </div>
-    </div>
     </>
   );
 }

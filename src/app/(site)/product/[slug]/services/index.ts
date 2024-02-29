@@ -19,3 +19,10 @@ export function getPropertyProps(filter: CategoryFilter, product: Product) {
   }
   return { name, value, unit: addition?.unit };
 }
+
+
+/**
+ * 
+ * CREATE INDEX "IDX_27ab95b168e05b3a9f73a65d3b" ON public.product USING gin (properties);
+ * 
+ */

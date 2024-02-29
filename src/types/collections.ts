@@ -1,7 +1,6 @@
-import { StaticImageData } from "next/image"
-
 export type TypesCollections = {
-    id: string,
-    title: string,
-    url: StaticImageData,
-}
+  id: string;
+  title: string;
+  url: string;
+  img: string;
+};

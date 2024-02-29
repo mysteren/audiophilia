@@ -4,5 +4,7 @@ export type Slide = {
     id: string,
     title: string,
     text: string,
-    photo: StaticImageData
+    photo: string;
+    url: string;
+    color: 'white' | 'black' 
 }

@@ -27,6 +27,7 @@ type Сategory = {
   metaDescription: string;
   slug: string;
   text: string;
+  type: string;
 };
 
 type CategoryElement = {
@@ -40,6 +41,7 @@ type CategoryData = {
   parents: CategoryElement[];
   childrens: CategoryElement[];
   filters: Filter[];
+  searchParams?: Record<string, string>;
 };
 
 export async function generateMetadata({
@@ -67,9 +69,20 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
       slug,
       searchParams
     );
-    const { products, category, parents, childrens } = data;
+    const {
+      products,
+      category,
+      parents,
+      childrens,
+      searchParams: savedSearchParams,
+    } = data;
 
     const filters = initFilters(data.filters);
+
+    const pathname =
+      category.type === "filtered"
+        ? `/category/${parents[0].slug}`
+        : `/category/${category.slug}`;
 
     const productCards = products.map((product: TypesProduct) => (
       <Card key={`pc-${product.id}`} product={product} />
@@ -103,7 +116,11 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
             <div className={styles.aside__container}>
               <h2>Подкатегории</h2>
               <ul>{subcategories}</ul>
-              <Filters items={filters} />
+              <Filters
+                pathname={pathname}
+                items={filters}
+                savedSearchParams={savedSearchParams}
+              />
             </div>
           </aside>
           <section className={styles.section}>

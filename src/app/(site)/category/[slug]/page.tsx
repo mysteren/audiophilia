@@ -3,10 +3,9 @@ import { Text } from "@/components/ui/text";
 import Card from "@/components/widgets/card/card";
 import Filters from "@/components/widgets/filters/filters";
 import { Pagination } from "@/components/widgets/pagination/pagination";
-import { ApiClientInstance } from "@/lib/api/api-client";
+import { getCategory } from "@/services/category";
 import { initFilters } from "@/services/filters";
-import { Filter } from "@/types/categoryFilter";
-import { TypesProduct } from "@/types/product";
+import { CategoryData } from "@/types/category";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import styles from "./page.module.css";
@@ -21,37 +20,32 @@ type Props = {
   searchParams: Record<string, string>;
 };
 
-type Сategory = {
-  title: string;
-  metaTitle: string;
-  metaDescription: string;
-  slug: string;
-  text: string;
-  type: string;
-};
+// async function getCategoryData(slug: string, searchParams: Record<string, string>) {
+//   try {
+//     return getCategory(slug, searchParams);
+//   } catch (e) {
+//     if (e instanceof ApiResponseError) {
+//       if (e.responseErrorData.statusCode === 404) {
+//         notFound();
+//       }
+//     }
+//   }
+// }
 
-type CategoryElement = {
-  title: string;
-  slug: string;
-};
-
-type CategoryData = {
-  category: Сategory;
-  products: TypesProduct[];
-  parents: CategoryElement[];
-  childrens: CategoryElement[];
-  filters: Filter[];
-  searchParams?: Record<string, string>;
-};
+// function checkError(e: Error) {
+//   if (e instanceof ApiResponseError) {
+//     if (e.responseErrorData.statusCode === 404) {
+//       notFound();
+//     }
+//   }
+// }
 
 export async function generateMetadata({
   params: { slug },
   searchParams,
 }: Props) {
-  const data: CategoryData = await ApiClientInstance.getCategory(
-    slug,
-    searchParams
-  );
+  const data: CategoryData = await getCategory(slug, searchParams);
+
   const { category } = data;
 
   return {
@@ -65,10 +59,7 @@ export async function generateMetadata({
 
 export default async function Page({ params: { slug }, searchParams }: Props) {
   try {
-    const data: CategoryData = await ApiClientInstance.getCategory(
-      slug,
-      searchParams
-    );
+    const data: CategoryData = await getCategory(slug, searchParams);
     const {
       products,
       category,
@@ -84,7 +75,7 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
         ? `/category/${parents[0].slug}`
         : `/category/${category.slug}`;
 
-    const productCards = products.map((product: TypesProduct) => (
+    const productCards = products.map((product) => (
       <Card key={`pc-${product.id}`} product={product} />
     ));
 

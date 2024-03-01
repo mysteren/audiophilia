@@ -11,7 +11,7 @@ export const CarsBrands: CarBrand[] = [
     id: 1,
     title: "Jac",
     img: '/images/brands/jac.svg',
-    url: "/category/chery-auto",
+    url: "/category/jac-auto",
   },
   {
     id: 2,
@@ -92,7 +92,7 @@ export const CarsBrands: CarBrand[] = [
     url: "/category/tank-auto",
   },
   {
-    id: 14,
+    id: 15,
     title: "Voyah",
     img: '/images/brands/voyah.svg',
     url: "/category/voyah-auto",

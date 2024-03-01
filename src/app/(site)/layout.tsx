@@ -11,10 +11,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <div className={styles.wrap}>
       <Header />
       <main className={`${styles.main} container`}>{children}</main>
       <Footer />
-    </>
+    </div>
   );
 }

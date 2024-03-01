@@ -1,3 +1,9 @@
+.wrap {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    min-height: 100svh;
+}
+
 .main {
     padding-top: 70px;
 }

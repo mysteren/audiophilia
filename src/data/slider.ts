@@ -6,7 +6,7 @@ export const slides: Slide[] = [
     title: "Приветствуем вас в мире китайских автомобилей",
     text: "Подобрать автомобиль",
     photo: '/images/slider/1.webp',
-    url: '/category/',
+    url: '/category/automobiles',
     color: 'black',
 
   },
@@ -15,7 +15,7 @@ export const slides: Slide[] = [
     title: "Коммерческая техника",
     text: "В каталог",
     photo: '/images/slider/2.webp',
-    url: '/category/',
+    url: '/category/kommercheskaya_tehnika',
     color: 'white',
   },
 ];

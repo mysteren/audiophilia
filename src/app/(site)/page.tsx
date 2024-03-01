@@ -1,11 +1,11 @@
 import Collections from "@/components/widgets/collections/collections";
 import HomeSlider from "@/components/widgets/homeSlider/home-slider";
 import { QuickProductSelection } from "@/components/widgets/quick-product-selection/quick-product-selection";
-import { CarsBrands } from "@/data/cars";
 import { collections } from "@/data/collections";
 import { slides } from "@/data/slider";
 import { getMainPageSettingsData } from "@/services/site-settings";
 import styles from "./page.module.css";
+import { CarsBrands } from "@/data/cars-brands";
 
 export async function generateMetadata() {
   const { mainPage } = await getMainPageSettingsData();

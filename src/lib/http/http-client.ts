@@ -22,16 +22,12 @@ export abstract class HttpClient {
     "Content-Type": "application/json",
   };
 
-  // private formDataHeaders: HeadersInit = {
-  //   "Content-Type": `multipart/form-data; boundary=-----${Number(new Date())}`,
-  // };
-
   private convertBody(body: unknown) {
     return JSON.stringify(body);
   }
 
-  private async checkErrors(data: ResponseErrorData) {
-    if (data.errorCode === "jsonWebTokenExpired") {
+  private async checkErrors(resp: ResponseErrorData) {
+    if (resp.data.errorCode === "jsonWebTokenExpired") {
       const { refresh_token, access_token } = await this.refreshTokenQuery(
         this.refreshToken
       );
@@ -64,6 +60,7 @@ export abstract class HttpClient {
     if (errorStatus === QueryErrorStatus.refresh) {
       return this.query<T, K>(url, method, body);
     }
+
     throw new ApiResponseError(result);
   }
 
@@ -81,12 +78,13 @@ export abstract class HttpClient {
     if (resp.ok) {
       return result as K;
     }
-
+    // console.log(resp.status);
     const errorStatus = await this.checkErrors(result);
 
     if (errorStatus === QueryErrorStatus.refresh) {
       return this.queryMultipart(url, method, body);
     }
+
     throw new ApiResponseError(result);
   }
 

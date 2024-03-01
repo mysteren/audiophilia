@@ -1,6 +1,6 @@
 import { ImageFileItem } from "./file.type";
 
-export type TypesProduct = {
+export type Product = {
     id: number;
     title: string;
     slug: string;

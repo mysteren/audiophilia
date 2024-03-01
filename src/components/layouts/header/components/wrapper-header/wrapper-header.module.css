@@ -3,7 +3,8 @@
   width: 100%;
   z-index: 100;
   top: 0;
-  background: var(--white);
+  background: color-mix(in srgb, var(--white), transparent 5%);
+  /* filter: blur(8px); */
 
   &.showCatalog {
     display: grid;
@@ -27,6 +28,7 @@
   grid-template-columns: repeat(3, auto);
   gap: 10px;
   justify-content: space-between;
+  background-color: var(--white);
 }
 
 .catalogContainer {
@@ -39,9 +41,11 @@
 }
 
 .catalogGrid {
+  height: 100%;
   display: grid;
   grid-template-columns: 25% 75%;
   position: relative;
+  align-items: flex-start;
 }
 
 @media (min-width: 380px) {

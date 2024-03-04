@@ -1,27 +1,16 @@
-// Next Module
-import Image from "next/image";
-
-// Styles
-import styles from "./card.module.css";
-
-// Image
+import Button from "@/components/ui/button/button";
 import Heart from "@/images/svg/heart.svg";
 import Compare from "@/images/svg/sravni.svg";
-
-// Libs
 import { PrintPrice } from "@/lib/utils/price";
 import { ToProduct } from "@/lib/utils/route-url";
 import { GetFileUrl } from "@/lib/utils/url";
-
-// Types
-import { TypesProduct } from "@/types/product";
-
-// Ui
+import { Product } from "@/types/product";
+import Image from "next/image";
 import Link from "next/link";
-import Button from "@/components/ui/button/button";
+import styles from "./card.module.css";
 
 type Props = {
-  product: TypesProduct;
+  product: Product;
 };
 
 export default function Card({ product }: Props) {

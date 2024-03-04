@@ -34,7 +34,7 @@ export default function FilterSelection() {
         className={styles.input}
       />
       <div className={styles.blockSelection}>
-        <select onChange={hadleSelectOne} className={styles.select} placeholder="Тип кузова">
+        <select onChange={hadleSelectOne} className={styles.select}>
             <option>Седан</option>
             <option>Хэтчбек</option>
             <option>Универсал</option>
@@ -44,7 +44,7 @@ export default function FilterSelection() {
             <option>Пикап</option>
             <option>Кроссовер</option>
         </select>
-        <select onChange={hadleSelectTwo} className={styles.select} placeholder="Коробка">
+        <select onChange={hadleSelectTwo} className={styles.select}>
             <option>Механика</option>
             <option>Электроредуктор</option>
             <option>Автомат</option>

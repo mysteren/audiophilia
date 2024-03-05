@@ -1,4 +1,5 @@
 // Styles
+import Link from "next/link";
 import styles from "./footer.module.css";
 
 export default function Footer() {
@@ -8,36 +9,35 @@ export default function Footer() {
     <footer>
       <div className={styles.footerFirst}>
         <div className="container">
-          <div className={styles.footerFirstBlock}>
-            <ul className={styles.footerFirstList}>
-              <li>
-                <a className={styles.footerFirstLink} href="">
-                  Каталог авто
-                </a>
-              </li>
-              <li>
-                <a className={styles.footerFirstLink} href="">
-                  Сервис
-                </a>
-              </li>
-              <li>
-                <a className={styles.footerFirstLink} href="">
-                  Услуги
-                </a>
-              </li>
-              <li>
-                <a className={styles.footerFirstLink} href="">
-                  Авто с пробегом
-                </a>
-              </li>
-              <li>
-                <a className={styles.footerFirstLink} href="">
-                  Запчасти
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className={styles.footerSecondBlock}>
+          <ul className={styles.footerFirstList}>
+            <li>
+              <Link className={styles.footerFirstLink} href="/category">
+                Каталог
+              </Link>
+            </li>
+            <li>
+              <Link className={styles.footerFirstLink} href="/category/avtotovary">
+                Автотовары
+              </Link>
+            </li>
+            <li>
+              <Link className={styles.footerFirstLink} href="/category/transport">
+                Транспорт
+              </Link>
+            </li>
+            <li>
+              <Link className={styles.footerFirstLink} href="/page/services">
+                Услуги
+              </Link>
+            </li>
+            <li>
+              <Link className={styles.footerFirstLink} href="/page/dealers">
+                Дилерам
+              </Link>
+            </li>
+          </ul>
+
+          {/* <div className={styles.footerSecondBlock}>
             <div className={styles.footerSecondUnderBlock}>
               <div className={styles.footerSecondBlockText}>
                 <p className={styles.footerSecondTitle}>Каталог авто</p>
@@ -314,7 +314,7 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className={styles.footerSecond}>
@@ -325,12 +325,15 @@ export default function Footer() {
                 Rodds - Сервисы размещения объявлений для юридических лиц
               </p>
               <div className={styles.footerSecondFlexBetween}>
-                <a className={styles.footerSecondLinkBottom} href="">
+                <Link
+                  className={styles.footerSecondLinkBottom}
+                  href="/page/about"
+                >
                   Политика конфидециальности
-                </a>
-                <a className={styles.footerSecondLinkBottom} href="">
+                </Link>
+                <Link className={styles.footerSecondLinkBottom} href="/page/about">
                   Пользовательское соглашение
-                </a>
+                </Link>
               </div>
             </div>
             <div>

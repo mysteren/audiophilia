@@ -6,3 +6,13 @@ export default function BaseImageLoader({
 }: ImageLoaderProps): string {
   return src.replace("/src/", `/resize/${width}/`);
 }
+
+
+export function UploadsImageLoader({
+  src,
+  width,
+}: ImageLoaderProps): string {
+  return src.replace("/src/", `/resize/${width}/`);
+}
+
+// export

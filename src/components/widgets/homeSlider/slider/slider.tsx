@@ -23,10 +23,10 @@ export default function Slider(props: SliderProps) {
       <Image
         width={100}
         height={100}
-        unoptimized
+        sizes="85vw"
         className={styles.sliderImageBg}
         src={slide.photo}
-        alt="1"
+        alt={`sldide-${slide.id}`}
       />
     </div>
   );

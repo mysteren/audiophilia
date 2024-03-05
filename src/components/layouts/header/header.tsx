@@ -11,7 +11,6 @@ export default async function Header() {
     getCategoryTree(),
     getHeaderSettingsData(),
   ]);
-  // const { headMenu2 } = settingsData;
 
   return (
     <WrapperHeader

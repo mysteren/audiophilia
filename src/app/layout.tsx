@@ -1,8 +1,32 @@
 // import type { Metadata } from 'next';
-import '../styles/vendor/normalize.css';
-import '../styles/site/globals.css';
-import '../styles/site/variables.css';
-import '../styles/site/base.css';
+// import '../styles/vendor/normalize.css';
+import localFont from 'next/font/local'
+import '../styles/site/global.css';
+
+const myFont = localFont({
+  src: [
+    {
+      path: '../styles/fonts/cofosans/CoFoSans-Regular.woff',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../styles/fonts/cofosans/CoFoSans-Medium.woff',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../styles/fonts/cofosans/CoFoSans-Bold.woff',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../styles/fonts/cofosans/CoFoSans-Black.woff',
+      weight: '900',
+      style: 'normal',
+    }
+  ],
+})
 
 // export const metadata: Metadata = {
 //   title: 'Create Next App',
@@ -19,7 +43,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </head>
-      <body>{children}</body>
+      <body className={myFont.className}>{children}</body>
     </html>
   )
 }

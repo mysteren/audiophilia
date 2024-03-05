@@ -36,10 +36,6 @@
     align-items: center;
 }
 
-.image {
-    object-fit: contain;
-}
-
 @media (min-width: 550px) {
   .container {
     grid-template-columns: 1fr 1fr;
@@ -55,5 +51,3 @@
 @media (min-width: 991px) {
 }
 
-@media (min-width: 1064px) {
-}

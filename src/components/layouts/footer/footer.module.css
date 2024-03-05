@@ -1,20 +1,16 @@
 .footerFirst {
     margin-top: 40px;
-    background: #262626;
-}
-
-.footerFirstBlock {
-    border-bottom: 0.1px solid var(--white);
-    padding: 40px 0;
+    background: var(--black);
 }
 
 .footerFirstList {
     list-style: none;
-    padding: 0;
+    padding: 1.5rem 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
+    gap: 0.5rem;
+    display: flex;
+    justify-content: space-evenly
 }
 
 .footerFirstLink {
@@ -32,18 +28,6 @@
     "second"
     "third";
 }
-.footerSecondBlock > div:nth-child(1) {
-    grid-area: first;
-    color: white;
-}
-.footerSecondBlock > div:nth-child(2) {
-    grid-area: second;
-    color: white;
-}
-.footerSecondBlock > div:nth-child(3) {
-    grid-area: third;
-    color: white;
-}
 
 .footerSecondBlockText {
     display: flex;
@@ -56,7 +40,6 @@
     font-weight: 900;
     color: var(--white);
     text-transform: uppercase;
-    border-bottom: 1px solid var(--primary);
 }
 
 .footerSecondLink {
@@ -98,8 +81,8 @@
 
 .footerSecondGrid {
     display: grid;
-    gap: 40px;
-    padding: 20px 0;
+    gap: 2.5rem;
+    padding: 1rem 0;
     grid-template-columns: repeat(1, 1fr);
 }
 
@@ -123,7 +106,7 @@
 
 .footerSecondText {
     color: var(--gray);
-    font-size: 14px;
+    font-size: 0.8rem;
     font-weight: 400;
     margin: 0;
 }

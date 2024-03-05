@@ -21,16 +21,22 @@ export default function ItemCollection(props: Item) {
 
   const cardRef = useRef<HTMLDivElement | null>(null);
 
- useEffect(() => {
-   if (cardRef.current) {
-     setCardWidth(cardRef.current.offsetWidth);
-   }
- }, [setCardWidth]);
+  useEffect(() => {
+    if (cardRef.current) {
+      setCardWidth(cardRef.current.offsetWidth);
+    }
+  }, [setCardWidth]);
 
   return (
-    <div ref={cardRef}className={styles.block}>
+    <div ref={cardRef} className={styles.block}>
       <Link className={styles.itemHrefBlock} href={item.url}>
-        <Image className={styles.image} width={480} height={320}  src={item.img} alt={item.title} />
+        <Image
+          className={styles.image}
+          width={480}
+          height={320}
+          src={item.img}
+          alt={item.title}
+        />
         <div className={styles.itemBody}>
           <h3 className={styles.itemTitle}>{item.title}</h3>
         </div>

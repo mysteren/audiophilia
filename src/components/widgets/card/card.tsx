@@ -1,3 +1,4 @@
+"use client";
 import Button from "@/components/ui/button/button";
 import Heart from "@/images/svg/heart.svg";
 import Compare from "@/images/svg/sravni.svg";
@@ -5,9 +6,17 @@ import { PrintPrice } from "@/lib/utils/price";
 import { ToProduct } from "@/lib/utils/route-url";
 import { GetFileUrl } from "@/lib/utils/url";
 import { Product } from "@/types/product";
-import Image from "next/image";
+import Image, { ImageLoaderProps } from "next/image";
 import Link from "next/link";
 import styles from "./card.module.css";
+import { UploadsImageLoader } from "@/lib/image-loader";
+
+// function UploadsImageLoader({
+//   src,
+//   width,
+// }: ImageLoaderProps): string {
+//   return src.replace("/src/", `/resize/${width}/`);
+// }
 
 type Props = {
   product: Product;
@@ -38,18 +47,18 @@ export default function Card({ product }: Props) {
           alt="favorite"
         />
       </div>
-      {/* <div className={styles.blockImageCard}> */}
       {image && (
         <Image
           src={GetFileUrl(image)}
           alt={product.title}
+          loader={UploadsImageLoader}
+          // unoptimized
           width={360}
           height={360}
-          sizes="100vw"
+          sizes="(max-width: 768px) 80vw, (max-width: 992px) 50vw, (max-width: 1200px) 33vw, 25vw"
           className={styles.image}
         />
       )}
-      {/* </div> */}
 
       <div className={styles.blockPrice}>
         <span className={styles.price}>{PrintPrice(product.price)} ₽</span>

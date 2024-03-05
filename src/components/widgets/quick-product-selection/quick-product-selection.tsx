@@ -16,10 +16,8 @@ export function QuickProductSelection({ items }: Props) {
           return (
             <li className={styles.item} key={item.id}>
               <Link className={styles.link} href={item.url}>
-                {/* <span>{item.title}</span> */}
                 <Image
-                  unoptimized
-                  className={styles.image}
+                  className={`${styles.image}  img-contain`}
                   key={item.id}
                   width={96}
                   height={48}

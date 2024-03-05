@@ -56,11 +56,6 @@
 
 }
 
-@media (min-width: 1064px) {
-  .products {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
 
 @media (min-width: 576px) {
 }

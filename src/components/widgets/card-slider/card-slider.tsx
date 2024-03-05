@@ -11,6 +11,7 @@ import styles from "./card-slider.module.css";
 // Icons
 import ArrLeft from "@/components/icons/arrleft";
 import ArrRight from "@/components/icons/arrright";
+import { UploadsImageLoader } from "@/lib/image-loader";
 
 type Props = {
   images: string[];
@@ -56,17 +57,28 @@ export default function CardSlider({ images, alt }: Props) {
         <Image
           className={`${styles.image} ${visible ? styles.visible : ""}`}
           src={images[activeIndex]}
+          loader={UploadsImageLoader}
           alt={alt}
           width={500}
           height={500}
         />
       </div>
-      <button onClick={handdleprev} className={`${styles.btn} ${styles.left}`}>
-        {ArrLeft()}
-      </button>
-      <button onClick={handdlenext} className={`${styles.btn} ${styles.right}`}>
-        {ArrRight()}
-      </button>
+      {images.length -1 && (
+        <>
+          <button
+            onClick={handdleprev}
+            className={`${styles.btn} ${styles.left}`}
+          >
+            {ArrLeft()}
+          </button>
+          <button
+            onClick={handdlenext}
+            className={`${styles.btn} ${styles.right}`}
+          >
+            {ArrRight()}
+          </button>
+        </>
+      )}
     </div>
   );
 }

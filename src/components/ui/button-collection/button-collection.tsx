@@ -8,10 +8,10 @@ export default function ButtonCollection(props: any) {
 
   return (
     <>
-      <button onClick={clickLeft} className={styles.btn}>
+      <button aria-label="to prev" onClick={clickLeft} className={styles.btn}>
         <ArrLeft />
       </button>
-      <button onClick={clickRight} className={styles.btn}>
+      <button aria-label="to next" onClick={clickRight} className={styles.btn}>
         <ArrRight />
       </button>
     </>

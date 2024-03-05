@@ -66,12 +66,14 @@ export default function CardSlider({ images, alt }: Props) {
       {images.length -1 && (
         <>
           <button
+            aria-label="to prev slider"
             onClick={handdleprev}
             className={`${styles.btn} ${styles.left}`}
           >
             {ArrLeft()}
           </button>
           <button
+            aria-label="to next slider"
             onClick={handdlenext}
             className={`${styles.btn} ${styles.right}`}
           >

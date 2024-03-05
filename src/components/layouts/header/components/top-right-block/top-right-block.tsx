@@ -7,13 +7,13 @@ import styles from "./top-right-block.module.css";
 export function TopRightBlock() {
   return (
     <div className={styles.container}>
-      <button className={styles.icon}>
+      <button area-label="search" className={styles.icon}>
         <SearchIcon />
       </button>
-      <button className={styles.icon}>
+      <button area-label="to favorite"   className={styles.icon}>
         <HeartIcon />
       </button>
-      <button className={styles.icon}>
+      <button aria-label="to compare" className={styles.icon}>
         <SravniIcon />
       </button>
     </div>

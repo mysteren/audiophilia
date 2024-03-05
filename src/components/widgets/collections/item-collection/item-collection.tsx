@@ -35,7 +35,7 @@ export default function ItemCollection(props: Item) {
           width={480}
           height={320}
           src={item.img}
-          alt={item.title}
+          alt={`изображение`}
         />
         <div className={styles.itemBody}>
           <h3 className={styles.itemTitle}>{item.title}</h3>

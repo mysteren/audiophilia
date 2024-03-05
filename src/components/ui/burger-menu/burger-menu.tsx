@@ -12,6 +12,7 @@ export default function BurgerMenu({ active, onClick }: Props) {
   return (
     <>
       <button
+        aria-label="catalog menu"
         onClick={() => {
           onClick(!active);
         }}

@@ -1,0 +1,11 @@
+.container {
+  display: grid;
+  justify-content: center;
+  row-gap: 1.4rem;
+  justify-items: center
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 500;
+}

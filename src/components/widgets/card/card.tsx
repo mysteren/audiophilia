@@ -10,6 +10,7 @@ import Image, { ImageLoaderProps } from "next/image";
 import Link from "next/link";
 import styles from "./card.module.css";
 import { UploadsImageLoader } from "@/lib/image-loader";
+import ToFastOrder from "../to-fast-order/to-fast-order";
 
 // function UploadsImageLoader({
 //   src,
@@ -84,7 +85,7 @@ export default function Card({ product }: Props) {
         <Link className={styles.toDetail} href={ToProduct(product.slug)}>
           <Button>Подробнее</Button>
         </Link>
-        <Button variant="primary">В&nbsp;корзину</Button>
+        <ToFastOrder />
       </div>
     </div>
   );

@@ -1,0 +1,28 @@
+.wrap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100svh;
+  background: color-mix(in srgb, var(--black), transparent 50%);
+  z-index: 200;
+  /* display: ; */
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.2s, visibility step-end 0.2s;
+  visibility: hidden;
+  &.show {
+    transition: opacity 0.2s;
+    opacity: 1;
+    visibility: visible;
+  }
+ 
+}
+
+.window {
+  background-color: var(--white);
+  padding: 1.5rem;
+  border-radius: 1rem;
+}

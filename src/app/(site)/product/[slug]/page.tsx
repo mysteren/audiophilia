@@ -6,10 +6,12 @@ import { ApiClientInstance } from "@/lib/api/api-client";
 import { PrintPrice } from "@/lib/utils/price";
 import { GetFileUrl } from "@/lib/utils/url";
 import Link from "next/link";
-import { PropertyRowElement } from "../components/property-row";
+import PageModals from "../../../../components/widgets/page-modals/page-modals";
+import { PropertyRowElement } from "./components/property-row/property-row";
 import styles from "./page.module.css";
 import { getPropertyProps } from "./services";
 import { ProductData } from "./types";
+import ToFastOrder from "@/components/widgets/to-fast-order/to-fast-order";
 
 // обновлять кеш каждые 15 секунд
 export const revalidate = 15;
@@ -68,13 +70,11 @@ export default async function Page({ params: { slug } }: Props) {
               )}
             </div>
           </div>
-          <div className={styles.blockBtn}>
-            <Button variant="primary">Купить</Button>
-          </div>
+          <div className={styles.blockBtn}></div>
         </div>
         <div className={styles.stickyBar}>
           <div className={styles.stickyBlock}>
-            <Button variant="primary"> Забронировать</Button>
+            <ToFastOrder />
             <div className={styles.anchorButtons}>
               <Link className={styles.anchorButton} href="#">
                 Галлерея
@@ -112,6 +112,7 @@ export default async function Page({ params: { slug } }: Props) {
           </div>
         </div>
       </div>
+      <PageModals />
     </>
   );
 }

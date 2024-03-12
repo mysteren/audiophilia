@@ -85,7 +85,7 @@ export default function Card({ product }: Props) {
         <Link className={styles.toDetail} href={ToProduct(product.slug)}>
           <Button>Подробнее</Button>
         </Link>
-        <ToFastOrder />
+        <ToFastOrder productId={product.id}/>
       </div>
     </div>
   );

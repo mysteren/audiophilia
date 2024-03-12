@@ -2,15 +2,24 @@
 
 import Button from "@/components/ui/button/button";
 import { useActioveModals } from "@/store/active-modals/active-modals";
+import { useCartStore } from "@/store/cart/cart";
 
-type Props = {};
+type Props = {
+  productId: number;
+};
 
-export default function ToFastOrder(_props: Props) {
+export default function ToFastOrder({ productId }: Props) {
   const { showFastOrder } = useActioveModals();
+  const { setFastProductItems } = useCartStore();
+
+  const click = () => {
+    showFastOrder()
+    setFastProductItems([{ id: productId, count: 1 }])
+  }
 
   return (
     <>
-      <Button onClick={() => showFastOrder()} variant="primary">
+      <Button onClick={click} variant="primary">
         Заказать
       </Button>
     </>

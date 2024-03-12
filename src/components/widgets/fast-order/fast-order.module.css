@@ -1,8 +1,8 @@
 .container {
   display: grid;
-  justify-content: center;
+  /* justify-content: stretch; */
   row-gap: 1.4rem;
-  justify-items: center
+  /* justify-items: stretch */
 }
 
 .title {

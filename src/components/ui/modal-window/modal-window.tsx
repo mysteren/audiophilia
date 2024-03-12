@@ -14,9 +14,10 @@ export default function ModalWindow({ children, show, onClose }: Props) {
     <div className={`${styles.wrap} ${show && styles.show}`}>
       <div className={styles.window}>
         <button
+          className={styles.close}
           onClick={onClose}
         >
-          X
+          ×
         </button>
         <div>{children}</div>
       </div>

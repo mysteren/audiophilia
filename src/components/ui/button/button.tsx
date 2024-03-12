@@ -6,12 +6,19 @@ type Variants = "primary" | undefined;
 type Props = {
   children?: ReactNode;
   onClick?: () => void;
+  disabled?: boolean;
   variant?: Variants;
 };
 
-export default function Button({ children, onClick, variant }: Props) {
+export default function Button({
+  children,
+  onClick,
+  variant,
+  disabled,
+}: Props) {
   return (
     <button
+      disabled={disabled}
       onClick={onClick}
       className={`${styles.button} ${styles?.[String(variant)]}`}
     >

@@ -1,7 +1,7 @@
 import { API_INTERNAL } from "@/config";
 import { HttpClient } from "../http/http-client";
 import { RefreshRequest, RefreshResponse } from "./types";
-import { toSearchString } from "../url";
+import { toSearchString } from "../utils/url";
 
 class ApiClient extends HttpClient {
   protected baseUrl = `${API_INTERNAL}/site-market-api`;
@@ -53,6 +53,11 @@ class ApiClient extends HttpClient {
   //     password,
   //   });
   // }
+
+  fastOrder<T, K>(payload: K) {
+    const url = '/fast-order'
+    return this.post<K, T>(url, payload)
+  }
 }
 
 export const ApiClientInstance = new ApiClient();

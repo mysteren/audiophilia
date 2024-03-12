@@ -1,7 +1,7 @@
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import Button from "@/components/ui/button/button";
 import { Text } from "@/components/ui/text";
 import CardSlider from "@/components/widgets/card-slider/card-slider";
+import ToFastOrder from "@/components/widgets/to-fast-order/to-fast-order";
 import { ApiClientInstance } from "@/lib/api/api-client";
 import { PrintPrice } from "@/lib/utils/price";
 import { GetFileUrl } from "@/lib/utils/url";
@@ -11,7 +11,6 @@ import { PropertyRowElement } from "./components/property-row/property-row";
 import styles from "./page.module.css";
 import { getPropertyProps } from "./services";
 import { ProductData } from "./types";
-import ToFastOrder from "@/components/widgets/to-fast-order/to-fast-order";
 
 // обновлять кеш каждые 15 секунд
 export const revalidate = 15;
@@ -37,7 +36,7 @@ export async function generateMetadata({ params: { slug } }: Props) {
 export default async function Page({ params: { slug } }: Props) {
   const data = await ApiClientInstance.getProduct<ProductData>(slug);
   const { categories, product, filters } = data;
-  const { title, price, text, files, oldPrice } = product;
+  const { id, title, price, text, files, oldPrice } = product;
 
   const imagesSrcs = files.images.map((item) => {
     return GetFileUrl(item);
@@ -74,7 +73,7 @@ export default async function Page({ params: { slug } }: Props) {
         </div>
         <div className={styles.stickyBar}>
           <div className={styles.stickyBlock}>
-            <ToFastOrder />
+            <ToFastOrder productId={id}/>
             <div className={styles.anchorButtons}>
               <Link className={styles.anchorButton} href="#">
                 Галлерея

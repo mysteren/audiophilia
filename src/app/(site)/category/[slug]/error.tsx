@@ -16,7 +16,7 @@ export default function Error({ error, reset }: Props) {
     result = JSON.parse(error.message) as unknown as ResponseErrorData;
   } catch (e) {}
 
-  if (result?.data.status === 404) {
+  if (result?.status === 404) {
     notFound();
   }
 

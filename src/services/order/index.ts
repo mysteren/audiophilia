@@ -1,11 +1,10 @@
 import { ApiClientInstance } from "@/lib/api/api-client";
+import { FastOrderDto } from "./types";
 
-type FastOrderDto = {
-  name: string;
-  email: string;
-  phone: string;
-}
+type FastOrderResponce = {
+  status: true;
+};
 
 export function fastOrder(data: FastOrderDto) {
-  return ApiClientInstance.fastOrder(data);
+  return ApiClientInstance.fastOrder<FastOrderResponce, FastOrderDto>(data);
 }

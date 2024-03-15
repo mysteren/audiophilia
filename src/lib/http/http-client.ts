@@ -27,7 +27,7 @@ export abstract class HttpClient {
   }
 
   private async checkErrors(resp: ResponseErrorData) {
-    if (resp.data.errorCode === "jsonWebTokenExpired") {
+    if (resp.errorCode === "jsonWebTokenExpired") {
       const { refresh_token, access_token } = await this.refreshTokenQuery(
         this.refreshToken
       );

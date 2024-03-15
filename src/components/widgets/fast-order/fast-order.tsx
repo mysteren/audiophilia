@@ -24,26 +24,38 @@ export default function FastOrder(_props: Props) {
             <InputString
               disabled={status === FormStatus.pending}
               value={formData.name.value}
+              status={formData.name.error ? "error" : ""}
               onChange={changeName}
               placeholder="имя*"
             />
+            {!!formData.name.error && (
+              <p className={styles.error}>{formData.name.error}</p>
+            )}
           </div>
           <div>
             <InputString
               disabled={status === FormStatus.pending}
               value={formData.phone.value}
+              status={formData.phone.error ? "error" : ""}
               transformer={ruPhoneTransformer}
               onChange={changePhone}
               placeholder="телефон*"
             />
+            {!!formData.phone.error && (
+              <p className={styles.error}>{formData.phone.error}</p>
+            )}
           </div>
           <div>
             <InputString
               disabled={status === FormStatus.pending}
               value={formData.email.value}
+              status={formData.email.error ? "error" : ""}
               onChange={changeEmail}
               placeholder="email"
             />
+            {!!formData.email.error && (
+              <p className={styles.error}>{formData.email.error}</p>
+            )}
           </div>
 
           <Button disabled={status === FormStatus.pending} onClick={submit}>

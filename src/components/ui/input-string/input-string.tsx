@@ -1,17 +1,14 @@
-import {
-  ChangeEvent,
-  FocusEvent,
-  FocusEventHandler,
-  useEffect,
-  useState,
-} from "react";
+import { ChangeEvent, FocusEvent, useEffect, useState } from "react";
 import styles from "./input-string.module.css";
+
+type Status = "error" | "";
 
 type Props = {
   value: string;
   placeholder?: string;
   type?: string;
-  disabled?: boolean; 
+  disabled?: boolean;
+  status?: Status;
   onChange?: (value: string) => void;
   transformer?: (val: string) => string;
 };
@@ -22,7 +19,8 @@ export function InputString({
   type,
   onChange,
   transformer,
-  disabled
+  status,
+  disabled,
 }: Props) {
   const [val, setVal] = useState(value);
 
@@ -50,7 +48,7 @@ export function InputString({
     <input
       onChange={changeHandler}
       onBlur={blurHandler}
-      className={styles.input}
+      className={`${styles.input} ${status === 'error' ? styles.error : ''}`}
       placeholder={placeholder}
       disabled={disabled}
       type={type}

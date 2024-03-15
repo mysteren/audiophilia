@@ -1,10 +1,16 @@
+import { ApiResponseError } from "@/lib/http/errors";
+import { fastOrder } from "@/services/order";
+import { FastOrderDto } from "@/services/order/types";
 import { useCartStore } from "@/store/cart/cart";
-import { useEffect, useState } from "react";
+import { error } from "console";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { unknown } from "zod";
 
 export enum FormStatus {
   wait,
   completed,
   pending,
+  error,
 }
 
 type FormDataField = {
@@ -18,13 +24,54 @@ type FormDataType = {
   email: FormDataField;
 };
 
-async function SubmitForm(data: FormDataType) {
-  console.log(data);
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(null);
-    }, 2000);
+type ValidateError = {
+  message: string;
+  path: string[];
+};
+
+type SumbitReturn = {
+  status: boolean;
+  validateErrors?: ValidateError[];
+};
+
+function transformData(
+  productItems: { id: string | number; count: number }[],
+  formData: FormDataType
+): FastOrderDto {
+  return {
+    email: formData.email.value,
+    name: formData.name.value,
+    phone: formData.phone.value,
+    products: productItems,
+  };
+}
+
+async function SubmitForm(data: FastOrderDto): Promise<SumbitReturn> {
+  try {
+    const result = await fastOrder(data);
+    return result;
+  } catch (e) {
+    if (e instanceof ApiResponseError) {
+      const { data: validateErrors } = (e as ApiResponseError<ValidateError[]>)
+        .responseErrorData;
+      return {
+        status: false,
+        validateErrors,
+      };
+    }
+  }
+  return {
+    status: false,
+  };
+}
+function getValidateError(key: string, errors: ValidateError[]) {
+  const error = errors.find((error) => {
+    return error.path[0] === key;
   });
+  if (error) {
+    return error.message;
+  }
+  return "";
 }
 
 export function useFastOrderForm() {
@@ -47,12 +94,30 @@ export function useFastOrderForm() {
     },
   });
 
-  
-
   const submit = async () => {
     setStatus(FormStatus.pending);
-    await SubmitForm(formData);
-    setStatus(FormStatus.completed);
+    const result = await SubmitForm(transformData(fastProductItems, formData));
+    if (result.status) {
+      setStatus(FormStatus.completed);
+    } else {
+      const { validateErrors } = result;
+      const { email, phone, name } = formData;
+      setFormData({
+        email: {
+          value: email.value,
+          error: getValidateError("email", validateErrors ?? []),
+        },
+        phone: {
+          value: phone.value,
+          error: getValidateError("phone", validateErrors ?? []),
+        },
+        name: {
+          value: name.value,
+          error: getValidateError("name", validateErrors ?? []),
+        },
+      });
+      setStatus(FormStatus.error);
+    }
   };
 
   const changeName = (value: string) => {

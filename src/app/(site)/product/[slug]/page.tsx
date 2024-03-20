@@ -73,7 +73,7 @@ export default async function Page({ params: { slug } }: Props) {
         </div>
         <div className={styles.stickyBar}>
           <div className={styles.stickyBlock}>
-            <ToFastOrder productId={id}/>
+            <ToFastOrder productId={id} />
             <div className={styles.anchorButtons}>
               <Link className={styles.anchorButton} href="#">
                 Галлерея
@@ -89,22 +89,14 @@ export default async function Page({ params: { slug } }: Props) {
         </div>
         <div className={styles.blockInfo}>
           <h2 id="characteristics">Характеристики</h2>
-          <table className={styles.filterTable}>
-            <thead>
-              <tr>
-                <th className={styles.filterThLeft}>Название</th>
-                <th className={styles.filterThLeft}>Значение</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filters.map((filter, i) => (
-                <PropertyRowElement
-                  key={`pr-${i}`}
-                  {...getPropertyProps(filter, product)}
-                />
-              ))}
-            </tbody>
-          </table>
+
+          {filters.map((filter, i) => (
+            <PropertyRowElement
+              key={`pr-${i}`}
+              {...getPropertyProps(filter, product)}
+            />
+          ))}
+
           <div>
             <h2 id="info">Описание</h2>
             <Text>{text}</Text>

@@ -6,6 +6,7 @@ import { Checkbox } from "@/components/ui/checkbox/checkbox";
 import { InputNumber } from "@/components/ui/input-number/input-number";
 import { useSelectedFiltersStore } from "@/store/selected-filters/selected-filters";
 import { useState } from "react";
+import ArrowIcon from "@/components/icons/arrow";
 type Props = {
   item: Filter;
 };
@@ -68,10 +69,10 @@ export function FilterElement({ item }: Props) {
       <div className={styles.top}>
         <span className={styles.title}>{name}</span>
         <button
-          className={styles.toggle}
+          className={`${styles.toggle} ${showOptions ? styles.show : ''}`}
           onClick={() => setShowOptions(!showOptions)}
         >
-          {showOptions ? "скрыть" : "показать"}
+          <ArrowIcon />
         </button>
       </div>
       {showOptions && properties()}

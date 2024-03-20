@@ -2,14 +2,13 @@ import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Text } from "@/components/ui/text";
 import Card from "@/components/widgets/card/card";
 import Filters from "@/components/widgets/filters/filters";
+import PageModals from "@/components/widgets/page-modals/page-modals";
 import { Pagination } from "@/components/widgets/pagination/pagination";
 import { getCategory } from "@/services/category";
 import { initFilters } from "@/services/filters";
 import { CategoryData } from "@/types/category";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import styles from "./page.module.css";
-import PageModals from "@/components/widgets/page-modals/page-modals";
 
 // обновлять кеш каждые 15 секунд
 export const revalidate = 15;

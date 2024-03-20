@@ -4,7 +4,6 @@ import { FilterElement } from "./components/filter-element/filter-element";
 import styles from "./filter.module.css";
 import { useFiltersNavigate, useFiltersStore } from "./hooks";
 import Button from "@/components/ui/button/button";
-import { usePathname } from "next/navigation";
 
 type Props = {
   items: Filter[];
@@ -13,22 +12,19 @@ type Props = {
 };
 
 export default function Filters({ items, savedSearchParams, pathname }: Props) {
-
   const { filters } = useFiltersStore(items, savedSearchParams);
 
   const { filtersApply, clearFilters } = useFiltersNavigate(filters, pathname);
 
   return (
     <div>
-      <h2>Фильтры</h2>
       <div>
         <ul className={styles.list}>
           {items &&
             items.map((item) => {
-              const { name, id } = item;
+              const { id } = item;
               return (
                 <li key={`filter-${id}`}>
-                  <h3>{name}</h3>
                   <FilterElement item={item} />
                 </li>
               );

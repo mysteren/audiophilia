@@ -1,32 +1,32 @@
 // import type { Metadata } from 'next';
 // import '../styles/vendor/normalize.css';
-import localFont from 'next/font/local'
-import '../styles/site/global.css';
+import localFont from "next/font/local";
+import "../styles/site/global.css";
 
 const myFont = localFont({
   src: [
     {
-      path: '../styles/fonts/cofosans/CoFoSans-Regular.woff',
-      weight: '400',
-      style: 'normal',
+      path: "../styles/fonts/ubuntu/Ubuntu-Light.woff2",
+      weight: "300",
+      style: "normal",
     },
     {
-      path: '../styles/fonts/cofosans/CoFoSans-Medium.woff',
-      weight: '500',
-      style: 'normal',
+      path: "../styles/fonts/ubuntu/Ubuntu-Regular.woff2",
+      weight: "normal",
+      style: "normal",
     },
     {
-      path: '../styles/fonts/cofosans/CoFoSans-Bold.woff',
-      weight: '700',
-      style: 'normal',
+      path: "../styles/fonts/ubuntu/Ubuntu-Medium.woff2",
+      weight: "500",
+      style: "normal",
     },
     {
-      path: '../styles/fonts/cofosans/CoFoSans-Black.woff',
-      weight: '900',
-      style: 'normal',
-    }
+      path: "../styles/fonts/ubuntu/Ubuntu-Bold.woff2",
+      weight: "bold",
+      style: "normal",
+    },
   ],
-})
+});
 
 // export const metadata: Metadata = {
 //   title: 'Create Next App',
@@ -36,7 +36,7 @@ const myFont = localFont({
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="ru">
@@ -45,5 +45,5 @@ export default function RootLayout({
       </head>
       <body className={myFont.className}>{children}</body>
     </html>
-  )
+  );
 }

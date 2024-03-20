@@ -1,6 +1,8 @@
 .list {
   padding: 0;
   list-style: none;
+  display: grid;
+  row-gap: 1.4rem;
 }
 
 .bottom {

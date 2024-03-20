@@ -63,7 +63,7 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
     const to = `/category/${slug}`;
     return (
       <li key={`subcategory-${to}`}>
-        <Link href={to}>{title}</Link>
+        <Link className={styles.category} href={to}>{title}</Link>
       </li>
     );
   });
@@ -84,9 +84,13 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
       <h1>{category.title}</h1>
       <div className={styles.main}>
         <aside className={styles.aside}>
-          <div className={styles.aside__container}>
-            <h2>Подкатегории</h2>
-            <ul>{subcategories}</ul>
+          <div className={`${styles.aside__container} scroll`}>
+            {!!subcategories.length && (
+              <>
+                <h2>Категории</h2>
+                <ul className={styles.categories}>{subcategories}</ul>
+              </>
+            )}
             <Filters
               pathname={pathname}
               items={filters}

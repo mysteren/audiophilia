@@ -1,16 +1,17 @@
 "use client";
 import Button from "@/components/ui/button/button";
+import NoImage from "@/components/ui/noimage/noimage";
 import Heart from "@/images/svg/heart.svg";
 import Compare from "@/images/svg/sravni.svg";
+import { UploadsImageLoader } from "@/lib/image-loader";
 import { PrintPrice } from "@/lib/utils/price";
 import { ToProduct } from "@/lib/utils/route-url";
 import { GetFileUrl } from "@/lib/utils/url";
 import { Product } from "@/types/product";
-import Image, { ImageLoaderProps } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
-import styles from "./card.module.css";
-import { UploadsImageLoader } from "@/lib/image-loader";
 import ToFastOrder from "../to-fast-order/to-fast-order";
+import styles from "./card.module.css";
 
 // function UploadsImageLoader({
 //   src,
@@ -29,8 +30,6 @@ export default function Card({ product }: Props) {
   return (
     <div className={styles.container}>
       <div className={styles.topLeftGroup}>
-        {/* <Heart /> */}
-        {/* <Compare /> */}
         <Image
           className={styles.icon}
           unoptimized
@@ -48,7 +47,7 @@ export default function Card({ product }: Props) {
           alt="favorite"
         />
       </div>
-      {image && (
+      {image ? (
         <Image
           src={GetFileUrl(image)}
           alt={product.title}
@@ -59,10 +58,14 @@ export default function Card({ product }: Props) {
           sizes="(max-width: 768px) 80vw, (max-width: 992px) 50vw, (max-width: 1200px) 33vw, 25vw"
           className={styles.image}
         />
+      ) : (
+        <NoImage />
       )}
 
       <div className={styles.blockPrice}>
-        <span className={styles.price}>{PrintPrice(product.price)} ₽</span>
+        {!!product.price && (
+          <span className={styles.price}>{PrintPrice(product.price)} ₽</span>
+        )}
       </div>
       <h3 className={styles.title} title={product.title}>
         {product.title}
@@ -85,7 +88,7 @@ export default function Card({ product }: Props) {
         <Link className={styles.toDetail} href={ToProduct(product.slug)}>
           <Button>Подробнее</Button>
         </Link>
-        <ToFastOrder productId={product.id}/>
+        <ToFastOrder productId={product.id} />
       </div>
     </div>
   );

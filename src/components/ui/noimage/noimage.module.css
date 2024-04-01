@@ -1,0 +1,12 @@
+.container {
+  color: var(--gray-light);
+  width: 100%;
+  aspect-ratio: 1;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.svg {
+  padding: 1.6rem;
+}

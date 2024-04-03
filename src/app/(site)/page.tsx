@@ -1,11 +1,9 @@
 import Collections from "@/components/widgets/collections/collections";
 import HomeSlider from "@/components/widgets/homeSlider/home-slider";
-import { QuickProductSelection } from "@/components/widgets/quick-product-selection/quick-product-selection";
 import { collections } from "@/data/collections";
 import { slides } from "@/data/slider";
 import { getMainPageSettingsData } from "@/services/site-settings";
 import styles from "./page.module.css";
-import { CarsBrands } from "@/data/cars-brands";
 
 export async function generateMetadata() {
   const { mainPage } = await getMainPageSettingsData();
@@ -24,9 +22,20 @@ export default async function page() {
   return (
     <div className={`${styles.containerHome}`}>
       <HomeSlider items={slides}></HomeSlider>
-      <h2 className={styles.productTitle}>Автомобили в наличии с ПТС</h2>
-      <QuickProductSelection items={CarsBrands} />
-      <h2 className={styles.productTitle}>Наши подборки</h2>
+      <h2 className={styles.productTitle}>О Компании</h2>
+      <p>
+        Наше основное направление - производство металлических конструкций
+        различной формы и сложности, изготовление закладных деталей, обечаек,
+        конусов, труб нестандартных диаметров, фундаментных болтов и оказание
+        услуг металлообработки. Каждый заказ мы выполняем в кратчайшие сроки,
+        придерживаясь высокого уровня качества.
+      </p>
+      <p>
+        В нашей команде работают опытные специалисты, которые предлагают
+        эффективные решения и индивидуальный подход к каждому клиенту, учитывая
+        все его требования и пожелания.
+      </p>
+      <h2 className={styles.productTitle}>Наша продукция</h2>
       <Collections items={collections} />
     </div>
   );

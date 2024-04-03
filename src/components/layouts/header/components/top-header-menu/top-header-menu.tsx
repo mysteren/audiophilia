@@ -6,11 +6,6 @@ export function TopHeaderMenu() {
     <nav className={styles.nav}>
       <ul className={styles.list}>
         <li className={styles.item}>
-          <Link className={`${styles.link}`} href="/page/dealers">
-            Дилерам
-          </Link>
-        </li>
-        <li className={styles.item}>
           <Link className={`${styles.link}`} href="/page/services">
             Услуги
           </Link>

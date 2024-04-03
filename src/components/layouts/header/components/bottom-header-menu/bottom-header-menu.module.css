@@ -1,7 +1,7 @@
 .container {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  background: var(--primary-to-purples-horizontal-gradient);
+  background: var(--primary);
 }
 .list {
   padding: 0;

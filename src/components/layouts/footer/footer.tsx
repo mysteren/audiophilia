@@ -16,305 +16,21 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link className={styles.footerFirstLink} href="/category/avtotovary">
-                Автотовары
-              </Link>
-            </li>
-            <li>
-              <Link className={styles.footerFirstLink} href="/category/transport">
-                Транспорт
-              </Link>
-            </li>
-            <li>
               <Link className={styles.footerFirstLink} href="/page/services">
                 Услуги
               </Link>
             </li>
             <li>
-              <Link className={styles.footerFirstLink} href="/page/dealers">
-                Дилерам
+              <Link className={styles.footerFirstLink} href="/page/contacts">
+                Контакты
+              </Link>
+            </li>
+            <li>
+              <Link className={styles.footerFirstLink} href="/page/about">
+                О Нас
               </Link>
             </li>
           </ul>
-
-          {/* <div className={styles.footerSecondBlock}>
-            <div className={styles.footerSecondUnderBlock}>
-              <div className={styles.footerSecondBlockText}>
-                <p className={styles.footerSecondTitle}>Каталог авто</p>
-                <a className={styles.footerSecondLink} href="">
-                  Подробнее
-                </a>
-              </div>
-              <div className={styles.footerSecondBlockAuto}>
-                <ul className={styles.footerBlockList}>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      1
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      2
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      3
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      4
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      5
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      6
-                    </a>
-                  </li>
-                </ul>
-                <ul className={styles.footerBlockList}>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      1
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      2
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      3
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      4
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      5
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      6
-                    </a>
-                  </li>
-                </ul>
-                <ul className={styles.footerBlockList}>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      1
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      2
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      3
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      4
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      5
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      6
-                    </a>
-                  </li>
-                </ul>
-                <ul className={styles.footerBlockList}>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      1
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      2
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      3
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      4
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      5
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      6
-                    </a>
-                  </li>
-                </ul>
-                <ul className={styles.footerBlockList}>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      1
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      2
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      3
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      4
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      5
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      6
-                    </a>
-                  </li>
-                </ul>
-                <ul className={styles.footerBlockList}>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      1
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      2
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      3
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      4
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      5
-                    </a>
-                  </li>
-                  <li>
-                    <a className={styles.footerBlockLink} href="">
-                      6
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className={styles.footerSecondUnderBlock}>
-              <div className={styles.footerSecondUnderBlockFlex}>
-                <p className={styles.footerSecondTitle}>Кредит и рассрочка</p>
-              </div>
-              <ul className={styles.footerBlockList}>
-                <li>
-                  <a className={styles.footerBlockLink} href="">
-                    Экспресс-кредит
-                  </a>
-                </li>
-                <li>
-                  <a className={styles.footerBlockLink} href="">
-                    Семейный автомобиль
-                  </a>
-                </li>
-                <li>
-                  <a className={styles.footerBlockLink} href="">
-                    Первый автомобиль
-                  </a>
-                </li>
-                <li>
-                  <a className={styles.footerBlockLink} href="">
-                    Работникам медицины
-                  </a>
-                </li>
-                <li>
-                  <a className={styles.footerBlockLink} href="">
-                    Рассрочка
-                  </a>
-                </li>
-                <li>
-                  <a className={styles.footerBlockLink} href="">
-                    Trade-in
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className={styles.footerSecondUnderBlock}>
-              <div className={styles.footerSecondUnderBlockFlex}>
-                <p className={styles.footerSecondTitle}>Подборки</p>
-              </div>
-              <ul className={styles.footerBlockList}>
-                <li>
-                  <a className={styles.footerBlockLink} href="">
-                    Семейные автомобили
-                  </a>
-                </li>
-                <li>
-                  <a className={styles.footerBlockLink} href="">
-                    Автомобили для путешевствий
-                  </a>
-                </li>
-                <li>
-                  <a className={styles.footerBlockLink} href="">
-                    Городские автомобили
-                  </a>
-                </li>
-                <li>
-                  <a className={styles.footerBlockLink} href="">
-                    Внедорожники
-                  </a>
-                </li>
-                <li>
-                  <a className={styles.footerBlockLink} href="">
-                    Кроссоверы
-                  </a>
-                </li>
-                <li>
-                  <a className={styles.footerBlockLink} href="">
-                    Седаны
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div> */}
         </div>
       </div>
       <div className={styles.footerSecond}>
@@ -322,16 +38,19 @@ export default function Footer() {
           <div className={styles.footerSecondGrid}>
             <div className={styles.footerSecondUnderBlock}>
               <p className={styles.footerSecondTextWhite}>
-                Rodds - Сервисы размещения объявлений для юридических лиц
+                © INVESTSTEEL 2023 - {new Date().getFullYear()}
               </p>
               <div className={styles.footerSecondFlexBetween}>
                 <Link
                   className={styles.footerSecondLinkBottom}
-                  href="/page/about"
+                  href="/page/confidential"
                 >
                   Политика конфидециальности
                 </Link>
-                <Link className={styles.footerSecondLinkBottom} href="/page/about">
+                <Link
+                  className={styles.footerSecondLinkBottom}
+                  href="/page/about"
+                >
                   Пользовательское соглашение
                 </Link>
               </div>

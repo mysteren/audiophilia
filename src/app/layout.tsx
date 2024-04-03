@@ -6,26 +6,28 @@ import "../styles/site/global.css";
 const myFont = localFont({
   src: [
     {
-      path: "../styles/fonts/ubuntu/Ubuntu-Light.woff2",
+      path: "../styles/fonts/montserrat/Montserrat-Light.woff2",
       weight: "300",
       style: "normal",
+    
     },
     {
-      path: "../styles/fonts/ubuntu/Ubuntu-Regular.woff2",
+      path: "../styles/fonts/montserrat/Montserrat-Regular.woff2",
       weight: "normal",
       style: "normal",
     },
     {
-      path: "../styles/fonts/ubuntu/Ubuntu-Medium.woff2",
+      path: "../styles/fonts/montserrat/Montserrat-Medium.woff2",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../styles/fonts/ubuntu/Ubuntu-Bold.woff2",
+      path: "../styles/fonts/montserrat/Montserrat-Bold.woff2",
       weight: "bold",
       style: "normal",
     },
   ],
+  display: 'swap',
 });
 
 // export const metadata: Metadata = {

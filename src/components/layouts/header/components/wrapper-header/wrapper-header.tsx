@@ -6,7 +6,7 @@ import { CategoryItem } from "@/types/categoryItem";
 import Image from "next/image";
 import Link from "next/link";
 import { BottomHeaderMenu } from "../bottom-header-menu/bottom-header-menu";
-import { CategoriesTree } from "../categories-tree.tsx/categories-tree";
+// import { CategoriesTree } from "../categories-tree.tsx/categories-tree";
 import { TopHeaderMenu } from "../top-header-menu/top-header-menu";
 import { TopRightBlock } from "../top-right-block/top-right-block";
 import { useScrollIsTop } from "./hooks/use-scroll-top";
@@ -42,8 +42,8 @@ export default function WrapperHeader({ categories, headerMenu2 }: Props) {
             height={30}
             unoptimized
             priority={false}
-            alt="Logotype Rodds"
-            src={"/images/logorodds.svg"}
+            alt="Investseel"
+            src={"/images/logoinvest.svg"}
           ></Image>
         </Link>
 

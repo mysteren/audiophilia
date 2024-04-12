@@ -14,9 +14,8 @@ type Props = {
 export function FilterElement({ item }: Props) {
   const { type, options, key, name } = item;
   const { filters, setFrom, setTo, setSelected } = useSelectedFiltersStore();
-  const [showOptions, setShowOptions] = useState(true);
+  const [showOptions, setShowOptions] = useState(false);
   const selectedFilter = filters[key];
-
   const properties = () => {
     switch (type) {
       case FilterType.select:
@@ -66,11 +65,10 @@ export function FilterElement({ item }: Props) {
 
   return (
     <>
-      <div className={styles.top}>
+      <div className={styles.top} onClick={() => setShowOptions(!showOptions)}>
         <span className={styles.title}>{name}</span>
         <button
-          className={`${styles.toggle} ${showOptions ? styles.show : ''}`}
-          onClick={() => setShowOptions(!showOptions)}
+          className={`${styles.toggle} ${showOptions ? styles.show : ""}`}
         >
           <ArrowIcon />
         </button>

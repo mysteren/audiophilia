@@ -1,0 +1,46 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr auto auto; 
+  column-gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.65rem;
+  align-items: center;
+}
+.topLeftGroup {
+  visibility: hidden;
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: auto auto;
+
+  border-radius: 0.5rem;
+}
+
+.icon {
+  background-color: color-mix(in srgb, var(--white), transparent 15%);
+  border-radius: 0.5rem;
+  padding: 0.3rem;
+  box-shadow: 0 0 5px 1px color-mix(in srgb, var(--white), transparent 15%);
+}
+
+.title {
+  color: var(--gray-dark);
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: 500;
+}
+
+.title::first-letter {
+  text-transform: uppercase;
+}
+
+.blockPrice {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+}

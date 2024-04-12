@@ -1,6 +1,6 @@
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Text } from "@/components/ui/text";
-import Card from "@/components/widgets/card/card";
+import CardRow from "@/components/widgets/card-row/card-row";
 import Filters from "@/components/widgets/filters/filters";
 import PageModals from "@/components/widgets/page-modals/page-modals";
 import { Pagination } from "@/components/widgets/pagination/pagination";
@@ -9,6 +9,9 @@ import { initFilters } from "@/services/filters";
 import { CategoryData } from "@/types/category";
 import Link from "next/link";
 import styles from "./page.module.css";
+
+const page = "";
+const limit = 18;
 
 // обновлять кеш каждые 15 секунд
 export const revalidate = 15;
@@ -24,7 +27,12 @@ export async function generateMetadata({
   params: { slug },
   searchParams,
 }: Props) {
-  const data: CategoryData = await getCategory(slug, searchParams);
+  const data: CategoryData = await getCategory(
+    slug,
+    searchParams,
+    page,
+    String(limit)
+  );
 
   const { category } = data;
 
@@ -38,7 +46,12 @@ export async function generateMetadata({
 }
 
 export default async function Page({ params: { slug }, searchParams }: Props) {
-  const data: CategoryData = await getCategory(slug, searchParams);
+  const data: CategoryData = await getCategory(
+    slug,
+    searchParams,
+    page,
+    String(limit)
+  );
   const {
     products,
     category,
@@ -55,14 +68,16 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
       : `/category/${category.slug}`;
 
   const productCards = products.map((product) => (
-    <Card key={`pc-${product.id}`} product={product} />
+    <CardRow key={`pc-${product.id}`} product={product} />
   ));
 
   const subcategories = childrens.map(({ title, slug }) => {
     const to = `/category/${slug}`;
     return (
       <li key={`subcategory-${to}`}>
-        <Link className={styles.category} href={to}>{title}</Link>
+        <Link className={styles.category} href={to}>
+          {title}
+        </Link>
       </li>
     );
   });
@@ -83,7 +98,7 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
       <h1>{category.title}</h1>
       <div className={styles.main}>
         <aside className={styles.aside}>
-          <div className={`${styles.aside__container} scroll`}>
+          <div className={`${styles.aside__container}`}>
             {!!subcategories.length && (
               <>
                 <h2>Категории</h2>
@@ -99,7 +114,7 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
         </aside>
         <section className={styles.section}>
           <div className={`${styles.products}`}>{productCards}</div>
-          <Pagination itemsCount={products.length} limit={12} />
+          <Pagination itemsCount={products.length} limit={limit} />
         </section>
       </div>
       <div>

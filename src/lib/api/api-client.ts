@@ -29,10 +29,15 @@ class ApiClient extends HttpClient {
     return this.get<T>("/category/tree");
   }
 
-  getCategory<T>(slug: string, searchParams: Record<string, string>) {
+  getCategory<T>(
+    slug: string,
+    searchParams: Record<string, string>,
+    page: string,
+    limit: string,
+  ) {
     const searchQuery = new URLSearchParams({
-      page: "",
-      limit: "12",
+      page,
+      limit,
       ...searchParams,
     });
     return this.get<T>(`/category/${slug}?${searchQuery}`);
@@ -55,8 +60,8 @@ class ApiClient extends HttpClient {
   // }
 
   fastOrder<T, K>(payload: K) {
-    const url = '/fast-order'
-    return this.post<K, T>(url, payload)
+    const url = "/fast-order";
+    return this.post<K, T>(url, payload);
   }
 }
 

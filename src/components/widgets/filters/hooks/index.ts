@@ -2,7 +2,7 @@ import { createFilteresQueryString } from "@/services/filters";
 import { useSelectedFiltersStore } from "@/store/selected-filters/selected-filters";
 import { Filter } from "@/types/categoryFilter";
 import { SelectedFiltersState } from "@/types/filter.type";
-import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 export function useFiltersStore(

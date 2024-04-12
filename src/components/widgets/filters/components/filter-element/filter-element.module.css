@@ -4,11 +4,12 @@
   align-items: end;
   margin-bottom: 0.8rem;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .title {
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .options {

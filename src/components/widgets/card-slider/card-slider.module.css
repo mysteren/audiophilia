@@ -10,7 +10,7 @@
   transition: transform 0.3s ease-in-out;
   min-height: 500px;
   max-height: 500px;
-  border-radius: 25px;
+  border-radius: 1rem;
   overflow: hidden;
   background: var(--black)
 }

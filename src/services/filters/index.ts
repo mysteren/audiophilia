@@ -19,14 +19,19 @@ export function createFilteresQueryString(
 
 export function initFilters(filters: Filter[]): Filter[] {
   return [
-    {
-      name: "Цена",
-      key: "price",
-      type: "value",
-      id: 0,
-      options: [],
-      properties: {},
-    },
-    ...filters,
+    // {
+    //   name: "Цена",
+    //   key: "price",
+    //   type: "value",
+    //   id: 0,
+    //   options: [],
+    //   properties: {},
+    // },
+    ...filters.filter(({ options, type }) => {
+      if (type === "select") {
+        return options.length;
+      }
+      return true;
+    }),
   ];
 }

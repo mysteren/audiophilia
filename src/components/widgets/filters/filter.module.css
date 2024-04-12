@@ -3,6 +3,10 @@
   list-style: none;
   display: grid;
   row-gap: 1.4rem;
+  max-height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 0.65rem;
 }
 
 .bottom {

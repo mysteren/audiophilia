@@ -11,6 +11,7 @@ import { PropertyRowElement } from "./components/property-row/property-row";
 import styles from "./page.module.css";
 import { getPropertyProps } from "./services";
 import { ProductData } from "./types";
+import NoImage from "@/components/ui/noimage/noimage";
 
 // обновлять кеш каждые 15 секунд
 export const revalidate = 15;
@@ -56,12 +57,19 @@ export default async function Page({ params: { slug } }: Props) {
         />
       </div>
       <div className={styles.colContent}>
-        <CardSlider alt={title} images={imagesSrcs} />
+        {imagesSrcs.length ? (
+          <CardSlider alt={title} images={imagesSrcs} />
+        ) : (
+          <NoImage />
+        )}
+
         <div className={styles.infoProduct}>
           <h1 className={styles.title}>{title}</h1>
           <div className={styles.prices}>
             <div className={styles.pricesBlock}>
-              <span className={styles.price}>{PrintPrice(price)} ₽</span>
+              {!!price && (
+                <span className={styles.price}>{PrintPrice(price)} ₽</span>
+              )}
               {!!oldPrice && (
                 <span className={styles.oldPrice}>
                   {PrintPrice(oldPrice)} ₽

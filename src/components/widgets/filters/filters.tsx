@@ -17,20 +17,18 @@ export default function Filters({ items, savedSearchParams, pathname }: Props) {
   const { filtersApply, clearFilters } = useFiltersNavigate(filters, pathname);
 
   return (
-    <div>
-      <div>
-        <ul className={styles.list}>
-          {items &&
-            items.map((item) => {
-              const { id } = item;
-              return (
-                <li key={`filter-${id}`}>
-                  <FilterElement item={item} />
-                </li>
-              );
-            })}
-        </ul>
-      </div>
+    <div className={styles.container}>
+      <ul className={`${styles.list} scroll`}>
+        {items &&
+          items.map((item) => {
+            const { id } = item;
+            return (
+              <li key={`filter-${id}`}>
+                <FilterElement item={item} />
+              </li>
+            );
+          })}
+      </ul>
       <div className={styles.bottom}>
         <Button variant="primary" onClick={filtersApply}>
           Применить

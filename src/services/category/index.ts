@@ -8,7 +8,14 @@ export function getCategoryTree() {
 
 export function getCategory(
   slug: string,
-  searchParams: Record<string, string>
+  searchParams: Record<string, string>,
+  page: string,
+  limit: string
 ) {
-  return ApiClientInstance.getCategory<CategoryData>(slug, searchParams);
+  return ApiClientInstance.getCategory<CategoryData>(
+    slug,
+    searchParams,
+    page,
+    limit
+  );
 }

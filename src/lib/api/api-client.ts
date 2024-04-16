@@ -33,7 +33,7 @@ class ApiClient extends HttpClient {
     slug: string,
     searchParams: Record<string, string>,
     page: string,
-    limit: string,
+    limit: string
   ) {
     const searchQuery = new URLSearchParams({
       page,
@@ -62,6 +62,21 @@ class ApiClient extends HttpClient {
   fastOrder<T, K>(payload: K) {
     const url = "/fast-order";
     return this.post<K, T>(url, payload);
+  }
+
+  sitemapCategories<T>() {
+    const url = `/sitemap/categories`;
+    return this.get<T>(url);
+  }
+
+  sitemapProducts<T>(limit: number, page: number) {
+    const url = `/sitemap/products?${toSearchString({ limit, page })}`;
+    return this.get<T>(url);
+  }
+
+  sitemapProductsCount<T>() {
+    const url = "/sitemap/products-count";
+    return this.get<T>(url);
   }
 }
 

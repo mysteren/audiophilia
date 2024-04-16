@@ -13,3 +13,10 @@ export function toSearchString(data: Record<string, string | number>) {
   const url = new URLSearchParams(data as Record<string, string>);
   return url.toString();
 }
+
+export function getBaseUrl(scheme: string, host: string, port: string) {
+  if (port) {
+    return `${scheme}://${host}:${port}`;
+  }
+  return `${scheme}://${host}`;
+}

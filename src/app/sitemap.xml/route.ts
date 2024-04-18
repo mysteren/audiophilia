@@ -1,6 +1,6 @@
 // app/server-sitemap-index.xml/route.ts
 import { BASE_URL, HOST, PORT, SITEMAP_LIMIT } from "@/config";
-import { getProducts, getProductsCount } from "@/services/sitemap";
+import { getProductsCount } from "@/services/sitemap";
 
 function cleanXML(xmlString: string) {
   // Удаляем пробелы и табуляции перед тегами
@@ -53,5 +53,3 @@ export async function GET(request: Request) {
     },
   });
 }
-
-export default function Sitemap() {}

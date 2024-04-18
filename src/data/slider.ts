@@ -3,7 +3,7 @@ import { Slide } from "@/types/slide";
 export const slides: Slide[] = [
   {
     id: "0",
-    title: "Широкий ассортимент, высококачественного металлопроката по конкурентоспособным ценам",
+    title: "Широкий ассортимент металлопроката по конкурентоспособным ценам",
     text: "В каталог",
     photo: '/images/slider/1.webp',
     url: '/category/automobiles',

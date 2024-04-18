@@ -20,7 +20,6 @@ type Props = {
 };
 
 export default function WrapperHeader({ categories, headerMenu2 }: Props) {
-
   const { scrollIsTop } = useScrollIsTop();
   const { showCatalog, showCatalogHandler } = useShowCatalog();
 
@@ -38,7 +37,7 @@ export default function WrapperHeader({ categories, headerMenu2 }: Props) {
 
         <Link className={styles.iconWrap} href="/">
           <Image
-            width={200}
+            width={120}
             height={30}
             unoptimized
             priority={false}
@@ -54,11 +53,15 @@ export default function WrapperHeader({ categories, headerMenu2 }: Props) {
 
       <div className={styles.catalogContainer}>
         <div className={`container ${styles.catalogGrid}`}>
-            <CategoriesCatalog items={categories}/>
+          <CategoriesCatalog items={categories} />
         </div>
       </div>
 
-      {scrollIsTop && !showCatalog && <BottomHeaderMenu items={headerMenu2} />}
+      {scrollIsTop && !showCatalog && (
+        <div className={styles.bottomMenu}>
+          <BottomHeaderMenu items={headerMenu2} />
+        </div>
+      )}
     </header>
   );
 }

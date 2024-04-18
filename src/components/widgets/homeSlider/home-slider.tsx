@@ -26,6 +26,9 @@ export default function HomeSlider({ items }: Props) {
 
   return (
     <div className={`${styles.slider} ${items[currentSlide].color}`}>
+      <button onClick={prevSlide} className={`${styles.btn} ${styles.prev}`}>
+        <ArrLeft />
+      </button>
       <div className={styles.sliderBlock}>
         {items.map((slide: Slide, index: number) => (
           <Slider
@@ -35,9 +38,7 @@ export default function HomeSlider({ items }: Props) {
           />
         ))}
       </div>
-      <button onClick={prevSlide} className={`${styles.btn} ${styles.prev}`}>
-        <ArrLeft />
-      </button>
+
       <button onClick={nextSlide} className={`${styles.btn} ${styles.next}`}>
         <ArrRight />
       </button>

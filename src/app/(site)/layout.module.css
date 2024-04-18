@@ -8,7 +8,7 @@
     padding-top: 70px;
 }
 
-@media (min-width: 550px) {
+@media (min-width: 576px) {
     .main {
         padding-top: 136px;
     }

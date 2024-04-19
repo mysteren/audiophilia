@@ -1,7 +1,7 @@
 
 .btn {
     display: grid;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     width: 2.8rem;
     height: 2.8rem;
@@ -10,6 +10,9 @@
     box-shadow: 0px 0px 30px 0px rgba(133, 147, 159, 0.30);
     border-radius: 0.5rem;
     transition: color 0.2s, background-color 0.2s;
+    color: var(--primary);
+    display: grid;
+    padding: 0.65rem;
 }
 
 .btn:hover {

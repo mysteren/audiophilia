@@ -6,7 +6,7 @@ export const slides: Slide[] = [
     title: "Широкий ассортимент металлопроката по конкурентоспособным ценам",
     text: "В каталог",
     photo: '/images/slider/1.webp',
-    url: '/category/automobiles',
+    url: '/category/metalloprokat',
     color: 'white',
 
   },
@@ -15,7 +15,7 @@ export const slides: Slide[] = [
     title: "Большой выбор крепежей для стройки",
     text: "В каталог",
     photo: '/images/slider/2.webp',
-    url: '/category/kommercheskaya_tehnika',
+    url: '/category/krepezh',
     color: 'black',
   },
 ];

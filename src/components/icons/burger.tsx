@@ -1,17 +1,15 @@
 export default function Burger() {
   return (
     <svg
-       aria-hidden="true"
+      fill="currentColor"
+      viewBox="0 0 30.00 30.00"
       xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="0.3"
     >
-      <path
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeWidth="1.5"
-        d="M5 7h14M5 12h14M5 17h14"
-      />
+      <g id="SVGRepo_iconCarrier">
+        <path d="M.5 24.006h29c.277 0 .5.223.5.5s-.223.5-.5.5H.5c-.277 0-.5-.223-.5-.5s.223-.5.5-.5zm0-10.003h29c.277 0 .5.223.5.5s-.223.5-.5.5H.5c-.277 0-.5-.223-.5-.5s.223-.5.5-.5zM.5 4h29c.277 0 .5.223.5.5s-.223.5-.5.5H.5C.223 5 0 4.777 0 4.5S.223 4 .5 4z"></path>
+      </g>
     </svg>
   );
 }

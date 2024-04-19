@@ -1,42 +1,14 @@
 export default function CloseIcon() {
   return (
     <svg
-      width="28"
-      height="22"
-      viewBox="0 -0.5 21 21"
-      version="1.1"
+      fill="currentColour"
+      viewBox="0 0 30 30"
       xmlns="http://www.w3.org/2000/svg"
-      fill="#000000"
+      stroke="currentColour"
+      strokeWidth="0.3"
     >
-      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-      <g
-        id="SVGRepo_tracerCarrier"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      ></g>
       <g id="SVGRepo_iconCarrier">
-        <title>close [#1511]</title> <desc>Created with Sketch.</desc>
-        <defs> </defs>
-        <g
-          id="Page-1"
-          stroke="none"
-          strokeWidth="1"
-          fill="none"
-          fillRule="evenodd"
-        >
-          <g
-            id="Dribbble-Light-Preview"
-            transform="translate(-419.000000, -240.000000)"
-            fill="#000000"
-          >
-            <g id="icons" transform="translate(56.000000, 160.000000)">
-              <polygon
-                id="close-[#1511]"
-                points="375.0183 90 384 98.554 382.48065 100 373.5 91.446 364.5183 100 363 98.554 371.98065 90 363 81.446 364.5183 80 373.5 88.554 382.48065 80 384 81.446"
-              ></polygon>
-            </g>
-          </g>
-        </g>
+        <path d="M29.484 0c-.13.004-.252.057-.343.15L17.164 12.13c-.49.47.235 1.197.706.707L29.846.857c.325-.318.1-.857-.363-.857zM12.488 17c-.13.004-.25.058-.34.15L.162 29.14c-.486.467.233 1.186.7.7L12.848 17.85c.325-.313.093-.85-.36-.85zM.5 0a.5.5 0 0 0-.348.86L29.14 29.845a.5.5 0 1 0 .706-.706L.86.152A.5.5 0 0 0 .5 0z"></path>
       </g>
     </svg>
   );

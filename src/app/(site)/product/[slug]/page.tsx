@@ -1,17 +1,16 @@
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import NoImage from "@/components/ui/noimage/noimage";
 import { Text } from "@/components/ui/text";
 import CardSlider from "@/components/widgets/card-slider/card-slider";
-import ToFastOrder from "@/components/widgets/to-fast-order/to-fast-order";
-import { ApiClientInstance } from "@/lib/api/api-client";
+import ToCart from "@/components/widgets/to-cart/to-cart";
 import { PrintPrice } from "@/lib/utils/price";
 import { GetFileUrl } from "@/lib/utils/url";
+import { getProduct } from "@/services/product";
 import Link from "next/link";
 import PageModals from "../../../../components/widgets/page-modals/page-modals";
 import { PropertyRowElement } from "./components/property-row/property-row";
 import styles from "./page.module.css";
 import { getPropertyProps } from "./services";
-import { ProductData } from "./types";
-import NoImage from "@/components/ui/noimage/noimage";
 
 // обновлять кеш каждые 15 секунд
 export const revalidate = 15;
@@ -23,7 +22,7 @@ type Props = {
 };
 
 export async function generateMetadata({ params: { slug } }: Props) {
-  const { product } = await ApiClientInstance.getProduct<ProductData>(slug);
+  const { product } = await getProduct(slug);
   const { metaTitle: title, metaDescription: description } = product;
   return {
     title,
@@ -35,7 +34,7 @@ export async function generateMetadata({ params: { slug } }: Props) {
 }
 
 export default async function Page({ params: { slug } }: Props) {
-  const data = await ApiClientInstance.getProduct<ProductData>(slug);
+  const data = await getProduct(slug);
   const { categories, product, filters } = data;
   const { id, title, price, text, files, oldPrice } = product;
 
@@ -56,32 +55,54 @@ export default async function Page({ params: { slug } }: Props) {
           ]}
         />
       </div>
-      <div className={styles.colContent}>
-        {imagesSrcs.length ? (
-          <CardSlider alt={title} images={imagesSrcs} />
-        ) : (
-          <NoImage />
-        )}
+      <div className={styles.body}>
+        <div className={styles.content}>
+          {imagesSrcs.length ? (
+            <CardSlider alt={title} images={imagesSrcs} />
+          ) : (
+            <NoImage />
+          )}
 
-        <div className={styles.infoProduct}>
-          <h1 className={styles.title}>{title}</h1>
-          <div className={styles.prices}>
-            <div className={styles.pricesBlock}>
-              {!!price && (
-                <span className={styles.price}>{PrintPrice(price)} ₽</span>
-              )}
-              {!!oldPrice && (
-                <span className={styles.oldPrice}>
-                  {PrintPrice(oldPrice)} ₽
-                </span>
-              )}
+          <div className={styles.infoProduct}>
+            <h1 className={styles.title}>{title}</h1>
+            <div className={styles.prices}>
+              <div className={styles.pricesBlock}>
+                {!!price && (
+                  <span className={styles.price}>{PrintPrice(price)} ₽</span>
+                )}
+                {!!oldPrice && (
+                  <span className={styles.oldPrice}>
+                    {PrintPrice(oldPrice)} ₽
+                  </span>
+                )}
+              </div>
             </div>
+            <div className={styles.blockBtn}></div>
           </div>
-          <div className={styles.blockBtn}></div>
+
+          <div className={styles.blockInfo}>
+            <div id="characteristics">
+              <h2 className={styles.subtitle}>Характеристики</h2>
+
+              {filters.map((filter, i) => (
+                <PropertyRowElement
+                  key={`pr-${i}`}
+                  {...getPropertyProps(filter, product)}
+                />
+              ))}
+            </div>
+
+            {!!text && (
+              <div id="info">
+                <h2 className={styles.subtitle}>Описание</h2>
+                <Text>{text}</Text>
+              </div>
+            )}
+          </div>
         </div>
         <div className={styles.stickyBar}>
           <div className={styles.stickyBlock}>
-            <ToFastOrder productId={id} />
+            <ToCart productId={id} />
             <div className={styles.anchorButtons}>
               <Link className={styles.anchorButton} href="#">
                 Галлерея
@@ -93,21 +114,6 @@ export default async function Page({ params: { slug } }: Props) {
                 Описание
               </Link>
             </div>
-          </div>
-        </div>
-        <div className={styles.blockInfo}>
-          <h2 id="characteristics">Характеристики</h2>
-
-          {filters.map((filter, i) => (
-            <PropertyRowElement
-              key={`pr-${i}`}
-              {...getPropertyProps(filter, product)}
-            />
-          ))}
-
-          <div>
-            <h2 id="info">Описание</h2>
-            <Text>{text}</Text>
           </div>
         </div>
       </div>

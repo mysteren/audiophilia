@@ -1,47 +1,90 @@
 import { uuidv4 } from "@/lib/utils/crypto";
+import { CartProductItem } from "@/types/cart";
 import { create } from "zustand";
-import { createJSONStorage, devtools, persist } from "zustand/middleware";
-
-type CartProductItem = {
-  id: string | number;
-  count: number;
-};
+import { createJSONStorage, persist } from "zustand/middleware";
+import { initStore } from "../service";
 
 type State = {
   userId: string;
   fastProductItems: CartProductItem[];
-  orders: {
-    items: CartProductItem[];
-  };
+  productItems: CartProductItem[];
 };
 
 type Actions = {
   setFastProductItems: (items: CartProductItem[]) => void;
+  setProductItems: (items: CartProductItem[]) => void;
+  addProductItem: (item: CartProductItem) => void;
+  deleteProductItem: (id: string | number) => void;
 };
-
-// type Selecttors = {
-//   getFastProductItems:
-// }
 
 type Store = State & Actions;
 
 export const useCartStore = create<Store>()(
-  devtools(
-    persist(
+  persist(
+    initStore(
       (set) =>
         ({
           userId: uuidv4(),
           fastProductItems: [],
-          orders: {
-            items: [],
-          },
+          productItems: [],
           setFastProductItems: (items) => {
-            return set((state) => {
-              return { ...state, fastProductItems: items };
-            });
+            return set(
+              (state) => {
+                return { ...state, fastProductItems: items };
+              },
+              false,
+              "setFastProductItems"
+            );
           },
-        } as Store),
-      { name: "user-cart", storage: createJSONStorage(() => localStorage) }
-    )
+          setProductItems: (items) => {
+            return set(
+              (state) => {
+                return { ...state, productItems: items };
+              },
+              false,
+              "setProductItems"
+            );
+          },
+          addProductItem: (item) => {
+            return set(
+              (state) => {
+                // console.log(state)
+                const productItems = [...state.productItems];
+                if (
+                  !productItems.find(({ id }) => {
+                    return id === item.id;
+                  })
+                ) {
+                  productItems.push(item);
+                }
+
+                return {
+                  ...state,
+                  productItems,
+                };
+              },
+              false,
+              "addProductItem"
+            );
+          },
+          deleteProductItem: (id) => {
+            return set(
+              (state) => {
+                return {
+                  ...state,
+                  productItems: state.productItems.filter((item) => {
+                    return item.id !== id;
+                  }),
+                };
+              },
+              false,
+              "deleteProductItem"
+            );
+          },
+        } as Store)
+    ),
+    { name: "user-cart", storage: createJSONStorage(() => localStorage) }
   )
 );
+
+// { name: "user-cart", storage: createJSONStorage(() => localStorage) }

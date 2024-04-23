@@ -1,7 +1,8 @@
 import { ReactNode } from "react";
 import styles from "./button.module.css";
+import clsx from "clsx";
 
-type Variants = "primary" | undefined;
+type Variants = "primary" | "green" | "red" | undefined;
 
 type Props = {
   children?: ReactNode;
@@ -20,7 +21,7 @@ export default function Button({
     <button
       disabled={disabled}
       onClick={onClick}
-      className={`${styles.button} ${styles?.[String(variant)]}`}
+      className={clsx(styles.button, styles?.[String(variant)])}
     >
       {children}
     </button>

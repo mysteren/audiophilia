@@ -1,22 +1,31 @@
 .button {
+  --color-bg: var(--white);
+  --color: var(--primary);
   border: 0;
-  background: var(--white);
-  color: var(--primary);
+  background: var(--color-bg);
+  color: var(--color);
   padding: 0.65rem 0.85rem;
-  border: 1px dotted var(--primary);
+  border: 1px solid var(--color);
   border-radius: 10px;
   transition: background-color 0.2s, color 0.2s;
   &.primary {
+    /* --color: var(--green); */
+    /* --color-bg: var(--primary); */
     background: var(--primary);
     color: var(--white);
+  }
+  &.green {
+    --color: var(--green);
+  }
+  &.red {
+    --color: var(--red);
   }
 }
 
 .button:hover {
-  background-color: color-mix(in srgb, var(--primary) 10%, var(--white));
-  color: var(--primary);
-  box-shadow: 0px 0px 12px 0px
-    color-mix(in srgb, var(--primary), transparent 50%);
+  background-color: color-mix(in srgb, var(--color) 5%, var(--color-bg));
+  color: var(--color);
+  border-style: dashed;
+  box-shadow: 0px 0px 8px 0px
+    color-mix(in srgb, var(--color), transparent 75%);
 }
-
-

@@ -43,6 +43,10 @@ class ApiClient extends HttpClient {
     return this.get<T>(`/category/${slug}?${searchQuery}`);
   }
 
+  getProductsByIds<T>(ids: string) {
+    return this.get<T>(`/productsByIds/${ids}`);
+  }
+
   getProduct<T>(slug: string) {
     return this.get<T>(`/product/${slug}`);
   }

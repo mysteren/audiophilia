@@ -5,6 +5,7 @@ import styles from "./top-right-block.module.css";
 import Link from "next/link";
 import clsx from "clsx";
 import CartIcon from "@/components/icons/cart";
+import { HeaderCart } from "../header-cart/header-cart";
 
 export function TopRightBlock() {
   return (
@@ -15,9 +16,11 @@ export function TopRightBlock() {
       <Link href="/favorite" className={styles.icon}>
         <HeartIcon />
       </Link>
-      <Link href="/cart" className={styles.icon}>
-        <CartIcon />
-      </Link>
+      <HeaderCart>
+        <Link href="/cart" className={styles.icon}>
+          <CartIcon />
+        </Link>
+      </HeaderCart>
     </div>
   );
 }

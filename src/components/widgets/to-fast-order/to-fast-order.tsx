@@ -13,9 +13,9 @@ export default function ToFastOrder({ productId }: Props) {
   const { setFastProductItems } = useCartStore();
 
   const click = () => {
-    showFastOrder()
-    setFastProductItems([{ id: productId, count: 1 }])
-  }
+    showFastOrder();
+    setFastProductItems([{ id: productId, count: 1, units: {} }]);
+  };
 
   return (
     <>

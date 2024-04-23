@@ -95,7 +95,7 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
           ]}
         />
       </div>
-      <h1>{category.title}</h1>
+      <h1 className={styles.title}>{category.title}</h1>
       <div className={styles.main}>
         <aside className={styles.aside}>
           <div className={`${styles.aside__container}`}>

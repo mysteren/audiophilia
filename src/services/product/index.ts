@@ -8,3 +8,10 @@ export function getProductsByIds(ids: Array<number | string>) {
 export function getProduct(slug: string) {
   return ApiClientInstance.getProduct<ProductData>(slug);
 }
+
+export async function getProductsById(id: number | string) {
+  const [item] = await ApiClientInstance.getProductsByIds<Product[]>(
+    [id].join(",")
+  );
+  return item;
+}

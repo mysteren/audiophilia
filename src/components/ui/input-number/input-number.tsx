@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, FocusEventHandler, useEffect, useState } from "react";
 import styles from "./input-number.module.css";
 
 type Props = {
@@ -10,24 +10,30 @@ type Props = {
 };
 
 export function InputNumber({ placeholder, value, min, max, onChange }: Props) {
-
   const [val, setVal] = useState(value);
 
   useEffect(() => {
     setVal(value);
-  }, [value])
+  }, [value]);
 
   function changeHandler(e: ChangeEvent<HTMLInputElement>) {
     const { value } = e.target;
+    setVal(value);
+    // if (onChange) {
+    //   onChange(value);
+    // }
+  }
+
+  function blurHandler() {
     if (onChange) {
-      onChange(value);
+      onChange(val);
     }
   }
 
   return (
     <input
       onChange={changeHandler}
-      onBlur={changeHandler}
+      onBlur={blurHandler}
       className={styles.input}
       placeholder={placeholder}
       min={min}

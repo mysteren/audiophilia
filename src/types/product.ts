@@ -13,6 +13,9 @@ export type Product = {
     images: ImageFileItem[];
   };
   properties: Record<string, string | string[] | number | number[]>;
+  addition: {
+    multiUnit: Record<string, number>;
+  };
 };
 
 export type Category = {

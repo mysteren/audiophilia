@@ -14,6 +14,7 @@ type Actions = {
   setFastProductItems: (items: CartProductItem[]) => void;
   setProductItems: (items: CartProductItem[]) => void;
   addProductItem: (item: CartProductItem) => void;
+  updateProductItem: (item: CartProductItem) => void;
   deleteProductItem: (id: string | number) => void;
 };
 
@@ -65,6 +66,25 @@ export const useCartStore = create<Store>()(
               },
               false,
               "addProductItem"
+            );
+          },
+          updateProductItem: (item) => {
+            return set(
+              (state) => {
+                console.log(item);
+                const productItems = state.productItems.map((el) => {
+                  if (item.id === el.id) {
+                    return item;
+                  }
+                  return el;
+                });
+                return {
+                  ...state,
+                  productItems,
+                };
+              },
+              false,
+              "updateProductItem"
             );
           },
           deleteProductItem: (id) => {

@@ -2,11 +2,13 @@
 
 import Button from "@/components/ui/button/button";
 import { checkIsInCart } from "@/services/cart";
+import { getProductsById } from "@/services/product";
 import { useCartStore } from "@/store/cart/cart";
 import { useRouter } from "next/navigation";
 
 type Props = {
   productId: number;
+
 };
 
 export default function ToCart({ productId }: Props) {
@@ -16,11 +18,14 @@ export default function ToCart({ productId }: Props) {
 
   const router = useRouter();
 
-  const click = () => {
+  const click = async () => {
     if (isInCart) {
       router.push("/cart");
     } else {
-      addProductItem({ id: productId, count: 1, units: {} });
+      const product = await getProductsById(productId)
+      if (product) {
+        addProductItem({ id: product.id, counts: product.addition.multiUnit });
+      }
     }
   };
 

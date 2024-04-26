@@ -1,56 +1,19 @@
 "use client";
-import { useCartStore } from "@/store/cart/cart";
-import styles from "./page.module.css";
 import Button from "@/components/ui/button/button";
-import { Product } from "@/types/product";
 import { getProductsByIds } from "@/services/product";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import clsx from "clsx";
+import { useCartStore } from "@/store/cart/cart";
 import { CartProductItem } from "@/types/cart";
-
-type CartRowProps = {
-  product: Product;
-  count: number;
-  onDelete: (id: string | number) => void;
-};
-
-function CartRow({ product: { title, id }, count, onDelete }: CartRowProps) {
-  return (
-    <div className={styles.row}>
-      <div>{title}</div>
-      <div>{count}</div>
-      <div>
-        <Button
-          variant="red"
-          onClick={() => {
-            onDelete(id);
-          }}
-        >
-          Удалить
-        </Button>
-      </div>
-    </div>
-  );
-}
-
-// type Props = {};
-
-// export function metadata() {
-//   const title = "Корзина";
-//   const description = "RJhpbyf";
-//   const canonical = "/page/cart";
-//   return {
-//     title,
-//     description,
-//     alternates: {
-//       canonical,
-//     },
-//   };
-// }
+import { Product } from "@/types/product";
+import clsx from "clsx";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { CartRow } from "./components/cart-row";
+import styles from "./page.module.css";
+import { CartProduct } from "./types/cart-product";
+import { translateUnit } from "@/lib/utils/unit";
 
 async function getData(
   items: CartProductItem[],
-  dispatch: Dispatch<SetStateAction<{ product: Product; count: number }[]>>
+  dispatch: Dispatch<SetStateAction<CartProduct[]>>
 ) {
   const records = await getProductsByIds(
     items.map(({ id }) => {
@@ -58,23 +21,47 @@ async function getData(
     })
   );
 
-  dispatch(
-    records.map((product) => {
-      return {
-        product,
-        count: 0,
-      };
-    })
-  );
+  const result = records.map((product) => {
+    const item = items.find(({ id }) => {
+      return id === product.id;
+    });
+
+    return {
+      product,
+      counts: item ? item.counts : {},
+    };
+  });
+
+  dispatch(result);
+}
+
+function getUnitKeys(products: Product[]) {
+  const set = new Set<string>();
+  for (let product of products) {
+    const units = product.addition?.multiUnit;
+    if (product.addition?.multiUnit) {
+      for (let unit in units) {
+        set.add(unit);
+      }
+    }
+  }
+  return Array.from(set);
 }
 
 export default function CartPage() {
   const { productItems, deleteProductItem } = useCartStore();
 
-  const [rows, setRows] = useState<{ product: Product; count: number }[]>([]);
+  const [rows, setRows] = useState<CartProduct[]>([]);
+
+  const unitsKeys = getUnitKeys(rows.map(({ product }) => product));
+
+  const unitsKeysCols = unitsKeys.map((el, i) => (
+    <th className={clsx(styles.th, styles.colUnit)} key={`unit-key-${i}`}>
+      {translateUnit(el)}
+    </th>
+  ));
 
   useEffect(() => {
-    console.log(productItems);
     if (productItems.length) {
       getData(productItems, setRows);
     } else {
@@ -82,33 +69,35 @@ export default function CartPage() {
     }
   }, [productItems]);
 
-  // const rows = productItems.map(({ id, count, units }, i) => {
-  //   return (
-  //     <div className={styles.row} key={`cart-row-${i}`}>
-  //       <div>{id}</div>
-  //       <div>{count}</div>
-  //     </div>
-  //   );
-  // });
-
   return (
     <>
       <h1>Корзина</h1>
       <div className={styles.main}>
         <section className={styles.section}>
-          <div className={clsx(styles.row, styles.rowHead)}>
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th className={styles.th}></th>
+                <th className={clsx(styles.th, styles.colGrow)}>Название</th>
+                {unitsKeysCols}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((item, i) => (
+                <CartRow
+                  key={i}
+                  item={item}
+                  units={unitsKeys}
+                  onDelete={deleteProductItem}
+                />
+              ))}
+            </tbody>
+          </table>
+          {/* <div className={clsx(styles.row, styles.rowHead)}>
             <div>Название</div>
-            <div>Количество</div>
-            <div>Управление</div>
-          </div>
-          {rows.map(({ product, count }, i) => (
-            <CartRow
-              key={i}
-              product={product}
-              count={count}
-              onDelete={deleteProductItem}
-            />
-          ))}
+            {unitsKeysCols}
+            <div></div>
+          </div> */}
         </section>
         <aside className={styles.aside}>
           <Button variant="primary">Оформить</Button>

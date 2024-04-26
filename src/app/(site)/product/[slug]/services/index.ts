@@ -1,4 +1,5 @@
-import { CategoryFilter, Product } from "../types";
+import { CategoryFilter, Product } from "@/types/product";
+
 
 export function getPropertyProps(filter: CategoryFilter, product: Product) {
   let value: string = "";

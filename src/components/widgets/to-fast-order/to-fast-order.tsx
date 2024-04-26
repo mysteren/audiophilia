@@ -14,7 +14,7 @@ export default function ToFastOrder({ productId }: Props) {
 
   const click = () => {
     showFastOrder();
-    setFastProductItems([{ id: productId, count: 1, units: {} }]);
+    setFastProductItems([{ id: productId, counts: {} }]);
   };
 
   return (

@@ -2,9 +2,8 @@ import { ApiResponseError } from "@/lib/http/errors";
 import { fastOrder } from "@/services/order";
 import { FastOrderDto } from "@/services/order/types";
 import { useCartStore } from "@/store/cart/cart";
-import { error } from "console";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { unknown } from "zod";
+import { CartItemCounts } from "@/types/cart";
+import { useEffect, useState } from "react";
 
 export enum FormStatus {
   wait,
@@ -35,7 +34,7 @@ type SumbitReturn = {
 };
 
 function transformData(
-  productItems: { id: string | number; count: number }[],
+  productItems: { id: string | number; counts: CartItemCounts }[],
   formData: FormDataType
 ): FastOrderDto {
   return {
@@ -77,7 +76,7 @@ function getValidateError(key: string, errors: ValidateError[]) {
 export function useFastOrderForm() {
   const [status, setStatus] = useState<FormStatus>(FormStatus.wait);
 
-  const fastProductItems = useCartStore((state) => state.fastProductItems);
+  const { fastProductItems } = useCartStore();
 
   const [formData, setFormData] = useState<FormDataType>({
     name: {

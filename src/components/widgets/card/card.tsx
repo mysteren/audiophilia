@@ -10,7 +10,6 @@ import { GetFileUrl } from "@/lib/utils/url";
 import { Product } from "@/types/product";
 import Image from "next/image";
 import Link from "next/link";
-import ToFastOrder from "../to-fast-order/to-fast-order";
 import styles from "./card.module.css";
 
 // function UploadsImageLoader({
@@ -88,7 +87,6 @@ export default function Card({ product }: Props) {
         <Link className={styles.toDetail} href={ToProduct(product.slug)}>
           <Button>Подробнее</Button>
         </Link>
-        <ToFastOrder productId={product.id} />
       </div>
     </div>
   );

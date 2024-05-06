@@ -1,6 +1,6 @@
 import { CartItemCounts } from "@/types/cart";
 
-export type FastOrderDto = {
+export type OrderDto = {
   name: string;
   email: string;
   phone: string;

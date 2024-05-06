@@ -1,11 +1,11 @@
 import { Checkbox } from "@/components/ui/checkbox/checkbox";
 import { InputNumber } from "@/components/ui/input-number/input-number";
 import { InputString } from "@/components/ui/input-string/input-string";
-import { CartProduct } from "../types/cart-product";
+import { CartProduct } from "../../../app/(site)/cart/types/cart-product";
 import { useCartStore } from "@/store/cart/cart";
 import { calcCounts } from "@/services/cart";
 import { ToProduct } from "@/lib/utils/route-url";
-import styles from './cart.rows.module.css';
+import styles from './cart-row.module.css';
 import Link from "next/link";
 import Button from "@/components/ui/button/button";
 
@@ -26,7 +26,6 @@ export function CartRow({ item, units, onDelete }: CartRowProps) {
   const { updateProductItem } = useCartStore();
 
   function changeHandler(value: string, unit: string) {
-    // console.log({ value, unit, k: addition.multiUnit });
 
     const counts = calcCounts(
       addition.multiUnit,

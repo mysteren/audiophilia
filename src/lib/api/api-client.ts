@@ -63,8 +63,8 @@ class ApiClient extends HttpClient {
   //   });
   // }
 
-  fastOrder<T, K>(payload: K) {
-    const url = "/fast-order";
+  order<T, K>(payload: K) {
+    const url = "/order";
     return this.post<K, T>(url, payload);
   }
 

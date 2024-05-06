@@ -3,7 +3,7 @@ import { initStore } from "../service";
 
 export enum ModalKey {
   none = "",
-  fastOrder = "fastOrder",
+  order = "order",
 }
 
 type State = {
@@ -13,7 +13,7 @@ type State = {
 
 type Actions = {
   close: () => void;
-  showFastOrder: () => void;
+  showOrder: () => void;
 };
 
 type Store = State & Actions;
@@ -22,9 +22,9 @@ export const useActioveModals = create<Store>()(
   initStore((set) => ({
     showModal: false,
     activeModal: ModalKey.none,
-    showFastOrder: () => {
+    showOrder: () => {
       return set((state) => {
-        return { ...state, showModal: true, activeModal: ModalKey.fastOrder };
+        return { ...state, showModal: true, activeModal: ModalKey.order };
       });
     },
     close: () => {

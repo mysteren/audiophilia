@@ -14,7 +14,7 @@ export function HeaderCart({ children }: Props) {
 
   return (
     <div className={clsx(styles.container)}>
-      <div className={clsx(styles.counter)}>{count}</div>
+      {!!count && <div className={clsx(styles.counter)}>{count}</div>}
       {children}
     </div>
   );

@@ -1,6 +1,7 @@
 import { ApiResponseError } from "@/lib/http/errors";
-import { fastOrder } from "@/services/order";
-import { FastOrderDto } from "@/services/order/types";
+import { order } from "@/services/order";
+import { OrderDto } from "@/services/order/types";
+import { useActioveModals } from "@/store/active-modals/active-modals";
 import { useCartStore } from "@/store/cart/cart";
 import { CartItemCounts } from "@/types/cart";
 import { useEffect, useState } from "react";
@@ -31,12 +32,13 @@ type ValidateError = {
 type SumbitReturn = {
   status: boolean;
   validateErrors?: ValidateError[];
+  orderId?: string;
 };
 
 function transformData(
   productItems: { id: string | number; counts: CartItemCounts }[],
   formData: FormDataType
-): FastOrderDto {
+): OrderDto {
   return {
     email: formData.email.value,
     name: formData.name.value,
@@ -45,9 +47,9 @@ function transformData(
   };
 }
 
-async function SubmitForm(data: FastOrderDto): Promise<SumbitReturn> {
+async function SubmitForm(data: OrderDto): Promise<SumbitReturn> {
   try {
-    const result = await fastOrder(data);
+    const result = await order(data);
     return result;
   } catch (e) {
     if (e instanceof ApiResponseError) {
@@ -73,10 +75,12 @@ function getValidateError(key: string, errors: ValidateError[]) {
   return "";
 }
 
-export function useFastOrderForm() {
+export function useOrderForm() {
   const [status, setStatus] = useState<FormStatus>(FormStatus.wait);
+  const [orderId, setOrderId] = useState<string>("");
 
-  const { fastProductItems } = useCartStore();
+  const { productItems, clearProductItem } = useCartStore();
+  const { close } = useActioveModals()
 
   const [formData, setFormData] = useState<FormDataType>({
     name: {
@@ -95,9 +99,10 @@ export function useFastOrderForm() {
 
   const submit = async () => {
     setStatus(FormStatus.pending);
-    const result = await SubmitForm(transformData(fastProductItems, formData));
+    const result = await SubmitForm(transformData(productItems, formData));
     if (result.status) {
       setStatus(FormStatus.completed);
+      setOrderId(result.orderId ?? "");
     } else {
       const { validateErrors } = result;
       const { email, phone, name } = formData;
@@ -133,7 +138,22 @@ export function useFastOrderForm() {
 
   useEffect(() => {
     setStatus(FormStatus.wait);
-  }, [fastProductItems]);
+  }, [productItems]);
 
-  return { status, formData, changePhone, changeName, changeEmail, submit };
+  const finish = () => {
+    close();
+    clearProductItem();
+    setStatus(FormStatus.wait);
+  };
+
+  return {
+    status,
+    formData,
+    changePhone,
+    changeName,
+    changeEmail,
+    submit,
+    finish,
+    orderId,
+  };
 }

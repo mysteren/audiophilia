@@ -6,16 +6,15 @@ import { initStore } from "../service";
 
 type State = {
   userId: string;
-  fastProductItems: CartProductItem[];
   productItems: CartProductItem[];
 };
 
 type Actions = {
-  setFastProductItems: (items: CartProductItem[]) => void;
   setProductItems: (items: CartProductItem[]) => void;
   addProductItem: (item: CartProductItem) => void;
   updateProductItem: (item: CartProductItem) => void;
   deleteProductItem: (id: string | number) => void;
+  clearProductItem: () => void;
 };
 
 type Store = State & Actions;
@@ -26,17 +25,7 @@ export const useCartStore = create<Store>()(
       (set) =>
         ({
           userId: uuidv4(),
-          fastProductItems: [],
           productItems: [],
-          setFastProductItems: (items) => {
-            return set(
-              (state) => {
-                return { ...state, fastProductItems: items };
-              },
-              false,
-              "setFastProductItems"
-            );
-          },
           setProductItems: (items) => {
             return set(
               (state) => {
@@ -44,6 +33,15 @@ export const useCartStore = create<Store>()(
               },
               false,
               "setProductItems"
+            );
+          },
+          clearProductItem: () => {
+            return set(
+              (state) => {
+                return { ...state, productItems: [] };
+              },
+              false,
+              "clearProductItems"
             );
           },
           addProductItem: (item) => {

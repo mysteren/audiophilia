@@ -1,21 +1,33 @@
 import Button from "@/components/ui/button/button";
 import { InputString } from "@/components/ui/input-string/input-string";
 import { ruPhoneTransformer } from "@/lib/utils/phone";
-import styles from "./fast-order.module.css";
-import { FormStatus, useFastOrderForm } from "./hooks/form";
+import styles from "./order.module.css";
+import { FormStatus, useOrderForm } from "./hooks/form";
 
 type Props = {};
 
-export default function FastOrder(_props: Props) {
-  const { submit, formData, changeEmail, changeName, changePhone, status } =
-    useFastOrderForm();
+export default function Order(_props: Props) {
+  const {
+    submit,
+    formData,
+    changeEmail,
+    changeName,
+    changePhone,
+    status,
+    finish,
+    orderId,
+  } = useOrderForm();
 
   return (
     <div className={styles.container}>
       {status === FormStatus.completed ? (
         <>
           <span className={styles.title}>Отправлено</span>
-          <p>Ваша заявка отправлена, в ближайшее время мы свяжемся с вами</p>
+          <div>
+            <p>Заказ № {orderId}</p>
+            <p>Ваша заявка отправлена, в ближайшее время мы свяжемся с вами</p>
+          </div>
+          <Button onClick={finish}>Завершить</Button>
         </>
       ) : (
         <>

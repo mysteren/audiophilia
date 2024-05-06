@@ -1,20 +1,22 @@
 "use client";
 import ModalWindow from "@/components/ui/modal-window/modal-window";
-import FastOrder from "@/components/widgets/fast-order/fast-order";
-import { ModalKey, useActioveModals } from "@/store/active-modals/active-modals";
+import {
+  ModalKey,
+  useActioveModals,
+} from "@/store/active-modals/active-modals";
+import Order from "../order/order";
 
-const Props = {};
+// const Props = {};
 
 export default function PageModals() {
   const { showModal, activeModal, close } = useActioveModals();
 
   const content = () => {
-    switch(activeModal) {
-      case ModalKey.fastOrder:
-      return <FastOrder />
+    switch (activeModal) {
+      case ModalKey.order:
+        return <Order />;
     }
-  } 
-
+  };
 
   return (
     <>
@@ -24,7 +26,7 @@ export default function PageModals() {
           close();
         }}
       >
-        { content() } 
+        {content()}
       </ModalWindow>
     </>
   );

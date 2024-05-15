@@ -1,4 +1,5 @@
 import { ApiClientInstance } from "@/lib/api/api-client";
+import { ApiResponseError } from "@/lib/http/errors";
 import { CategoryData } from "@/types/category";
 import { CategoryItem } from "@/types/categoryItem";
 
@@ -18,4 +19,16 @@ export function getCategory(
     page,
     limit
   );
+
+  // try {
+  //   const result = await ApiClientInstance.getCategory<CategoryData>(
+  //     slug,
+  //     searchParams,
+  //     page,
+  //     limit
+  //   );
+  //   return [result, null]
+  // } catch (e) {
+  //   return [null, e as ApiResponseError]
+  // }
 }

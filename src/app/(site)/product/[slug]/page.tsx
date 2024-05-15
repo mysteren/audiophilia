@@ -11,6 +11,8 @@ import PageModals from "../../../../components/widgets/page-modals/page-modals";
 import { PropertyRowElement } from "./components/property-row/property-row";
 import styles from "./page.module.css";
 import { getPropertyProps } from "./services";
+import { ApiResponseError } from "@/lib/http/errors";
+import { notFound } from "next/navigation";
 
 // обновлять кеш каждые 15 секунд
 export const revalidate = 15;
@@ -21,8 +23,23 @@ type Props = {
   };
 };
 
+async function fetchData(
+  slug: string,
+) {
+  try {
+    const result = await getProduct(slug);
+    return result;
+  } catch (e) {
+    console.error(e);
+    if (e instanceof ApiResponseError && e.responseErrorData.status === 404) {
+      notFound();
+    }
+  }
+}
+
+
 export async function generateMetadata({ params: { slug } }: Props) {
-  const { product } = await getProduct(slug);
+  const { product } = await fetchData(slug);
   const { metaTitle: title, metaDescription: description } = product;
   return {
     title,
@@ -34,7 +51,7 @@ export async function generateMetadata({ params: { slug } }: Props) {
 }
 
 export default async function Page({ params: { slug } }: Props) {
-  const data = await getProduct(slug);
+  const data = await fetchData(slug);
   const { categories, product, filters } = data;
   const { id, title, price, text, files, oldPrice } = product;
 

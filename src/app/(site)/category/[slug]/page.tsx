@@ -4,10 +4,11 @@ import CardRow from "@/components/widgets/card-row/card-row";
 import Filters from "@/components/widgets/filters/filters";
 import PageModals from "@/components/widgets/page-modals/page-modals";
 import { Pagination } from "@/components/widgets/pagination/pagination";
+import { ApiResponseError } from "@/lib/http/errors";
 import { getCategory } from "@/services/category";
 import { initFilters } from "@/services/filters";
-import { CategoryData } from "@/types/category";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import styles from "./page.module.css";
 
 const page = "";
@@ -23,16 +24,28 @@ type Props = {
   searchParams: Record<string, string>;
 };
 
+async function fetchData(
+  slug: string,
+  searchParams: Record<string, string>,
+  page: string,
+  limit: number
+) {
+  try {
+    const result = await getCategory(slug, searchParams, page, String(limit));
+    return result;
+  } catch (e) {
+    console.error(e);
+    if (e instanceof ApiResponseError && e.responseErrorData.status === 404) {
+      notFound();
+    }
+  }
+}
+
 export async function generateMetadata({
   params: { slug },
   searchParams,
 }: Props) {
-  const data: CategoryData = await getCategory(
-    slug,
-    searchParams,
-    page,
-    String(limit)
-  );
+  const data = await fetchData(slug, searchParams, page, limit);
 
   const { category } = data;
 
@@ -46,12 +59,8 @@ export async function generateMetadata({
 }
 
 export default async function Page({ params: { slug }, searchParams }: Props) {
-  const data: CategoryData = await getCategory(
-    slug,
-    searchParams,
-    page,
-    String(limit)
-  );
+  const data = await fetchData(slug, searchParams, page, limit);
+
   const {
     products,
     category,

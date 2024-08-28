@@ -1,7 +1,7 @@
-import Collections from "@/components/widgets/collections/collections";
-import HomeSlider from "@/components/widgets/homeSlider/home-slider";
-import { collections } from "@/data/collections";
-import { slides } from "@/data/slider";
+import Collections from "@/widgets/collections/collections";
+import HomeSlider from "@/widgets/homeSlider/home-slider";
+import { collections } from "@/shared/data/collections";
+import { slides } from "@/shared/data/slider";
 import { getMainPageSettingsData } from "@/services/site-settings";
 import styles from "./page.module.css";
 

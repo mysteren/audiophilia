@@ -1,17 +1,17 @@
-import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import NoImage from "@/components/ui/noimage/noimage";
-import { Text } from "@/components/ui/text";
-import CardSlider from "@/components/widgets/card-slider/card-slider";
-import ToCart from "@/components/widgets/to-cart/to-cart";
-import { PrintPrice } from "@/lib/utils/price";
-import { GetFileUrl } from "@/lib/utils/url";
+import { Breadcrumbs } from "@/shared/ui/breadcrumbs";
+import NoImage from "@/shared/ui/noimage/noimage";
+import { Text } from "@/shared/ui/text";
+import CardSlider from "@/widgets/card-slider/card-slider";
+import ToCart from "@/widgets/to-cart/to-cart";
+import { PrintPrice } from "@/shared/lib/utils/price";
+import { GetFileUrl } from "@/shared/lib/utils/url";
 import { getProduct } from "@/services/product";
 import Link from "next/link";
-import PageModals from "../../../../components/widgets/page-modals/page-modals";
+import PageModals from "../../../../widgets/page-modals/page-modals";
 import { PropertyRowElement } from "./components/property-row/property-row";
 import styles from "./page.module.css";
 import { getPropertyProps } from "./services";
-import { ApiResponseError } from "@/lib/http/errors";
+import { ApiResponseError } from "@/shared/lib/http/errors";
 import { notFound } from "next/navigation";
 
 // обновлять кеш каждые 15 секунд

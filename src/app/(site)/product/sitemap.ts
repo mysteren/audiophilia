@@ -1,4 +1,4 @@
-import { BASE_URL, SITEMAP_LIMIT } from "@/config";
+import { BASE_URL, SITEMAP_LIMIT } from "@/shared/config";
 import { getProducts, getProductsCount } from "@/services/sitemap";
 import { MetadataRoute } from "next";
 

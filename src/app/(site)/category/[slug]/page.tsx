@@ -1,10 +1,10 @@
-import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { Text } from "@/components/ui/text";
-import CardRow from "@/components/widgets/card-row/card-row";
-import Filters from "@/components/widgets/filters/filters";
-import PageModals from "@/components/widgets/page-modals/page-modals";
-import { Pagination } from "@/components/widgets/pagination/pagination";
-import { ApiResponseError } from "@/lib/http/errors";
+import { Breadcrumbs } from "@/shared/ui/breadcrumbs";
+import { Text } from "@/shared/ui/text";
+import CardRow from "@/widgets/card-row/card-row";
+import Filters from "@/widgets/filters/filters";
+import PageModals from "@/widgets/page-modals/page-modals";
+import { Pagination } from "@/widgets/pagination/pagination";
+import { ApiResponseError } from "@/shared/lib/http/errors";
 import { getCategory } from "@/services/category";
 import { initFilters } from "@/services/filters";
 import Link from "next/link";

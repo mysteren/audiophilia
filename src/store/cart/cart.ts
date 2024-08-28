@@ -1,4 +1,4 @@
-import { uuidv4 } from "@/lib/utils/crypto";
+import { uuidv4 } from "@/shared/lib/utils/crypto";
 import { CartProductItem } from "@/types/cart";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";

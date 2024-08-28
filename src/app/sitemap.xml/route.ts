@@ -1,5 +1,5 @@
 // app/server-sitemap-index.xml/route.ts
-import { BASE_URL, HOST, PORT, SITEMAP_LIMIT } from "@/config";
+import { BASE_URL, HOST, PORT, SITEMAP_LIMIT } from "@/shared/config";
 import { getProductsCount } from "@/services/sitemap";
 
 function cleanXML(xmlString: string) {

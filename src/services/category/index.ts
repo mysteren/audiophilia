@@ -1,5 +1,5 @@
-import { ApiClientInstance } from "@/lib/api/api-client";
-import { ApiResponseError } from "@/lib/http/errors";
+import { ApiClientInstance } from "@/shared/lib/api/api-client";
+import { ApiResponseError } from "@/shared/lib/http/errors";
 import { CategoryData } from "@/types/category";
 import { CategoryItem } from "@/types/categoryItem";
 

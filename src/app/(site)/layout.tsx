@@ -1,5 +1,5 @@
-import Footer from "@/components/layouts/footer/footer";
-import Header from "@/components/layouts/header/header";
+import Footer from "@/shared/ui/layouts/footer/footer";
+import Header from "@/shared/ui/layouts/header/header";
 import styles from "./layout.module.css";
 
 // обновлять кеш каждые 10 секунд

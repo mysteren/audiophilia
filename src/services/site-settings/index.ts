@@ -1,4 +1,4 @@
-import { ApiClientInstance } from "@/lib/api/api-client";
+import { ApiClientInstance } from "@/shared/lib/api/api-client";
 import {
   HeaderSettingsData,
   LinkItemData,

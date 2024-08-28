@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/config'
+import { BASE_URL } from '@/shared/config'
 import { MetadataRoute } from 'next'
  
 export default function robots(): MetadataRoute.Robots {

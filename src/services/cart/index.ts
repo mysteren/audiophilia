@@ -1,4 +1,4 @@
-import { round } from "@/lib/utils/number";
+import { round } from "@/shared/lib/utils/number";
 import { CartItemCounts, CartProductItem } from "@/types/cart";
 import { Recoverable } from "repl";
 

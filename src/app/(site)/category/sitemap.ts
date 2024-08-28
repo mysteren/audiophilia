@@ -1,4 +1,4 @@
-import { BASE_URL } from "@/config";
+import { BASE_URL } from "@/shared/config";
 import { getCategories } from "@/services/sitemap";
 import { MetadataRoute } from "next";
 

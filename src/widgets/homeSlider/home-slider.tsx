@@ -3,9 +3,9 @@ import { useState } from "react";
 import styles from "./home-slider.module.css";
 import "./home-slider.variables.css";
 import Slider from "./slider/slider";
-import { Slide } from "@/types/slide";
-import ArrLeft from "@/components/icons/arrleft";
-import ArrRight from "@/components/icons/arrright";
+import { Slide } from "@/shared/types/slide";
+import ArrLeft from "@/shared/ui/icons/arrleft";
+import ArrRight from "@/shared/ui/icons/arrright";
 
 type Props = {
   items: Slide[];

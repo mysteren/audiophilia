@@ -14,12 +14,23 @@
   background-color: var(--white);
   border-radius: 1.4rem;
   padding: 1.4rem;
-  box-shadow: 0px 0px 32px 0px color-mix(in srgb, var(--gray), transparent 86%);
+  box-shadow: 0px 0px 16px 0px color-mix(in srgb, var(--gray), transparent 94%);
   grid-template-columns: 1fr;
   grid-template-areas:
     "slider"
     "info"
     "blockInfo";
+  align-items: start;
+}
+
+.contentAd {
+  display: grid;
+  column-gap: 1rem;
+  position: relative;
+  background-color: var(--white);
+  border-radius: 1.4rem;
+  padding: 1.4rem;
+  box-shadow: 0px 0px 16px 0px color-mix(in srgb, var(--gray), transparent 94%);
 }
 
 .title {
@@ -100,19 +111,11 @@
   text-decoration: line-through;
 }
 
-.blockBtn {
-  display: flex;
-  gap: 14px;
-  padding-bottom: 20px;
-}
-
 /* Fixed Bar */
 .infoProduct {
   grid-area: info;
-}
-
-.stickyBar {
-  /* grid-area: stickyBar; */
+  display: grid;
+  grid-template-rows: auto auto auto;
 }
 
 .stickyBlock {
@@ -154,6 +157,9 @@
     grid-template-areas:
       "slider info"
       "blockInfo blockInfo";
+  }
+  .infoProduct {
+    justify-items: end;
   }
 }
 

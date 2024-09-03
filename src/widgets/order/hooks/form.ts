@@ -1,9 +1,9 @@
-import { ApiResponseError } from "@/shared/lib/http/errors";
-import { order } from "@/services/order";
-import { OrderDto } from "@/services/order/types";
-import { useActioveModals } from "@/store/active-modals/active-modals";
-import { useCartStore } from "@/store/cart/cart";
-import { CartItemCounts } from "@/types/cart";
+import { ApiResponseError } from "@/shared/api/http/errors";
+import { order } from "@/entities/order";
+import { OrderDto } from "@/entities/order/types";
+import { useActioveModals } from "@/shared/store/active-modals/active-modals";
+import { useCartStore } from "@/shared/store/cart/cart";
+import { CartItemCounts } from "@/shared/types/cart";
 import { useEffect, useState } from "react";
 
 export enum FormStatus {

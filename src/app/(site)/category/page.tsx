@@ -1,14 +1,11 @@
 /* eslint-disable react/jsx-key */
-import styles from "./page.module.css";
-import { ApiClientInstance } from "@/shared/lib/api/api-client";
-import Link from "next/link";
 
-import { CategoryItem } from "@/types/categoryItem";
-import { CategoriesTree } from "@/shared/ui/layouts/header/ui/categories-tree.tsx/categories-tree";
-
+import { getCategoryTree } from "@/entities/category";
+import { CategoriesTree } from "@/layouts/header/ui/categories-tree.tsx/categories-tree";
+import { CategoryItem } from "@/shared/types/categoryItem";
 
 export default async function CatalogPage() {
-  const data: CategoryItem[] = await ApiClientInstance.getCategoryTree();
+  const data: CategoryItem[] = await getCategoryTree();
 
   return (
     <>

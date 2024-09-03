@@ -1,6 +1,6 @@
 // app/server-sitemap-index.xml/route.ts
 import { BASE_URL, HOST, PORT, SITEMAP_LIMIT } from "@/shared/config";
-import { getProductsCount } from "@/services/sitemap";
+import { getProductsCount } from "@/entities/sitemap";
 
 function cleanXML(xmlString: string) {
   // Удаляем пробелы и табуляции перед тегами

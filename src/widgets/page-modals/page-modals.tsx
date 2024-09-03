@@ -1,9 +1,9 @@
 "use client";
-import ModalWindow from "@/shared/ui/modal-window/modal-window";
+import ModalWindow from "@/features/modal-window/modal-window";
 import {
   ModalKey,
   useActioveModals,
-} from "@/store/active-modals/active-modals";
+} from "@/shared/store/active-modals/active-modals";
 import Order from "../order/order";
 
 // const Props = {};

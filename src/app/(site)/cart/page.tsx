@@ -1,16 +1,16 @@
 "use client";
 import Button from "@/shared/ui/button/button";
-import { getProductsByIds } from "@/services/product";
-import { useCartStore } from "@/store/cart/cart";
-import { CartProductItem } from "@/types/cart";
-import { Product } from "@/types/product";
+import { getProductsByIds } from "@/entities/product";
+import { useCartStore } from "@/shared/store/cart/cart";
+import { CartProductItem } from "@/shared/types/cart";
+import { Product } from "@/shared/types/product";
 import clsx from "clsx";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { CartRow } from "../../../widgets/cart-row/cart-row";
 import styles from "./page.module.css";
 import { CartProduct } from "./types/cart-product";
 import { translateUnit } from "@/shared/lib/utils/unit";
-import ToOrderButton from "@/widgets/to-order-button/to-order-button";
+import ToOrderButton from "@/features/to-order-button/to-order-button";
 import PageModals from "@/widgets/page-modals/page-modals";
 
 async function getData(

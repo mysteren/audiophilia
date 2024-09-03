@@ -1,7 +1,7 @@
-import { createFilteresQueryString } from "@/services/filters";
-import { useSelectedFiltersStore } from "@/store/selected-filters/selected-filters";
-import { Filter } from "@/types/categoryFilter";
-import { SelectedFiltersState } from "@/types/filter.type";
+import { createFilteresQueryString } from "@/entities/filter";
+import { useSelectedFiltersStore } from "@/shared/store/selected-filters/selected-filters";
+import { Filter } from "@/shared/types/categoryFilter";
+import { SelectedFiltersState } from "@/shared/types/filter.type";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 

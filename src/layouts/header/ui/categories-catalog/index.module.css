@@ -1,0 +1,30 @@
+.list {
+  margin: 0;
+  list-style: none;
+  background-color: var(--white);
+  padding: 1rem;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.item:hover {
+  background: var(--silver);
+  border-radius: 0.85rem;
+}
+
+.itemActive {
+  background: var(--silver);
+  border-radius: 12px;
+}
+
+.link {
+  font-size: 1.2rem;
+  padding: 1rem;
+  display: flex;
+  color: var(--black);
+}
+
+@media (min-width: 768px) {
+  .subMenu {
+    position: static;
+  }
+}

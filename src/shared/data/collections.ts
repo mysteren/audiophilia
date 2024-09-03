@@ -1,4 +1,4 @@
-import { TypesCollections } from "@/types/collections";
+import { TypesCollections } from "@/shared/types/collections";
 
 export const collections: TypesCollections[] = [
   {

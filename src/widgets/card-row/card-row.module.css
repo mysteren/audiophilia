@@ -1,21 +1,10 @@
-.container {
+.root {
   display: grid;
-  grid-template-columns: 1fr auto auto; 
+  grid-template-columns: 1fr auto; 
   column-gap: 1rem;
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   border-radius: 0.65rem;
   align-items: center;
-}
-.topLeftGroup {
-  visibility: hidden;
-  position: absolute;
-  top: 0.8rem;
-  right: 0.8rem;
-  display: grid;
-  gap: 0.5rem;
-  grid-template-columns: auto auto;
-
-  border-radius: 0.5rem;
 }
 
 .icon {
@@ -39,8 +28,16 @@
   text-transform: uppercase;
 }
 
-.blockPrice {
+.sellerInfo {
+  font-size: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.5rem;
+  color: var(--gray);
+}
+
+.actions {
   display: grid;
   grid-template-columns: auto auto;
-  justify-content: space-between;
+  column-gap: 0.75rem;
 }

@@ -1,0 +1,17 @@
+.root {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: baseline;
+  justify-items: end;
+  gap: 0.5rem;
+}
+
+.val {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.label {
+  color: var(--gray);
+  font-size: 0.85rem;
+}

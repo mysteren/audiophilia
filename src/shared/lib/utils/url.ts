@@ -1,5 +1,5 @@
 import { API_INTERNAL } from "@/shared/config";
-import { CommonFileItem } from "@/types/file.type";
+import { CommonFileItem } from "@/shared/types/file.type";
 
 const basePath = "/uploads/public/src";
 
@@ -19,4 +19,9 @@ export function getBaseUrl(scheme: string, host: string, port: string) {
     return `${scheme}://${host}:${port}`;
   }
   return `${scheme}://${host}`;
+}
+
+
+export function getHostname(url: string) {
+  return new URL(url).hostname
 }

@@ -1,4 +1,4 @@
-import { Product } from "@/types/product";
+import { Product } from "@/shared/types/product";
 
 export type CartProduct = {
   product: Product;

@@ -1,12 +1,12 @@
 "use client";
 
-import { Filter, FilterType } from "@/types/categoryFilter";
+import { Filter, FilterType } from "@/shared/types/categoryFilter";
 import styles from "./filter-element.module.css";
 import { Checkbox } from "@/shared/ui/checkbox/checkbox";
 import { InputNumber } from "@/shared/ui/input-number/input-number";
-import { useSelectedFiltersStore } from "@/store/selected-filters/selected-filters";
+import { useSelectedFiltersStore } from "@/shared/store/selected-filters/selected-filters";
 import { useState } from "react";
-import ArrowIcon from "@/components/icons/arrow";
+import ArrowIcon from "@/shared/ui/icons/arrow";
 type Props = {
   item: Filter;
 };

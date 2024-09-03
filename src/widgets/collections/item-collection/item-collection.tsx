@@ -8,7 +8,7 @@ import Image from "next/image";
 import styles from "./item-collection.module.css";
 
 // Types
-import { TypesCollections } from "@/types/collections";
+import { TypesCollections } from "@/shared/types/collections";
 import Link from "next/link";
 
 type Item = {

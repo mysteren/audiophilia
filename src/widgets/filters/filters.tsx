@@ -1,5 +1,5 @@
 "use client";
-import { Filter } from "@/types/categoryFilter";
+import { Filter } from "@/shared/types/categoryFilter";
 import { FilterElement } from "./components/filter-element/filter-element";
 import styles from "./filter.module.css";
 import { useFiltersNavigate, useFiltersStore } from "./hooks";

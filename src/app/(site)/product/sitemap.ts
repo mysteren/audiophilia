@@ -1,5 +1,5 @@
 import { BASE_URL, SITEMAP_LIMIT } from "@/shared/config";
-import { getProducts, getProductsCount } from "@/services/sitemap";
+import { getProducts, getProductsCount } from "@/entities/sitemap";
 import { MetadataRoute } from "next";
 
 export async function generateSitemaps() {

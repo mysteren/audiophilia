@@ -1,0 +1,40 @@
+.root {
+  border-top: 1px dashed var(--gray);
+  display: grid;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.col {
+  display: grid;
+  row-gap: 0.5rem;
+}
+
+.text {
+  font-size: 0.8rem;
+}
+
+.link {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.copyright {
+  font-size: 0.85rem;
+  /* font-weight: 500; */
+}
+
+.soclist {
+  font-weight: 0.85rem;
+  font-weight: 500;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  .root {
+    grid-template-columns: auto auto;
+  }
+}

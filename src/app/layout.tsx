@@ -1,29 +1,29 @@
 // import type { Metadata } from 'next';
 // import '../styles/vendor/normalize.css';
 import localFont from "next/font/local";
-import "../styles/site/global.css";
+import "../shared/styles/site/global.css";
 import { YA_METRIKA_KEY, GTM_KEY } from "@/shared/config";
 import Script from "next/script";
 
 const myFont = localFont({
   src: [
     {
-      path: "../styles/fonts/montserrat/Montserrat-Light.woff2",
+      path: "../shared/styles/fonts/montserrat/Montserrat-Light.woff2",
       weight: "300",
       style: "normal",
     },
     {
-      path: "../styles/fonts/montserrat/Montserrat-Regular.woff2",
+      path: "../shared/styles/fonts/montserrat/Montserrat-Regular.woff2",
       weight: "normal",
       style: "normal",
     },
     {
-      path: "../styles/fonts/montserrat/Montserrat-Medium.woff2",
+      path: "../shared/styles/fonts/montserrat/Montserrat-Medium.woff2",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../styles/fonts/montserrat/Montserrat-Bold.woff2",
+      path: "../shared/styles/fonts/montserrat/Montserrat-Bold.woff2",
       weight: "bold",
       style: "normal",
     },

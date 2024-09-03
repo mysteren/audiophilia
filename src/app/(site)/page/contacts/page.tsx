@@ -1,4 +1,4 @@
-import { Breadcrumbs } from "@/shared/ui/breadcrumbs";
+import { Breadcrumbs } from "@/features/breadcrumbs";
 import styles from "./page.module.css";
 
 type Props = {};

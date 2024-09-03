@@ -1,7 +1,7 @@
 "use client";
 
 import RootLayout from "@/app/layout";
-import { ResponseErrorData } from "@/shared/lib/http/types";
+import { ResponseErrorData } from "@/shared/api/http/types";
 import { notFound } from "next/navigation";
 
 type Props = {

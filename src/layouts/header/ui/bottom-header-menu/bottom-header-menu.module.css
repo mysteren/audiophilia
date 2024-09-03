@@ -1,0 +1,17 @@
+.container {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  background: var(--primary);
+}
+.list {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+  grid-auto-flow: column;
+  justify-items: center;
+  list-style: none;
+}
+.link {
+  color: var(--white);
+}

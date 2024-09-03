@@ -2,7 +2,7 @@ import Collections from "@/widgets/collections/collections";
 import HomeSlider from "@/widgets/homeSlider/home-slider";
 import { collections } from "@/shared/data/collections";
 import { slides } from "@/shared/data/slider";
-import { getMainPageSettingsData } from "@/services/site-settings";
+import { getMainPageSettingsData } from "@/entities/site-settings";
 import styles from "./page.module.css";
 
 export async function generateMetadata() {

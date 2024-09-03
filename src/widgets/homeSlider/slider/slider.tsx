@@ -1,6 +1,6 @@
 import { Text } from "@/shared/ui/text";
 import styles from "./slider.module.css";
-import { Slide } from "@/types/slide";
+import { Slide } from "@/shared/types/slide";
 import Image from "next/image";
 import Link from "next/link";
 

@@ -2,8 +2,8 @@
 import { useState, useRef } from "react";
 import styles from "./collections.module.css";
 import ItemCollection from "./item-collection/item-collection";
-import ButtonCollection from "@/shared/ui/button-collection/button-collection";
-import { TypesCollections } from "@/types/collections";
+import ButtonCollection from "@/features/button-collection/button-collection";
+import { TypesCollections } from "@/shared/types/collections";
 
 type Props = {
   items: TypesCollections[];

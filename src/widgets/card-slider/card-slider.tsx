@@ -9,8 +9,8 @@ import Image from "next/image";
 import styles from "./card-slider.module.css";
 
 // Icons
-import ArrLeft from "@/components/icons/arrleft";
-import ArrRight from "@/components/icons/arrright";
+import ArrLeft from "@/shared/ui/icons/arrleft";
+import ArrRight from "@/shared/ui/icons/arrright";
 import { UploadsImageLoader } from "@/shared/lib/image-loader";
 
 type Props = {

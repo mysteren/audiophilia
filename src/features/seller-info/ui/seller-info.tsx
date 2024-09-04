@@ -2,6 +2,9 @@ import { Seller } from "@/shared/types/seller";
 import styles from "./seller-info.module.css";
 import { getHostname } from "@/shared/lib/utils/url";
 import { ruPhoneTransformer } from "@/shared/lib/utils/phone";
+import EmailIcon from "@/shared/ui/icons/email";
+import PhoneIcon from "@/shared/ui/icons/phone";
+import WebIcon from "@/shared/ui/icons/web";
 
 type Props = { seller: Seller };
 
@@ -13,7 +16,7 @@ export function SellerInfo({ seller }: Props) {
 
       {seller?.addition?.site && (
         <>
-          <span className={styles.label}>сайт: </span>
+          <WebIcon className={styles.label} />
           <span className={styles.val}>
             <a href={seller.addition.site}>
               {getHostname(seller.addition.site)}
@@ -23,7 +26,8 @@ export function SellerInfo({ seller }: Props) {
       )}
       {seller?.addition?.phones?.length && (
         <>
-          <span className={styles.label}>Телефон: </span>
+          {/* <span className={styles.label}>Телефон: </span> */}
+          <PhoneIcon className={styles.label} />
           <a className={styles.val} href={`tel:${seller.addition.phones[0]}`}>
             {ruPhoneTransformer(seller.addition.phones[0])}
           </a>
@@ -32,7 +36,8 @@ export function SellerInfo({ seller }: Props) {
 
       {seller?.addition?.emails?.length && (
         <>
-          <span className={styles.label}>Email: </span>
+          <EmailIcon className={styles.label} />
+          {/* <span className={styles.label}>Email: </span> */}
           <a
             className={styles.val}
             href={`mailto:${seller.addition.emails[0]}`}

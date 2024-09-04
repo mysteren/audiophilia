@@ -21,19 +21,24 @@ export default function CardRow({ product }: Props) {
         </h3>
         <div className={styles.sellerInfo}>
           <span className={styles.val}>{product.seller.title}</span>
-          {product.seller?.addition?.site && (
+          {!!product.seller?.addition?.site && (
             <a className={styles.val} href={product.seller.addition.site}>
               {getHostname(product.seller.addition.site)}
             </a>
           )}
-          {product.seller?.addition?.phones?.length && (
-            <span className={styles.val}>
+          {!!product.seller?.addition?.phones?.length && (
+            <a
+              href={`tel:${product.seller.addition.phones[0]}`}
+              className={styles.val}
+            >
               {ruPhoneTransformer(product.seller.addition.phones[0])}
-            </span>
+            </a>
           )}
-
-          {product.seller?.addition?.emails?.length && (
-            <a className={styles.val} href={product.seller.addition.emails[0]}>
+          {!!product.seller?.addition?.emails?.length && (
+            <a
+              className={styles.val}
+              href={`mailto:${product.seller.addition.emails[0]}`}
+            >
               {product.seller.addition.emails[0]}
             </a>
           )}

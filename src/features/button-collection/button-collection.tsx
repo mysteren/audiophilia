@@ -1,7 +1,5 @@
-// Styles
-import ArrLeft from "@/shared/ui/icons/arrleft";
 import styles from "./button-collection.module.css";
-import ArrRight from "@/shared/ui/icons/arrright";
+import ArrowIcon from "@/shared/ui/icons/arrow";
 
 export default function ButtonCollection(props: any) {
   const { clickLeft, clickRight } = props;
@@ -9,10 +7,10 @@ export default function ButtonCollection(props: any) {
   return (
     <>
       <button aria-label="to prev" onClick={clickLeft} className={styles.btn}>
-        <ArrLeft />
+        <ArrowIcon className="rotate180" />
       </button>
       <button aria-label="to next" onClick={clickRight} className={styles.btn}>
-        <ArrRight />
+        <ArrowIcon />
       </button>
     </>
   );

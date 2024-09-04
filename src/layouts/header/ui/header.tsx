@@ -12,6 +12,8 @@ import { CategoriesCatalog } from "./categories-catalog";
 import { TopRightBlock } from "./top-right-block/top-right-block";
 import { useScrollIsTop } from "../model/use-scroll-top";
 import { useShowCatalog } from "../model/use-show-catalog";
+import PhoneIcon from "@/shared/ui/icons/phone";
+import EmailIcon from "@/shared/ui/icons/email";
 
 type Props = {
   headerMenu2: LinkItemData[];
@@ -38,21 +40,24 @@ export default function Header({ categories, headerMenu2 }: Props) {
             <img
               className={styles.logoImg}
               alt="Investseel"
-              src={"/images/logo.svg"}
+              src={"/icons/logo.svg"}
             />
           </Link>
           <Link className={styles.iconWrap} href="/">
             <img
               className={styles.logoImg2}
               alt="market"
-              src={"/images/logo-market.svg"}
+              src={"/icons/logo-market.svg"}
             />
           </Link>
         </div>
         <div className={styles.contacts}>
+          <PhoneIcon className={styles.icon} />
           <a className={styles.info} href="tel:+74951888044">
             +7 (495) 188-80-44
           </a>
+
+          <EmailIcon className={styles.icon} />
           <a className={styles.info} href="mailto:info@investsteel.ru">
             info@investsteel.ru
           </a>

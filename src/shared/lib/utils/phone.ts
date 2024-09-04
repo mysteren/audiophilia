@@ -8,7 +8,7 @@ export function ruPhoneTransformer(val: string): string {
     }
     return (
       "" +
-      (m[1] ? "+7" : "") +
+      (m[1] === '7' ? "+7" : m[1]) +
       (m[2] ? " (" + m[2] : "") +
       (m[3] ? ") " + m[3] : "") +
       (m[4] ? "-" + m[4] : "") +
@@ -16,5 +16,10 @@ export function ruPhoneTransformer(val: string): string {
     );
   }
 
+  return cleaned;
+}
+
+export function ruPhoneClean(val: string): string {
+  const cleaned = val.replace(/[^0-9+]/g, "")
   return cleaned;
 }

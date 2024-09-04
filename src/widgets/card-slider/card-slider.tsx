@@ -9,9 +9,8 @@ import Image from "next/image";
 import styles from "./card-slider.module.css";
 
 // Icons
-import ArrLeft from "@/shared/ui/icons/arrleft";
-import ArrRight from "@/shared/ui/icons/arrright";
 import { UploadsImageLoader } from "@/shared/lib/image-loader";
+import ArrowIcon from "@/shared/ui/icons/arrow";
 
 type Props = {
   images: string[];
@@ -70,14 +69,14 @@ export default function CardSlider({ images, alt }: Props) {
             onClick={handdleprev}
             className={`${styles.btn} ${styles.left}`}
           >
-            {ArrLeft()}
+            <ArrowIcon className="rotate180" />
           </button>
           <button
             aria-label="to next slider"
             onClick={handdlenext}
             className={`${styles.btn} ${styles.right}`}
           >
-            {ArrRight()}
+            <ArrowIcon />
           </button>
         </>
       )}

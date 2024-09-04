@@ -44,7 +44,8 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <head>
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
+        <link rel="preload" as="image" href="/icons/sprite.svg"/>
       </head>
       <body className={myFont.className}>{children}</body>
       {YA_METRIKA_KEY && (

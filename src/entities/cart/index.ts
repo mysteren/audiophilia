@@ -31,8 +31,5 @@ export function calcCounts(
       return calcCounts(multiUnits, "sht", correctValue);
     }
   }
-
-  // const unit = value / multiUnits[key]
-  // console.log({multiUnits, result})
   return multiUnits;
 }

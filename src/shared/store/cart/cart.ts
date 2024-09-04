@@ -47,7 +47,6 @@ export const useCartStore = create<Store>()(
           addProductItem: (item) => {
             return set(
               (state) => {
-                // console.log(state)
                 const productItems = [...state.productItems];
                 if (
                   !productItems.find(({ id }) => {
@@ -69,7 +68,6 @@ export const useCartStore = create<Store>()(
           updateProductItem: (item) => {
             return set(
               (state) => {
-                console.log(item);
                 const productItems = state.productItems.map((el) => {
                   if (item.id === el.id) {
                     return item;

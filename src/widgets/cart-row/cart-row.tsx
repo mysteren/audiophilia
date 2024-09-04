@@ -32,7 +32,6 @@ export function CartRow({ item, units, onDelete }: CartRowProps) {
       unit,
       Number(value)
     );
-    console.log({ id, counts });
     updateProductItem({ id, counts });
   }
 

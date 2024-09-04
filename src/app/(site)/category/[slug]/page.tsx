@@ -48,7 +48,6 @@ export async function generateMetadata({
   searchParams,
 }: Props) {
   const data = await fetchData(slug, searchParams, page, limit);
-  console.log(data);
   const { category } = data;
 
   return {

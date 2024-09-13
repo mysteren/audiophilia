@@ -14,6 +14,7 @@ import { useScrollIsTop } from "../model/use-scroll-top";
 import { useShowCatalog } from "../model/use-show-catalog";
 import PhoneIcon from "@/shared/ui/icons/phone";
 import EmailIcon from "@/shared/ui/icons/email";
+import Button from "@/shared/ui/button/button";
 
 type Props = {
   headerMenu2: LinkItemData[];
@@ -62,7 +63,11 @@ export default function Header({ categories, headerMenu2 }: Props) {
             info@investsteel.ru
           </a>
         </div>
-
+        <div className={styles.actions}>
+          <Link className={styles.toDetail} href="/page/postavshchikam">
+            <Button>Добавить обьявление</Button>
+          </Link>
+        </div>
         <div className={styles.right}>
           <TopRightBlock />
         </div>

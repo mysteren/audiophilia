@@ -56,7 +56,7 @@ export default function Page() {
           <div className={clsx(styles.wowTwo, styles.block)}>
             <div className={styles.wowTwoInfo}>
               <p className={styles.wowText}>
-                Мы приглашаем вашу компанию присоединиться к нашему порталу!
+                Мы приглашаем вашу компанию присоединиться к нам!
               </p>
               <p className={styles.wowText}>
                 Чтобы разместить информацию о вашей компании на нашем портале,

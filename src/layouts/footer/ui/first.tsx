@@ -6,8 +6,8 @@ export default function First() {
     <nav className="container">
       <ul className={styles.list}>
         <li>
-          <Link className={styles.link} href="/category">
-            Каталог
+          <Link className={styles.link} href="/page/postavshchikam">
+            Поставщикам
           </Link>
         </li>
         <li>

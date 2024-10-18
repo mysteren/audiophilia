@@ -5,7 +5,7 @@ import Filters from "@/widgets/filters/filters";
 import PageModals from "@/widgets/page-modals/page-modals";
 import { Pagination } from "@/widgets/pagination/pagination";
 import { ApiResponseError } from "@/shared/api/http/errors";
-import { initFilters } from "@/entities/filter";
+// import { initFilters } from "@/entities/filter";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import styles from "./page.module.css";
@@ -72,7 +72,7 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
 
   const isAd = isAdByCategories([category, ...parents]);
 
-  const filters = initFilters(data.filters);
+  // const filters = initFilters(data.filters);
 
   const pathname =
     category.type === "filtered"
@@ -98,9 +98,7 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
     );
   });
 
-  const showFilters = !!filters.length;
   const showSubcategories = !!subcategories.length;
-  const showAside = showFilters || showSubcategories;
 
   return (
     <>
@@ -118,23 +116,22 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
       <h1 className={styles.title}>{category.title}</h1>
       <div className={styles.main}>
         <aside className={styles.aside}>
-          {showAside && (
-            <div className={`${styles.aside__container}`}>
-              {showSubcategories && (
-                <>
-                  <h2>Категории</h2>
-                  <ul className={styles.categories}>{subcategories}</ul>
-                </>
-              )}
-              {showFilters && (
-                <Filters
-                  pathname={pathname}
-                  items={filters}
-                  savedSearchParams={savedSearchParams}
-                />
-              )}
-            </div>
-          )}
+          <div className={`${styles.aside__container}`}>
+            {showSubcategories && (
+              <>
+                <h2>Категории</h2>
+                <ul className={styles.categories}>{subcategories}</ul>
+              </>
+            )}
+
+            <Filters
+              catId={category.id}
+
+              pathname={pathname}
+              // items={filters}
+              savedSearchParams={savedSearchParams}
+            />
+          </div>
         </aside>
         <section className={styles.section}>
           <div className={`${styles.products}`}>

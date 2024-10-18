@@ -48,7 +48,7 @@ export const useSelectedFiltersStore = create<Store>()(
           const { filters } = state;
           const filter: SelectedFilterItem = filters[key];
           const selected = value
-            ? [...filter.selected, option]
+            ? [...filter?.selected ?? [], option]
             : filter.selected.filter((item) => {
                 return item !== option;
               });

@@ -9,12 +9,13 @@ import { useState } from "react";
 import ArrowIcon from "@/shared/ui/icons/arrow";
 type Props = {
   item: Filter;
+  onChange: () => void;
 };
 
-export function FilterElement({ item }: Props) {
+export function FilterElement({ item, onChange }: Props) {
   const { type, options, key, name } = item;
   const { filters, setFrom, setTo, setSelected } = useSelectedFiltersStore();
-  const [showOptions, setShowOptions] = useState(false);
+  const [showOptions, setShowOptions] = useState(true);
   const selectedFilter = filters[key];
   const properties = () => {
     switch (type) {
@@ -31,6 +32,7 @@ export function FilterElement({ item }: Props) {
                       value={checked}
                       onChange={(val) => {
                         setSelected(key, value, val);
+                        onChange()
                       }}
                     />
                     <span className={styles.optionName}>{name}</span>
@@ -46,6 +48,7 @@ export function FilterElement({ item }: Props) {
               placeholder="от"
               onChange={(val) => {
                 setFrom(key, val);
+                onChange()
               }}
               value={selectedFilter?.from ?? ""}
             />
@@ -53,6 +56,7 @@ export function FilterElement({ item }: Props) {
               placeholder="до"
               onChange={(val) => {
                 setTo(key, val);
+                onChange()
               }}
               value={selectedFilter?.to ?? ""}
             />

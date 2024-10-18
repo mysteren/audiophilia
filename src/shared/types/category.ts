@@ -2,6 +2,7 @@ import { Filter } from "./categoryFilter";
 import { Product, ProductAd } from "./product";
 
 export type Сategory = {
+  id: number;
   title: string;
   metaTitle: string;
   metaDescription: string;
@@ -20,6 +21,10 @@ export type CategoryData = {
   products: ProductAd[];
   parents: CategoryElement[];
   childrens: CategoryElement[];
-  filters: Filter[];
+  // filters: Filter[];
   searchParams?: Record<string, string>;
+};
+
+export type CategoryFilterData = {
+  filters: Filter[];
 };

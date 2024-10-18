@@ -1,5 +1,5 @@
 import { ApiClientInstance } from "@/shared/api";
-import { CategoryData } from "@/shared/types/category";
+import { CategoryData, CategoryFilterData } from "@/shared/types/category";
 import { CategoryItem } from "@/shared/types/categoryItem";
 import { Category } from "@/shared/types/product";
 
@@ -22,6 +22,18 @@ export function getCategory(
   const url = `/category/${slug}?${searchQuery}`;
 
   return ApiClientInstance.get<CategoryData>(url);
+}
+
+export function getCategoryFilters(
+  catId: number,
+  searchParams: Record<string, string>,
+) {
+  const searchQuery = new URLSearchParams({
+    ...searchParams,
+  });
+  const url = `/category/filters/${catId}?${searchQuery}`;
+
+  return ApiClientInstance.get<CategoryFilterData>(url);
 }
 
 export function isAdByCategories(categories: Category[]) {

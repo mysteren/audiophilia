@@ -22,15 +22,28 @@
 .option {
   display: grid;
   align-items: center;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto auto auto;
+  justify-content: start;
   column-gap: 0.4rem;
-  font-weight: 300;
+  
   cursor: pointer;
 }
 
+.disabled {
+  font-weight: 300;
+  opacity: 0.5;
+}
+
 .optionName {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--gray-dark)
+}
+
+
+.optionCount {
+  font-size: 0.65rem;
+  color: var(--gray-dark);
+  padding-bottom: 0.4rem;
 }
 
 .range {

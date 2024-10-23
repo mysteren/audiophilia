@@ -74,10 +74,9 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
 
   // const filters = initFilters(data.filters);
 
-  const pathname =
-    category.type === "filtered"
-      ? `/category/${parents[0].slug}`
-      : `/category/${category.slug}`;
+  const mainCategory = category.type === "filtered" ? parents[0] : category;
+
+  const pathname = `/category/${mainCategory.slug}`;
 
   const productCards = products.map((product) =>
     isAd ? (
@@ -99,6 +98,8 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
   });
 
   const showSubcategories = !!subcategories.length;
+
+  console.log('eewrwerewrwe');
 
   return (
     <>
@@ -125,11 +126,9 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
             )}
 
             <Filters
-              catId={category.id}
-
+              categryId={mainCategory.id}
               pathname={pathname}
-              // items={filters}
-              savedSearchParams={savedSearchParams}
+              savedSearchParams={savedSearchParams ?? searchParams}
             />
           </div>
         </aside>

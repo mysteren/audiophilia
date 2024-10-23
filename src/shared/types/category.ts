@@ -12,6 +12,7 @@ export type Сategory = {
 };
 
 export type CategoryElement = {
+  id: number;
   title: string;
   slug: string;
 };

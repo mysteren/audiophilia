@@ -7,6 +7,7 @@ import { InputNumber } from "@/shared/ui/input-number/input-number";
 import { useSelectedFiltersStore } from "@/shared/store/selected-filters/selected-filters";
 import { useState } from "react";
 import ArrowIcon from "@/shared/ui/icons/arrow";
+import clsx from "clsx";
 type Props = {
   item: Filter;
   onChange: () => void;
@@ -24,18 +25,27 @@ export function FilterElement({ item, onChange }: Props) {
           <div className={`${styles.options} scroll`}>
             {options &&
               showOptions &&
-              options.map(({ name, value }, i) => {
+              options.map(({ name, value, pCount }, i) => {
                 const checked = selectedFilter?.selected.includes(value);
+                const disabled = !checked && pCount === 0;
                 return (
-                  <label className={styles.option} key={`option-${key}-${i}`}>
+                  <label
+                    className={clsx(
+                      styles.option,
+                      disabled ? styles.disabled : ""
+                    )}
+                    key={`option-${key}-${i}`}
+                  >
                     <Checkbox
                       value={checked}
+                      disabled={disabled}
                       onChange={(val) => {
                         setSelected(key, value, val);
-                        onChange()
+                        onChange();
                       }}
                     />
                     <span className={styles.optionName}>{name}</span>
+                    <span className={styles.optionCount}>{pCount}</span>
                   </label>
                 );
               })}
@@ -48,7 +58,7 @@ export function FilterElement({ item, onChange }: Props) {
               placeholder="от"
               onChange={(val) => {
                 setFrom(key, val);
-                onChange()
+                onChange();
               }}
               value={selectedFilter?.from ?? ""}
             />
@@ -56,7 +66,7 @@ export function FilterElement({ item, onChange }: Props) {
               placeholder="до"
               onChange={(val) => {
                 setTo(key, val);
-                onChange()
+                onChange();
               }}
               value={selectedFilter?.to ?? ""}
             />

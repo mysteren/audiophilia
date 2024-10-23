@@ -12,6 +12,7 @@ export type FilterPropery = {
 export type FilterOption = {
   name: string;
   value: string;
+  pCount?: number;
 };
 
 export type Filter = {

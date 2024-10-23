@@ -25,13 +25,13 @@ export function getCategory(
 }
 
 export function getCategoryFilters(
-  catId: number,
-  searchParams: Record<string, string>,
+  categoryId: number,
+  searchParams: Record<string, string>
 ) {
   const searchQuery = new URLSearchParams({
     ...searchParams,
   });
-  const url = `/category/filters/${catId}?${searchQuery}`;
+  const url = `/category/filters/${categoryId}?${searchQuery}`;
 
   return ApiClientInstance.get<CategoryFilterData>(url);
 }

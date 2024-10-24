@@ -40,7 +40,7 @@ export function useFiltersNavigate(pathname: string) {
   const filtersApply = useCallback(() => {
     const filters = useSelectedFiltersStore.getState().filters;
     const query = createFilteresQueryString(filters);
-    router.push(`${pathname}?${query.toString()}`);
+    router.push(`${pathname}?${query.toString()}`, { scroll: false });
   }, [pathname, router]);
 
   return { clearFilters, filtersApply };

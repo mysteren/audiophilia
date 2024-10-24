@@ -14,7 +14,7 @@ export function PagElement({
       return <Button variant="primary">{page}</Button>;
     }
     return (
-      <Link href={href}>
+      <Link href={href} scroll={false}>
         <Button >{page}</Button>
       </Link>
     );

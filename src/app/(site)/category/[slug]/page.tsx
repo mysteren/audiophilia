@@ -11,6 +11,7 @@ import { notFound } from "next/navigation";
 import styles from "./page.module.css";
 import { getCategory, isAdByCategories } from "@/entities/category";
 import CardAdRow from "@/widgets/card-ad-row";
+import AsideContainer from "@/shared/ui/aside-container/aside-container";
 
 const page = "";
 const limit = 24;
@@ -18,10 +19,10 @@ const limit = 24;
 // обновлять кеш каждые 15 секунд
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
-  searchParams: Record<string, string>;
+  }>;
+  searchParams: Promise<Record<string, string>>;
 };
 
 async function fetchData(
@@ -43,10 +44,9 @@ async function fetchData(
 
 export const revalidate = 15;
 
-export async function generateMetadata({
-  params: { slug },
-  searchParams,
-}: Props) {
+export async function generateMetadata(props: Props) {
+  const { slug } = await props.params;
+  const searchParams = await props.searchParams;
   const data = await fetchData(slug, searchParams, page, limit);
   const { category } = data;
 
@@ -59,7 +59,10 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({ params: { slug }, searchParams }: Props) {
+export default async function Page(props: Props) {
+  const { slug } = await props.params;
+  const searchParams = await props.searchParams;
+
   const data = await fetchData(slug, searchParams, page, limit);
 
   const {
@@ -99,8 +102,6 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
 
   const showSubcategories = !!subcategories.length;
 
-  console.log('eewrwerewrwe');
-
   return (
     <>
       <div className={styles.top}>
@@ -119,10 +120,10 @@ export default async function Page({ params: { slug }, searchParams }: Props) {
         <aside className={styles.aside}>
           <div className={`${styles.aside__container}`}>
             {showSubcategories && (
-              <>
+              <AsideContainer>
                 <h2>Категории</h2>
                 <ul className={styles.categories}>{subcategories}</ul>
-              </>
+              </AsideContainer>
             )}
 
             <Filters

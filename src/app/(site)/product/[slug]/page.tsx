@@ -20,9 +20,9 @@ import SellerInfo from "@/features/seller-info";
 export const revalidate = 15;
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 async function fetchData(slug: string) {
@@ -37,7 +37,9 @@ async function fetchData(slug: string) {
   }
 }
 
-export async function generateMetadata({ params: { slug } }: Props) {
+export async function generateMetadata(props: Props) {
+  const { slug } = await props.params;
+
   const { product } = await fetchData(slug);
   const { metaTitle: title, metaDescription: description } = product;
   return {
@@ -49,7 +51,8 @@ export async function generateMetadata({ params: { slug } }: Props) {
   };
 }
 
-export default async function Page({ params: { slug } }: Props) {
+export default async function Page(props: Props) {
+  const { slug } = await props.params;
   const data = await fetchData(slug);
   const { categories, product, filters, seller } = data;
   const { id, title, price, text, files, oldPrice } = product;

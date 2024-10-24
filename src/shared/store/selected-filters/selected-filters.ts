@@ -1,6 +1,7 @@
 import { SelectedFilterItem, SelectedFiltersState } from "@/shared/types/filter.type";
 import { create } from "zustand";
 import { initStore } from "../service";
+import { devtools } from "zustand/middleware";
 
 
 
@@ -20,7 +21,7 @@ type Actions = {
 type Store = State & Actions;
 
 export const useSelectedFiltersStore = create<Store>()(
-  initStore(
+  devtools(
     (set) => ({
       filters: {},
       setFrom: (key, value) => {

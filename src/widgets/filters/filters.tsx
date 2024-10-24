@@ -8,6 +8,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { FilterElement } from "./components/filter-element/filter-element";
 import styles from "./filter.module.css";
 import { useFiltersNavigate, useFiltersStore } from "./hooks";
+import AsideContainer from "@/shared/ui/aside-container/aside-container";
 
 type Props = {
   categryId: number;
@@ -20,29 +21,19 @@ export default function Filters({
   savedSearchParams,
   pathname,
 }: Props) {
-  console.log("sfsdfsdfsd");
-
   const [items, setItems] = useState<Filter[]>([]);
   const [disabled, setDisabled] = useState(true);
 
-  const fetchItems = useCallback(async (categryId, savedSearchParams) => {
-    console.log("callback", categryId, savedSearchParams);
-    setDisabled(true);
-    const { filters } = await getCategoryFilters(categryId, savedSearchParams);
-
-    setItems(filters);
-    setDisabled(false);
-    // setTimeout(() => {
-    //   setDisabled(false);
-    // }, 300);
-  }, []);
+  // const fetchItems = useCallback(async (categryId, savedSearchParams) => {
+  //   setDisabled(true);
+  //   getCategoryFilters(categryId, savedSearchParams).then(({ filters }) => {
+  //     setItems(filters);
+  //     setDisabled(false);
+  //   });
+  // }, []);
 
   useEffect(() => {
-    // console.log("effect fetchItems");
-    // fetchItems(categryId, savedSearchParams);
-
     setDisabled(true);
-
     getCategoryFilters(categryId, savedSearchParams).then(({ filters }) => {
       setItems(filters);
       setDisabled(false);
@@ -53,17 +44,20 @@ export default function Filters({
 
   const { filtersApply, clearFilters } = useFiltersNavigate(pathname);
 
-  const onChange = useCallback(() => {
-    filtersApply();
-    fetchItems(categryId, savedSearchParams);
-  }, [fetchItems, filtersApply, categryId, savedSearchParams]);
+  // const onChange = useCallback(() => {
+  //   filtersApply();
+  // }, [filtersApply]);
 
   const debounceChange = useMemo(() => {
-    return debounce(onChange, 1000);
-  }, [onChange]);
+    return debounce(filtersApply, 1000);
+  }, [filtersApply]);
+
+  if (!items.length) {
+    return;
+  }
 
   return (
-    <div className={styles.container}>
+    <AsideContainer>
       <ul
         className={clsx(
           styles.list,
@@ -71,23 +65,24 @@ export default function Filters({
           disabled ? styles.disabled : null
         )}
       >
-        {items &&
-          items.map((item) => {
-            const { id } = item;
-            if (item.type === "select" && !item.options.length) {
-              return;
-            }
-            return (
-              <li key={`filter-${id}`}>
-                <FilterElement item={item} onChange={() => debounceChange()} />
-              </li>
-            );
-          })}
+        {items.map((item) => {
+          const { id } = item;
+          if (item.type === "select" && !item.options.length) {
+            return;
+          }
+          return (
+            <li key={`filter-${id}`}>
+              <FilterElement item={item} onChange={() => debounceChange()} />
+            </li>
+          );
+        })}
       </ul>
+
       <div className={styles.bottom}>
         <Button
           variant="primary"
           onClick={() => {
+            setDisabled(true);
             filtersApply();
           }}
         >
@@ -96,12 +91,13 @@ export default function Filters({
         <Button
           variant="primary"
           onClick={() => {
+            setDisabled(true);
             clearFilters();
           }}
         >
           Сбросить
         </Button>
       </div>
-    </div>
+    </AsideContainer>
   );
 }

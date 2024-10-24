@@ -1,8 +1,7 @@
 import { uuidv4 } from "@/shared/lib/utils/crypto";
 import { CartProductItem } from "@/shared/types/cart";
 import { create } from "zustand";
-import { createJSONStorage, persist } from "zustand/middleware";
-import { initStore } from "../service";
+import { createJSONStorage, devtools, persist } from "zustand/middleware";
 
 type State = {
   userId: string;
@@ -21,7 +20,7 @@ type Store = State & Actions;
 
 export const useCartStore = create<Store>()(
   persist(
-    initStore(
+    devtools(
       (set) =>
         ({
           userId: uuidv4(),
@@ -102,5 +101,3 @@ export const useCartStore = create<Store>()(
     { name: "user-cart", storage: createJSONStorage(() => localStorage) }
   )
 );
-
-// { name: "user-cart", storage: createJSONStorage(() => localStorage) }

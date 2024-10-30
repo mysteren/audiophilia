@@ -20,6 +20,7 @@ export type Filter = {
   name: string;
   type: string;
   key: string;
+  sort: number;
   properties: FilterPropery;
   options: FilterOption[];
 };

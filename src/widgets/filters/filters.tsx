@@ -24,18 +24,10 @@ export default function Filters({
   const [items, setItems] = useState<Filter[]>([]);
   const [disabled, setDisabled] = useState(true);
 
-  // const fetchItems = useCallback(async (categryId, savedSearchParams) => {
-  //   setDisabled(true);
-  //   getCategoryFilters(categryId, savedSearchParams).then(({ filters }) => {
-  //     setItems(filters);
-  //     setDisabled(false);
-  //   });
-  // }, []);
-
   useEffect(() => {
     setDisabled(true);
     getCategoryFilters(categryId, savedSearchParams).then(({ filters }) => {
-      setItems(filters);
+      setItems(filters.sort((prev, next) => next.sort - prev.sort));
       setDisabled(false);
     });
   }, [categryId, savedSearchParams]);
@@ -43,10 +35,6 @@ export default function Filters({
   useFiltersStore(savedSearchParams);
 
   const { filtersApply, clearFilters } = useFiltersNavigate(pathname);
-
-  // const onChange = useCallback(() => {
-  //   filtersApply();
-  // }, [filtersApply]);
 
   const debounceChange = useMemo(() => {
     return debounce(filtersApply, 1000);

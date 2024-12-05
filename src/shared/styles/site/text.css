@@ -39,7 +39,7 @@
   }
 
   td,th {
-    border: 1px solid var(--color-gray);
+    border: 1px solid var(--gray-light);
     padding: 0.2rem;
   }
 

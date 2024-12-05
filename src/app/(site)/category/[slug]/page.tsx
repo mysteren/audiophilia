@@ -12,6 +12,8 @@ import styles from "./page.module.css";
 import { getCategory, isAdByCategories } from "@/entities/category";
 import CardAdRow from "@/widgets/card-ad-row";
 import AsideContainer from "@/shared/ui/aside-container/aside-container";
+import TextContent from "@/features/text-content";
+import { textContentParse } from "@/shared/lib/text/json-content";
 
 const page = "";
 const limit = 24;
@@ -75,11 +77,11 @@ export default async function Page(props: Props) {
 
   const isAd = isAdByCategories([category, ...parents]);
 
-  // const filters = initFilters(data.filters);
-
   const mainCategory = category.type === "filtered" ? parents[0] : category;
 
   const pathname = `/category/${mainCategory.slug}`;
+
+  const text = textContentParse(category.text);
 
   const productCards = products.map((product) =>
     isAd ? (
@@ -145,7 +147,7 @@ export default async function Page(props: Props) {
         </section>
       </div>
       <div>
-        <Text>{category.text}</Text>
+        <TextContent content={text}/>
       </div>
       <PageModals />
     </>

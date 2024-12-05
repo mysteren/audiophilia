@@ -62,7 +62,7 @@ export default function CardSlider({ images, alt }: Props) {
           height={500}
         />
       </div>
-      {images.length -1 && (
+      {!!(images.length -1) && (
         <>
           <button
             aria-label="to prev slider"

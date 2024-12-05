@@ -1,20 +1,22 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+
+import { isAdByCategories } from "@/entities/category";
 import { getProduct, getPropertyProps } from "@/entities/product";
 import { Breadcrumbs } from "@/features/breadcrumbs";
 import PropertyRowElement from "@/features/property-row";
+import SellerInfo from "@/features/seller-info";
+import TextContent from "@/features/text-content";
 import ToCart from "@/features/to-cart/to-cart";
 import { ApiResponseError } from "@/shared/api/http/errors";
+import { textContentParse } from "@/shared/lib/text/json-content";
 import { PrintPrice } from "@/shared/lib/utils/price";
-import { GetFileUrl, getHostname } from "@/shared/lib/utils/url";
+import { GetFileUrl } from "@/shared/lib/utils/url";
 import NoImage from "@/shared/ui/noimage/noimage";
-import { Text } from "@/shared/ui/text";
 import CardSlider from "@/widgets/card-slider/card-slider";
 import PageModals from "@/widgets/page-modals/page-modals";
-import Link from "next/link";
-import { notFound } from "next/navigation";
+
 import styles from "./page.module.css";
-import { isAdByCategories } from "@/entities/category";
-import { ruPhoneTransformer } from "@/shared/lib/utils/phone";
-import SellerInfo from "@/features/seller-info";
 
 // обновлять кеш каждые 15 секунд
 export const revalidate = 15;
@@ -55,7 +57,9 @@ export default async function Page(props: Props) {
   const { slug } = await props.params;
   const data = await fetchData(slug);
   const { categories, product, filters, seller } = data;
-  const { id, title, price, text, files, oldPrice } = product;
+  const { id, title, price, files, oldPrice } = product;
+
+  const text = textContentParse(product.text);
 
   const isAd = isAdByCategories(categories);
 
@@ -81,7 +85,7 @@ export default async function Page(props: Props) {
           <div className={styles.contentAd}>
             <div id="info">
               <h1 className={styles.title}>{title}</h1>
-              <Text>{text}</Text>
+              <TextContent content={text} />
             </div>
           </div>
           <div className={styles.stickyBar}>
@@ -133,7 +137,7 @@ export default async function Page(props: Props) {
               {!!text && (
                 <div id="info">
                   <h2 className={styles.subtitle}>Описание</h2>
-                  <Text>{text}</Text>
+                  <TextContent content={text} />
                 </div>
               )}
             </div>

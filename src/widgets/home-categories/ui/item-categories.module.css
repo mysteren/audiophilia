@@ -1,0 +1,28 @@
+.block {
+    background: #fff;
+    position: relative;
+    border-radius: 12px;
+    min-height: 132px;
+    max-height: 132px;
+    overflow: hidden;
+    padding: 10px 14px;
+}
+.block:hover {
+    cursor: pointer;
+    background: #f2f1f0;
+}
+.itemHrefBlock {
+    display: block;
+    height: 100%;
+}
+.image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.itemTitle {
+    font-size: 15px;
+    font-weight: 400;
+    margin: 0;
+}

@@ -4,6 +4,7 @@ import { collections } from "@/shared/data/collections";
 import { slides } from "@/shared/data/slider";
 import { getMainPageSettingsData } from "@/entities/site-settings";
 import styles from "./page.module.css";
+import HomeCategories from "@/widgets/home-categories";
 
 export async function generateMetadata() {
   const { mainPage } = await getMainPageSettingsData();
@@ -22,21 +23,21 @@ export default async function page() {
   return (
     <div className={`${styles.containerHome}`}>
       <HomeSlider items={slides}></HomeSlider>
-      <h2 className={styles.productTitle}>О Компании</h2>
+      <h2 className={styles.productTitle}>Промышленный портал</h2>
       <p>
-        Наше основное направление - производство металлических конструкций
-        различной формы и сложности, изготовление закладных деталей, обечаек,
-        конусов, труб нестандартных диаметров, фундаментных болтов и оказание
-        услуг металлообработки. Каждый заказ мы выполняем в кратчайшие сроки,
-        придерживаясь высокого уровня качества.
+        На платформе Invest Market вы найдете широкий ассортимент услуг и
+        товаров в области промышленности от сотен надежных поставщиков.
       </p>
-      <p>
-        В нашей команде работают опытные специалисты, которые предлагают
-        эффективные решения и индивидуальный подход к каждому клиенту, учитывая
-        все его требования и пожелания.
-      </p>
-      <h2 className={styles.productTitle}>Наша продукция</h2>
-      <Collections items={collections} />
+      <ul>
+        <li>Ежедневное обновление информации</li>
+        <li>Удобная система фильтров</li>
+        <li>Справочная информация</li>
+        <li>Разнообразные калькуляторы и онлайн-инструменты</li>
+      </ul>
+      <p>Электонная почта для связи: <strong>forum@investsteel.ru</strong>, пишите - добавим ваше предприятие в нашу базу.</p>
+      <h2 className={styles.productTitle}>Категории</h2>
+      <HomeCategories items={collections}/>
+      {/* <Collections items={collections} /> */}
     </div>
   );
 }

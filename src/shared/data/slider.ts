@@ -11,20 +11,19 @@ export const slides: Slide[] = [
   },
   {
     id: "0",
-    title: "Широкий ассортимент металлопроката по конкурентоспособным ценам",
+    title: "Широкий ассортимент металлопроката сотен поставщиков",
     text: "В каталог",
-    photo: '/images/slider/1.webp',
+    photo: '/images/slider/allmet.webp',
     url: '/category/metalloprokat',
-    color: 'white',
-
+    color: 'black',
   },
-  // {
-  //   id: "1",
-  //   title: "Большой выбор крепежей для стройки",
-  //   text: "В каталог",
-  //   photo: '/images/slider/2.webp',
-  //   url: '/category/krepezh',
-  //   color: 'black',
-  // },
+  {
+    id: "1",
+    title: "Большой выбор подрядчиков на услуги",
+    text: "Перейти",
+    photo: '/images/slider/prouslugi.webp',
+    url: '/category/uslugi',
+    color: 'black',
+  },
   
 ];

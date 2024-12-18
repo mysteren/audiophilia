@@ -6,14 +6,6 @@ import { YA_METRIKA_KEY, GTM_KEY } from "@/shared/config";
 import Script from "next/script";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Промышленный портал - Invest Market",
-  description: "На нашей платформе вы найдете большой ассортимент товаров и услуг в области промышленности от сотни поставщиков. Присоединяйтесь!",
-  other: {
-    ['yandex-verification']: '593a2159fa4d73d1',
-  }
-};
-
 const myFont = localFont({
   src: [
     {

@@ -32,8 +32,8 @@ export async function getHeaderSettingsData() {
 export async function getMainPageSettingsData() {
   const result: MainPageSettingsAllData = {
     mainPage: {
-      metaTitle: "",
-      metaDescription: "",
+      metaTitle: "Промышленный портал - Invest Market",
+      metaDescription: "На нашей платформе вы найдете большой ассортимент товаров и услуг в области промышленности от сотни поставщиков. Присоединяйтесь!",
     },
   };
   const settings = await getSettings<

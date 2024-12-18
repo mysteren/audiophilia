@@ -1,7 +1,7 @@
 type Props = {};
 
 export function metadata() {
-    const title = "Поиск";
+    const title = "Поиск по промышленному порталу -  Invest Market";
     const description = "Поиск товаров";
     const canonical = "/search";
     return {
@@ -17,7 +17,7 @@ export default function FavoritePage() {
   return (
     <>
       <h1>Поиск</h1>
-      <p>@TODO</p>
+      <p>Поиск находится в разработке, воспользуйтесь навигационным меню.</p>
     </>
   );
 }

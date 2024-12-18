@@ -2,6 +2,7 @@ import { Seller } from "@/shared/types/seller";
 import styles from "./seller-info.module.css";
 import { getHostname } from "@/shared/lib/utils/url";
 import { ruPhoneTransformer } from "@/shared/lib/utils/phone";
+import OrgIcon from "@/shared/ui/icons/org";
 import EmailIcon from "@/shared/ui/icons/email";
 import PhoneIcon from "@/shared/ui/icons/phone";
 import WebIcon from "@/shared/ui/icons/web";
@@ -11,7 +12,7 @@ type Props = { seller: Seller };
 export function SellerInfo({ seller }: Props) {
   return (
     <div className={styles.root}>
-      <span></span>
+      <OrgIcon className={styles.label} />
       <span className={styles.val}>{seller.title}</span>
 
       {seller?.addition?.site && (

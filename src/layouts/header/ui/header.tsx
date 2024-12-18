@@ -48,7 +48,7 @@ export default function Header({ categories, headerMenu2 }: Props) {
             <img
               className={styles.logoImg2}
               alt="market"
-              src={"/icons/logo-market.svg"}
+              src={"/icons/investmarket.svg"}
             />
           </Link>
         </div>

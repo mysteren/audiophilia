@@ -50,7 +50,7 @@
 }
 
 .categories {
-  padding: 0;
+  padding-left: 10px;
   list-style: none;
   display: grid;
   row-gap: 0.4rem;

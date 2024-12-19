@@ -17,7 +17,7 @@ export default function FavoritePage() {
   return (
     <>
       <h1>Избранное</h1>
-      <p>@TODO</p>
+      <p>Раздел находится в разработке</p>
     </>
   );
 }

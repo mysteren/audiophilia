@@ -17,7 +17,7 @@
 }
 
 .icon:hover {
-  color: var(--black);
+  color: var(--color-text);
 }
 
 @media (min-width: 1024px) {

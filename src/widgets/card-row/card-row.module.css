@@ -13,10 +13,10 @@
 }
 
 .icon {
-  background-color: color-mix(in srgb, var(--white), transparent 15%);
+  background-color: color-mix(in srgb, var(--color-light-bg), transparent 15%);
   border-radius: 0.5rem;
   padding: 0.3rem;
-  box-shadow: 0 0 5px 1px color-mix(in srgb, var(--white), transparent 15%);
+  box-shadow: 0 0 5px 1px color-mix(in srgb, var(--color-light-bg), transparent 15%);
 }
 
 .title {

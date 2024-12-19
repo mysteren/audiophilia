@@ -10,11 +10,11 @@
   display: inline-flex;
   width: 1rem;
   height: 1rem;
-  color: var(--primary);
+  color: var(--color-primary);
 }
 
 .path {
-  fill: var(--primary);
+  fill: var(--color-primary);
   width: 0.3rem;
 }
 
@@ -27,7 +27,7 @@
 .link {
   text-decoration: none;
   .name {
-    color: var(--black);
+    color: var(--color-text);
   }
 }
 

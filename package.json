@@ -1,6 +1,6 @@
 {
-  "name": "my-app",
-  "version": "0.5.2",
+  "name": "market-investsteel",
+  "version": "0.6.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,18 +10,18 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "next": "15.0.3",
+    "next": "15.1.1",
     "react": "^18",
     "react-dom": "^18",
-    "zod": "^3.23.8",
+    "zod": "^3.24.1",
     "zustand": "^5.0.2"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "15.0.3",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.1",
     "typescript": "^5"
   }
 }

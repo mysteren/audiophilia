@@ -12,7 +12,7 @@
 }
 
 .link {
-  color: var(--black);
+  color: var(--color-text);
   font-weight: bold;
   text-transform: uppercase;
 }

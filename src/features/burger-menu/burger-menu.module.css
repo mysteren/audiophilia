@@ -11,14 +11,14 @@
 }
 
 .button:hover {
-  color: var(--black);
+  color: var(--color-text);
 }
 
 .content {
   position: absolute;
   top: 100%;
   display: none;
-  background-color: var(--white);
+  background-color: var(--color-light-bg);
 }
 
 .show {

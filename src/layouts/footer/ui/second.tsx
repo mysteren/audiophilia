@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./second.module.css";
 import clsx from "clsx";
+import ThemeSwitcher from "@/features/theme-switcher";
 
 export default function Second() {
   return (
@@ -29,11 +30,7 @@ export default function Second() {
             Дзен
           </a>
         </div>
-        <div className={styles.copyright}>
-          <span>© INVESTSTEEL 2023 - {new Date().getFullYear()}</span>
-          <br />
-          <Link href="https://rosdesk.ru/">Powered by RosDesk</Link>
-        </div>
+        <ThemeSwitcher />
       </div>
       <div className={styles.col}>
         <Link href="/page/confidential">Политика конфидециальности</Link>
@@ -42,6 +39,13 @@ export default function Second() {
           исключительно информационный характер и ни при каких условиях не
           является публичной офертой, определяемой положениями Статьи 437
           Гражданского кодекса Российской Федерации.
+        </div>
+      </div>
+      <div className={styles.col}>
+        <div className={styles.copyright}>
+          <span>© INVESTSTEEL 2023 - {new Date().getFullYear()}</span>
+          <br />
+          <Link href="https://rosdesk.ru/">Powered by RosDesk</Link>
         </div>
       </div>
     </div>

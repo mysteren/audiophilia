@@ -3,8 +3,8 @@
   width: 100%;
   z-index: 100;
   top: 0;
-  background: color-mix(in srgb, var(--white), transparent 5%);
-  /* filter: blur(8px); */
+  background: var(--color-light-bg);
+
 
   &.showCatalog {
     display: grid;
@@ -54,7 +54,7 @@
 }
 
 .info {
-  color: var(--black);
+  color: var(--color-text);
   font-size: 0.85rem;
   text-decoration: none;
   font-weight: 500;
@@ -78,7 +78,7 @@
   gap: 10px;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--white);
+  background-color: var(--color-light-bg);
   /* grid-template-areas:  */
 }
 
@@ -124,6 +124,4 @@
     grid-template-columns: auto auto auto auto auto;
     grid-template-areas: "burger logo contacts actions right";
   }
-
-
 }

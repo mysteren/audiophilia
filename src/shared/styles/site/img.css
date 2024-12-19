@@ -1,7 +1,13 @@
 .img-contain {
-    object-fit: contain;
+  object-fit: contain;
 }
 
 .img-cover {
-    object-fit: cover;
+  object-fit: cover;
+}
+
+html[data-theme="dark"] {
+  .logoImg2 {
+    filter: invert(85%);
+  }
 }

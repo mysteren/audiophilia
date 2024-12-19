@@ -2,12 +2,26 @@
   box-sizing: border-box;
 }
 
+html {
+  opacity: 0;
+  transition: opacity 0.05s;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  opacity: initial;
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  opacity: initial;
+}
+
 body {
   /* font-family: 'CoSo'; */
   font-size: 16px;
   margin: 0;
-  color: var(--black);
-  background-color: var(--body-white);
+  color: var(--color-text);
+  background-color: var(--color-bg);
 }
 
 button {
@@ -25,22 +39,54 @@ a {
 
 /* Track */
 .scroll::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
   border-radius: 1rem;
 }
- 
+
 /* Handle */
 .scroll::-webkit-scrollbar-thumb {
-  background: #cecece; 
+  background: #cecece;
   border-radius: 1rem;
 }
 
 /* Handle on hover */
 .scroll::-webkit-scrollbar-thumb:hover {
-  background: #c0c0c0; 
-
+  background: #c0c0c0;
 }
 
 .rotate180 {
   transform: rotate(180deg);
+}
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1200px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1400px) {
+}
+
+@media (min-width: 1600px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
 }

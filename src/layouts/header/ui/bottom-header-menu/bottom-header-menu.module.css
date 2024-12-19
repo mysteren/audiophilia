@@ -1,7 +1,7 @@
 .container {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  background: var(--primary);
+  background: var(--color-primary-light-bg);
 }
 .list {
   padding: 0;
@@ -13,5 +13,5 @@
   list-style: none;
 }
 .link {
-  color: var(--white);
+  color: var(--color-light-bg);
 }

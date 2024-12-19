@@ -35,6 +35,6 @@
 
 @media (min-width: 768px) {
   .root {
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
   }
 }

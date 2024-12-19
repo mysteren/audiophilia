@@ -1,6 +1,6 @@
 .root {
   top: 6rem;
-  background: #fff;
+  background: var(--color-light-bg);
   box-shadow: 0px 0px 16px 0px color-mix(in srgb, var(--gray), transparent 94%);
   padding: 0.8rem 0.8rem 0.8rem 1rem;
   border-radius: 1rem;

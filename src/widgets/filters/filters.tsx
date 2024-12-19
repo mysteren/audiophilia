@@ -68,7 +68,6 @@ export default function Filters({
 
       <div className={styles.bottom}>
         <Button
-          variant="primary"
           onClick={() => {
             setDisabled(true);
             filtersApply();
@@ -77,7 +76,6 @@ export default function Filters({
           Применить
         </Button>
         <Button
-          variant="primary"
           onClick={() => {
             setDisabled(true);
             clearFilters();

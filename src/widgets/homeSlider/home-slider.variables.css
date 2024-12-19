@@ -1,9 +1,21 @@
 .black {
-  --slider-color: var(--white);
-  --slider-bg-color: var(--black);
+  --slider-color: var(--color-light-bg);
+  --slider-bg-color: var(--color-text);
 }
 
 .white {
-  --slider-color: var(--black);
-  --slider-bg-color: var(--white);
+  --slider-color: var(--color-text);
+  --slider-bg-color: var(--color-light-bg);
+}
+
+html[data-theme="dark"] {
+  .white {
+    --slider-color: var(--color-light-bg);
+    --slider-bg-color: var(--color-text);
+  }
+  
+  .black {
+    --slider-color: var(--color-text);
+    --slider-bg-color: var(--color-light-bg);
+  }
 }

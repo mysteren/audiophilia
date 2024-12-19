@@ -4,7 +4,7 @@
   right: 0;
   left: 0;
   height: 100svh;
-  background: color-mix(in srgb, var(--black), transparent 50%);
+  background: color-mix(in srgb, var(--color-text), transparent 50%);
   z-index: 200;
   /* display: ; */
   display: grid;
@@ -22,7 +22,7 @@
 }
 
 .window {
-  background-color: var(--white);
+  background-color: var(--color-light-bg);
   padding: 2.5rem 1.5rem 1.5rem;
   border-radius: 1rem;
   position: relative;

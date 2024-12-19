@@ -1,17 +1,18 @@
 /* Root стили */
 :root {
-  --black: #3e3c3c;
+  --color-text: #3e3c3c;
   --body-white: #f5faff;
   --white: #ffffff;
   --silver: #f5f7fa;
   --red: #ca0100;
-  --green: #6bd731;
+  --color-green: 
   --gray-dark: #686868;
   --gray: #737373;
   --gray-light: #c2c2c4;
-  --primary: rgba(0, 123, 251, 0.8);
+  --color-primary: rgba(0, 123, 251, 0.8);
   --hot-pink: rgba(233, 3, 99, 0.8);
   --hot-red: rgba(240, 13, 81, 0.8);
   --vivid-pink: rgba(247, 53, 228, 0.8);
   --electric-violet: rgba(133, 20, 245, 0.8);
 }
+

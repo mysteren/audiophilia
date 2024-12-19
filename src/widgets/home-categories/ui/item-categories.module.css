@@ -1,5 +1,5 @@
 .block {
-    background: #fff;
+    background: var(--color-light-bg);
     position: relative;
     border-radius: 12px;
     min-height: 132px;

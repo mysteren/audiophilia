@@ -1,6 +1,6 @@
 .button {
-  --color-bg: var(--white);
-  --color: var(--primary);
+  --color-bg: var(--color-light-bg);
+  --color: var(--color-primary);
   border: 0;
   background: var(--color-bg);
   color: var(--color);
@@ -9,13 +9,13 @@
   border-radius: 10px;
   transition: background-color 0.2s, color 0.2s;
   &.primary {
-    /* --color: var(--green); */
-    /* --color-bg: var(--primary); */
-    background: var(--primary);
-    color: var(--white);
+    /* --color: var(--color-green); */
+    /* --color-bg: var(--color-primary); */
+    background: var(--color-primary);
+    color: var(--color-light-bg);
   }
   &.green {
-    --color: var(--green);
+    --color: var(--color-green);
   }
   &.red {
     --color: var(--red);

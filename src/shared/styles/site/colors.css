@@ -1,0 +1,30 @@
+:root {
+  --color-bg: #f0f7ffef;
+  --color-light-bg: #ffffff;
+  --color-primary-light-bg: #429bf9;
+  --color-text: #3e3c3c;
+  --color-primary: #429bf9;
+  --color-green: #6bd731;
+
+  /* --color-shadow: rgba(182, 182, 182, 0.2); */
+}
+
+/* Темная тема */
+[data-theme="dark"] {
+  --color-bg: #1d2023d6;
+  --color-light-bg: #29323b;
+  --color-primary-light-bg: #609ee1;
+  --color-text: #efefef;
+  --color-primary: #609ee1;
+  --color-green: #6bd731;
+
+  /* --color-shadow: rgba(111, 96, 88, 0.2); */
+
+  img {
+    filter: brightness(85%);
+  }
+
+  .imgdoc {
+    filter: invert(85%);
+  }
+}

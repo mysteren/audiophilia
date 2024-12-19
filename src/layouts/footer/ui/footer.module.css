@@ -1,4 +1,4 @@
 .root {
-  background: var(--white);
+  background: var(--color-light-bg);
   box-shadow: 0px 0px 24px 0px color-mix(in srgb, var(--gray), transparent 90%);
 }

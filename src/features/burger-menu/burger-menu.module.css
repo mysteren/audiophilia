@@ -5,7 +5,7 @@
   padding: 0;
   height: 1.8rem;
   width: 1.8rem;
-  color: var(--gray);
+  color: var(--color-gray);
   align-items: center;
   justify-content: center;
 }

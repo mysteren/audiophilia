@@ -14,7 +14,7 @@
 }
 
 .label {
-  color: var(--gray);
+  color: var(--color-gray);
   font-size: 0.85rem;
   height: 1rem;
   /* padding: 0.2rem 0; */

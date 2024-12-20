@@ -21,7 +21,7 @@
 
 .title {
   grid-area: title;
-  color: var(--gray-dark);
+  color: var(--color-gray-dark);
   font-size: 1rem;
   padding: 0;
   margin: 0;
@@ -40,7 +40,7 @@
   display: flex;
   flex-wrap: wrap;
   column-gap: 0.5rem;
-  color: var(--gray);
+  color: var(--color-gray);
 }
 
 .actions {

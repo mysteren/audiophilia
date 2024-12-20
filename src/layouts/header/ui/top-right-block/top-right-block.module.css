@@ -11,7 +11,7 @@
   margin: 0;
   display: flex;
   align-items: center;
-  color: var(--gray);
+  color: var(--color-gray);
   height: 1.4rem;
   width: 1.4rem;
 }

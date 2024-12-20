@@ -14,7 +14,7 @@
   background-color: var(--color-light-bg);
   border-radius: 1.4rem;
   padding: 1.4rem;
-  box-shadow: 0px 0px 16px 0px color-mix(in srgb, var(--gray), transparent 94%);
+  box-shadow: 0px 0px 16px 0px color-mix(in srgb, var(--color-primary-light-bg), transparent 94%);
   grid-template-columns: 1fr;
   grid-template-areas:
     "slider"
@@ -30,7 +30,7 @@
   background-color: var(--color-light-bg);
   border-radius: 1.4rem;
   padding: 1.4rem;
-  box-shadow: 0px 0px 16px 0px color-mix(in srgb, var(--gray), transparent 94%);
+  box-shadow: 0px 0px 16px 0px color-mix(in srgb, var(--color-primary-light-bg), transparent 94%);
 }
 
 .title {
@@ -57,7 +57,7 @@
 }
 
 .viewsText {
-  color: var(--gray);
+  color: var(--color-gray);
   font-size: 16px;
 }
 
@@ -74,7 +74,7 @@
   gap: 6px;
   padding: 6px 11px;
   background-color: var(--silver);
-  border: 1px solid var(--gray-light);
+  border: 1px solid var(--color-primary-light-bg-light);
 }
 
 .partsText {
@@ -97,7 +97,7 @@
 }
 
 .priceCredit {
-  color: var(--gray);
+  color: var(--color-gray);
 }
 
 .price {
@@ -107,7 +107,7 @@
 
 .oldPrice {
   /* font-size: 1rem; */
-  color: var(--gray-light-color);
+  color: var(--color-gray-light-color);
   text-decoration: line-through;
 }
 
@@ -135,7 +135,7 @@
 }
 
 .anchorButton {
-  color: var(--gray);
+  color: var(--color-gray);
   text-decoration: none;
   border-bottom: 1px dashed;
   padding-bottom: 10px;

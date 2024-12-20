@@ -1,5 +1,5 @@
 .container {
-  color: var(--gray-light);
+  color: var(--color-gray-light);
   width: 100%;
   aspect-ratio: 1;
   display: grid;

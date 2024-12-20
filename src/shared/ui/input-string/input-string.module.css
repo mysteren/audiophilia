@@ -2,7 +2,7 @@
   width: 100%;
   padding: 0.65rem 0.85rem;
   border-radius: 0.85rem;
-  border: 1px dotted var(--gray);
+  border: 1px dotted var(--color-gray);
 }
 
 .input::-webkit-outer-spin-button,
@@ -12,10 +12,10 @@
 }
 
 .error {
-  color: var(--red);
-  border-color: var(--red);
+  color: var(--color-red);
+  border-color: var(--color-red);
 }
 
 .error::placeholder {
-  color: var(--red);
+  color: var(--color-red);
 }

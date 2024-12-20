@@ -36,13 +36,13 @@
 
 .optionName {
   font-size: 0.95rem;
-  color: var(--gray-dark)
+  color: var(--color-gray-dark)
 }
 
 
 .optionCount {
   font-size: 0.65rem;
-  color: var(--gray-dark);
+  color: var(--color-gray-dark);
   padding-bottom: 0.4rem;
 }
 

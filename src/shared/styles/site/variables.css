@@ -4,11 +4,11 @@
   --body-white: #f5faff;
   --white: #ffffff;
   --silver: #f5f7fa;
-  --red: #ca0100;
+  --color-red: #ca0100;
   --color-green: 
-  --gray-dark: #686868;
-  --gray: #737373;
-  --gray-light: #c2c2c4;
+  --color-gray-dark: #686868;
+  --color-gray: #737373;
+  --color-gray-light: #c2c2c4;
   --color-primary: rgba(0, 123, 251, 0.8);
   --hot-pink: rgba(233, 3, 99, 0.8);
   --hot-red: rgba(240, 13, 81, 0.8);

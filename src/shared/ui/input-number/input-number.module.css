@@ -2,7 +2,7 @@
     width: 100%;
     padding: 0.65rem 0.85rem;
     border-radius: 0.85rem;
-    border: 1px dotted var(--gray)
+    border: 1px dotted var(--color-gray);
 }
 
 .input::-webkit-outer-spin-button,

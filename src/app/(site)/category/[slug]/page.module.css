@@ -52,7 +52,7 @@
   row-gap: 0.4rem;
 }
 .category {
-  color: var(--gray-dark);
+  color: var(--color-gray-dark);
   text-decoration: none;
 }
 

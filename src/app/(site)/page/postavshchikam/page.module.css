@@ -8,7 +8,7 @@
 }
 
 .block {
-  box-shadow: 0px 0px 16px 0px color-mix(in srgb, var(--gray), transparent 94%);
+  box-shadow: 0px 0px 16px 0px color-mix(in srgb, var(--color-primary-light-bg), transparent 94%);
   background-color: var(--color-primary);
   color: #fff;
   border-radius: 24px;

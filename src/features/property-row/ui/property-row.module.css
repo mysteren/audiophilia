@@ -6,7 +6,7 @@
 .col {
   display: flex;
   align-items: flex-end;
-  border-bottom: 1px dashed var(--gray-light);
+  border-bottom: 1px dashed var(--color-gray-light);
   margin: 0.25rem 0;
   font-weight: lighter;
 }

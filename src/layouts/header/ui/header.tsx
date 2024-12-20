@@ -4,7 +4,9 @@
 import clsx from "clsx";
 import Link from "next/link";
 
-import BurgerMenu from "@/features/burger-button/ui/burger-button";
+import BottomHeaderMenu from "@/features/bottom-header-menu";
+import BurgerButton from "@/features/burger-button/ui/burger-button";
+import Menu from "@/features/menu";
 import Button from "@/shared/ui/button/button";
 import EmailIcon from "@/shared/ui/icons/email";
 import PhoneIcon from "@/shared/ui/icons/phone";
@@ -12,9 +14,6 @@ import { useScrollIsTop } from "../model/use-scroll-top";
 import { useShowCatalog } from "../model/use-show-catalog";
 import styles from "./header.module.css";
 import { TopRightBlock } from "./top-right-block/top-right-block";
-import Menu from "@/features/menu";
-import BurgerButton from "@/features/burger-button/ui/burger-button";
-import BottomHeaderMenu from "@/features/bottom-header-menu";
 
 
 export default function Header() {

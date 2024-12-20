@@ -1,11 +1,10 @@
 "use client";
 import Link from "next/link";
-
-import { useIsMobile } from "@/shared/lib/media-query";
 import { useData, useSelectedItem } from "../model/hooks";
 import styles from "./menu.module.css";
 import SubMenu from "./sub-menu";
 import { MenuTreeItem } from "../types";
+import { useIsMobile } from "@/shared/lib/media-query";
 
 function Item({ item: { title, slug, urlPrefix } }: { item: MenuTreeItem }) {
   if (slug) {
@@ -40,7 +39,9 @@ export function Menu() {
             onMouseEnter={(event) => handleOnMouse(event, item, index)}
           >
             <Item item={item} />
-            {isMobile && index === active && !!subItems.length && <SubMenu items={subItems} />}
+            {isMobile && index === active && !!subItems.length && (
+              <SubMenu items={subItems} />
+            )}
           </li>
         ))}
       </ul>

@@ -1,8 +1,8 @@
-import { CategoryItem } from "@/shared/types/categoryItem";
+import { CategoryTreeItem } from "@/shared/types/categoryItem";
 import Link from "next/link";
 
 type Props = {
-  items: CategoryItem[];
+  items: CategoryTreeItem[];
   level?: number;
 };
 

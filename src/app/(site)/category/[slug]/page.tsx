@@ -1,19 +1,17 @@
 import { Breadcrumbs } from "@/features/breadcrumbs";
-import { Text } from "@/shared/ui/text";
+import { ApiResponseError } from "@/shared/api/http/errors";
 import CardRow from "@/widgets/card-row/card-row";
 import Filters from "@/widgets/filters/filters";
 import PageModals from "@/widgets/page-modals/page-modals";
 import { Pagination } from "@/widgets/pagination/pagination";
-import { ApiResponseError } from "@/shared/api/http/errors";
-// import { initFilters } from "@/entities/filter";
+import { getCategory, isAdByCategories } from "@/entities/category";
+import TextContent from "@/features/text-content";
+import { textContentParse } from "@/shared/lib/text/json-content";
+import AsideContainer from "@/shared/ui/aside-container";
+import CardAdRow from "@/widgets/card-ad-row";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import styles from "./page.module.css";
-import { getCategory, isAdByCategories } from "@/entities/category";
-import CardAdRow from "@/widgets/card-ad-row";
-import AsideContainer from "@/shared/ui/aside-container/aside-container";
-import TextContent from "@/features/text-content";
-import { textContentParse } from "@/shared/lib/text/json-content";
 
 const page = "";
 const limit = 24;
@@ -147,7 +145,7 @@ export default async function Page(props: Props) {
         </section>
       </div>
       <div>
-        <TextContent content={text}/>
+        <TextContent content={text} />
       </div>
       <PageModals />
     </>

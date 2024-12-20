@@ -1,5 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import "./page.module.css";
+import "./dark.css";
 import { Breadcrumbs } from "@/features/breadcrumbs";
 import clsx from "clsx";
 
@@ -28,12 +30,12 @@ export default function Page() {
         />
       </div>
       <div className={styles.grid}>
-        <div className={styles.firstBlock}>
+        <div className={clsx(styles.firstBlock, "postavshikam__first-block")}>
           <h1 className={styles.title}>Как добавить компанию</h1>
           <Image
             alt="Добавление компаний"
             className={styles.imgTitle}
-            src={'/images/postavshikam/addcompany.webp'}
+            src={"/images/postavshikam/addcompany.webp"}
             width={500}
             height={500}
           />

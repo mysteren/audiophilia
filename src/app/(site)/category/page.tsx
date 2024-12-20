@@ -2,10 +2,10 @@
 
 import { getCategoryTree } from "@/entities/category";
 import { CategoriesTree } from "@/layouts/header/ui/categories-tree.tsx/categories-tree";
-import { CategoryItem } from "@/shared/types/categoryItem";
+import { CategoryTreeItem } from "@/shared/types/categoryItem";
 
 export default async function CatalogPage() {
-  const data: CategoryItem[] = await getCategoryTree();
+  const data: CategoryTreeItem[] = await getCategoryTree();
 
   return (
     <>

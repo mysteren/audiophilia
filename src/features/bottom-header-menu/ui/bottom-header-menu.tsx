@@ -1,14 +1,12 @@
-import { LinkItemData } from "@/entities/site-settings/types";
-import styles from "./bottom-header-menu.module.css";
 import Link from "next/link";
+import { useData } from "../model/hooks";
+import styles from "./bottom-header-menu.module.css";
 
-type Props = {
-  items: LinkItemData[];
-};
+export function BottomHeaderMenu() {
+  const { items } = useData();
 
-export function BottomHeaderMenu({ items }: Props) {
   return (
-    <div className={styles.container}>
+    <div className={styles.root}>
       <nav className={`container`}>
         <ul className={styles.list}>
           {items.map((item, i) => {

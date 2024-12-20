@@ -8,7 +8,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { FilterElement } from "./components/filter-element/filter-element";
 import styles from "./filter.module.css";
 import { useFiltersNavigate, useFiltersStore } from "./hooks";
-import AsideContainer from "@/shared/ui/aside-container/aside-container";
+import AsideContainer from "@/shared/ui/aside-container/ui/aside-container";
 
 type Props = {
   categryId: number;

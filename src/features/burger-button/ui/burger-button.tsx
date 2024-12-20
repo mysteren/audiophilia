@@ -1,4 +1,4 @@
-import styles from "./burger-menu.module.css";
+import styles from "./burger-button.module.css";
 
 import Burger from "@/shared/ui/icons/burger";
 import CloseIcon from "@/shared/ui/icons/close";
@@ -8,7 +8,7 @@ type Props = {
   onClick: (active: boolean) => void;
 };
 
-export default function BurgerMenu({ active, onClick }: Props) {
+export default function BurgerButton({ active, onClick }: Props) {
   return (
     <>
       <button
@@ -20,9 +20,6 @@ export default function BurgerMenu({ active, onClick }: Props) {
       >
         {active ? <CloseIcon /> : <Burger />}
       </button>
-      {/* <div className={`${styles.content} ${active ? styles.show : ''}`}>
-            {children}
-        </div> */}
     </>
   );
 }

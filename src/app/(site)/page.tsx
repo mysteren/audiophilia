@@ -1,4 +1,4 @@
-import Collections from "@/widgets/collections/collections";
+
 import HomeSlider from "@/widgets/homeSlider/home-slider";
 import { collections } from "@/shared/data/collections";
 import { slides } from "@/shared/data/slider";
@@ -21,9 +21,9 @@ export async function generateMetadata() {
 
 export default async function page() {
   return (
-    <div className={`${styles.containerHome}`}>
+    <div className={`${styles.root}`}>
       <HomeSlider items={slides}></HomeSlider>
-      <h2 className={styles.productTitle}>Промышленный портал</h2>
+      <h2 className={styles.title}>Промышленный портал</h2>
       <p>
         На платформе Invest Market вы найдете широкий ассортимент услуг и
         товаров в области промышленности от сотен надежных поставщиков.
@@ -35,9 +35,8 @@ export default async function page() {
         <li>Разнообразные калькуляторы и онлайн-инструменты</li>
       </ul>
       <p>Электонная почта для связи: <strong>forum@investsteel.ru</strong>, пишите - добавим ваше предприятие в нашу базу.</p>
-      <h2 className={styles.productTitle}>Категории</h2>
+      <h2 className={styles.title}>Категории</h2>
       <HomeCategories items={collections}/>
-      {/* <Collections items={collections} /> */}
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { API_INTERNAL } from "@/shared/config";
-import { CommonFileItem } from "@/shared/types/file.type";
+import { CommonFileItem } from "@/shared/types/file";
 
 const basePath = "/uploads/public/src";
 

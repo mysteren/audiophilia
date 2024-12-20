@@ -1,27 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { LinkItemData } from "@/entities/site-settings/types";
-import BurgerMenu from "@/features/burger-menu/burger-menu";
-import { CategoryItem } from "@/shared/types/categoryItem";
 import clsx from "clsx";
 import Link from "next/link";
-import styles from "./header.module.css";
-import { BottomHeaderMenu } from "./bottom-header-menu/bottom-header-menu";
-import { CategoriesCatalog } from "./categories-catalog";
-import { TopRightBlock } from "./top-right-block/top-right-block";
+
+import BurgerMenu from "@/features/burger-button/ui/burger-button";
+import Button from "@/shared/ui/button/button";
+import EmailIcon from "@/shared/ui/icons/email";
+import PhoneIcon from "@/shared/ui/icons/phone";
 import { useScrollIsTop } from "../model/use-scroll-top";
 import { useShowCatalog } from "../model/use-show-catalog";
-import PhoneIcon from "@/shared/ui/icons/phone";
-import EmailIcon from "@/shared/ui/icons/email";
-import Button from "@/shared/ui/button/button";
+import styles from "./header.module.css";
+import { TopRightBlock } from "./top-right-block/top-right-block";
+import Menu from "@/features/menu";
+import BurgerButton from "@/features/burger-button/ui/burger-button";
+import BottomHeaderMenu from "@/features/bottom-header-menu";
 
-type Props = {
-  headerMenu2: LinkItemData[];
-  categories: CategoryItem[];
-};
 
-export default function Header({ categories, headerMenu2 }: Props) {
+export default function Header() {
+  
   const { scrollIsTop } = useScrollIsTop();
   const { showCatalog, showCatalogHandler } = useShowCatalog();
 
@@ -34,7 +31,7 @@ export default function Header({ categories, headerMenu2 }: Props) {
     >
       <div className={clsx("container", styles.subHeader)}>
         <div className={clsx(styles.iconWrap, styles.burger)}>
-          <BurgerMenu active={showCatalog} onClick={showCatalogHandler} />
+          <BurgerButton active={showCatalog} onClick={showCatalogHandler} />
         </div>
         <div className={styles.logo}>
           <Link className={styles.iconWrap} href="https://investsteel.ru">
@@ -46,7 +43,7 @@ export default function Header({ categories, headerMenu2 }: Props) {
           </Link>
           <Link className={styles.iconWrap} href="/">
             <img
-              className={clsx(styles.logoImg2, 'logoImg2')}
+              className={clsx(styles.logoImg2, "logoImg2")}
               alt="market"
               src={"/icons/investmarket.svg"}
             />
@@ -75,13 +72,13 @@ export default function Header({ categories, headerMenu2 }: Props) {
 
       <div className={styles.catalogContainer}>
         <div className={clsx("container", styles.catalogGrid)}>
-          <CategoriesCatalog items={categories} />
+          <Menu />
         </div>
       </div>
 
       {scrollIsTop && !showCatalog && (
         <div className={styles.bottomMenu}>
-          <BottomHeaderMenu items={headerMenu2} />
+          <BottomHeaderMenu />
         </div>
       )}
     </header>

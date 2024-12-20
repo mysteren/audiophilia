@@ -5,3 +5,19 @@
 .title {
   margin-top: 0px;
 }
+
+.first {
+  margin-top: 0 !important;
+}
+
+.col2 {
+  display: grid;
+}
+
+@media (min-width: 992px) {
+  .col2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}

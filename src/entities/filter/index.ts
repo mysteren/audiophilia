@@ -1,5 +1,5 @@
 import { Filter } from "@/shared/types/categoryFilter";
-import { SelectedFilterItem } from "@/shared/types/filter.type";
+import { SelectedFilterItem } from "@/shared/types/filter";
 
 export function createFilteresQueryString(
   data: Record<string, SelectedFilterItem>

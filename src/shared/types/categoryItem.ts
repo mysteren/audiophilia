@@ -1,5 +1,5 @@
-export type CategoryItem = {
+export type CategoryTreeItem = {
     title: string;
     slug: string;
-    children: CategoryItem[];
+    children: CategoryTreeItem[];
   };

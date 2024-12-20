@@ -1,4 +1,4 @@
-import { ImageFileItem } from "./file.type";
+import { ImageFileItem } from "./file";
 import { Seller } from "./seller";
 
 export type Product = {

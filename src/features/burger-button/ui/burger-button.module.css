@@ -13,14 +13,3 @@
 .button:hover {
   color: var(--color-text);
 }
-
-.content {
-  position: absolute;
-  top: 100%;
-  display: none;
-  background-color: var(--color-light-bg);
-}
-
-.show {
-  display: block;
-}

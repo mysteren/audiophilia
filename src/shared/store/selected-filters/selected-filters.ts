@@ -1,4 +1,4 @@
-import { SelectedFilterItem, SelectedFiltersState } from "@/shared/types/filter.type";
+import { SelectedFilterItem, SelectedFiltersState } from "@/shared/types/filter";
 import { create } from "zustand";
 import { initStore } from "../service";
 import { devtools } from "zustand/middleware";

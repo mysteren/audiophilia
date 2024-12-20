@@ -12,14 +12,9 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [categories, settingsData] = await Promise.all([
-    getCategoryTree(),
-    getHeaderSettingsData(),
-  ]);
-
   return (
     <div className={styles.wrap}>
-      <Header headerMenu2={settingsData.headMenu2} categories={categories} />
+      <Header />
       <main className={`${styles.main} container`}>{children}</main>
       <Footer />
     </div>

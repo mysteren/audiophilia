@@ -1,10 +1,10 @@
 import { ApiClientInstance } from "@/shared/api";
 import { CategoryData, CategoryFilterData } from "@/shared/types/category";
-import { CategoryItem } from "@/shared/types/categoryItem";
+import { CategoryTreeItem } from "@/shared/types/categoryItem";
 import { Category } from "@/shared/types/product";
 
 export function getCategoryTree() {
-  return ApiClientInstance.get<CategoryItem[]>("/category/tree");
+  return ApiClientInstance.get<CategoryTreeItem[]>("/category/tree");
 }
 
 export function getCategory(

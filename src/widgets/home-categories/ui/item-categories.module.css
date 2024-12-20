@@ -1,28 +1,31 @@
-.block {
-    background: var(--color-light-bg);
-    position: relative;
-    border-radius: 12px;
-    min-height: 132px;
-    max-height: 132px;
-    overflow: hidden;
-    padding: 10px 14px;
+.root {
+  background: var(--color-light-bg);
+  position: relative;
+  border-radius: 12px;
+  min-height: 132px;
+  max-height: 132px;
+  overflow: hidden;
+  padding: 10px 14px;
+  cursor: pointer;
+  &:hover {
+    .image {
+      opacity: 1;
+    }
+  }
 }
-.block:hover {
-    cursor: pointer;
-    background: #f2f1f0;
-}
-.itemHrefBlock {
-    display: block;
-    height: 100%;
+.cont {
+  display: block;
+  height: 100%;
 }
 .image {
-    position: absolute;
-    right: 0;
-    bottom: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  opacity: 0.6;
 }
 
-.itemTitle {
-    font-size: 15px;
-    font-weight: 400;
-    margin: 0;
+.title {
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0;
 }

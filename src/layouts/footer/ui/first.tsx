@@ -11,18 +11,30 @@ export default function First() {
           </Link>
         </li>
         <li>
-          <Link className={styles.link} href="/category/uslugi">
-            Услуги
-          </Link>
-        </li>
-        <li>
-          <Link className={styles.link} href="/page/contacts">
-            Контакты
-          </Link>
-        </li>
-        <li>
-          <Link className={styles.link} href="https://forum.investsteel.ru">
+          <Link
+            target="_blank"
+            className={styles.link}
+            href="https://forum.investsteel.ru"
+          >
             Форум
+          </Link>
+        </li>
+        <li>
+          <Link
+            target="_blank"
+            className={styles.link}
+            href="https://tools.investsteel.ru/"
+          >
+            Калькуляторы
+          </Link>
+        </li>
+        <li>
+          <Link
+            target="_blank"
+            className={styles.link}
+            href="https://corp.investsteel.ru"
+          >
+            Сотрудничество
           </Link>
         </li>
       </ul>

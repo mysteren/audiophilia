@@ -12,6 +12,7 @@ import CardAdRow from "@/widgets/card-ad-row";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import styles from "./page.module.css";
+import AddCompany from "@/layouts/add-company";
 
 const page = "";
 const limit = 24;
@@ -142,6 +143,7 @@ export default async function Page(props: Props) {
             )}
           </div>
           <Pagination itemsCount={products.length} limit={limit} />
+          <AddCompany/>
         </section>
       </div>
       <div>

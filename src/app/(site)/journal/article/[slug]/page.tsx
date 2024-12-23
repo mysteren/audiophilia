@@ -41,7 +41,7 @@ export async function generateMetadata(props: Props) {
     title,
     description,
     alternates: {
-      canonical: `/blog/article/${slug}`,
+      canonical: `/journal/article/${slug}`,
     },
   };
 }

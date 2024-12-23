@@ -10,7 +10,6 @@ type Props = {
 export default function JournalAside({ items }: Props) {
   const categories = [
     { title: "Свежее", to: "/journal" },
-    // { title: "Популярное", to: "/blog/top" },
     ...items.map(({ title, slug }) => {
       return { title, to: `/journal/article-category/${slug}` };
     }),

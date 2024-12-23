@@ -48,7 +48,6 @@ export async function GET(request: Request) {
     //     ],
     //     menu: [
     //       { link: `${BASE_URL}`, text: "Главная" },
-    //       // { link: `${BASE_URL}/blog`, text: "Статьи" },
     //       { link: `${BASE_URL}/page/contacts`, text: "Контакты" },
     //     ],
     //   };

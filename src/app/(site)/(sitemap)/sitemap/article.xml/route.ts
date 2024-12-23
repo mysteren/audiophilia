@@ -12,7 +12,7 @@ export async function GET(request: Request) {
 
   const urls: SitemapUrlDto[] = slugs.map(({ slug }) => {
     return {
-      uri: `blog/article/${slug}`,
+      uri: `journal/article/${slug}`,
       date,
       changefreq: "daily",
       priority: 0.7,

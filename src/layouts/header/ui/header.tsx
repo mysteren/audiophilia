@@ -36,7 +36,7 @@ export default function Header() {
           <Link className={styles.iconWrap} href="https://investsteel.ru">
             <img
               className={styles.logoImg}
-              alt="Investseel"
+              alt="Invest Market"
               src={"/icons/logo.svg"}
             />
           </Link>

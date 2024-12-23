@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-
-const BrowserCheck = () => typeof window !== "undefined";
+import { BrowserCheck } from "../browser";
 
 export const useMediaQuery = (query: string) => {
   const isBrowser = BrowserCheck();
@@ -18,7 +17,7 @@ export const useMediaQuery = (query: string) => {
       return () =>
         mediaQueryList.removeEventListener("change", documentChangeHandler);
     }
-  }, [query]);
+  }, [query, isBrowser]);
 
   return matches;
 };

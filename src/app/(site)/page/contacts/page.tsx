@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { Breadcrumbs } from "@/features/breadcrumbs";
 import styles from "./page.module.css";
 import ContentBlock from "@/shared/ui/content-block";
@@ -31,7 +33,12 @@ export default function ContactsPage() {
         <div className={styles.col2}>
           <div>
             <h2 className={styles.first}>Офис</h2>
-            <img src="https://investsteel.ru/assets/image/moscow.jpg" />
+            <Image
+              unoptimized={true}
+              src="https://investsteel.ru/assets/image/moscow.jpg"
+              alt="Офис"
+            />
+            {/* <img  /> */}
 
             <h3>Адрес</h3>
 
@@ -87,7 +94,12 @@ export default function ContactsPage() {
           </div>
           <div>
             <h2 className={styles.first}>Производство</h2>
-            <img src="https://investsteel.ru/assets/image/electrostal.jpg" />
+            <Image
+              unoptimized={true}
+              src="https://investsteel.ru/assets/image/electrostal.jpg"
+              alt="Производство"
+            />
+
             <h3>Адрес</h3>
             <p>144000 Элекстросталь, улица Красная 25А</p>
             <h3>Время работы</h3>

@@ -1,6 +1,5 @@
+import { BrowserCheck } from "@/shared/lib/browser";
 import { useEffect, useState } from "react";
-
-const BrowserCheck = () => typeof window !== "undefined";
 
 export function useScrollIsTop() {
   const isBrowser = BrowserCheck();

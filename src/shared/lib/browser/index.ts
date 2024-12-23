@@ -1,0 +1,1 @@
+export const BrowserCheck = () => typeof window !== "undefined";

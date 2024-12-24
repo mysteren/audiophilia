@@ -8,5 +8,5 @@ type Props = {
 };
 
 export default function ContentBlock({ children }: Props) {
-  return <div className={clsx(styles.root, "text")}>{children}</div>;
+  return <div className={clsx(styles.root)}>{children}</div>;
 }

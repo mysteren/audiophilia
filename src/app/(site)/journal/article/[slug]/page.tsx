@@ -12,6 +12,7 @@ import "@/shared/styles/site/text.css";
 import JournalAside from "@/widgets/journal-aside/ui/journal-aside";
 import styles from "./page.module.css";
 import ContentBlock from "@/shared/ui/content-block";
+import { clsx } from "clsx";
 
 export const revalidate = 20;
 
@@ -66,7 +67,7 @@ export default async function Page(props: Props) {
         <div className={styles.aside}>
           <JournalAside items={childrens} />
         </div>
-        <div className={styles.section}>
+        <div className={clsx(styles.section, "text")}>
           <ContentBlock>
             <div className={styles.top}>
               <span className={styles.author}>{author.pubname}</span>

@@ -54,6 +54,14 @@
   img {
     max-width: 100%;
     border-radius: 12px;
+    object-fit: cover;
   }
 }
 
+@media (min-width: 992px) {
+  .text {
+    img {
+      max-height: 40svh;
+    }
+  }
+}

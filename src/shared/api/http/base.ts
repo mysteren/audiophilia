@@ -24,8 +24,6 @@ export abstract class BaseHttpClient {
     })
     const result = await resp.json()
 
-    // console.log(resp);
-
     if (resp.ok) {
       return result as K
     }

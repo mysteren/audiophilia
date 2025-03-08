@@ -10,5 +10,18 @@
       "request": "launch",
       "command": "npm run dev -- -p 3100"
     },
+    {
+      "name": "Next.js: debug client-side",
+      "type": "pwa-chrome",
+      "request": "launch",
+      "url": "http://localhost:3100",
+      "webRoot": "${workspaceFolder}"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full Debug",
+      "configurations": ["site", "Next.js: debug client-side"]
+    }
   ]
 }

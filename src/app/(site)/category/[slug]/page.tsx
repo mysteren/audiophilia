@@ -12,7 +12,7 @@ import CardAdRow from "@/widgets/card-ad-row";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import styles from "./page.module.css";
-import AddCompany from "@/layouts/add-company";
+import AddCompany from "@/widgets/add-company";
 
 const page = "";
 const limit = 24;

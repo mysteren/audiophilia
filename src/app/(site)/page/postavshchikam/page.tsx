@@ -65,8 +65,7 @@ export default function Page() {
                 пожалуйста, отправьте следующие данные:
               </p>
               <ul className={styles.wowList}>
-                <li>Наименование компании;</li>
-                <li>ИНН;</li>
+                <li>Наименование компании, ИНН;</li>
                 <li>Описание услуги или товара, который вы предлагаете;</li>
                 <li>Телефон, email, сайт;</li>
                 <li>Город в котором вы предлагаете свои услуги или товар.</li>
@@ -75,16 +74,23 @@ export default function Page() {
                 Размещение информации о вашей компании на нашем портале
                 абсолютно бесплатно!
               </p>
-              <span className={styles.wowCallBackText}>
+              <p className={styles.wowCallBackText}>
                 Для отправки данных используйте следующий адрес электронной
                 почты:{" "}
-                <a
-                  className={styles.mailLink}
-                  href="mailto:forum@investsteel.ru"
-                >
+                <a className={styles.bold} href="mailto:forum@investsteel.ru">
                   forum@investsteel.ru
                 </a>
-              </span>
+              </p>
+              <p>
+                Также мы можете зарегистрироваться в{" "}
+                <a
+                  href="https://seller.market.investsteel.ru/auth/register"
+                  className={styles.bold}
+                >
+                  личном кабинете поставщика
+                </a>{" "}
+                и размещать, товары услуги и запросы самостоятельно{" "}
+              </p>
             </div>
           </div>
           <div className={clsx(styles.wowThree, styles.block)}>

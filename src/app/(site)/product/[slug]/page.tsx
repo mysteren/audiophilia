@@ -9,7 +9,6 @@ import SellerInfo from "@/features/seller-info";
 import TextContent from "@/features/text-content";
 import ToCart from "@/features/to-cart/to-cart";
 import { ApiResponseError } from "@/shared/api/http/errors";
-import { textContentParse } from "@/shared/lib/text/json-content";
 import { PrintPrice } from "@/shared/lib/utils/price";
 import { GetFileUrl } from "@/shared/lib/utils/url";
 import NoImage from "@/shared/ui/noimage/noimage";
@@ -57,9 +56,7 @@ export default async function Page(props: Props) {
   const { slug } = await props.params;
   const data = await fetchData(slug);
   const { categories, product, filters, seller } = data;
-  const { id, title, price, files, oldPrice } = product;
-
-  const text = textContentParse(product.text);
+  const { id, title, price, files, oldPrice, text } = product;
 
   const isAd = isAdByCategories(categories);
 

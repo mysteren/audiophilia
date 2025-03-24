@@ -1,4 +1,4 @@
-import { Filter, ProductAd, Сategory } from "@/shared/types";
+import { Filter, ProductElemtent, Сategory } from "@/shared/types";
 
 export type CategoryTreeItem =  {
   title: string;
@@ -14,7 +14,7 @@ export type CategoryItem = {
 
 export type CategoryDTO = {
   category: Сategory;
-  products: ProductAd[];
+  products: ProductElemtent[];
   parents: CategoryItem[];
   childrens: CategoryItem[];
   filters: Filter[];

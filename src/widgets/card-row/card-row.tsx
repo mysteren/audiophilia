@@ -1,6 +1,6 @@
 "use client";
 import { ToProduct } from "@/shared/lib/utils/route-url";
-import { Product } from "@/shared/types/product";
+import { ProductElemtent } from "@/shared/types/product";
 import Button from "@/shared/ui/button/button";
 import Link from "next/link";
 import ToCart from "../../features/to-cart/to-cart";
@@ -9,7 +9,7 @@ import { getHostname } from "@/shared/lib/utils/url";
 import { ruPhoneTransformer } from "@/shared/lib/utils/phone";
 
 type Props = {
-  product: Product;
+  product: ProductElemtent;
 };
 
 export default function CardRow({ product }: Props) {

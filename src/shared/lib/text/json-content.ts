@@ -29,6 +29,9 @@ export function jsonContentToRss(data: JSONContent) {
   return plainText.trim(); // Return the plain text, trimmed of extra spaces
 }
 
+/**
+ * @deprecated
+ */
 export function textContentParse(data: string): JSONContent | string {
   try {
     return JSON.parse(data) as JSONContent;

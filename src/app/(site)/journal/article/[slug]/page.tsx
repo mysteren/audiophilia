@@ -51,7 +51,7 @@ export default async function Page(props: Props) {
   const { slug } = await props.params;
   const data = await fetchArticle(slug);
   const { title, files, author, publish } = data;
-  const content = textContentParse(data.text);
+  const content = data.text;
   const publishDate = new Date(publish).toLocaleString();
   const { childrens } = await getArticleCategoryRoot(1, 1);
 

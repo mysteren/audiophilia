@@ -1,5 +1,6 @@
 import { ImageFileItem } from "./file";
 import { Seller } from "./seller";
+import { JSONContent } from "./text";
 
 export type Product = {
   id: number;
@@ -7,7 +8,7 @@ export type Product = {
   slug: string;
   price: number;
   oldPrice: number;
-  text: string;
+  text: JSONContent;
   metaTitle: string;
   metaDescription: string;
   noCard: boolean;
@@ -48,7 +49,15 @@ export type CategoryFilter = {
   };
 };
 
-
-export type ProductAd = Product & {
+export type ProductElemtent = {
+  id: number;
+  title: string;
+  slug: string;
+  price: number;
   shortText: string;
+  oldPrice: number;
+  files: {
+    images: ImageFileItem[];
+  };
+  seller?: Seller;
 };

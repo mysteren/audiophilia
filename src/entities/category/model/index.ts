@@ -2,7 +2,7 @@ import { ApiClientInstance } from "@/shared/api";
 import { toSearchString } from "@/shared/lib/utils/url";
 import { CategoryTreeItem } from "@/shared/types/categoryItem";
 import { Category } from "@/shared/types/product";
-import { CategoryDTO, CategoryFilterDTO, SitemapCategoryDTO } from "./types";
+import { CategoryDTO, CategoryFilterDTO, SitemapCategoryDTO } from "../types";
 
 export function getCategoryTree() {
   return ApiClientInstance.get<CategoryTreeItem[]>("/category/tree");

@@ -17,11 +17,11 @@ export async function GET(request: Request) {
         ? UploadsImageLoader({ src: GetFileUrl(files?.images[0]), width: 640 })
         : undefined;
 
-      const content = textContentParse(text);
+      const content = text;
 
       return {
         title,
-        content: content instanceof Object ? jsonContentToHTML(content, { clearBase64Images: true }) : text,
+        content: jsonContentToHTML(content, { clearBase64Images: true }),
         author: author.pubname,
         date: new Date(publish),
         url: `${BASE_URL}/journal/article/${slug}`,

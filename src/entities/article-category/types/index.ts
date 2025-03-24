@@ -1,14 +1,18 @@
-import { ArticleСategory, Article, ArticleCategoryElement } from "@/shared/types";
-
+import {
+  ArticleСategory,
+  Article,
+  ArticleCategoryElement,
+  ArticleElement,
+} from "@/shared/types";
 
 export type ArticleCategoryDTO = {
   category: ArticleСategory;
-  articles: Article[];
+  articles: ArticleElement[];
   parents: ArticleCategoryElement[];
   childrens: ArticleCategoryElement[];
 };
 
 export type ArticleCategoryRootDTO = {
-  articles: Article[];
+  articles: ArticleElement[];
   childrens: ArticleCategoryElement[];
 };

@@ -4,7 +4,7 @@ import { debounce } from "@/shared/lib/react/debounce";
 import { Filter } from "@/shared/types/categoryFilter";
 import Button from "@/shared/ui/button/button";
 import clsx from "clsx";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { FilterElement } from "./components/filter-element/filter-element";
 import styles from "./filter.module.css";
 import { useFiltersNavigate, useFiltersStore } from "./hooks";

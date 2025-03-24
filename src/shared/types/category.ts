@@ -1,5 +1,6 @@
 import { Filter } from "./categoryFilter";
-import { Product, ProductAd } from "./product";
+import { ProductElemtent } from "./product";
+import { JSONContent } from "./text";
 
 export type Сategory = {
   id: number;
@@ -7,7 +8,7 @@ export type Сategory = {
   metaTitle: string;
   metaDescription: string;
   slug: string;
-  text: string;
+  text: JSONContent;
   type: string;
 };
 
@@ -19,7 +20,7 @@ export type CategoryElement = {
 
 export type CategoryData = {
   category: Сategory;
-  products: ProductAd[];
+  products: ProductElemtent[];
   parents: CategoryElement[];
   childrens: CategoryElement[];
   // filters: Filter[];

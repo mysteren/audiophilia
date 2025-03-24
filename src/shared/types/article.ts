@@ -11,7 +11,7 @@ export type Article = {
   title: string;
   slug: string;
   shortText: string;
-  text: string;
+  text: JSONContent;
   metaTitle: string;
   metaDescription: string;
   publish: string;
@@ -30,9 +30,9 @@ export type ArticleElement = {
   author: ArticleAuthor;
   files: {
     images: ImageFileItem[];
-  }; 
+  };
 };
 
 export type ArticleElementRSS = ArticleElement & {
-  text: string | JSONContent;
-}
+  text: JSONContent;
+};

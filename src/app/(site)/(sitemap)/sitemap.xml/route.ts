@@ -17,7 +17,7 @@ export async function GET() {
   );
 
   return getSitemapIndexResponse(
-    ["category", "article", ...productsUrls].map((uri) => {
+    ["category", "article", "seller", ...productsUrls].map((uri) => {
       return { uri, date };
     })
   );

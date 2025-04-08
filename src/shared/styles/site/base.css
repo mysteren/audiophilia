@@ -5,6 +5,7 @@
 html {
   opacity: 0;
   transition: opacity 0.05s;
+  font-size: 20x;
 }
 
 html[data-theme="dark"] {
@@ -18,7 +19,7 @@ html[data-theme="light"] {
 
 body {
   /* font-family: 'CoSo'; */
-  font-size: 16px;
+
   margin: 0;
   color: var(--color-text);
   background-color: var(--color-bg);
@@ -40,13 +41,13 @@ a {
 /* Track */
 .scroll::-webkit-scrollbar-track {
   background: var(--color-scroll-track);
-  border-radius: 1rem;
+  border-radius: 0.5rem;
 }
 
 /* Handle */
 .scroll::-webkit-scrollbar-thumb {
   background: var(--color-scroll-thumb);
-  border-radius: 1rem;
+  border-radius: 0.5rem;
 }
 
 /* Handle on hover */
@@ -71,9 +72,6 @@ a {
 }
 
 @media (min-width: 1200px) {
-  html {
-    font-size: 14px;
-  }
 }
 
 @media (min-width: 1400px) {
@@ -81,7 +79,7 @@ a {
 
 @media (min-width: 1600px) {
   html {
-    font-size: 16px;
+    font-size: 20px;
   }
 }
 

@@ -1,6 +1,5 @@
 import {
   ArticleСategory,
-  Article,
   ArticleCategoryElement,
   ArticleElement,
 } from "@/shared/types";

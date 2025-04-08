@@ -14,7 +14,7 @@
   background-color: var(--color-light-bg);
   border-radius: 1.4rem;
   padding: 1.4rem;
-  box-shadow: 0px 0px 16px 0px color-mix(in srgb, var(--color-primary-light-bg), transparent 94%);
+  box-shadow: 0px 0px 16px 0px color-mix(in srgb, var(--color-primary-light-bg), transparent 90%);
   grid-template-columns: 1fr;
   grid-template-areas:
     "slider"
@@ -30,7 +30,7 @@
   background-color: var(--color-light-bg);
   border-radius: 1.4rem;
   padding: 1.4rem;
-  box-shadow: 0px 0px 16px 0px color-mix(in srgb, var(--color-primary-light-bg), transparent 94%);
+  box-shadow: 0px 0px 16px 0px color-mix(in srgb, var(--color-primary-light-bg), transparent 90%);
 }
 
 .title {
@@ -78,8 +78,8 @@
 }
 
 .partsText {
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 0.95rem;
+  font-weight: lighter;
 }
 
 .prices {

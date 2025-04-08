@@ -2,36 +2,6 @@
   margin-top: 34px;
 }
 
-/* .fastBlock {
-  margin-top: 30px;
-  background: var(--silver);
-  border-radius: 11px;
-  padding: 22px 30px;
-  display: grid;
-  grid-template-columns: 1fr;
-} */
-
-/* .listCar {
-  list-style: none;
-  padding: 0;
-} */
-
-/* .itemCar {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding-bottom: 3px;
-} */
-
-/* .itemImage {
-  display: none;
-} */
-
-/* .itemLink {
-  font-size: 14px;
-  text-decoration: none;
-} */
-
 .title {
   font-size: 40px;
   font-weight: 700;

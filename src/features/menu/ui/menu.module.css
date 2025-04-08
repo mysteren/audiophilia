@@ -13,7 +13,7 @@
 
 .itemActive {
   background: var(--silver);
-  border-radius: 12px;
+  border-radius: 8px;
 }
 
 .link {

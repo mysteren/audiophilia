@@ -7,24 +7,44 @@ import "../shared/styles/site/global.css";
 const myFont = localFont({
   src: [
     {
-      path: "../shared/styles/fonts/montserrat/Montserrat-Light.woff2",
+      path: "../shared/styles/fonts/ysabeauoffice/YsabeauOffice-Light.woff2",
       weight: "300",
       style: "normal",
     },
     {
-      path: "../shared/styles/fonts/montserrat/Montserrat-Regular.woff2",
+      path: "../shared/styles/fonts/ysabeauoffice/YsabeauOffice-LightItalic.woff2",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "../shared/styles/fonts/ysabeauoffice/YsabeauOffice-Regular.woff2",
       weight: "normal",
       style: "normal",
     },
     {
-      path: "../shared/styles/fonts/montserrat/Montserrat-Medium.woff2",
+      path: "../shared/styles/fonts/ysabeauoffice/YsabeauOffice-Italic.woff2",
+      weight: "normal",
+      style: "italic",
+    },
+    {
+      path: "../shared/styles/fonts/ysabeauoffice/YsabeauOffice-Medium.woff2",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../shared/styles/fonts/montserrat/Montserrat-Bold.woff2",
+      path: "../shared/styles/fonts/ysabeauoffice/YsabeauOffice-MediumItalic.woff2",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "../shared/styles/fonts/ysabeauoffice/YsabeauOffice-Bold.woff2",
       weight: "bold",
       style: "normal",
+    },
+    {
+      path: "../shared/styles/fonts/ysabeauoffice/YsabeauOffice-BoldItalic.woff2",
+      weight: "bold",
+      style: "italic",
     },
   ],
   display: "swap",

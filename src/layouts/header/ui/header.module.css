@@ -4,7 +4,8 @@
   z-index: 100;
   top: 0;
   background: var(--color-light-bg);
-
+  box-shadow: 0px 0px 24px 0px
+    color-mix(in srgb, var(--color-primary-light-bg), transparent 85%);
 
   &.showCatalog {
     display: grid;
@@ -65,9 +66,9 @@
   height: 1rem;
 }
 
-.shadow {
+/* .shadow {
   box-shadow: 0px 0px 24px 0px color-mix(in srgb, var(--color-primary-light-bg), transparent 90%);
-}
+} */
 
 .subHeader {
   padding-top: 1rem;
@@ -87,11 +88,6 @@
   display: none;
 }
 
-.iconWrap {
-  display: grid;
-  align-items: center;
-}
-
 .catalogGrid {
   height: 100%;
   display: grid;
@@ -100,17 +96,10 @@
   align-items: flex-start;
 }
 
-.bottomMenu {
-  display: none;
-}
-
 @media (min-width: 768px) {
-  .bottomMenu {
-    display: block;
-  }
   .subHeader {
     grid-template-columns: auto auto auto auto;
-    grid-template-areas: "burger logo contacts right";
+    grid-template-areas: "logo burger contacts right";
   }
   .contacts {
     display: grid;
@@ -122,7 +111,7 @@
     display: block;
   }
   .subHeader {
-    grid-template-columns: auto auto auto auto auto;
-    grid-template-areas: "burger logo contacts actions right";
+    grid-template-columns: auto auto auto auto;
+    grid-template-areas: "logo burger contacts right";
   }
 }

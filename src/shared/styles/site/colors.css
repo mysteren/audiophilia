@@ -1,5 +1,5 @@
 :root {
-  --color-bg: #fcfcfcef;
+  --color-bg: #f8f8f894;
   --color-light-bg: #ffffff;
   --color-primary-light-bg: #abb292;
   --color-text: #3f3f3f;
@@ -10,9 +10,11 @@
   --color-green: #6bd731;
   --color-red: #ca0100;
 
-  --color-scroll-track: #f1f8ff;
-  --color-scroll-thumb: #cfe0f3;
-  --color-scroll-hover: #c0dcf8;
+  --color-scroll-track: #eaece6;
+  --color-scroll-thumb: #dfe2da;
+  --color-scroll-hover: #999b96;
+
+  --shadow-size: 12px
 
   /* --color-shadow: rgba(182, 182, 182, 0.2); */
 }
@@ -20,19 +22,21 @@
 /* Темная тема */
 [data-theme="dark"] {
   --color-bg: #0d0e0dd6;
-  --color-light-bg: #222521;
-  --color-primary-light-bg: #c7d1a1;
+  --color-light-bg: #1a1b1a;
+  --color-primary-light-bg: #b7c2a8;
   --color-text: #efefef;
-  --color-gray: #7b926b;
-  --color-gray-dark: #97b186;
-  --color-gray-light: #96a08d;
-  --color-primary: #b2b6a7;
+  --color-gray: #84917b;
+  --color-gray-dark: #a7b19f;
+  --color-gray-light: #99a191;
+  --color-primary: #b0b6a7;
   --color-green: #6bd731;
   --color-red: #ca6c6c;
 
-  --color-scroll-track: #283e52;
-  --color-scroll-thumb: #6f96c2;
-  --color-scroll-hover: #3c73ad;
+  --color-scroll-track: #505349;
+  --color-scroll-thumb: #9aa094;
+  --color-scroll-hover: #73796b;
+
+  --shadow-size: 3px;
 
   /* --color-shadow: rgba(111, 96, 88, 0.2); */
 

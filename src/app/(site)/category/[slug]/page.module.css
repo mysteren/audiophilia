@@ -1,5 +1,7 @@
 .top {
-  padding: 1.8rem 0px;
+  display: grid;
+  gap: 1rem;
+  padding: 1rem 0px;
 }
 
 .title {
@@ -24,13 +26,10 @@
 
 .products {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
   align-items: flex-start;
-  align-items: center;
-}
-
-.products > div:nth-child(2n) {
-  background-color: var(--color-light-bg);
+  align-content: space-between;
 }
 
 .aside {
@@ -68,19 +67,19 @@
 }
 
 @media (min-width: 992px) {
-  /* .products {
+  .products {
     grid-template-columns: repeat(2, 1fr);
-  } */
+  }
 }
 
 @media (min-width: 1200px) {
-  /* .products {
+  .products {
     grid-template-columns: repeat(3, 1fr);
-  } */
+  }
 }
 
 @media (min-width: 1400px) {
-  /* .products {
+  .products {
     grid-template-columns: repeat(4, 1fr);
-  } */
+  }
 }

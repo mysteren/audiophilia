@@ -1,6 +1,6 @@
 .input {
   width: 100%;
-  padding: 0.65rem 0.85rem;
+  padding: 0.5rem 0.75rem;
   border-radius: 0.85rem;
   border: 1px dotted var(--color-gray);
 }

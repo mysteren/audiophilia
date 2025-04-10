@@ -16,6 +16,7 @@ import CardSlider from "@/widgets/card-slider/card-slider";
 import PageModals from "@/widgets/page-modals/page-modals";
 
 import styles from "./page.module.css";
+import TopNav from "@/features/top-nav";
 
 // обновлять кеш каждые 15 секунд
 export const revalidate = 15;
@@ -67,6 +68,7 @@ export default async function Page(props: Props) {
   return (
     <>
       <div className={styles.top}>
+        <TopNav />
         <Breadcrumbs
           items={[
             { title: "Каталог", href: "/category" },

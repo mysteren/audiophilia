@@ -8,8 +8,8 @@
 
 .arrow {
   display: inline-flex;
-  width: 1rem;
-  height: 1rem;
+  width: 0.85rem;
+  height: 0.85rem;
   color: var(--color-primary);
 }
 

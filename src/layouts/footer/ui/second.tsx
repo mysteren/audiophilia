@@ -8,27 +8,27 @@ export default function Second() {
     <div className={clsx(styles.root, "container")}>
       <div className={styles.col}>
         <div className={styles.soclist}>
-          <a
+          {/* <a
             className={styles.soclink}
             target="_blank"
-            href="https://t.me/investsteelinc"
+            href="https://t.me/"
           >
             Telegram
           </a>
           <a
             className={styles.soclink}
             target="_blank"
-            href="https://vk.com/investsteelru"
+            href="https://vk.com/"
           >
             VKontakte
           </a>
           <a
             className={styles.soclink}
             target="_blank"
-            href="https://dzen.ru/investsteel"
+            href="https://dzen.ru/"
           >
             Дзен
-          </a>
+          </a> */}
         </div>
         <ThemeSwitcher />
       </div>
@@ -43,7 +43,7 @@ export default function Second() {
       </div>
       <div className={styles.col}>
         <div className={styles.copyright}>
-          <span>© INVESTSTEEL 2023 - {new Date().getFullYear()}</span>
+          <span>© MARKET TOWER 2024 - {new Date().getFullYear()}</span>
           <br />
           <Link href="https://rosdesk.ru/">Powered by RosDesk</Link>
         </div>

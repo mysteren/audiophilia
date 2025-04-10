@@ -5,6 +5,7 @@ import JournalArticle from "@/widgets/journal-article";
 import JournalAside from "@/widgets/journal-aside/ui/journal-aside";
 import { notFound } from "next/navigation";
 import styles from "../../page.module.css";
+import TopNav from "@/features/top-nav";
 
 const page = 1;
 const limit = 18;
@@ -52,7 +53,10 @@ export default async function Page(props: Props) {
   const { articles, childrens, category } = await fetchData(slug, page, limit);
   return (
     <>
-      <h1>{category.title}</h1>
+      <div className={styles.top}>
+        <TopNav />
+      </div>
+      <h1 className={styles.title}>{category.title}</h1>
       <div className={styles.main}>
         <aside className={styles.aside}>
           <JournalAside items={childrens} />

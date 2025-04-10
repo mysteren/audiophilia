@@ -13,6 +13,7 @@ import JournalAside from "@/widgets/journal-aside/ui/journal-aside";
 import styles from "./page.module.css";
 import ContentBlock from "@/shared/ui/content-block";
 import { clsx } from "clsx";
+import TopNav from "@/features/top-nav";
 
 export const revalidate = 20;
 
@@ -59,10 +60,11 @@ export default async function Page(props: Props) {
 
   return (
     <>
-      <div className={styles.main}>
-        <h1>{title}</h1>
-        <div></div>
+      <div className={styles.top}>
+        <TopNav />
       </div>
+
+      <h1 className={styles.title}>{title}</h1>
       <div className={styles.main}>
         <div className={styles.aside}>
           <JournalAside items={childrens} />

@@ -9,7 +9,7 @@ export default function Footer() {
 
   return (
     <footer className={styles.root}>
-      <First />
+      {/* <First /> */}
       <Second />
     </footer>
   );

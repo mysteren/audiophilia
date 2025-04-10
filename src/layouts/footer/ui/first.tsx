@@ -14,7 +14,7 @@ export default function First() {
           <Link
             target="_blank"
             className={styles.link}
-            href="https://forum.investsteel.ru"
+            href=""
           >
             Форум
           </Link>
@@ -23,7 +23,7 @@ export default function First() {
           <Link
             target="_blank"
             className={styles.link}
-            href="https://tools.investsteel.ru/"
+            href=""
           >
             Калькуляторы
           </Link>
@@ -32,7 +32,7 @@ export default function First() {
           <Link
             target="_blank"
             className={styles.link}
-            href="https://corp.investsteel.ru"
+            href=""
           >
             Сотрудничество
           </Link>

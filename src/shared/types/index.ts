@@ -5,3 +5,4 @@ export * from "./filter";
 export * from "./product";
 export * from "./article";
 export * from "./article-category";
+export * from './page';

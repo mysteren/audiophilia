@@ -3,6 +3,7 @@ import { Metadata } from "next/types";
 import styles from "./page.module.css";
 import JournalAside from "@/widgets/journal-aside/ui/journal-aside";
 import JournalArticle from "@/widgets/journal-article";
+import TopNav from "@/features/top-nav";
 
 export const revalidate = 20;
 const page = 1;
@@ -17,7 +18,10 @@ export default async function Page() {
   const { articles, childrens } = await getArticleCategoryRoot(page, limit);
   return (
     <>
-      <h1>Статьи</h1>
+      <div className={styles.top}>
+        <TopNav />
+      </div>
+      <h1 className={styles.title}>Статьи</h1>
       <div className={styles.main}>
         <aside className={styles.aside}>
           <JournalAside items={childrens} />

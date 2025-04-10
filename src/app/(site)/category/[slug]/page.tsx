@@ -7,11 +7,10 @@ import { Pagination } from "@/widgets/pagination/pagination";
 import { getCategory, isAdByCategories } from "@/entities/category";
 import TextContent from "@/features/text-content";
 import AsideContainer from "@/shared/ui/aside-container";
-import CardAdRow from "@/widgets/card-ad-row";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import styles from "./page.module.css";
-import AddCompany from "@/widgets/add-company";
+import TopNav from "@/features/top-nav";
 
 const page = "";
 const limit = 24;
@@ -73,7 +72,7 @@ export default async function Page(props: Props) {
     searchParams: savedSearchParams,
   } = data;
 
-  const isAd = isAdByCategories([category, ...parents]);
+  // const isAd = isAdByCategories([category, ...parents]);
 
   const mainCategory = category.type === "filtered" ? parents[0] : category;
 
@@ -81,13 +80,9 @@ export default async function Page(props: Props) {
 
   const text = category.text;
 
-  const productCards = products.map((product) =>
-    isAd ? (
-      <CardAdRow key={`pc-${product.id}`} product={product} />
-    ) : (
-      <CardRow key={`pc-${product.id}`} product={product} />
-    )
-  );
+  const productCards = products.map((product) => (
+    <CardRow key={`pc-${product.id}`} product={product} />
+  ));
 
   const subcategories = childrens.map(({ title, slug }) => {
     const to = `/category/${slug}`;
@@ -105,6 +100,7 @@ export default async function Page(props: Props) {
   return (
     <>
       <div className={styles.top}>
+        <TopNav />
         <Breadcrumbs
           items={[
             { title: "Каталог", href: "/category" },
@@ -142,7 +138,6 @@ export default async function Page(props: Props) {
             )}
           </div>
           <Pagination itemsCount={products.length} limit={limit} />
-          <AddCompany />
         </section>
       </div>
       <div>

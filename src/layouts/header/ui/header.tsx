@@ -36,9 +36,9 @@ export default function Header() {
             alt="Invest Market"
             src={"/icons/logo.svg"}
           />
-          <span>MARKET TOWER</span>
+          <span className={styles.logoTitle}>MARKET TOWER</span>
         </Link>
-
+        <div className={styles.search}></div>
         <div className={styles.contacts}>
           <PhoneIcon className={styles.icon} />
           <a className={styles.info} href="tel:+74951888044">

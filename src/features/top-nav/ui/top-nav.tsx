@@ -16,9 +16,9 @@ export default async function TopNav() {
       itemScope
       itemType="http://schema.org/SiteNavigationElement"
     >
-      {links.map(({ href, name }) => {
+      {links.map(({ href, name }, i) => {
         return (
-          <Link itemProp="url" href={href}>
+          <Link key={`top-nav-${i}`} itemProp="url" href={href}>
             <Button>{name}</Button>
           </Link>
         );

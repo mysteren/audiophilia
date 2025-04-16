@@ -2,6 +2,8 @@ import { getSitemapsProducts } from "@/entities/product";
 import { SITEMAP_LIMIT } from "@/shared/config";
 import { getSitemapUrlSetResponse, SitemapUrlDto } from "@/shared/lib/sitemap";
 
+export const revalidate = 60
+
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ page: string }> }

@@ -1,6 +1,7 @@
-import { getSitemapCategories } from "@/entities/category";
 import { getSitemapSellers } from "@/entities/seller";
 import { getSitemapUrlSetResponse, SitemapUrlDto } from "@/shared/lib/sitemap";
+
+export const revalidate = 60
 
 export async function GET(request: Request) {
   const date = new Date();

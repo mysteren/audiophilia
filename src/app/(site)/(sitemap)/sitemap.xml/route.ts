@@ -3,6 +3,8 @@ import { getProductsCount } from "@/entities/product";
 import { SITEMAP_LIMIT } from "@/shared/config";
 import { getSitemapIndexResponse } from "@/shared/lib/sitemap";
 
+export const revalidate = 60
+
 export async function GET() {
   // Method to source urls from cms
 

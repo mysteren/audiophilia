@@ -4,6 +4,8 @@ import {
   SitemapUrlDto
 } from "@/shared/lib/sitemap";
 
+export const revalidate = 60
+
 export async function GET(request: Request) {
   const date = new Date();
 

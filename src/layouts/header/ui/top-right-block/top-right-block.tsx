@@ -9,7 +9,7 @@ import { HeaderCart } from "../header-cart/header-cart";
 
 export function TopRightBlock() {
   return (
-    <div className={clsx(styles.container)}>
+    <div className={clsx(styles.root)}>
       <Link href="/search" className={styles.icon}>
         <SearchIcon />
       </Link>

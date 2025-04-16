@@ -4,19 +4,18 @@
 import clsx from "clsx";
 import Link from "next/link";
 
-// import BottomHeaderMenu from "@/features/bottom-header-menu";
 import BurgerButton from "@/features/burger-button/ui/burger-button";
 import Menu from "@/features/menu";
-import Button from "@/shared/ui/button/button";
-import EmailIcon from "@/shared/ui/icons/email";
-import PhoneIcon from "@/shared/ui/icons/phone";
-// import { useScrollIsTop } from "../model/use-scroll-top";
 import { useShowCatalog } from "../model/use-show-catalog";
 import styles from "./header.module.css";
 import { TopRightBlock } from "./top-right-block/top-right-block";
+import { ReactNode } from "react";
 
-export default function Header() {
-  // const { scrollIsTop } = useScrollIsTop();
+type Props = {
+  contacts: ReactNode;
+};
+
+export default function Header({ contacts }: Props) {
   const { showCatalog, showCatalogHandler } = useShowCatalog();
 
   return (
@@ -39,16 +38,10 @@ export default function Header() {
           <span className={styles.logoTitle}>MARKET TOWER</span>
         </Link>
         <div className={styles.search}></div>
-        <div className={styles.contacts}>
-          <PhoneIcon className={styles.icon} />
-          <a className={styles.info} href="tel:+74951888044">
-            +7 (495) 188-80-44
-          </a>
 
-          <EmailIcon className={styles.icon} />
-          <a className={styles.info} href="mailto:info@investsteel.ru">
-            info@investsteel.ru
-          </a>
+        <div className={styles.contacts}>
+          {contacts}
+          {/* <TopContacts /> */}
         </div>
         <div className={styles.right}>
           <TopRightBlock />

@@ -1,25 +1,29 @@
-"use client";
 import Link from "next/link";
-import { useHorizontalScroll } from "../model/hooks";
+
 import styles from "./top-nav.module.css";
 import clsx from "clsx";
 import Button from "@/shared/ui/button/button";
+import { getHeadMenu2 } from "@/entities/site-settings";
 
-type Props = {
-  className?: string;
-};
+export const revalidate = 60;
 
-export default function TopNav({ className }: Props) {
-  const elRef = useHorizontalScroll();
+export default async function TopNav() {
+  const links = await getHeadMenu2();
 
   return (
     <nav
-      ref={elRef}
-      className={clsx(styles.list, className)}
+      className={clsx(styles.list)}
       itemScope
       itemType="http://schema.org/SiteNavigationElement"
     >
-      <Link itemProp="url" href="/category/dveri">
+      {links.map(({ href, name }) => {
+        return (
+          <Link itemProp="url" href={href}>
+            <Button>{name}</Button>
+          </Link>
+        );
+      })}
+      {/* <Link itemProp="url" href="/category/dveri">
         <Button>Двери</Button>
       </Link>
       <Link itemProp="url" href="/category/podokonniki">
@@ -27,7 +31,7 @@ export default function TopNav({ className }: Props) {
       </Link>
       <Link href="/category/semena">
         <Button>Семена</Button>
-      </Link>
+      </Link> */}
 
       {/* <Link href="/blog">
         <Button>Статьи</Button>
@@ -38,9 +42,9 @@ export default function TopNav({ className }: Props) {
       {/* <Link itemProp="url" href="/page/oplata-i-dostavka">
         <Button>Оплата и доставка</Button>
       </Link> */}
-      <Link itemProp="url" href="/page/contacts">
+      {/* <Link itemProp="url" href="/page/contacts">
         <Button>Контакты</Button>
-      </Link>
+      </Link> */}
     </nav>
   );
 }

@@ -15,7 +15,10 @@ type Props = {
 };
 
 export default function CardRow({ product }: Props) {
-  const { title, files, slug, price } = product;
+  const { title, files, slug, createdAt, } = product;
+
+  const date = new Date(createdAt);
+
   const image = files.images?.[0];
   return (
     <div className={styles.root}>
@@ -36,20 +39,14 @@ export default function CardRow({ product }: Props) {
         )}
       </div>
       <Link className={styles.info} href={`/product/${slug}`}>
-        {!!price && (
-          <div className={styles.blockPrice}>
-            <span className={styles.price}>{PrintPrice(price)} ₽</span>
-          </div>
-        )}
         <h3 className={styles.title}>{title}</h3>
-
-        {/* <Link className={styles.toDetail} href={`/product/${slug}`}>
-          <Button>Подробнее</Button>
-        </Link> */}
+        <span className={styles.date}>{date.toLocaleDateString()}</span>
+        <span className={styles.toDetail}>Подробнее</span>
+        
       </Link>
-      <div className={styles.info}>
+      {/* <div className={styles.info}>
         <ToCart productId={product.id} />
-      </div>
+      </div> */}
 
       {/* <h3 className={styles.title} title={product.title}>
         {product.title}

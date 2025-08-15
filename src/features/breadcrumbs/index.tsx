@@ -32,22 +32,25 @@ export const Breadcrumbs = ({ items }: Props) => {
     >
       {items.map(({ title, href }, i) => {
         return href ? (
-          <span
-            className={styles.item}
-            itemProp="itemListElement"
-            itemScope
-            itemType="http://schema.org/ListItem"
-          >
-            <Link className={styles.link} href={href}>
-              <span className={styles.name} itemProp="name">
-                {title}
-              </span>
-            </Link>
+          <>
+            <span
+              className={styles.item}
+              itemProp="itemListElement"
+              itemScope
+              itemType="http://schema.org/ListItem"
+            >
+              <Link className={styles.link} href={href}>
+                <span className={styles.name} itemProp="name">
+                  {title}
+                </span>
+              </Link>
+
+              <meta itemProp="position" content={`${i}`} />
+            </span>
             <span className={styles.arrow}>
               <ArrowIcon />
             </span>
-            <meta itemProp="position" content={`${i}`} />
-          </span>
+          </>
         ) : (
           <span className={styles.name}>{title}</span>
         );

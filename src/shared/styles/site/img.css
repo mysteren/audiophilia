@@ -1,9 +1,31 @@
-.img-contain {
+/* .img-contain {
   object-fit: contain;
 }
 
 .img-cover {
   object-fit: cover;
+} */
+
+.grid {
+  display: grid;
+  /* grid-template-columns: auto; */
+  gap: 2.6rem 1.4rem;
+}
+
+/* .image-wrap {
+  display: block;
+  width: 100%;
+} */
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.6;
+  border-radius: 7px;
+  /* background-color: color-mix(in srgb, var(--color-light) 40%, white); */
+  /* background-color: var(--color-light); */
+  /* box-shadow: 1px 1px 3px 0 color-mix(in srgb, var(--color-dark) 40%, white); */
 }
 
 html[data-theme="dark"] {

@@ -2,6 +2,9 @@ import Link from "next/link";
 import styles from "./second.module.css";
 import clsx from "clsx";
 import ThemeSwitcher from "@/features/theme-switcher";
+import { VkIcon } from "@/shared/ui/icons/vk/vk";
+import { DzenIcon } from "@/shared/ui/icons/dzen/dzen";
+import { TgIcon } from "@/shared/ui/icons/tg/tg";
 
 export default function Second() {
   return (
@@ -31,21 +34,60 @@ export default function Second() {
           </a> */}
         </div>
         <ThemeSwitcher />
+        {/* <br /> */}
+        <Link href="https://rosdesk.ru/">Powered by RosDesk</Link>
       </div>
       <div className={styles.col}>
         <Link href="/page/confidential">Политика конфидециальности</Link>
         <div className={styles.text}>
-          Обращаем Ваше внимание на то, что данный интернет-сайт носит
-          исключительно информационный характер и ни при каких условиях не
-          является публичной офертой, определяемой положениями Статьи 437
-          Гражданского кодекса Российской Федерации.
+          Данный интернет-сайт носит исключительно информационный характер и ни
+          при каких условиях не является публичной офертой, определяемой
+          положениями Статьи 437 Гражданского кодекса РФ.
         </div>
       </div>
       <div className={styles.col}>
+        <div className={styles.socCols}>
+          <span>@ahara_audio:</span>
+          <a
+            className={styles.icon}
+            href="https://t.me/aharaaudio"
+            target="_blank"
+            aria-label="Телеграмм канал"
+            rel="nofollow noopener"
+            data-group-track-type="link"
+          >
+            <span style={{ height: "1.6rem", width: "1.6rem" }}>
+              <TgIcon />
+            </span>
+          </a>
+          <a
+            className={styles.icon}
+            href="https://vk.com/aharaaudio"
+            target="_blank"
+            aria-label="ВКонтакте"
+            rel="nofollow noopener"
+            data-group-track-type="link"
+          >
+            <span style={{ height: "1.6rem", width: "1.6rem" }}>
+              <VkIcon />
+            </span>
+          </a>
+          <a
+            className={styles.icon}
+            href="https://dzen.ru/audiophilia"
+            target="_blank"
+            aria-label="ВКонтакте"
+            rel="nofollow noopener"
+            data-group-track-type="link"
+          >
+            <span style={{ height: "1.6rem", width: "1.6rem" }}>
+              <DzenIcon />
+            </span>
+          </a>
+        </div>
+
         <div className={styles.copyright}>
-          <span>© MARKET TOWER 2024 - {new Date().getFullYear()}</span>
-          <br />
-          <Link href="https://rosdesk.ru/">Powered by RosDesk</Link>
+          <span>© Audiophilia 2018 - {new Date().getFullYear()}</span>
         </div>
       </div>
     </div>

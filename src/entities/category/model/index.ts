@@ -15,7 +15,7 @@ export function getCategory(
   limit: string
 ) {
   const url = `/category/${slug}?${toSearchString({
-    select: "seller,type,shortText",
+    select: "seller,type,shortText,createdAt",
     page,
     limit,
     ...searchParams,

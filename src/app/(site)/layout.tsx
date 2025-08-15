@@ -12,11 +12,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
 
-  const contacts = await TopContacts()
+  // const contacts = await TopContacts()
 
   return (
     <div className={styles.wrap}>
-      <Header contacts={contacts} />
+      <Header />
       <main className={`${styles.main} container`}>{children}</main>
       <Footer />
     </div>

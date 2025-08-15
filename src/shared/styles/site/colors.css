@@ -1,12 +1,12 @@
 :root {
-  --color-bg: #f8f8f894;
+  --color-bg: #f8f7f7;
   --color-light-bg: #ffffff;
-  --color-primary-light-bg: #abb292;
+  --color-primary-light-bg: #b8a7a4;
   --color-text: #3f3f3f;
-  --color-gray: #96ac8c;
-  --color-gray-dark: #6c7e5c;
-  --color-gray-light: #e5f0e0;
-  --color-primary: #898c7f;
+  --color-gray: #998d85;
+  --color-gray-dark: #6b6059;
+  --color-gray-light: #ccc6c1;
+  --color-primary: #9d7d77;
   --color-green: #6bd731;
   --color-red: #ca0100;
 
@@ -21,14 +21,14 @@
 
 /* Темная тема */
 [data-theme="dark"] {
-  --color-bg: #0d0e0dd6;
+  --color-bg: #23201f;
   --color-light-bg: #1a1b1a;
-  --color-primary-light-bg: #b7c2a8;
+  --color-primary-light-bg: #ca9c7f;
   --color-text: #efefef;
-  --color-gray: #84917b;
-  --color-gray-dark: #a7b19f;
-  --color-gray-light: #99a191;
-  --color-primary: #b0b6a7;
+  --color-gray: #bdb0a9;
+  --color-gray-dark: #ccc6c1;
+  --color-gray-light: #6b6059;
+  --color-primary: #bf978f;
   --color-green: #6bd731;
   --color-red: #ca6c6c;
 

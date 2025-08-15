@@ -143,7 +143,7 @@ export default async function Page(props: Props) {
           </div>
           <div className={styles.stickyBar}>
             <div className={styles.stickyBlock}>
-              <ToCart productId={id} />
+              {/* <ToCart productId={id} /> */}
               <div className={styles.anchorButtons}>
                 <Link className={styles.anchorButton} href="#">
                   Галлерея

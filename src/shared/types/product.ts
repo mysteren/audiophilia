@@ -60,4 +60,5 @@ export type ProductElemtent = {
     images: ImageFileItem[];
   };
   seller?: Seller;
+  createdAt?: string;
 };

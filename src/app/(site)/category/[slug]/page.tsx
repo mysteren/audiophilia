@@ -113,7 +113,7 @@ export default async function Page(props: Props) {
       </div>
       <h1 className={styles.title}>{category.title}</h1>
       <div className={styles.main}>
-        <aside className={styles.aside}>
+        {/* <aside className={styles.aside}>
           <div className={`${styles.aside__container}`}>
             {showSubcategories && (
               <AsideContainer>
@@ -128,7 +128,7 @@ export default async function Page(props: Props) {
               savedSearchParams={savedSearchParams ?? searchParams}
             />
           </div>
-        </aside>
+        </aside> */}
         <section className={styles.section}>
           <div className={`${styles.products}`}>
             {products.length ? (

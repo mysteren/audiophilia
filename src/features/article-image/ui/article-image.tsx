@@ -21,7 +21,7 @@ export default function ArticleImage({ src, title }: Props) {
       width={800}
       height={420}
       // sizes="80vw"
-      sizes="(max-width: 768px) 80vw, (max-width: 992px) 50vw, (max-width: 1200px) 33vw, 25vw"
+      sizes="(max-width: 768px) 80vw, (max-width: 992px) 50vw, (max-width: 1200px) 32vw"
       className={styles.img}
     />
   );

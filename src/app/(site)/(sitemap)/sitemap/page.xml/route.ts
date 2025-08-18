@@ -20,13 +20,13 @@ export async function GET(request: Request) {
   return getSitemapUrlSetResponse([
     ...urls,
     {
-      uri: `page/electrical-simulator`,
+      uri: `tool/electrical-simulator`,
       date,
       changefreq: "daily",
       priority: 0.7,
     },
     {
-      uri: `page/html-editor`,
+      uri: `tool/html-editor`,
       date,
       changefreq: "daily",
       priority: 0.7,

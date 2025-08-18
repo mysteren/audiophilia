@@ -124,7 +124,7 @@ export default async function Page(props: Props) {
                     </p>
                   </li>
                   <li>
-                    <p>Легко соединяйте элементы "проводами".</p>
+                    <p>Легко соединяйте элементы проводами.</p>
                   </li>
                   <li>
                     <p>

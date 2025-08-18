@@ -87,11 +87,18 @@ export default async function Page(props: Props) {
           {!!files.length && (
             <div className="text">
               <h2>Файлы</h2>
-              {files.map((file) => {
+              {files.map((file, index) => {
                 return (
-                  <p>
-                    { file.keys.split(',').includes('servicemanual') && <span>сервис мануал: &nbsp;</span> }
-                    <span><a target="_blank" href={GetFileUrl(file)}>{`${file.name}.${file.ext}`}</a></span>
+                  <p key={`text-file-link-${index}`}>
+                    {file.keys.split(",").includes("servicemanual") && (
+                      <span>сервис мануал: &nbsp;</span>
+                    )}
+                    <span>
+                      <a
+                        target="_blank"
+                        href={GetFileUrl(file)}
+                      >{`${file.name}.${file.ext}`}</a>
+                    </span>
                   </p>
                 );
               })}

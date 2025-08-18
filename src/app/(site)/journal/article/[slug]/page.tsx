@@ -7,7 +7,7 @@ import { ArticleDTO } from "@/entities/article/types";
 import ArticleImage from "@/features/article-image";
 import TextContent from "@/features/text-content";
 import { ApiResponseError } from "@/shared/api";
-import { textContentParse } from "@/shared/lib/text/json-content";
+// import { textContentParse } from "@/shared/lib/text/json-content";
 import "@/shared/styles/site/text.css";
 import JournalAside from "@/widgets/journal-aside/ui/journal-aside";
 import styles from "./page.module.css";

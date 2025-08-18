@@ -7,4 +7,5 @@ export type ImageFileItem = CommonFileItem
 
 export type FileItem = CommonFileItem & {
     name: string;
+    keys: string
 }

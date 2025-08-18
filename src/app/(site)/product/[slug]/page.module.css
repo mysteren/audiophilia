@@ -18,23 +18,7 @@
   padding: 1.4rem;
   box-shadow: 0px 0px var(--shadow-size) 0px
     color-mix(in srgb, var(--color-primary-light-bg), transparent 90%);
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "slider"
-    "info"
-    "blockInfo";
   align-items: start;
-}
-
-.contentAd {
-  display: grid;
-  column-gap: 1rem;
-  position: relative;
-  background-color: var(--color-light-bg);
-  border-radius: 0.9rem;
-  padding: 1.4rem;
-  box-shadow: 0px 0px var(--shadow-size) 0px
-    color-mix(in srgb, var(--color-primary-light-bg), transparent 90%);
 }
 
 .title {
@@ -65,85 +49,6 @@
   font-size: 16px;
 }
 
-.mainPartsBlock {
-  display: flex;
-  gap: 6px;
-  padding-bottom: 20px;
-}
-
-.partsBlock {
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 11px;
-  background-color: var(--silver);
-  border: 1px solid var(--color-primary-light-bg-light);
-}
-
-.partsText {
-  font-size: 0.95rem;
-  font-weight: lighter;
-}
-
-.prices {
-  display: grid;
-  align-items: center;
-  justify-content: flex-start;
-  column-gap: 8px;
-  grid-template-columns: auto auto;
-  padding-bottom: 20px;
-}
-
-.pricesBlock {
-  display: flex;
-  flex-direction: column;
-}
-
-.priceCredit {
-  color: var(--color-gray);
-}
-
-.price {
-  font-size: 26px;
-  font-weight: bold;
-}
-
-.oldPrice {
-  /* font-size: 1rem; */
-  color: var(--color-gray-light-color);
-  text-decoration: line-through;
-}
-
-/* Fixed Bar */
-.infoProduct {
-  grid-area: info;
-  display: grid;
-  grid-template-rows: auto auto auto;
-}
-
-.stickyBlock {
-  position: sticky;
-  top: 7rem;
-  display: grid;
-  gap: 20px;
-}
-
-.blockInfo {
-  grid-area: blockInfo;
-}
-
-.anchorButtons {
-  display: grid;
-  gap: 15px;
-}
-
-.anchorButton {
-  color: var(--color-gray);
-  text-decoration: none;
-  border-bottom: 1px dashed;
-  padding-bottom: 10px;
-}
 
 @media (min-width: 576px) {
 }
@@ -157,13 +62,6 @@
   }
   .content {
     padding: 2rem;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "slider info"
-      "blockInfo blockInfo";
-  }
-  .infoProduct {
-    justify-items: end;
   }
 }
 

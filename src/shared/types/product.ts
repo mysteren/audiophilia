@@ -1,4 +1,4 @@
-import { ImageFileItem } from "./file";
+import { FileItem, ImageFileItem } from "./file";
 import { Seller } from "./seller";
 import { JSONContent } from "./text";
 
@@ -13,6 +13,7 @@ export type Product = {
   metaDescription: string;
   noCard: boolean;
   files: {
+    files: FileItem[];
     images: ImageFileItem[];
   };
   properties: Record<string, string | string[] | number | number[]>;

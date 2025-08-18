@@ -1,16 +1,14 @@
+import { getCategory } from "@/entities/category";
 import { Breadcrumbs } from "@/features/breadcrumbs";
+import TextContent from "@/features/text-content";
+import TopNav from "@/features/top-nav";
 import { ApiResponseError } from "@/shared/api/http/errors";
 import CardRow from "@/widgets/card-row/card-row";
-import Filters from "@/widgets/filters/filters";
 import PageModals from "@/widgets/page-modals/page-modals";
 import { Pagination } from "@/widgets/pagination/pagination";
-import { getCategory, isAdByCategories } from "@/entities/category";
-import TextContent from "@/features/text-content";
-import AsideContainer from "@/shared/ui/aside-container";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import styles from "./page.module.css";
-import TopNav from "@/features/top-nav";
 
 const page = "";
 const limit = 24;
@@ -103,7 +101,7 @@ export default async function Page(props: Props) {
         <TopNav />
         <Breadcrumbs
           items={[
-            { title: "Каталог", href: "/category" },
+            { title: "Главная", href: '/' },
             ...parents.reverse().map(({ title, slug }) => {
               return { title, href: `/category/${slug}` };
             }),

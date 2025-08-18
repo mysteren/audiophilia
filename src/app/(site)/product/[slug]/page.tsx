@@ -1,22 +1,15 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { isAdByCategories } from "@/entities/category";
-import { getProduct, getPropertyProps } from "@/entities/product";
+import { getProduct } from "@/entities/product";
 import { Breadcrumbs } from "@/features/breadcrumbs";
-import PropertyRowElement from "@/features/property-row";
-import SellerInfo from "@/features/seller-info";
 import TextContent from "@/features/text-content";
-import ToCart from "@/features/to-cart/to-cart";
 import { ApiResponseError } from "@/shared/api/http/errors";
-import { PrintPrice } from "@/shared/lib/utils/price";
 import { GetFileUrl } from "@/shared/lib/utils/url";
-import NoImage from "@/shared/ui/noimage/noimage";
-import CardSlider from "@/widgets/card-slider/card-slider";
 import PageModals from "@/widgets/page-modals/page-modals";
 
-import styles from "./page.module.css";
 import TopNav from "@/features/top-nav";
+import styles from "./page.module.css";
+import Gallery from "@/widgets/gallery";
 
 // обновлять кеш каждые 15 секунд
 export const revalidate = 15;
@@ -56,13 +49,13 @@ export async function generateMetadata(props: Props) {
 export default async function Page(props: Props) {
   const { slug } = await props.params;
   const data = await fetchData(slug);
-  const { categories, product, filters, seller } = data;
-  const { id, title, price, files, oldPrice, text } = product;
+  const { categories, product } = data;
+  const { title, text } = product;
 
-  const isAd = isAdByCategories(categories);
+  const { files, images } = product.files;
 
-  const imagesSrcs = files.images.map((item) => {
-    return GetFileUrl(item);
+  const imagesSrcs = images.map((item) => {
+    return { src: GetFileUrl(item), showAsMain: true };
   });
 
   return (
@@ -71,7 +64,7 @@ export default async function Page(props: Props) {
         <TopNav />
         <Breadcrumbs
           items={[
-            { title: "Каталог", href: "/category" },
+            { title: "Главная", href: "/" },
             ...categories.reverse().map(({ title, slug }) => {
               return { title, href: `/category/${slug}` };
             }),
@@ -79,86 +72,33 @@ export default async function Page(props: Props) {
           ]}
         />
       </div>
-      {isAd ? (
-        <div className={styles.body}>
-          <div className={styles.contentAd}>
+
+      <div className={styles.body}>
+        <div className={styles.content}>
+          <h1 className={styles.title}>{title}</h1>
+          {!!text && (
             <div id="info">
-              <h1 className={styles.title}>{title}</h1>
-              <TextContent content={text} />
+              <TextContent
+                content={text}
+                gallery={<Gallery images={imagesSrcs} />}
+              />
             </div>
-          </div>
-          <div className={styles.stickyBar}>
-            <div className={styles.stickyBlock}>
-              <SellerInfo seller={seller} />
+          )}
+          {!!files.length && (
+            <div className="text">
+              <h2>Файлы</h2>
+              {files.map((file) => {
+                return (
+                  <p>
+                    { file.keys.split(',').includes('servicemanual') && <span>сервис мануал: &nbsp;</span> }
+                    <span><a target="_blank" href={GetFileUrl(file)}>{`${file.name}.${file.ext}`}</a></span>
+                  </p>
+                );
+              })}
             </div>
-          </div>
+          )}
         </div>
-      ) : (
-        <div className={styles.body}>
-          <div className={styles.content}>
-            {imagesSrcs.length ? (
-              <CardSlider alt={title} images={imagesSrcs} />
-            ) : (
-              <NoImage />
-            )}
-
-            <div className={styles.infoProduct}>
-              <h1 className={styles.title}>{title}</h1>
-              <SellerInfo seller={seller} />
-              <div className={styles.prices}>
-                <div className={styles.pricesBlock}>
-                  {!!price && (
-                    <span className={styles.price}>{PrintPrice(price)} ₽</span>
-                  )}
-                  {!!oldPrice && (
-                    <span className={styles.oldPrice}>
-                      {PrintPrice(oldPrice)} ₽
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              {/* <div className={styles.blockBtn}></div> */}
-            </div>
-
-            <div className={styles.blockInfo}>
-              <div id="characteristics">
-                <h2 className={styles.subtitle}>Характеристики</h2>
-
-                {filters.map((filter, i) => (
-                  <PropertyRowElement
-                    key={`pr-${i}`}
-                    {...getPropertyProps(filter, product)}
-                  />
-                ))}
-              </div>
-
-              {!!text && (
-                <div id="info">
-                  <h2 className={styles.subtitle}>Описание</h2>
-                  <TextContent content={text} />
-                </div>
-              )}
-            </div>
-          </div>
-          <div className={styles.stickyBar}>
-            <div className={styles.stickyBlock}>
-              {/* <ToCart productId={id} /> */}
-              <div className={styles.anchorButtons}>
-                <Link className={styles.anchorButton} href="#">
-                  Галлерея
-                </Link>
-                <Link className={styles.anchorButton} href="#characteristics">
-                  Храктеристики
-                </Link>
-                <Link className={styles.anchorButton} href="#info">
-                  Описание
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      </div>
       <PageModals />
     </>
   );

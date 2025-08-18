@@ -9,7 +9,7 @@
 .grid {
   display: grid;
   /* grid-template-columns: auto; */
-  gap: 2.6rem 1.4rem;
+  gap: 1.5rem 1.5rem;
 }
 
 /* .image-wrap {
@@ -22,7 +22,7 @@
   width: 100%;
   height: auto;
   aspect-ratio: 1.6;
-  border-radius: 7px;
+  border-radius: 12px;
   /* background-color: color-mix(in srgb, var(--color-light) 40%, white); */
   /* background-color: var(--color-light); */
   /* box-shadow: 1px 1px 3px 0 color-mix(in srgb, var(--color-dark) 40%, white); */

@@ -1,6 +1,8 @@
 import { JSONContent } from "@/shared/types/text";
+import { changeResize, getSrcSet } from "../image-loader";
 
 type ConvertOptions = {
+  cols?: string;
   clearBase64Images?: boolean;
 };
 
@@ -46,21 +48,32 @@ export function jsonContentToHTML(
 ) {
   if (!jsonContent) return "";
 
+  const { type, content, attrs, marks, text } = jsonContent;
+
   let html = "";
 
-  switch (jsonContent.type) {
+  switch (type) {
     case "doc":
-      html += jsonContent.content
-        ? jsonContent.content
-            .map((child) => jsonContentToHTML(child, options))
-            .join("")
+      html += content
+        ? content.map((child) => jsonContentToHTML(child, options)).join("")
         : "";
       break;
 
     case "paragraph":
-      html += `<p>`;
-      if (jsonContent.content) {
-        html += jsonContent.content
+      if (attrs?.class) {
+        const className = `class="${attrs.class}"`;
+        if ((attrs.class as string).includes("tcol2")) {
+          options.cols = "col2";
+        } else if ((attrs.class as string).includes("tcol3")) {
+          options.cols = "col3";
+        }
+        html += `<p ${className} >`;
+      } else {
+        html += `<p>`;
+      }
+
+      if (content) {
+        html += content
           .map((child) => jsonContentToHTML(child, options))
           .join("");
       }
@@ -69,8 +82,8 @@ export function jsonContentToHTML(
 
     case "bulletList":
       html += `<ul>`;
-      if (jsonContent.content) {
-        html += jsonContent.content
+      if (content) {
+        html += content
           .map((child) => jsonContentToHTML(child, options))
           .join("");
       }
@@ -79,8 +92,8 @@ export function jsonContentToHTML(
 
     case "orderedList":
       html += `<ol>`;
-      if (jsonContent.content) {
-        html += jsonContent.content
+      if (content) {
+        html += content
           .map((child) => jsonContentToHTML(child, options))
           .join("");
       }
@@ -89,8 +102,8 @@ export function jsonContentToHTML(
 
     case "listItem":
       html += `<li>`;
-      if (jsonContent.content) {
-        html += jsonContent.content
+      if (content) {
+        html += content
           .map((child) => jsonContentToHTML(child, options))
           .join("");
       }
@@ -98,19 +111,19 @@ export function jsonContentToHTML(
       break;
 
     case "table":
-      html += `<table>`;
-      if (jsonContent.content) {
-        html += jsonContent.content
+      html += `<div class="table"><table>`;
+      if (content) {
+        html += content
           .map((child) => jsonContentToHTML(child, options))
           .join("");
       }
-      html += `</table>`;
+      html += `</table></div>`;
       break;
 
     case "tableRow":
       html += `<tr>`;
-      if (jsonContent.content) {
-        html += jsonContent.content
+      if (content) {
+        html += content
           .map((child) => jsonContentToHTML(child, options))
           .join("");
       }
@@ -119,16 +132,12 @@ export function jsonContentToHTML(
 
     case "tableCell":
     case "tableHeader":
-      const cellTag = jsonContent.type === "tableHeader" ? "th" : "td";
-      const colspan = jsonContent.attrs?.colspan
-        ? ` colspan="${jsonContent.attrs.colspan}"`
-        : "";
-      const rowspan = jsonContent.attrs?.rowspan
-        ? ` rowspan="${jsonContent.attrs.rowspan}"`
-        : "";
+      const cellTag = type === "tableHeader" ? "th" : "td";
+      const colspan = attrs?.colspan ? ` colspan="${attrs.colspan}"` : "";
+      const rowspan = attrs?.rowspan ? ` rowspan="${attrs.rowspan}"` : "";
       html += `<${cellTag}${colspan}${rowspan}>`;
-      if (jsonContent.content) {
-        html += jsonContent.content
+      if (content) {
+        html += content
           .map((child) => jsonContentToHTML(child, options))
           .join("");
       }
@@ -136,20 +145,35 @@ export function jsonContentToHTML(
       break;
 
     case "image":
-      const src = jsonContent.attrs?.src || "";
-      if (!(options?.clearBase64Images && isBase64Image(src))) {
-        const alt = jsonContent.attrs?.alt || "";
-        const title = jsonContent.attrs?.title
-          ? ` title="${jsonContent.attrs.title}"`
-          : "";
-        html += `<img src="${src}" alt="${alt}"${title} />`;
-      }
+      const src = attrs?.src ?? "";
+      const alt = attrs?.alt ?? "";
+      const title = attrs?.title ?? "";
 
+      if (isBase64Image(src)) {
+        if (!options?.clearBase64Images) {
+          html += `<img  src="${src}" alt="${alt}" title="${title}" decoding="async" />`;
+        }
+      } else {
+        const srcset = getSrcSet(src);
+        let sizes;
+        if (options.cols === "col2") {
+          sizes = "(max-width: 768px) 85vw, (max-width: 992px) 384px, 640px";
+        } else if (options.cols === "col3") {
+          sizes = "(max-width: 768px) 85vw, (max-width: 992px) 750px, 384px";
+        } else {
+          sizes = "(max-width: 768px) 85vw, (max-width: 992px) 750px, 828px";
+        }
+
+        html += `<img  alt="${alt}" decoding="async" loading="lazy" title="${title}" sizes="${sizes}" srcset="${srcset}"  src="${changeResize(
+          src,
+          384
+        )}"/>`;
+      }
       break;
 
     case "text":
-      if (jsonContent.marks) {
-        jsonContent.marks.forEach((mark) => {
+      if (marks) {
+        marks.forEach((mark) => {
           switch (mark.type) {
             case "bold":
               html += `<strong>`;
@@ -168,10 +192,10 @@ export function jsonContentToHTML(
         });
       }
 
-      html += jsonContent.text || "";
+      html += text || "";
 
-      if (jsonContent.marks) {
-        jsonContent.marks.reverse().forEach((mark) => {
+      if (marks) {
+        marks.reverse().forEach((mark) => {
           switch (mark.type) {
             case "bold":
               html += `</strong>`;
@@ -191,10 +215,10 @@ export function jsonContentToHTML(
       break;
 
     case "heading":
-      const level = jsonContent.attrs?.level || 1;
+      const level = attrs?.level || 1;
       html += `<h${level}>`;
-      if (jsonContent.content) {
-        html += jsonContent.content
+      if (content) {
+        html += content
           .map((child) => jsonContentToHTML(child, options))
           .join("");
       }
@@ -204,8 +228,8 @@ export function jsonContentToHTML(
     // Add more cases for other node types as needed
 
     default:
-      if (jsonContent.content) {
-        html += jsonContent.content
+      if (content) {
+        html += content
           .map((child) => jsonContentToHTML(child, options))
           .join("");
       }

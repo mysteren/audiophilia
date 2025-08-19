@@ -1,6 +1,6 @@
 {
-  "name": "markettower",
-  "version": "1.0.1",
+  "name": "audiophilia",
+  "version": "2.0.3",
   "private": true,
   "scripts": {
     "dev": "next dev",

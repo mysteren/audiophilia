@@ -31,5 +31,11 @@ export async function GET(request: Request) {
       changefreq: "daily",
       priority: 0.7,
     },
+    {
+      uri: `tool/image-cropper`,
+      date,
+      changefreq: "daily",
+      priority: 0.7,
+    },
   ]);
 }

@@ -1,0 +1,133 @@
+.header {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 16px;
+}
+
+.controls {
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 6px 18px rgba(17, 17, 17, 0.06);
+}
+
+.preview {
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 320px;
+}
+
+.previewInner {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.canvas {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(17, 17, 17, 0.05);
+}
+
+.inputRow {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+.buttonLabel {
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.hiddenInput {
+    display: none;
+}
+.button {
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    border-radius: 24px;
+    cursor: pointer;
+}
+.primary {
+    /*background-color: #ccc;*/
+    padding: 10px 12px;
+    border-radius: 32px;
+    border: 0;
+    cursor: pointer;
+}
+
+.modeRow {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+.radio {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+.box {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    margin-bottom: 8px;
+}
+.row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.smallInput {
+    width: 80px;
+    padding: 6px 12px;
+    border-radius: 32px;
+    border: 1px solid #ddd;
+}
+.select {
+    padding: 6px 12px;
+    border-radius: 32px;
+    border: 1px solid #ddd;
+}
+.actions {
+    margin-top: 8px;
+}
+.hint {
+    margin: 6px 0 0 0;
+
+    font-size: 13px;
+}
+.meta {
+    margin-top: 10px;
+    font-size: 13px;
+}
+.empty {
+    font-size: 16px;
+}
+.footer {
+    margin-top: 12px;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 880px) {
+    .main {
+        grid-template-columns: 1fr;
+    }
+    .controls {
+        order: 2;
+    }
+    .preview {
+        order: 1;
+    }
+}

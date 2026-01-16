@@ -8,7 +8,7 @@ export const HOST = process.env.HOST || "";
 
 export const PORT = process.env.PORT || "";
 
-export const BASE_URL = getBaseUrl(SCHEME, HOST, PORT);
+export const BASE_URL = process.env.BASE_URL;
 
 export const SITEMAP_LIMIT = 2000;
 

@@ -2,6 +2,8 @@
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./image-cropper.module.css";
+import clsx from "clsx";
+import NumberInput from "./number-input";
 
 export default function App() {
   const [imageSrc, setImageSrc] = useState(null);
@@ -17,6 +19,11 @@ export default function App() {
   const [exactH, setExactH] = useState(2000);
   const [hAlign, setHAlign] = useState("center"); // left, center, right
   const [vAlign, setVAlign] = useState("center"); // top, center, bottom
+  const [hAlignVal, setHAlignVal] = useState(0);
+  const [vAlignVal, setVAlignVal] = useState(0);
+
+  const [qual, setQual] = useState(83);
+  const [ext, setExt] = useState("webp");
 
   // Load image from File/Blob/DataURL
   function loadImageFromFile(file: Blob) {
@@ -29,6 +36,8 @@ export default function App() {
         setImgMeta({ width: img.naturalWidth, height: img.naturalHeight });
         setExactW(img.naturalWidth);
         setExactH(img.naturalHeight);
+        setVAlignVal(0);
+        setHAlignVal(0);
         imgRef.current = img;
       };
       img.src = src;
@@ -85,14 +94,31 @@ export default function App() {
     if (hAlign === "left") x = 0;
     else if (hAlign === "center") x = Math.round((W - cropW) / 2);
     else x = W - cropW;
+    x += hAlignVal;
 
     let y: number;
     if (vAlign === "top") y = 0;
     else if (vAlign === "center") y = Math.round((H - cropH) / 2);
+    else if (vAlign === "custom") x = vAlignVal;
     else y = H - cropH;
+    y += vAlignVal;
 
     return { x, y, w: cropW, h: cropH };
-  }, [imgRef, imgMeta, exactH, exactW, mode, ratioW, ratioH, hAlign, vAlign]);
+  }, [
+    imgRef,
+    imgMeta,
+    exactH,
+    exactW,
+    mode,
+    ratioW,
+    ratioH,
+    hAlign,
+    vAlign,
+    hAlignVal,
+    vAlignVal,
+    ext,
+    qual,
+  ]);
 
   // Draw preview (scaled) to canvas
   useEffect(() => {
@@ -128,6 +154,8 @@ export default function App() {
     mode,
     imgMeta,
     computeCropRect,
+    ext,
+    qual,
   ]);
 
   // Open result in new tab at maximal quality
@@ -157,12 +185,16 @@ export default function App() {
     ctx.drawImage(img, crop.x, crop.y, crop.w, crop.h, 0, 0, outW, outH);
 
     // open in new tab
-    off.toBlob((blob) => {
-      if (!blob) return;
-      const url = URL.createObjectURL(blob);
-      window.open(url, "_blank");
-      // we do not revoke immediately to allow user to download; revoke when tab closed is browser-managed
-    }, "image/png");
+    off.toBlob(
+      (blob) => {
+        if (!blob) return;
+        const url = URL.createObjectURL(blob);
+        window.open(url, "_blank");
+        // we do not revoke immediately to allow user to download; revoke when tab closed is browser-managed
+      },
+      "image/" + ext,
+      qual / 100,
+    );
   }
 
   // Small helpers
@@ -184,7 +216,7 @@ export default function App() {
       <main className={styles.main}>
         <section className={styles.controls}>
           <div className={styles.inputRow}>
-            <label className={styles.buttonLabel}>
+            <label className={styles.button}>
               Загрузить
               <input
                 type="file"
@@ -193,18 +225,7 @@ export default function App() {
                 className={styles.hiddenInput}
               />
             </label>
-            <button
-              className={styles.button}
-              onClick={() => {
-                navigator.clipboard &&
-                  alert(
-                    "Вставьте изображение из буфера: Ctrl+V / ⌘+V (или просто вставьте) — поддержка зависит от браузера",
-                  );
-              }}
-            >
-              Вставить из буфера
-            </button>
-            <button
+            <a
               className={styles.button}
               onClick={() => {
                 setImageSrc(null);
@@ -213,115 +234,126 @@ export default function App() {
               }}
             >
               Очистить
-            </button>
+            </a>
+            <a
+              className={clsx(styles.button, styles.secondary)}
+              onClick={() => {
+                navigator.clipboard &&
+                  alert(
+                    "Вставьте изображение из буфера: Ctrl+V / ⌘+V (или просто вставьте) — поддержка зависит от браузера",
+                  );
+              }}
+            >
+              Вставить из буфера
+            </a>
           </div>
-
-          <div className={styles.modeRow}>
-            <label className={styles.radio}>
-              <input
-                type="radio"
-                name="mode"
-                checked={mode === "ratio"}
-                onChange={() => setMode("ratio")}
-              />{" "}
-              Пропорции
-            </label>
-            <label className={styles.radio}>
-              <input
-                type="radio"
-                name="mode"
-                checked={mode === "exact"}
-                onChange={() => setMode("exact")}
-              />{" "}
-              Точные размеры
-            </label>
+          <div className={styles.meta}>
+            <strong>Исходное изображение:</strong> {imgMeta.width} ×{" "}
+            {imgMeta.height} px
           </div>
-
-          {mode === "ratio" ? (
-            <div className={styles.box}>
-              <div className={styles.row}>
-                <div>
-                  <label>Ширина:</label>
-                  <input
-                    type="number"
-                    min={0}
-                    max={imgMeta.width}
-                    value={ratioW}
-                    onChange={(e) => setRatioW(Number(e.target.value) || 1)}
-                    className={styles.smallInput}
-                  />
-                </div>
-                <div>
-                  <label>Высота:</label>
-                  <input
-                    type="number"
-                    min={0}
-                    max={imgMeta.height}
-                    value={ratioH}
-                    onChange={(e) => setRatioH(Number(e.target.value) || 1)}
-                    className={styles.smallInput}
-                  />
-                </div>
-                <div>
-                  <label>Пресет:</label>
-                  <select
-                    onChange={(e) => setRatioFromPreset(e.target.value)}
-                    className={styles.select}
-                    defaultValue="1:1"
-                  >
-                    <option value="">—</option>
-                    <option value="1:1">1:1</option>
-                    <option value="16:9">16:9</option>
-                    <option value="16:10">16:10</option>
-                    <option value="10:16">10:16</option>
-                    <option value="9:16">9:16</option>
-                    <option value="4:3">4:3</option>
-                    <option value="3:4">3:4</option>
-                  </select>
-                </div>
-              </div>
-              <p className={styles.hint}>
-                В режиме &quot;Пропорции&quot; результат при экспорте будет
-                сохранён в том разрешении, в котором найден кроп на исходном
-                изображении — это даёт максимальное качество.
-              </p>
+          <div className={styles.box}>
+            <div className={styles.modeRow}>
+              <label className={styles.radio}>
+                <input
+                  type="radio"
+                  name="mode"
+                  checked={mode === "ratio"}
+                  onChange={() => setMode("ratio")}
+                />{" "}
+                Пропорции
+              </label>
+              <label className={styles.radio}>
+                <input
+                  type="radio"
+                  name="mode"
+                  checked={mode === "exact"}
+                  onChange={() => setMode("exact")}
+                />{" "}
+                Точные размеры
+              </label>
             </div>
-          ) : (
-            <div className={styles.box}>
-              <div className={styles.row}>
-                <div>
-                  <label>Ширина (px):</label>
-                  <input
-                    type="number"
-                    min={1}
-                    value={exactW}
-                    onChange={(e) => setExactW(Number(e.target.value) || 1)}
-                    className={styles.smallInput}
-                  />
+            {mode === "ratio" ? (
+              <>
+                <div className={styles.row}>
+                  <div>
+                    <label>Ширина:</label>
+                    <NumberInput
+                      min={0}
+                      max={imgMeta.width}
+                      value={ratioW}
+                      onChange={setRatioW}
+                      className={styles.smallInput}
+                    />
+                  </div>
+                  <div>
+                    <label>Высота:</label>
+                    <NumberInput
+                      min={0}
+                      max={imgMeta.height}
+                      value={ratioH}
+                      onChange={setRatioH}
+                      className={styles.smallInput}
+                    />
+                  </div>
+                  <div>
+                    <label>Пресет:</label>
+                    <select
+                      onChange={(e) => setRatioFromPreset(e.target.value)}
+                      className={styles.select}
+                      defaultValue="1:1"
+                    >
+                      <option value="">—</option>
+                      <option value="1:1">1:1</option>
+                      <option value="21:9">16:9</option>
+                      <option value="16:9">16:9</option>
+                      <option value="16:10">16:10</option>
+                      <option value="10:16">10:16</option>
+                      <option value="9:16">9:16</option>
+                      <option value="4:3">4:3</option>
+                      <option value="3:4">3:4</option>
+                    </select>
+                  </div>
                 </div>
-                <div>
-                  <label>Высота (px):</label>
-                  <input
-                    type="number"
-                    min={1}
-                    value={exactH}
-                    onChange={(e) => setExactH(Number(e.target.value) || 1)}
-                    className={styles.smallInput}
-                  />
+                <div className={styles.hint}>
+                  В режиме &quot;Пропорции&quot; результат при экспорте будет
+                  сохранён в том разрешении, в котором найден кроп на исходном
+                  изображении — это даёт максимальное качество.
                 </div>
-              </div>
-              <p className={styles.hint}>
-                В режиме &quot;Точные размеры&quot; изображение будет
-                экспортировано в заданных пикселях (может происходить
-                масштабирование).
-              </p>
-            </div>
-          )}
-
+              </>
+            ) : (
+              <>
+                <div className={styles.row}>
+                  <div>
+                    <label>Ширина (px):</label>
+                    <NumberInput
+                      min={1}
+                      value={exactW}
+                      onChange={setExactW}
+                      className={styles.smallInput}
+                    />
+                  </div>
+                  <div>
+                    <label>Высота (px):</label>
+                    <NumberInput
+                      min={1}
+                      className={styles.smallInput}
+                      value={exactH}
+                      onChange={setExactH}
+                    />
+                  </div>
+                </div>
+                <div className={styles.hint}>
+                  В режиме &quot;Точные размеры&quot; изображение будет
+                  экспортировано в заданных пикселях (может происходить
+                  масштабирование).
+                </div>
+              </>
+            )}
+          </div>
           <div className={styles.box}>
             <div className={styles.row}>
               <div>
-                <label>Горизонтальное выравнивание</label>
+                <label>Гор. выравнивание</label>
                 <select
                   value={hAlign}
                   onChange={(e) => setHAlign(e.target.value)}
@@ -333,7 +365,7 @@ export default function App() {
                 </select>
               </div>
               <div>
-                <label>Вертикальное выравнивание</label>
+                <label>Верт. выравнивание</label>
                 <select
                   value={vAlign}
                   onChange={(e) => setVAlign(e.target.value)}
@@ -345,13 +377,26 @@ export default function App() {
                 </select>
               </div>
             </div>
+            <div className={styles.row}>
+              <div>
+                <label>Гор. смещение</label>
+                <NumberInput
+                  value={hAlignVal}
+                  onChange={setHAlignVal}
+                  className={styles.smallInput}
+                />
+              </div>
+              <div>
+                <label>Верт. смещение</label>
+                <NumberInput
+                  value={vAlignVal}
+                  onChange={setVAlignVal}
+                  className={styles.smallInput}
+                />
+              </div>
+            </div>
           </div>
-
-          <div className={styles.meta}>
-            <strong>Исходное изображение:</strong> {imgMeta.width} ×{" "}
-            {imgMeta.height} px
-          </div>
-          <div className={styles.actions}>
+          <div className={styles.saveBox}>
             <button
               className={styles.primary}
               onClick={openResultInNewTab}
@@ -359,6 +404,33 @@ export default function App() {
             >
               Открыть в новой вкладке (макс. качество)
             </button>
+
+            <div className={styles.row}>
+              <div>
+                <label>Раширение:</label>
+                <select
+                  value={ext}
+                  onChange={(e) => setExt(e.target.value)}
+                  className={styles.select}
+                  defaultValue="webp"
+                >
+                  <option value="jpeg">jpeg</option>
+                  <option value="png">png</option>
+                  <option value="webp">webp</option>
+                  {/*<option value="avif">avif</option>*/}
+                </select>
+              </div>
+              <div>
+                <label>Качество:</label>
+                <NumberInput
+                  min={1}
+                  max={100}
+                  className={styles.smallInput}
+                  value={qual}
+                  onChange={setQual}
+                />
+              </div>
+            </div>
           </div>
         </section>
 

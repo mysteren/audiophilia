@@ -13,6 +13,8 @@
     border-radius: 10px;
     padding: 12px;
     box-shadow: 0 6px 18px rgba(17, 17, 17, 0.06);
+    display: grid;
+    gap: 1rem;
 }
 
 .preview {
@@ -29,20 +31,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .canvas {
     max-width: 100%;
     max-height: 70vh;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(17, 17, 17, 0.05);
+    background-color: #ccc;
+    box-shadow: 0 4px 12px rgba(17, 17, 17, 0.25);
+    /*border: 1px solid #ccc;*/
 }
 
 .inputRow {
     display: flex;
     gap: 8px;
     align-items: center;
-    margin-bottom: 8px;
     flex-wrap: wrap;
 }
 .buttonLabel {
@@ -54,11 +59,19 @@
     display: none;
 }
 .button {
+    font-size: 1rem;
+    color: var(--color-text);
     border: 1px solid #ccc;
-    padding: 8px 10px;
+    padding: 6px 8px;
     border-radius: 24px;
     cursor: pointer;
+    background: none;
 }
+
+.secondary {
+    border: none;
+}
+
 .primary {
     /*background-color: #ccc;*/
     padding: 10px 12px;
@@ -70,7 +83,6 @@
 .modeRow {
     display: flex;
     gap: 12px;
-    margin-bottom: 8px;
 }
 .radio {
     display: flex;
@@ -78,10 +90,11 @@
     align-items: center;
 }
 .box {
-    padding: 8px;
+    padding: 0.65rem;
     border-radius: 8px;
     border: 1px solid #eee;
-    margin-bottom: 8px;
+    display: grid;
+    gap: 0.8rem;
 }
 .row {
     display: flex;
@@ -99,13 +112,12 @@
     border-radius: 32px;
     border: 1px solid #ddd;
 }
-.actions {
-    margin-top: 8px;
+.saveBox {
+    display: grid;
+    grid-gap: 1rem;
 }
 .hint {
-    margin: 6px 0 0 0;
-
-    font-size: 13px;
+    font-size: 0.8rem;
 }
 .meta {
     margin-top: 10px;
